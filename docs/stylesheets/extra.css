@@ -1,0 +1,117 @@
+/* MESA Trainings — the look of the main MESA site (idss-mesa.github.io) applied
+   to the Zensical theme. The values below are that site's design tokens, from
+   its styles.css: warm paper ground, near-black ink, one red accent, Archivo,
+   square corners, and a 2px rule under the navigation. Retune them there
+   first, then copy here. */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap');
+
+:root {
+  --mesa-bg: #f3f2f2;
+  --mesa-surface: #eae9e9;
+  --mesa-text: #201e1d;
+  --mesa-accent: #ec3013;
+  --mesa-accent-600: #dd2b0f;
+  --mesa-accent-700: #ae1800;
+  --mesa-divider: color-mix(in srgb, #201e1d 40%, transparent);
+}
+
+[data-md-color-scheme="default"] {
+  --md-default-bg-color: var(--mesa-bg);
+  --md-default-fg-color: var(--mesa-text);
+  --md-default-fg-color--light: color-mix(in srgb, var(--mesa-text) 70%, transparent);
+  --md-default-fg-color--lighter: color-mix(in srgb, var(--mesa-text) 40%, transparent);
+  --md-default-fg-color--lightest: color-mix(in srgb, var(--mesa-text) 14%, transparent);
+
+  /* header and tabs: the page ground with ink text, as on the main site */
+  --md-primary-fg-color: var(--mesa-bg);
+  --md-primary-fg-color--light: var(--mesa-surface);
+  --md-primary-fg-color--dark: var(--mesa-surface);
+  --md-primary-bg-color: var(--mesa-text);
+  --md-primary-bg-color--light: color-mix(in srgb, var(--mesa-text) 70%, transparent);
+
+  --md-accent-fg-color: var(--mesa-accent);
+  --md-accent-fg-color--transparent: color-mix(in srgb, var(--mesa-accent) 10%, transparent);
+  --md-typeset-a-color: var(--mesa-accent-700); /* small-text link ink */
+
+  --md-code-bg-color: var(--mesa-surface);
+  --md-code-fg-color: var(--mesa-text);
+  --md-footer-bg-color: var(--mesa-text);
+  --md-footer-bg-color--dark: var(--mesa-text);
+
+  --md-text-font: "Archivo", system-ui, sans-serif;
+}
+
+body, .md-typeset { font-family: "Archivo", system-ui, sans-serif; }
+
+/* — navigation: flat, ruled, brand in heavy Archivo — */
+.md-header { box-shadow: none; border-bottom: 2px solid var(--mesa-divider); }
+.md-header--shadow { box-shadow: none; }
+.md-header__title { font-weight: 800; letter-spacing: -0.015em; }
+.md-tabs { border-bottom: 2px solid var(--mesa-divider); }
+.md-tabs__link { opacity: 1; font-size: 0.7rem; }
+.md-tabs__link:hover,
+.md-tabs__item--active .md-tabs__link { color: var(--mesa-accent); }
+.md-nav__link--active, .md-nav__link:hover { color: var(--mesa-accent-700); }
+
+/* — type: Archivo 800 headings with the main site's tight tracking — */
+.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4 {
+  font-weight: 800; letter-spacing: -0.015em; line-height: 1.12;
+  color: var(--mesa-text);
+}
+.md-typeset a:hover { color: var(--mesa-accent-600); }
+
+/* — components: square corners, as everywhere on the main site — */
+.md-typeset .md-button,
+.md-typeset .admonition, .md-typeset details,
+.md-typeset pre > code, .md-typeset code, .md-typeset .highlight,
+.md-typeset table:not([class]), .md-typeset img,
+.md-search__form, .md-typeset kbd { border-radius: 0; }
+
+.md-typeset .md-button {
+  font-weight: 800; color: var(--mesa-text); border: 1px solid var(--mesa-divider);
+  background: transparent;
+}
+.md-typeset .md-button:hover, .md-typeset .md-button:focus {
+  background: color-mix(in srgb, var(--mesa-text) 7%, transparent);
+  color: var(--mesa-text); border-color: var(--mesa-divider);
+}
+.md-typeset .md-button--primary {
+  background: var(--mesa-accent); border-color: var(--mesa-accent); color: var(--mesa-bg);
+}
+.md-typeset .md-button--primary:hover, .md-typeset .md-button--primary:focus {
+  background: var(--mesa-accent-600); border-color: var(--mesa-accent-600); color: var(--mesa-bg);
+}
+
+/* — tables: the main site's ruled table — */
+.md-typeset table:not([class]) {
+  border: 0; background: transparent; box-shadow: none;
+}
+.md-typeset table:not([class]) th {
+  font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 400;
+  color: color-mix(in srgb, var(--mesa-text) 60%, transparent);
+  background: transparent; border-bottom: 2px solid var(--mesa-divider);
+}
+.md-typeset table:not([class]) td { border-top: 0; border-bottom: 1px solid var(--mesa-divider); }
+
+/* Screenshots sit on a hairline so their light edges do not bleed into the page. */
+.md-typeset img[src*="/docs/assets/portal/"] { border: 1px solid var(--mesa-divider); }
+
+/* Footer on ink; its links stay readable. */
+.md-footer-meta { background: var(--mesa-text); }
+.md-footer-meta a, html .md-footer-meta.md-typeset a { color: #ffc4b8; }
+
+/* Body-level machine-readable pointers injected by
+   scripts/postbuild_agent_surface.py. They are visible on purpose: text
+   extracting fetch tools and URL allowlists never see <head>. */
+.md-typeset .mesa-machine-readable {
+  margin-top: 1.2rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  font-size: 0.64rem;
+  color: var(--md-default-fg-color--light);
+}
+
+@media print {
+  .md-typeset .mesa-machine-readable { display: none; }
+}
