@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="30 30 140 140">
+  <!-- Five stacked 2:1 rhombi, bottom painted first; the white stroke of each
+       upper layer draws the separation gap over the layer beneath. -->
+  <g stroke="#fff" stroke-width="5" stroke-linejoin="round">
+    <path d="M100 93 L162 124 L100 155 L38 124 Z" fill="#7EA844"/>
+    <path d="M100 81 L162 112 L100 143 L38 112 Z" fill="#42918A"/>
+    <path d="M100 69 L162 100 L100 131 L38 100 Z" fill="#2A75B3"/>
+    <path d="M100 57 L162 88 L100 119 L38 88 Z" fill="#8F5069"/>
+    <path d="M100 45 L162 76 L100 107 L38 76 Z" fill="#D08C2E"/>
+  </g>
+</svg>

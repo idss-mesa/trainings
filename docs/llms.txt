@@ -1,0 +1,52 @@
+# MESA Trainings
+
+> MESA Trainings: short, single-task tutorials for the MESA Portal at mesa.cyverse.org and its apps, written for training participants and for anyone using MESA. Each tutorial is one task in six fixed parts (what you will have, what you need, the steps, a check, the likely slip, what is next). Tutorials marked draft were written from the MESA documentation and have not been validated on the live portal. The source repository is an Open Knowledge Format (OKF v0.2) bundle: every page carries YAML frontmatter with type, provenance (generated/sources), and lifecycle (status/stale_after) fields.
+
+Every page below is listed with three addresses that all return the same content: the rendered HTML page, its Markdown twin (page URL + `index.md`, served as text/markdown with the OKF frontmatter), and the raw source file on GitHub. Fetch whichever your tool is allowed to reach; many sandboxes permit github.com and raw.githubusercontent.com but not *.github.io.
+
+```
+Site page        https://idss-mesa.github.io/trainings/<path>/
+Markdown twin    https://idss-mesa.github.io/trainings/<path>/index.md
+Raw source       https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/<path>.md      (branch main; a moving target)
+
+Content page     /tutorials/sign-in/  ->  https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/sign-in.md
+Section listing  /tutorials/          ->  https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/index.md
+```
+
+The form https://idss-mesa.github.io/trainings/<path>.md also returns the same Markdown.
+
+## Start here
+
+- [MESA Trainings](https://idss-mesa.github.io/trainings/): MESA Trainings — short, single-task tutorials for the MESA Portal at mesa.cyverse.org and its apps, written for training participants and for anyone using MESA. Markdown twin: https://idss-mesa.github.io/trainings/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/index.md
+- [MESA website](https://idss-mesa.github.io/): External resource.
+- [Documentation](https://idss-mesa.github.io/docs/): External resource.
+- [Portal](https://mesa.cyverse.org): External resource.
+
+## Tutorials
+
+- [Sign in to the MESA Portal with a CyVerse account](https://idss-mesa.github.io/trainings/tutorials/sign-in/): Sign in to the MESA Portal at mesa.cyverse.org with a free CyVerse account and confirm that you reached your dashboard. (draft) Markdown twin: https://idss-mesa.github.io/trainings/tutorials/sign-in/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/sign-in.md
+- [Find MESA's community data in the Data Browser](https://idss-mesa.github.io/trainings/tutorials/find-community-data/): Open the MESA community folder in the portal's Data Browser, confirm where you are from the folder header, and copy a folder's path. (draft) Markdown twin: https://idss-mesa.github.io/trainings/tutorials/find-community-data/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/find-community-data.md
+- [Launch MESA JupyterLab with your Data Store mounted](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/): Start the MESA JupyterLab app from the MESA Portal and confirm that your CyVerse Data Store is available inside it. (draft) Markdown twin: https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/launch-jupyterlab.md
+- [Save your work where it survives the session](https://idss-mesa.github.io/trainings/tutorials/save-your-work/): Save a notebook inside your Data Store from MESA JupyterLab and confirm from the MESA Portal that it will outlive the app. (draft) Markdown twin: https://idss-mesa.github.io/trainings/tutorials/save-your-work/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/save-your-work.md
+- [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/): Stop a running MESA app with Save & Exit from the Analyses page and find its results in the Data Browser. (draft) Markdown twin: https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/stop-app-find-results.md
+
+## Contributing
+
+- [Contribute a tutorial](https://idss-mesa.github.io/trainings/contributing/): How to report a problem with a MESA tutorial, fix one, write a new one, and validate one on the live portal. (draft) Markdown twin: https://idss-mesa.github.io/trainings/contributing/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/contributing.md
+- [Tutorial template](https://idss-mesa.github.io/trainings/template/): The template every MESA tutorial follows: the front matter, the six fixed parts, the draft notice, and the validation line. (draft) Markdown twin: https://idss-mesa.github.io/trainings/template/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/template.md
+
+## About
+
+- [License](https://idss-mesa.github.io/trainings/about/license/): The licenses of MESA Trainings: CC BY 4.0 for the training content and BSD 3-Clause for code, with the attribution line to use. (draft) Markdown twin: https://idss-mesa.github.io/trainings/about/license/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/about/license.md
+- [For AI agents](https://idss-mesa.github.io/trainings/about/ai-agents/): How agents should read MESA Trainings: llms.txt, per-page Markdown with OKF frontmatter, and the draft and trust signals on every tutorial. (draft) Markdown twin: https://idss-mesa.github.io/trainings/about/ai-agents/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/about/ai-agents.md
+
+## Meta
+
+- [Full corpus in one file](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with frontmatter, links made absolute; about 37 KB, roughly 10,000 tokens. Prefer it over fetching pages one at a time.
+- [Update log](https://idss-mesa.github.io/trainings/log/): dated history of changes to this bundle.
+- [For AI agents](https://idss-mesa.github.io/trainings/about/ai-agents/): endpoints, trust signals, and what to do if you cannot fetch this site.
+- [Sitemap](https://idss-mesa.github.io/trainings/sitemap.xml) and [robots.txt](https://idss-mesa.github.io/trainings/robots.txt): crawlers honour only the origin https://idss-mesa.github.io/robots.txt, which is equally permissive.
+- [MESA project site](https://idss-mesa.github.io/llms.txt): origin-level llms.txt indexing the MESA site, the MESA documentation, and the MESA software repositories.
+- [Source repository](https://github.com/idss-mesa/trainings): the bundle itself; `docs/` mirrors the site paths one to one.
+
+These pages teach people to use the MESA Portal by hand. For how a feature works, read the MESA documentation at https://idss-mesa.github.io/docs/llms.txt; for CyVerse data itself, connect to the MESA MCP servers and call their tools.

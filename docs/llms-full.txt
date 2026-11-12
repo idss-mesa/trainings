@@ -1,0 +1,887 @@
+# MESA Trainings — full corpus
+
+Each page below begins with its canonical URL followed by its original Markdown, OKF frontmatter included. Relative links have been rewritten to absolute URLs.
+
+---8<--- https://idss-mesa.github.io/trainings/
+
+---
+okf_version: "0.2"
+title: MESA Trainings
+description: MESA Trainings — short, single-task tutorials for the MESA Portal at mesa.cyverse.org and its apps, written for training participants and for anyone using MESA.
+icon: lucide/graduation-cap
+---
+
+<!-- OKF deviation: OKF v0.2 (§8, §12) reserves the bundle-root index.md as a
+     directory listing whose only frontmatter is okf_version. Zensical requires
+     index.md to be the site homepage, so this file also keeps title, description
+     and icon (consumers tolerate unknown keys, §11) and a homepage body. The same
+     deviation is documented in idss-mesa/docs. -->
+
+# MESA Trainings
+
+Short tutorials for getting things done on **MESA**, the Multidisciplinary Environment
+for Scientific Advancement. Each one takes you through a single task in five to ten
+minutes, tells you what you should see at every step, and ends with a check that shows
+whether it worked.
+
+They are written for two readers: people preparing for a MESA training session, and
+anyone using MESA who wants to get one thing done. You do not need to be part of a
+training program to use them.
+
+[Start with signing in :material-arrow-right:](https://idss-mesa.github.io/trainings/tutorials/sign-in/){ .md-button .md-button--primary }
+[All tutorials](https://idss-mesa.github.io/trainings/tutorials/){ .md-button }
+
+!!! warning "These tutorials are drafts"
+    Every tutorial here was written from the
+    [MESA documentation](https://idss-mesa.github.io/docs/) and has not yet been checked
+    step by step on the live portal. Each page says so at the top and at the bottom.
+    When a tutorial has been validated, its last line gives the date, who checked it, and
+    what it was checked against.
+
+## Getting started
+
+These five tutorials take you from nothing to a saved notebook, in order. You need a web
+browser and a free [CyVerse account](https://user.cyverse.org).
+
+| I want to… | Tutorial | Time |
+|---|---|---|
+| Get into the portal | [Sign in to the MESA Portal with a CyVerse account](https://idss-mesa.github.io/trainings/tutorials/sign-in/) | 5 min |
+| See the data MESA shares | [Find MESA's community data in the Data Browser](https://idss-mesa.github.io/trainings/tutorials/find-community-data/) | 5 min |
+| Start working in a notebook | [Launch MESA JupyterLab with your Data Store mounted](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/) | 5–10 min |
+| Not lose my work | [Save your work where it survives the session](https://idss-mesa.github.io/trainings/tutorials/save-your-work/) | 5–10 min |
+| Finish for the day | [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/) | 5 min |
+
+## How a tutorial is laid out
+
+Every tutorial has the same six parts, in the same order:
+
+1. **You will**: what you have at the end.
+2. **You need**: what to have ready, with links.
+3. **Steps**: one action each, followed by what you should see.
+4. **Check it worked**: one result that tells success from failure.
+5. **If it didn't**: the most likely slip, described by what you see.
+6. **Next**: the tutorials that follow, and the documentation page to read for more.
+
+A tutorial never repeats the documentation. For the full picture of a screen or a
+feature, follow its **Reference** link to the
+[MESA documentation](https://idss-mesa.github.io/docs/).
+
+## More about MESA
+
+- [MESA website](https://idss-mesa.github.io/): what MESA is and who builds it
+- [MESA documentation](https://idss-mesa.github.io/docs/): guides to the portal, the
+  apps, and the MESA tools for AI agents
+- [MESA Portal](https://mesa.cyverse.org): where the tutorials happen
+
+## Use and reuse
+
+The tutorials are licensed [CC BY 4.0](https://idss-mesa.github.io/trainings/about/license/): copy and adapt them, with
+credit. To fix one or write a new one, see [Contribute a tutorial](https://idss-mesa.github.io/trainings/contributing/).
+
+## For AI agents
+
+This site is an [Open Knowledge Format (OKF) v0.2](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md)
+knowledge bundle with the same conventions as the MESA documentation. Start at
+[`https://idss-mesa.github.io/trainings/llms.txt`](https://idss-mesa.github.io/trainings/llms.txt)
+or read [For AI agents](https://idss-mesa.github.io/trainings/about/ai-agents/).
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/sign-in/
+
+---
+type: Guide
+title: "Sign in to the MESA Portal with a CyVerse account"
+description: "Sign in to the MESA Portal at mesa.cyverse.org with a free CyVerse account and confirm that you reached your dashboard."
+tags: [byte, p1, portal, sign-in, cyverse]
+status: draft
+generated: { by: "claude-code/2.1.224", at: "2026-11-11T00:00:00Z" }
+stale_after: "2027-05-11T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/overview/"
+    title: "MESA Portal overview"
+    author: "team:idss-mesa"
+---
+
+# Sign in to the MESA Portal with a CyVerse account
+
+!!! warning "Draft: not yet validated"
+    This tutorial was written from the MESA documentation. Nobody has yet followed it
+    from start to finish on the live portal, so a screen name or a step may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** be signed in to the MESA Portal, looking at your own dashboard.
+
+**Time:** 5 minutes. **You need:** a web browser and a CyVerse account. If you do not
+have one, register free at <https://user.cyverse.org> before you start.
+
+## Steps
+
+1. Open <https://mesa.cyverse.org>.
+
+    You should see: the portal's landing page, with a **Sign in with CyVerse** button and
+    a **Create Account** button.
+
+    ![The MESA Portal landing page, with Sign in with CyVerse and Create Account buttons](https://idss-mesa.github.io/docs/assets/portal/portal-landing.webp)
+
+2. Click **Sign in with CyVerse**. **Login** in the top bar does the same thing.
+
+    You should see: the CyVerse sign-in page, which asks for a username and a password.
+
+3. Enter your own CyVerse username and password and submit the form. Type them only on
+   the CyVerse sign-in page, never into a notebook, a file, or a chat.
+
+    You should see: the portal again, now on **Home**, your dashboard.
+
+4. Look at the sidebar on the left.
+
+    You should see: under **Data & Apps**, the pages **Data Browser**, **Applications**,
+    and **Analyses**.
+
+## Check it worked
+
+**Home** shows four panels: **Recent Analyses**, **Resource Usage**, **My Working
+Groups**, and **Quick Actions**. A visitor who is not signed in never sees these.
+
+## If it didn't
+
+**The sidebar lists only Home and Data Browser.** You are still signed out. The portal
+lets visitors look at public data without an account, so it can seem to work. Click
+**Login** in the top bar and repeat steps 2 and 3.
+
+## Next
+
+- [Find MESA's community data in the Data Browser](https://idss-mesa.github.io/trainings/tutorials/find-community-data/)
+- [Launch MESA JupyterLab with your Data Store mounted](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/)
+- Reference: [MESA Portal overview, "Sign in"](https://idss-mesa.github.io/docs/portal/overview/#sign-in),
+  which also lists what works without signing in.
+
+*Not yet validated on the live portal. Drafted 2026-11-11 from the MESA documentation.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/find-community-data/
+
+---
+type: Guide
+title: "Find MESA's community data in the Data Browser"
+description: "Open the MESA community folder in the portal's Data Browser, confirm where you are from the folder header, and copy a folder's path."
+tags: [byte, p1, portal, data-browser, community-data]
+status: draft
+generated: { by: "claude-code/2.1.224", at: "2026-11-11T00:00:00Z" }
+stale_after: "2027-05-11T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Find MESA's community data in the Data Browser
+
+!!! warning "Draft: not yet validated"
+    This tutorial was written from the MESA documentation. Nobody has yet followed it
+    from start to finish on the live portal, so a screen name or a step may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** have the MESA community folder open and the path of one of its folders
+copied, ready to paste into a notebook or a terminal.
+
+**Time:** 5 minutes. **You need:** a web browser. The community folder is open to
+everyone, so you can do this without an account; to do it signed in, first
+[sign in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/).
+
+## Steps
+
+1. Open <https://mesa.cyverse.org> and click **Data Browser** in the sidebar.
+
+    You should see: a folder listing. Signed in, it is your own home folder. Signed out,
+    it is already the MESA community data.
+
+2. In the row of buttons under the header, click **Community**.
+
+    You should see: the folders that MESA shares with everyone.
+
+    ![The MESA Community folder as a signed-out visitor sees it: read only, with Community and Public views](https://idss-mesa.github.io/docs/assets/portal/data-community.webp)
+
+3. Read the dark band at the top of the listing, the folder header.
+
+    You should see: the folder's name, counts of folders and files with their total
+    size, and **Path**, the folder's full address in the CyVerse Data Store.
+
+4. Click the name of a folder to open it.
+
+    You should see: that folder's contents, and a longer trail in the header. Click any
+    part of the trail to go back up.
+
+5. Click the copy button beside **Path**.
+
+    You should see: nothing change on the page; the path is now on your clipboard. Paste
+    it somewhere to look at it.
+
+## Check it worked
+
+The path you pasted starts with:
+
+```text
+/iplant/home/shared/mesa
+```
+
+## If it didn't
+
+**The path stops at `/iplant/home/shared`, and the listing holds many projects that are
+not MESA's.** You clicked **Shared**, which opens every CyVerse community project.
+**Community** is the MESA folder inside it. Click **Community** and repeat from step 3.
+
+## Next
+
+- [Launch MESA JupyterLab with your Data Store mounted](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/)
+- Reference: [Managing data, "Choose where to look"](https://idss-mesa.github.io/docs/portal/data/#choose-where-to-look),
+  which explains all five views, and
+  ["Browse and find files"](https://idss-mesa.github.io/docs/portal/data/#browse-and-find-files)
+  for search and the built-in file viewer.
+
+*Not yet validated on the live portal. Drafted 2026-11-11 from the MESA documentation.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/
+
+---
+type: Guide
+title: "Launch MESA JupyterLab with your Data Store mounted"
+description: "Start the MESA JupyterLab app from the MESA Portal and confirm that your CyVerse Data Store is available inside it."
+tags: [byte, p1, applications, jupyterlab, data-store]
+status: draft
+generated: { by: "claude-code/2.1.224", at: "2026-11-11T00:00:00Z" }
+stale_after: "2027-05-11T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/applications/"
+    title: "Starting applications in the MESA Portal"
+    author: "team:idss-mesa"
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+---
+
+# Launch MESA JupyterLab with your Data Store mounted
+
+!!! warning "Draft: not yet validated"
+    This tutorial was written from the MESA documentation. Nobody has yet followed it
+    from start to finish on the live portal, so a screen name or a step may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** have JupyterLab running in a browser tab, with your CyVerse Data Store
+files available inside it.
+
+**Time:** 5 to 10 minutes, most of it waiting for the app to start. **You need:** to be
+[signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/).
+
+## Steps
+
+1. In the portal's sidebar, click **Applications**.
+
+    You should see: the **MESA Apps** tab, with a card for each MESA app. One of them is
+    **MESA JupyterLab**.
+
+    ![The MESA Apps tab: MESA JupyterLab, MESA Cloud Shell, MESA RStudio Geospatial, MESA VS Code, and MESA KASM Ubuntu Desktop](https://idss-mesa.github.io/docs/assets/portal/apps-mesa-apps.webp)
+
+2. On the **MESA JupyterLab** card, click **Instant Launch**.
+
+    You should see: a new browser tab with a launch page that steps through
+    **Submitting**, **Queued**, **Container Starting**, **Initializing**, and **Running**.
+
+3. Wait. Starting usually takes one to three minutes.
+
+    You should see: the launch page replaced by JupyterLab, with a file browser on the
+    left and a **Launcher** tab in the middle.
+
+4. In the **Launcher**, click **Terminal**, then run:
+
+    ```bash
+    pwd
+    ```
+
+    You should see:
+
+    ```text
+    /home/jovyan/data-store
+    ```
+
+    The app opens inside `~/data-store`, which is where your Data Store is mounted.
+
+5. In the same terminal, run:
+
+    ```bash
+    ls ~/data-store
+    ```
+
+    You should see: one or more folder names.
+
+## Check it worked
+
+The `ls` command in step 5 lists folders. An error such as `No such file or directory`,
+or no output at all, means the Data Store is not mounted.
+
+## If it didn't
+
+**The launch page reaches Running, but JupyterLab never opens.** Your browser blocked the
+new tab. Allow pop-ups for `mesa.cyverse.org`, then click **Analyses** in the portal's
+sidebar and click **Open App** on the running analysis.
+
+## Next
+
+- [Save your work where it survives the session](https://idss-mesa.github.io/trainings/tutorials/save-your-work/). Do this before you
+  write anything you want to keep.
+- [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/)
+- Reference: [Starting applications](https://idss-mesa.github.io/docs/portal/applications/)
+  for **Launch with Options** (CPU cores, memory, time limit, GPU), and
+  [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) for what the app
+  contains.
+
+*Not yet validated on the live portal. Drafted 2026-11-11 from the MESA documentation.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/save-your-work/
+
+---
+type: Guide
+title: "Save your work where it survives the session"
+description: "Save a notebook inside your Data Store from MESA JupyterLab and confirm from the MESA Portal that it will outlive the app."
+tags: [byte, p1, jupyterlab, data-store, saving]
+status: draft
+generated: { by: "claude-code/2.1.224", at: "2026-11-11T00:00:00Z" }
+stale_after: "2027-05-11T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/apps/agents/"
+    title: "AI agents in the MESA apps (Your Data Store inside the app)"
+    author: "team:idss-mesa"
+  - id: docs-data
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Save your work where it survives the session
+
+!!! warning "Draft: not yet validated"
+    This tutorial was written from the MESA documentation. Nobody has yet followed it
+    from start to finish on the live portal, so a screen name or a step may differ. In
+    particular, how the folders inside `~/data-store` are arranged (step 2) is not yet
+    confirmed. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A MESA app runs in a temporary container. When the app ends, everything in it is
+deleted except what sits under `~/data-store`, which is your CyVerse Data Store.
+
+**You will:** have a notebook saved in your Data Store, and have seen it from the portal.
+
+**Time:** 5 to 10 minutes. **You need:** [MESA JupyterLab running](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/).
+
+## Steps
+
+1. In JupyterLab, look at the file browser on the left.
+
+    You should see: the contents of `~/data-store`, the folder the app opens in.
+
+2. In the file browser, open your own home folder. It is named after your CyVerse
+   username, and you may have to open a folder called **home** to reach it.
+
+    You should see: the same files and folders that **My Files** shows in the portal's
+    Data Browser. In a new account it may be nearly empty.
+
+3. Choose **File → New → Notebook** and pick the **Python 3** kernel.
+
+    You should see: a new tab named `Untitled.ipynb`.
+
+4. Choose **File → Rename Notebook…** and name it `first-notebook.ipynb`.
+
+    You should see: the new name on the tab and in the file browser.
+
+5. Type this into the first cell and press ++shift+enter++, then choose
+   **File → Save Notebook**:
+
+    ```python
+    print("saved in my Data Store")
+    ```
+
+    You should see: `saved in my Data Store` printed under the cell.
+
+6. Go back to the portal's browser tab. Click **Data Browser**, then **My Files**.
+
+    You should see: `first-notebook.ipynb` in the listing. A new file can take a few
+    seconds to appear; refresh the page if it is not there yet.
+
+## Check it worked
+
+`first-notebook.ipynb` is listed under **My Files** in the portal. The Data Browser
+reads the Data Store directly, not the running app, so a file you can see there is kept
+when the app ends.
+
+## If it didn't
+
+**The notebook is in JupyterLab but never appears in My Files.** It was saved outside
+your home folder in the Data Store. Find it in JupyterLab's file browser, drag it into
+your home folder (step 2), and check **My Files** again. The same applies to anything a
+terminal wrote to `~`, `~/work`, or `/tmp`: move it under `~/data-store` before you stop
+the app.
+
+## Next
+
+- [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/)
+- Reference: [Your Data Store inside the app](https://idss-mesa.github.io/docs/apps/agents/#your-data-store-inside-the-app)
+  and [Managing data, "Data in the apps"](https://idss-mesa.github.io/docs/portal/data/#data-in-the-apps).
+
+*Not yet validated on the live portal. Drafted 2026-11-11 from the MESA documentation.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/
+
+---
+type: Guide
+title: "Stop an app and find your results"
+description: "Stop a running MESA app with Save & Exit from the Analyses page and find its results in the Data Browser."
+tags: [byte, p1, portal, analyses, results]
+status: draft
+generated: { by: "claude-code/2.1.224", at: "2026-11-11T00:00:00Z" }
+stale_after: "2027-05-11T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/analyses/"
+    title: "Managing analyses in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Stop an app and find your results
+
+!!! warning "Draft: not yet validated"
+    This tutorial was written from the MESA documentation. Nobody has yet followed it
+    from start to finish on the live portal, so a screen name or a step may differ. In
+    particular, what the results folder of an interactive app holds (step 5) is not yet
+    confirmed. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+Every app you run is listed in the portal as an *analysis*. A running app counts against
+your CPU-hour quota until it stops, so stop the ones you have finished with.
+
+**You will:** have stopped a running app cleanly and opened its results folder.
+
+**Time:** 5 minutes. **You need:** a running app, such as
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), with the work you want to keep already
+[saved in your Data Store](https://idss-mesa.github.io/trainings/tutorials/save-your-work/).
+
+## Steps
+
+1. In the portal's sidebar, click **Analyses**.
+
+    You should see: your app under **Running**, on a card with a **VICE** badge and the
+    time it has left.
+
+    ![The Analyses page: quota badges, status cards, and running analyses](https://idss-mesa.github.io/docs/assets/portal/analyses-overview.webp)
+
+2. On that card, click **Save & Exit**.
+
+    You should see: the card read **Stopping…**. This lasts 10 to 30 seconds, and you do
+    not need to click again.
+
+3. Wait for the page to update.
+
+    You should see: the analysis leave **Running** and appear under **Completed**.
+
+4. On the completed analysis, click **View Results**.
+
+    You should see: the Data Browser, open on the analysis's output folder.
+
+5. Read **Path** in the folder header.
+
+    You should see: a path under your `analyses` folder, unless you chose another output
+    folder when you launched:
+
+    ```text
+    /iplant/home/<your username>/analyses/
+    ```
+
+6. Click **My Files** and open the folder where you saved your own work.
+
+    You should see: the notebooks and files you saved under `~/data-store` while the app
+    was running.
+
+## Check it worked
+
+The analysis is listed under **Completed**, and the files you saved are in **My Files**.
+
+## If it didn't
+
+**The analysis is under Canceled, not Completed.** You clicked **Terminate**, which ends
+the app at once without saving its outputs. Work you had saved under `~/data-store` is
+still in **My Files**; anything else from that session is gone. Click **Relaunch** to
+start the app again with the same settings.
+
+## Next
+
+- [Launch MESA JupyterLab with your Data Store mounted](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), to start
+  again
+- Reference: [Managing analyses, "Stop an app"](https://idss-mesa.github.io/docs/portal/analyses/#stop-an-app)
+  and ["Find the results"](https://idss-mesa.github.io/docs/portal/analyses/#find-the-results),
+  which also cover **Extend Time**, **Monitor**, and failed analyses.
+
+*Not yet validated on the live portal. Drafted 2026-11-11 from the MESA documentation.*
+
+---8<--- https://idss-mesa.github.io/trainings/contributing/
+
+---
+type: Guide
+title: "Contribute a tutorial"
+description: "How to report a problem with a MESA tutorial, fix one, write a new one, and validate one on the live portal."
+tags: [contributing, tutorials]
+status: draft
+generated: { by: "claude-code/2.1.224", at: "2026-11-11T00:00:00Z" }
+sources:
+  - id: repo
+    resource: "https://github.com/idss-mesa/trainings"
+    title: "idss-mesa/trainings repository"
+    author: "team:idss-mesa"
+---
+
+# Contribute a tutorial
+
+The tutorials live as Markdown files in the
+[idss-mesa/trainings](https://github.com/idss-mesa/trainings) repository[^repo]. Anyone
+who can write Markdown can improve them.
+
+## Report a problem
+
+If a step did not match what you saw, [open an issue](https://github.com/idss-mesa/trainings/issues)
+with the tutorial's title, the step number, what the page said, and what you saw instead.
+A screenshot helps. Leave passwords, tokens, and private data out of it.
+
+## Fix or write a tutorial
+
+1. Fork the repository, or create a branch if you are a member of the organization.
+2. For a new tutorial, copy the [tutorial template](https://idss-mesa.github.io/trainings/template/) into
+   `docs/tutorials/<task-name>.md` and follow its rules. One task per tutorial, up to
+   about 600 words.
+3. Add the page in two places: the `nav` list in `zensical.toml`, and a bullet in
+   `docs/tutorials/index.md` whose description matches the page's `description`.
+4. Add a dated entry to `docs/log.md`.
+5. Check it locally:
+
+    ```bash
+    pip install zensical pyyaml
+    python scripts/okf_validate.py docs      # front matter is complete
+    python scripts/gen_llms_txt.py           # regenerate llms.txt and llms-full.txt
+    zensical build --clean --strict          # the site builds with no broken links
+    zensical serve                           # preview at http://localhost:8000
+    ```
+
+6. Commit the regenerated `docs/llms.txt` and `docs/llms-full.txt` with your change, and
+   open a pull request. Changes reach the site only through a reviewed pull request.
+
+## What belongs here
+
+Only what a participant or a MESA user should read.
+
+- **Yes:** single-task tutorials, and pages that help readers find and use them.
+- **No:** answer keys, facilitator notes, session plans, review checklists, or
+  correspondence with partners. Those are kept elsewhere.
+- **No:** features that the public [MESA documentation](https://idss-mesa.github.io/docs/)
+  does not describe. Document the feature there first, then write the tutorial.
+- **Never:** usernames, passwords, tokens, or keys, including in screenshots.
+
+## Validate a tutorial
+
+A tutorial is a draft until someone other than its author has followed it from start to
+finish on the live portal. To validate one:
+
+1. Follow every step exactly as written, in a fresh browser session.
+2. At each step, compare what you see with "You should see". Note every difference,
+   however small: a button with another name, a screen in another order.
+3. Do the check at the end, and try the "If it didn't" slip on purpose to confirm its
+   symptom and its fix.
+4. Open a pull request that corrects the text and replaces the last line with the date,
+   your name, and what you tested against (portal, app, and image or version).
+
+A maintainer then removes the draft notice, sets `status: stable`, and records the
+validation. Only a human maintainer adds the `verified:` key.
+
+## License of contributions
+
+By contributing you agree that your text and images are released under
+[CC BY 4.0](https://idss-mesa.github.io/trainings/about/license/) and any code under the BSD 3-Clause license, the same
+terms as the rest of the site.
+
+[^repo]: https://idss-mesa.github.io/trainings/idss-mesa/trainings repository, <https://github.com/idss-mesa/trainings>.
+
+---8<--- https://idss-mesa.github.io/trainings/template/
+
+---
+type: Reference
+title: "Tutorial template"
+description: "The template every MESA tutorial follows: the front matter, the six fixed parts, the draft notice, and the validation line."
+tags: [contributing, template, byte]
+status: draft
+generated: { by: "claude-code/2.1.224", at: "2026-11-11T00:00:00Z" }
+sources:
+  - id: quickbytes
+    resource: "https://github.com/UNM-CARC/QuickBytes"
+    title: "UNM CARC QuickBytes"
+    author: "team:unm-carc"
+  - id: docs-agents
+    resource: "https://github.com/idss-mesa/docs/blob/main/AGENTS.md"
+    title: "Agent guide — MESA documentation (page front matter)"
+    author: "team:idss-mesa"
+---
+
+# Tutorial template
+
+A MESA tutorial, called a *byte*, is one short page that gets a reader through one task.
+The format is modelled on UNM CARC's QuickBytes[^quickbytes], and the front matter is
+the one the MESA documentation uses for every page[^docs-agents].
+
+Copy the block below into a new file under `docs/tutorials/`, named for the task in
+lower case with hyphens (`share-a-folder.md`), and replace everything in angle brackets.
+[Contribute a tutorial](https://idss-mesa.github.io/trainings/contributing/) explains the rest.
+
+## The template
+
+````markdown
+---
+type: Guide
+title: "<Verb-first task, as the index will list it>"
+description: "<One sentence: what the reader will have done.>"
+tags: [byte, <pathway point p1-p5>, <feature>]
+status: draft
+generated: { by: "<human:id, or tool/version>", at: "<YYYY-MM-DD>T00:00:00Z" }
+stale_after: "<review date, six months out>T00:00:00Z"
+sources:
+  - id: docs
+    resource: "<URL of the MESA documentation page this draws on>"
+    title: "<its title>"
+    author: "team:idss-mesa"
+---
+
+# <Verb-first task>
+
+!!! warning "Draft: not yet validated"
+    This tutorial was written from the MESA documentation. Nobody has yet followed it
+    from start to finish on the live portal, so a screen name or a step may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** <one sentence naming the thing you end up with>.
+
+**Time:** <5-10> minutes. **You need:** <account, app, or earlier tutorial, each linked>.
+
+## Steps
+
+1. <One action. **Screen labels** in bold.>
+
+    You should see: <what tells you it worked>.
+
+2. <...>
+
+    You should see: <...>.
+
+## Check it worked
+
+<The one observable result that means success.>
+
+## If it didn't
+
+**<Symptom, as the reader sees it>.** <The single most likely cause and its fix.>
+
+## Next
+
+- <The tutorial that follows, linked>
+- Reference: <the MESA documentation page for the full picture, linked>
+
+*Not yet validated on the live portal. Drafted <YYYY-MM-DD> from <source>.*
+````
+
+## Rules
+
+1. **One task, named by its verb.** "Launch JupyterLab with your Data Store mounted",
+   not "JupyterLab". If the title needs "and" to join two tasks, write two tutorials.
+2. **Short.** Up to about 600 words and seven steps; five to ten minutes for someone
+   doing it for the first time.
+3. **Six fixed parts, in this order:** what you will have, what you need, the steps, how
+   to check it worked, what to do if it did not, and where to go next.
+4. **Every step says what you should see.** A step without a visible result cannot be
+   validated.
+5. **One check at the end** that tells success from failure without judgment: a file
+   listed, a count, a name on screen.
+6. **One "If it didn't":** the single most likely slip, described by its symptom. If you
+   need more than one, the tutorial covers too much.
+7. **Link, don't repeat.** Name the MESA documentation page the tutorial draws on, and
+   the tutorials before and after it. Reuse the documentation's screenshots by linking
+   to them; a screenshot supports a step and never replaces it, and always has a text
+   description.
+8. **Names as the screen shows them, in bold.** Anything the reader types goes in a code
+   block that can be copied.
+9. **No credentials, ever.** Use a placeholder and one line on where readers get their
+   own.
+10. **Stands on its own.** A tutorial never assumes a training session, a group, or a
+    schedule.
+11. **Data is public, synthetic, or authorized,** with its attribution line when a
+    tutorial uses a dataset.
+
+## Front matter
+
+| Field | What goes in it |
+|---|---|
+| `type` | `Guide` for a tutorial |
+| `title`, `description` | The task, verb first, and one plain sentence. The description becomes the entry in the tutorial list and in `llms.txt`. |
+| `tags` | Always `byte`, then one pathway tag (`p1` orient and navigate, `p2` run and understand, `p3` query and connect, `p4` explore and verify, `p5` preserve and share), then the feature |
+| `status` | `draft` until someone other than the author has followed the tutorial from start to finish on the live platform, then `stable` |
+| `generated` | Who or what wrote it and when: `human:<id>` for a person, `<tool>/<version>` for an AI agent or tool |
+| `stale_after` | The review date, six months out. A portal or app release that changes a named screen brings it forward. |
+| `sources` | The documentation pages the tutorial draws on |
+
+There is deliberately no `verified:` key in the template. Only a human maintainer adds
+it, after validation.
+
+## The draft notice and the validation line
+
+A tutorial that has not been validated carries the **Draft: not yet validated** notice
+under its title and ends with the *Not yet validated* line. When it has been validated,
+the maintainer removes the notice, sets `status: stable`, and replaces the last line
+with:
+
+```markdown
+*Validated <date> by <who> on <portal, app, and image or version>.*
+```
+
+[^quickbytes]: https://idss-mesa.github.io/trainings/UNM CARC QuickBytes, <https://github.com/UNM-CARC/QuickBytes>.
+[^docs-agents]: https://idss-mesa.github.io/trainings/Agent guide, MESA documentation, <https://github.com/idss-mesa/docs/blob/main/AGENTS.md>.
+
+---8<--- https://idss-mesa.github.io/trainings/about/license/
+
+---
+type: Reference
+title: "License"
+description: "The licenses of MESA Trainings: CC BY 4.0 for the training content and BSD 3-Clause for code, with the attribution line to use."
+tags: [about, license, cc-by, bsd-3-clause]
+status: draft
+generated: { by: "claude-code/2.1.224", at: "2026-11-11T00:00:00Z" }
+sources:
+  - id: cc-by
+    resource: "https://creativecommons.org/licenses/by/4.0/"
+    title: "Creative Commons Attribution 4.0 International"
+    author: "team:creative-commons"
+  - id: repo
+    resource: "https://github.com/idss-mesa/trainings"
+    title: "idss-mesa/trainings repository (LICENSE and LICENSE-CODE)"
+    author: "team:idss-mesa"
+---
+
+# License
+
+MESA Trainings has two licenses, one for the teaching material and one for code.
+
+| What | License | Full text |
+|---|---|---|
+| Training content: the tutorials, the other pages of this site, and their images | [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)[^cc-by] | [`LICENSE`](https://github.com/idss-mesa/trainings/blob/main/LICENSE) |
+| Code: the scripts that build the site, and code samples in the tutorials | BSD 3-Clause, as in the other MESA repositories | [`LICENSE-CODE`](https://github.com/idss-mesa/trainings/blob/main/LICENSE-CODE) |
+
+Copyright © 2026 The Regents of the University of New Mexico[^repo].
+
+## Reusing a tutorial
+
+You may copy, share, and adapt the training content for any purpose, as long as you give
+credit, link to the license, and say whether you changed anything. An attribution line
+such as this is enough:
+
+```text
+"<Tutorial title>" by the MESA project (https://idss-mesa.github.io/trainings/),
+licensed CC BY 4.0. <Adapted from the original. | Unchanged.>
+```
+
+## Material from elsewhere
+
+Screenshots of the MESA Portal are shown from the
+[MESA documentation](https://idss-mesa.github.io/docs/) and belong to that project. A
+tutorial that uses a dataset carries that dataset's own attribution line.
+
+## Acknowledgment
+
+MESA is supported by the U.S. National Science Foundation under
+[Award #2632685](https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2632685) (Integrated
+Data Systems & Services). Any opinions, findings, and conclusions are those of the
+authors and do not necessarily reflect the views of the NSF.
+
+[^cc-by]: https://idss-mesa.github.io/trainings/about/Creative Commons Attribution 4.0 International, <https://creativecommons.org/licenses/by/4.0/>.
+[^repo]: https://idss-mesa.github.io/trainings/about/idss-mesa/trainings repository, <https://github.com/idss-mesa/trainings>.
+
+---8<--- https://idss-mesa.github.io/trainings/about/ai-agents/
+
+---
+type: Reference
+title: "For AI agents"
+description: "How agents should read MESA Trainings: llms.txt, per-page Markdown with OKF frontmatter, and the draft and trust signals on every tutorial."
+tags: [about, ai-agents, OKF, llms.txt]
+status: draft
+generated: { by: "claude-code/2.1.224", at: "2026-11-11T00:00:00Z" }
+sources:
+  - id: okf-spec
+    resource: "https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md"
+    title: "Open Knowledge Format (OKF) v0.2 specification"
+    author: "team:google-cloud"
+  - id: docs-agents
+    resource: "https://idss-mesa.github.io/docs/about/ai-agents/"
+    title: "For AI agents (MESA documentation)"
+    author: "team:idss-mesa"
+---
+
+# For AI agents
+
+This site is published for people and for AI agents. Its source is an
+[Open Knowledge Format (OKF) v0.2](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md)
+knowledge bundle[^okf-spec] that follows the same conventions as the MESA
+documentation[^docs-agents].
+
+## Entry points
+
+| What | Address |
+|---|---|
+| Outline of every page | [`https://idss-mesa.github.io/trainings/llms.txt`](https://idss-mesa.github.io/trainings/llms.txt) |
+| Whole site in one file | [`https://idss-mesa.github.io/trainings/llms-full.txt`](https://idss-mesa.github.io/trainings/llms-full.txt) |
+| Markdown twin of a page | The page address plus `index.md`, for example [`https://idss-mesa.github.io/trainings/tutorials/sign-in/index.md`](https://idss-mesa.github.io/trainings/tutorials/sign-in/index.md) |
+| Raw source on GitHub | [`https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/sign-in.md`](https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/sign-in.md) |
+
+Crawlers honour only the origin's
+[`https://idss-mesa.github.io/robots.txt`](https://idss-mesa.github.io/robots.txt),
+which is fully permissive.
+
+## Trust signals
+
+- **`status: draft`** means the tutorial was written from documentation and has not
+  been followed on the live portal. Treat its screen names and steps as likely, not
+  confirmed, and say so when you relay them.
+- **No `verified:` key** means unverified (OKF §5.3). Only a human maintainer adds it.
+- **`stale_after`** is the review date. After it, check the tutorial against the
+  [MESA documentation](https://idss-mesa.github.io/docs/) before relying on it.
+- Tutorials tagged `byte` are single-task pages; the `p1` to `p5` tag groups them by
+  stage, from first sign-in to sharing results.
+
+## When to read something else
+
+These pages teach people to use the portal by hand. For how a feature works, read the
+[MESA documentation](https://idss-mesa.github.io/docs/llms.txt). For CyVerse data
+itself, connect to the MESA MCP servers and call their tools, as the
+[documentation's agent guide](https://idss-mesa.github.io/docs/about/ai-agents/)
+explains.
+
+[^okf-spec]: https://idss-mesa.github.io/trainings/about/Open Knowledge Format v0.2 specification, <https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md>.
+[^docs-agents]: https://idss-mesa.github.io/trainings/about/For AI agents, MESA documentation, <https://idss-mesa.github.io/docs/about/ai-agents/>.
+
+---8<--- https://idss-mesa.github.io/trainings/log/
+
+# Directory Update Log
+
+## 2026-11-11
+
+* **Creation**: Scaffolded the MESA Trainings site: the [home page](index.md), the
+  [tutorial template](template.md), [Contribute a tutorial](contributing.md), the
+  [license](about/license.md) page (CC BY 4.0 for content, BSD 3-Clause for code), and
+  [For AI agents](about/ai-agents.md). The build, validation, and agent-surface scripts
+  come from idss-mesa/docs.
+* **Creation**: Added the first five tutorials, all drafts written from the MESA
+  documentation and not yet validated on the live portal:
+  [Sign in to the MESA Portal with a CyVerse account](tutorials/sign-in.md),
+  [Find MESA's community data in the Data Browser](tutorials/find-community-data.md),
+  [Launch MESA JupyterLab with your Data Store mounted](tutorials/launch-jupyterlab.md),
+  [Save your work where it survives the session](tutorials/save-your-work.md), and
+  [Stop an app and find your results](tutorials/stop-app-find-results.md).
