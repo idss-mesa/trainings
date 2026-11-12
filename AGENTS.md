@@ -99,6 +99,12 @@ repository rather than changing them here.
     materials, review checklists, partner notes, and unconfirmed plans.
 14. **No credentials anywhere**: not in text, code, screenshots, or commit
     history. Use placeholders such as `<your username>`.
+15. **Data tutorials use the practice data** in `docs/assets/practice/`
+    (synthetic; described in `docs/tutorials/practice-data.md`). Run every
+    code block and paste its real output. The draft notice says where the
+    code was run; the tutorial stays a draft until someone follows it in MESA
+    JupyterLab. The files come from `scripts/make_practice_data.py`; if you
+    change it, rerun it and update every output the tutorials show.
 
 ## Changes
 

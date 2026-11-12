@@ -24,6 +24,13 @@ nav = [
       { "Launch MESA JupyterLab" = "tutorials/launch-jupyterlab.md" },
       { "Save your work" = "tutorials/save-your-work.md" },
       { "Stop an app and find your results" = "tutorials/stop-app-find-results.md" },
+      { "Practice data" = "tutorials/practice-data.md" },
+      { "Load a file into a notebook" = "tutorials/load-a-file.md" },
+      { "Read the data dictionary" = "tutorials/read-the-data-dictionary.md" },
+      { "Check range and missing values" = "tutorials/check-range-and-missing.md" },
+      { "Tally a quality flag" = "tutorials/tally-a-quality-flag.md" },
+      { "Count records per day" = "tutorials/count-records-per-day.md" },
+      { "Reconcile a join" = "tutorials/reconcile-a-join.md" },
   ] },
   { "Contributing" = [
       { "Contribute a tutorial" = "contributing.md" },
