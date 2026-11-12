@@ -521,6 +521,811 @@ start the app again with the same settings.
 
 *Not yet validated on the live portal. Drafted 2026-11-11 from the MESA documentation.*
 
+---8<--- https://idss-mesa.github.io/trainings/tutorials/practice-data/
+
+---
+type: Reference
+title: "Practice data: five invented rain gauges"
+description: "The synthetic rain-gauge practice dataset used by the data tutorials: what its two files contain, its data dictionary, and how to copy it into your Data Store."
+tags: [practice-data, p2, data-dictionary, jupyterlab]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-12T00:00:00Z" }
+stale_after: "2027-05-12T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: python
+    resource: "https://docs.python.org/3/library/urllib.request.html"
+    title: "urllib.request (Python standard library)"
+    author: "team:python"
+---
+
+# Practice data: five invented rain gauges
+
+!!! warning "Draft: not yet validated"
+    Nobody has yet copied these files into a Data Store from MESA JupyterLab by
+    following this page. The download address works only once this site is published.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+The data tutorials on this site all use the same two small files, so you can practise
+a technique without first finding a dataset.
+
+**The data is synthetic.** It was generated for these tutorials by
+[`scripts/make_practice_data.py`](https://github.com/idss-mesa/trainings/blob/main/scripts/make_practice_data.py):
+five invented rain gauges, with daily readings for July 2026. It describes no
+real place and no real measurement. Like real data, it is not perfectly clean, and the
+tutorials show you how to find out where.
+
+## The files
+
+| File | Rows | One row is |
+| --- | --- | --- |
+| [`gauges.csv`](https://idss-mesa.github.io/trainings/assets/practice/gauges.csv) | 5 | one rain gauge |
+| [`readings.csv`](https://idss-mesa.github.io/trainings/assets/practice/readings.csv) | 152 | one reading from one gauge |
+
+## Data dictionary
+
+**gauges.csv**
+
+| Column | Meaning |
+| --- | --- |
+| `gauge_id` | Identifier, `G01` to `G05` |
+| `name` | Boathouse, Orchard, Observatory, Depot, or Quarry |
+| `unit` | The unit this gauge reports in |
+| `elevation_m` | Elevation in metres |
+
+**readings.csv**
+
+| Column | Meaning |
+| --- | --- |
+| `gauge_id` | Which gauge took the reading |
+| `date` | Day of the reading, as `YYYY-MM-DD` |
+| `value` | Rainfall for that day, in the gauge's own unit |
+| `flag` | Blank, or `S` for a reading the sensor marked suspect |
+
+## Copy the files into your Data Store
+
+1. In [MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), open your home folder in the file
+   browser, as in [Save your work where it survives the session](https://idss-mesa.github.io/trainings/tutorials/save-your-work/).
+2. Click the **New Folder** button, name the folder `mesa-practice`, and open it.
+3. Choose **File → New → Notebook**, pick the **Python 3** kernel, and run this cell:
+
+    ```python
+    from urllib.request import urlretrieve
+
+    base = "https://idss-mesa.github.io/trainings/assets/practice/"
+    for name in ["gauges.csv", "readings.csv"]:
+        urlretrieve(base + name, name)
+    ```
+
+Both files then appear in `mesa-practice`, beside the notebook. Because the folder is in
+your Data Store, they are still there the next time you start an app.
+
+You can also download the two files from the links above and upload them with the
+portal's Data Browser; see
+[Managing data, "Upload, create, move, and delete"](https://idss-mesa.github.io/docs/portal/data/#upload-create-move-and-delete).
+
+## Next
+
+- [Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/)
+
+The practice data is released under [CC BY 4.0](https://idss-mesa.github.io/trainings/about/license/), like the rest of
+this site.
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/load-a-file/
+
+---
+type: Guide
+title: "Load a file from your Data Store into a notebook"
+description: "Read a CSV file that sits in your Data Store into a pandas table in MESA JupyterLab and confirm its size against what you expected."
+tags: [byte, p2, jupyterlab, data-store, pandas]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-12T00:00:00Z" }
+stale_after: "2027-05-12T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: pandas
+    resource: "https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html"
+    title: "pandas.read_csv"
+    author: "team:pandas-dev"
+---
+
+# Load a file from your Data Store into a notebook
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
+    the tutorial in MESA JupyterLab, so output may be laid out differently there.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** have both practice files loaded as tables in a notebook, with a row count
+you have checked.
+
+**Time:** 5 minutes. **You need:** [MESA JupyterLab running](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), and
+the [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/) in a `mesa-practice` folder in your Data Store.
+
+## Steps
+
+1. In JupyterLab's file browser, open your `mesa-practice` folder.
+
+    You should see: `gauges.csv` and `readings.csv`.
+
+2. Choose **File → New → Notebook**, pick the **Python 3** kernel, and rename the
+   notebook `practice.ipynb` with **File → Rename Notebook…**.
+
+    You should see: `practice.ipynb` in the file browser, beside the two CSV files.
+
+3. Type this into the first cell and press ++shift+enter++:
+
+    ```python
+    import pandas as pd
+
+    readings = pd.read_csv("readings.csv")
+    gauges = pd.read_csv("gauges.csv")
+    ```
+
+    You should see: no output and no error. A file name with no folder in front of it
+    means "in the same folder as this notebook".
+
+4. In the next cell, run:
+
+    ```python
+    readings.shape
+    ```
+
+    You should see: the number of rows, then the number of columns.
+
+    ```text
+    (152, 4)
+    ```
+
+5. Run:
+
+    ```python
+    readings.head()
+    ```
+
+    You should see: the first five rows. `NaN` in `flag` is how pandas shows a blank.
+
+    ```text
+      gauge_id        date  value flag
+    0      G01  2026-07-01    0.0  NaN
+    1      G01  2026-07-02    0.0  NaN
+    2      G01  2026-07-03   24.9  NaN
+    3      G01  2026-07-04    0.0  NaN
+    4      G01  2026-07-05   17.6  NaN
+    ```
+
+6. Choose **File → Save Notebook**.
+
+    You should see: the dot on the notebook's tab disappear.
+
+## Check it worked
+
+`readings.shape` is `(152, 4)` and `gauges.shape` is `(5, 4)`, the sizes the
+[practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/) page gives. A different count means you loaded a
+different file, or only part of this one.
+
+## If it didn't
+
+**`FileNotFoundError: [Errno 2] No such file or directory: 'readings.csv'`.** The
+notebook is not in the same folder as the files. In the file browser, drag
+`practice.ipynb` into `mesa-practice`, then choose **Kernel → Restart Kernel…** and run
+the first cell again.
+
+## Next
+
+- [Read the data dictionary before the data](https://idss-mesa.github.io/trainings/tutorials/read-the-data-dictionary/)
+- Reference: [pandas.read_csv](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html),
+  and [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) for what the
+  app contains.
+
+*Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the code was run with pandas 3.1 on the practice data.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/read-the-data-dictionary/
+
+---
+type: Guide
+title: "Read the data dictionary before the data"
+description: "Use a dataset's data dictionary to find out what each column means and which column you cannot yet add up, before you compute anything."
+tags: [byte, p2, data-dictionary, units, pandas]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-12T00:00:00Z" }
+stale_after: "2027-05-12T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: pandas
+    resource: "https://pandas.pydata.org/docs/user_guide/indexing.html"
+    title: "Indexing and selecting data (pandas user guide)"
+    author: "team:pandas-dev"
+---
+
+# Read the data dictionary before the data
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
+    the tutorial in MESA JupyterLab, so output may be laid out differently there.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A *data dictionary* is the table that says what each column means. Five minutes with it
+saves you from a number that looks right and is not.
+
+**You will:** be able to say what one row of `readings.csv` is, and why its `value`
+column cannot simply be added up across gauges.
+
+**Time:** 5 minutes. **You need:** the notebook from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), open in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), with its first cell run so that `readings`
+and `gauges` exist.
+
+## Steps
+
+1. Open the [data dictionary](https://idss-mesa.github.io/trainings/tutorials/practice-data/#data-dictionary) for the practice data
+   and read the four rows for `readings.csv`.
+
+    You should see: that one row is one reading, from one gauge, for one day.
+
+2. Read the meaning of `value` again, slowly.
+
+    You should see: "in the gauge's own unit". The column does not promise one unit.
+
+3. Find where the unit is recorded. Read the four rows for `gauges.csv`.
+
+    You should see: a `unit` column, one value for each gauge.
+
+4. In your notebook, run:
+
+    ```python
+    gauges[["gauge_id", "name", "unit"]]
+    ```
+
+    You should see:
+
+    ```text
+      gauge_id         name unit
+    0      G01    Boathouse   mm
+    1      G02      Orchard   cm
+    2      G03  Observatory   mm
+    3      G04        Depot   mm
+    4      G05       Quarry   mm
+    ```
+
+5. Compare the largest reading at each gauge:
+
+    ```python
+    readings.groupby("gauge_id")["value"].max()
+    ```
+
+    You should see: G02's largest reading far below its neighbours'. The dictionary
+    has already told you why: G02 reports in centimetres, the others in millimetres.
+
+6. In a Markdown cell (**Esc**, then **M**), write one sentence of your own that says
+   what `value` holds and what must happen before values from different gauges are
+   compared.
+
+    You should see: your sentence, rendered, after you press ++shift+enter++.
+
+## Check it worked
+
+Without looking at this page, you can name the gauge that reports in a different unit
+and the file that told you so.
+
+## If it didn't
+
+**`NameError: name 'gauges' is not defined`.** The kernel has restarted since you
+loaded the files. Run the notebook's first cell again, then repeat the step.
+
+## Next
+
+- [Check a column's range and missing values](https://idss-mesa.github.io/trainings/tutorials/check-range-and-missing/)
+- Reference: the [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/) page, which holds the dictionary.
+
+*Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the code was run with pandas 3.1 on the practice data.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/check-range-and-missing/
+
+---
+type: Guide
+title: "Check a column's range and missing values"
+description: "Find the smallest and largest value in a column and count the blanks in every column, so that an impossible value or a gap shows up before you compute with it."
+tags: [byte, p2, data-quality, missing-values, pandas]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-12T00:00:00Z" }
+stale_after: "2027-05-12T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: pandas
+    resource: "https://pandas.pydata.org/docs/user_guide/missing_data.html"
+    title: "Working with missing data (pandas user guide)"
+    author: "team:pandas-dev"
+---
+
+# Check a column's range and missing values
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
+    the tutorial in MESA JupyterLab, so output may be laid out differently there.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** know the range of `value` at each gauge and how many blanks each column
+of `readings` holds.
+
+**Time:** 5 minutes. **You need:** the notebook from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), open in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), with its first cell run so that `readings`
+and `gauges` exist.
+
+## Steps
+
+1. Run:
+
+    ```python
+    readings["value"].min(), readings["value"].max()
+    ```
+
+    You should see: `0.0` and `180.0`. Depending on the pandas version, each number may
+    be wrapped as `np.float64(...)`.
+
+2. Ask whether both ends are believable. Zero is a dry day. Decide whether 180 could
+   be one day's rain before you read on.
+
+    You should see: a reason to look closer. A range tells you that something is
+    unusual, not what it is.
+
+3. Split the range by gauge:
+
+    ```python
+    readings.groupby("gauge_id")["value"].agg(["min", "max"])
+    ```
+
+    You should see:
+
+    ```text
+              min     max
+    gauge_id
+    G01       0.0   24.90
+    G02       0.0    2.92
+    G03       0.0   32.50
+    G04       0.0   26.40
+    G05       0.0  180.00
+    ```
+
+4. Count the blanks in every column:
+
+    ```python
+    readings.isna().sum()
+    ```
+
+    You should see:
+
+    ```text
+    gauge_id      0
+    date          0
+    value         0
+    flag        150
+    dtype: int64
+    ```
+
+5. Check the blanks against the [data dictionary](https://idss-mesa.github.io/trainings/tutorials/practice-data/#data-dictionary).
+
+    You should see: that a blank `flag` is expected, since it means the sensor raised
+    no concern, and that `value` is never blank.
+
+## Check it worked
+
+You can state two things: the largest `value` at each gauge, and that the only column
+with blanks is `flag`, with 150 of them.
+
+## If it didn't
+
+**The counts in step 4 are all zero.** `flag` was read as empty text, not as missing.
+That happens when the file is loaded with `keep_default_na=False`. Load it again with
+plain `pd.read_csv("readings.csv")`.
+
+## Next
+
+- [Tally a quality flag before you trust a number](https://idss-mesa.github.io/trainings/tutorials/tally-a-quality-flag/), which
+  follows up the 180.
+- "No blank values" does not mean "no missing days": a day with no row at all is not a
+  blank. [Count records per day to find incomplete days](https://idss-mesa.github.io/trainings/tutorials/count-records-per-day/)
+  covers that.
+- Reference: [Working with missing data](https://pandas.pydata.org/docs/user_guide/missing_data.html)
+  in the pandas user guide.
+
+*Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the code was run with pandas 3.1 on the practice data.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/tally-a-quality-flag/
+
+---
+type: Guide
+title: "Tally a quality flag before you trust a number"
+description: "Count how many rows carry each value of a quality flag, including the blanks, and look at the flagged rows before deciding what to do with them."
+tags: [byte, p2, data-quality, quality-flag, pandas]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-12T00:00:00Z" }
+stale_after: "2027-05-12T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: pandas
+    resource: "https://pandas.pydata.org/docs/reference/api/pandas.Series.value_counts.html"
+    title: "pandas.Series.value_counts"
+    author: "team:pandas-dev"
+---
+
+# Tally a quality flag before you trust a number
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
+    the tutorial in MESA JupyterLab, so output may be laid out differently there.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+Many datasets carry a column in which the instrument or the provider marks readings
+it doubts. A total computed without looking at that column includes those readings.
+
+**You will:** know how many readings are flagged, which ones, and at which gauges.
+
+**Time:** 5 minutes. **You need:** the notebook from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), open in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), with its first cell run so that `readings`
+and `gauges` exist.
+
+## Steps
+
+1. Read what the flag means in the
+   [data dictionary](https://idss-mesa.github.io/trainings/tutorials/practice-data/#data-dictionary).
+
+    You should see: blank, or `S` for a reading the sensor marked suspect.
+
+2. Count the rows for each flag value, blanks included:
+
+    ```python
+    readings["flag"].value_counts(dropna=False)
+    ```
+
+    You should see:
+
+    ```text
+    flag
+    NaN    150
+    S        2
+    Name: count, dtype: int64
+    ```
+
+3. Check that nothing is left over: 150 + 2 = 152, the number of rows in the table.
+
+    You should see: the counts add up, and no flag value that the dictionary does not
+    list.
+
+4. Look at the flagged rows:
+
+    ```python
+    readings[readings["flag"] == "S"]
+    ```
+
+    You should see:
+
+    ```text
+        gauge_id        date  value flag
+    76       G03  2026-07-18    0.0    S
+    129      G05  2026-07-09  180.0    S
+    ```
+
+5. Count flags by gauge:
+
+    ```python
+    pd.crosstab(readings["gauge_id"], readings["flag"].fillna("blank"))
+    ```
+
+    You should see:
+
+    ```text
+    flag      S  blank
+    gauge_id
+    G01       0     27
+    G02       0     31
+    G03       1     31
+    G04       0     31
+    G05       1     30
+    ```
+
+6. In a Markdown cell, write down what you will do with flagged readings and why:
+   keep them, leave them out, or report the result both ways.
+
+    You should see: your decision recorded in the notebook, where a reader of your
+    result can find it.
+
+## Check it worked
+
+You can say how many readings are flagged (2), where they are, and what your analysis
+does with them. The tally does not make that decision for you. A flag marks a doubt,
+not an error: one of these readings is far outside its gauge's range, the other is an
+ordinary dry day.
+
+## If it didn't
+
+**The tally shows only `S    2`.** `dropna=False` is missing, so the blanks were left
+out and you cannot check the counts against the row total. Add it and run the cell
+again.
+
+## Next
+
+- [Count records per day to find incomplete days](https://idss-mesa.github.io/trainings/tutorials/count-records-per-day/)
+- Reference: [pandas.Series.value_counts](https://pandas.pydata.org/docs/reference/api/pandas.Series.value_counts.html)
+  and [pandas.crosstab](https://pandas.pydata.org/docs/reference/api/pandas.crosstab.html).
+
+*Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the code was run with pandas 3.1 on the practice data.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/count-records-per-day/
+
+---
+type: Guide
+title: "Count records per day to find incomplete days"
+description: "Count the rows for each gauge and day to find days that were recorded twice and days that were not recorded at all."
+tags: [byte, p2, data-quality, completeness, pandas]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-12T00:00:00Z" }
+stale_after: "2027-05-12T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: pandas
+    resource: "https://pandas.pydata.org/docs/user_guide/groupby.html"
+    title: "Group by: split-apply-combine (pandas user guide)"
+    author: "team:pandas-dev"
+---
+
+# Count records per day to find incomplete days
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
+    the tutorial in MESA JupyterLab, so output may be laid out differently there.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+The data dictionary says one row is one reading for one gauge on one day. This
+tutorial tests that claim. A day counted twice inflates a total, and a missing day
+shrinks it, and neither shows up as a blank value.
+
+**You will:** know, for each gauge, whether July has exactly one row per day.
+
+**Time:** 5 to 10 minutes. **You need:** the notebook from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), open in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), with its first cell run so that `readings`
+and `gauges` exist.
+
+## Steps
+
+1. Work out what a complete table would hold: 5 gauges × 31 days in July.
+
+    You should see: 155. The table has 152 rows, so something is uneven.
+
+2. Count the rows for each gauge:
+
+    ```python
+    readings.groupby("gauge_id").size()
+    ```
+
+    You should see:
+
+    ```text
+    gauge_id
+    G01    27
+    G02    31
+    G03    32
+    G04    31
+    G05    31
+    dtype: int64
+    ```
+
+3. Count the *distinct* days for each gauge:
+
+    ```python
+    readings.groupby("gauge_id")["date"].nunique()
+    ```
+
+    You should see: G03 with 31 days, not 32, and G01 still with 27.
+
+    ```text
+    gauge_id
+    G01    27
+    G02    31
+    G03    31
+    G04    31
+    G05    31
+    Name: date, dtype: int64
+    ```
+
+4. Find any gauge and day with more than one row:
+
+    ```python
+    per_day = readings.groupby(["gauge_id", "date"]).size()
+    per_day[per_day != 1]
+    ```
+
+    You should see:
+
+    ```text
+    gauge_id  date
+    G03       2026-07-05    2
+    dtype: int64
+    ```
+
+5. List the days on which G01 has no row:
+
+    ```python
+    july = pd.date_range("2026-07-01", "2026-07-31").strftime("%Y-%m-%d")
+    sorted(set(july) - set(readings.loc[readings["gauge_id"] == "G01", "date"]))
+    ```
+
+    You should see: four consecutive days.
+
+    ```text
+    ['2026-07-22', '2026-07-23', '2026-07-24', '2026-07-25']
+    ```
+
+6. In a Markdown cell, note both findings and what each does to a monthly total.
+
+    You should see: your note in the notebook, beside the evidence.
+
+## Check it worked
+
+The numbers reconcile: 155 expected rows, plus 1 repeated row, minus 4 missing days,
+is 152, the size of the table.
+
+## If it didn't
+
+**Step 4 returns an empty result.** You ran it on a table from which repeated rows had
+already been removed, for example after `drop_duplicates()`. Run the notebook's first
+cell again to reload the file, then repeat the step.
+
+## Next
+
+- [Reconcile row counts before and after a join](https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/)
+- Reference: [Group by: split-apply-combine](https://pandas.pydata.org/docs/user_guide/groupby.html)
+  in the pandas user guide.
+
+*Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the code was run with pandas 3.1 on the practice data.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/
+
+---
+type: Guide
+title: "Reconcile row counts before and after a join"
+description: "Join a table of readings to a table of gauges and confirm that the join neither added nor lost rows and left no reading without a match."
+tags: [byte, p3, join, data-quality, pandas]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-12T00:00:00Z" }
+stale_after: "2027-05-12T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: pandas
+    resource: "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html"
+    title: "pandas.DataFrame.merge"
+    author: "team:pandas-dev"
+---
+
+# Reconcile row counts before and after a join
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
+    the tutorial in MESA JupyterLab, so output may be laid out differently there.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A join can silently add rows, when a key repeats in the table you look things up in,
+or lose them, when a key has no match. Counting rows before and after catches both.
+
+**You will:** have each reading joined to its gauge's name and unit, with row counts
+that prove the join changed nothing else.
+
+**Time:** 5 to 10 minutes. **You need:** the notebook from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), open in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), with its first cell run so that `readings`
+and `gauges` exist.
+
+## Steps
+
+1. Record the size of the table you are starting from:
+
+    ```python
+    len(readings)
+    ```
+
+    You should see: `152`.
+
+2. Confirm that the lookup table has one row for each key:
+
+    ```python
+    gauges["gauge_id"].is_unique
+    ```
+
+    You should see: `True`. If a gauge appeared twice, every one of its readings would
+    be doubled by the join.
+
+3. Join, and have pandas enforce what you just checked:
+
+    ```python
+    joined = readings.merge(gauges, on="gauge_id", how="left", validate="many_to_one")
+    ```
+
+    You should see: no output and no error. `how="left"` keeps every reading, whether
+    or not it finds a gauge.
+
+4. Compare the sizes:
+
+    ```python
+    len(readings), len(joined)
+    ```
+
+    You should see:
+
+    ```text
+    (152, 152)
+    ```
+
+5. Count the readings that found no gauge:
+
+    ```python
+    joined["name"].isna().sum()
+    ```
+
+    You should see: `0`. Depending on the pandas version, it may be wrapped as
+    `np.int64(0)`.
+
+6. Look at the result:
+
+    ```python
+    joined.head(3)
+    ```
+
+    You should see: the four original columns, then the gauge's columns.
+
+    ```text
+      gauge_id        date  value flag       name unit  elevation_m
+    0      G01  2026-07-01    0.0  NaN  Boathouse   mm          512
+    1      G01  2026-07-02    0.0  NaN  Boathouse   mm          512
+    2      G01  2026-07-03   24.9  NaN  Boathouse   mm          512
+    ```
+
+## Check it worked
+
+Three numbers agree: 152 rows before, 152 rows after, and 0 readings without a match.
+Each reading now carries its `unit`, which you need before values from different
+gauges can be compared.
+
+## If it didn't
+
+**`MergeError: Merge keys are not unique in right dataset; not a many-to-one merge`.**
+The lookup table has a repeated `gauge_id`, and `validate` stopped the join before it
+could multiply rows. Find the repeats with
+`gauges[gauges["gauge_id"].duplicated(keep=False)]` and settle which row is right
+before you join.
+
+## Next
+
+- A join carries problems along with it: rows repeated in `readings` are still
+  repeated in `joined`. See
+  [Count records per day to find incomplete days](https://idss-mesa.github.io/trainings/tutorials/count-records-per-day/).
+- Reference: [pandas.DataFrame.merge](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html).
+
+*Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the code was run with pandas 3.1 on the practice data.*
+
 ---8<--- https://idss-mesa.github.io/trainings/contributing/
 
 ---
@@ -870,6 +1675,20 @@ explains.
 ---8<--- https://idss-mesa.github.io/trainings/log/
 
 # Directory Update Log
+
+## 2026-11-12
+
+* **Creation**: Added the [practice data](tutorials/practice-data.md), two small
+  synthetic rain-gauge files with a data dictionary (made by
+  `scripts/make_practice_data.py`), and six draft data tutorials that
+  use it: [Load a file from your Data Store into a notebook](tutorials/load-a-file.md),
+  [Read the data dictionary before the data](tutorials/read-the-data-dictionary.md),
+  [Check a column's range and missing values](tutorials/check-range-and-missing.md),
+  [Tally a quality flag before you trust a number](tutorials/tally-a-quality-flag.md),
+  [Count records per day to find incomplete days](tutorials/count-records-per-day.md),
+  and [Reconcile row counts before and after a join](tutorials/reconcile-a-join.md).
+  The code was run with pandas 3.1 on a laptop; none has been validated in MESA
+  JupyterLab.
 
 ## 2026-11-11
 
