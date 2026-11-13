@@ -96,6 +96,7 @@ definition in a cell above the one that failed, then repeat step 1.
 
 ## Next
 
+- [Record the software versions a result depends on](record-software-versions.md)
 - Reference: [Managing data, "Share data"](https://idss-mesa.github.io/docs/portal/data/#share-data),
   for giving a colleague access to the folder.
 - Reference: [Notebooks](https://jupyterlab.readthedocs.io/en/stable/user/notebook.html)

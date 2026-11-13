@@ -53,6 +53,8 @@ nav = [
       { "Cloud Shell: download a file" = "tutorials/cloud-shell-download.md" },
       { "VS Code: run a script" = "tutorials/vscode-run-a-script.md" },
       { "Desktop: open a file" = "tutorials/desktop-open-a-file.md" },
+      { "Write a README" = "tutorials/write-a-readme.md" },
+      { "Record software versions" = "tutorials/record-software-versions.md" },
   ] },
   { "Contributing" = [
       { "Contribute a tutorial" = "contributing.md" },

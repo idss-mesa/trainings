@@ -2,6 +2,9 @@
 
 ## 2026-11-13
 
+* **Creation**: Added two tutorials to pathway point 5, followed in MESA JupyterLab:
+  [Write a README for a data folder](tutorials/write-a-readme.md) and
+  [Record the software versions a result depends on](tutorials/record-software-versions.md).
 * **Creation**: Added a first tutorial for each of the remaining MESA apps, each followed
   once in the app:
   [Download a file from the web into your Data Store with MESA Cloud Shell](tutorials/cloud-shell-download.md),
