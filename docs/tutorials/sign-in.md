@@ -61,6 +61,7 @@ lets visitors look at public data without an account, so it can seem to work. Cl
 
 ## Next
 
+- [Find your way around the MESA Portal](find-your-way-around.md)
 - [Find MESA's community data in the Data Browser](find-community-data.md)
 - [Launch MESA JupyterLab with your Data Store mounted](launch-jupyterlab.md)
 - Reference: [MESA Portal overview, "Sign in"](https://idss-mesa.github.io/docs/portal/overview/#sign-in),

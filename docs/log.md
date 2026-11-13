@@ -2,6 +2,13 @@
 
 ## 2026-11-12
 
+* **Creation**: Added five draft tutorials written from the MESA documentation:
+  [Find your way around the MESA Portal](tutorials/find-your-way-around.md),
+  [Share a folder with a collaborator](tutorials/share-a-folder.md),
+  [Add metadata to a file or folder](tutorials/add-metadata.md),
+  [Sign in and start an AI agent in a MESA app](tutorials/start-an-ai-agent.md), and
+  [Keep tokens and passwords out of saved files](tutorials/keep-secrets-out-of-files.md).
+  None has been validated on the live portal.
 * **Creation**: Added the [practice data](tutorials/practice-data.md), two small
   synthetic rain-gauge files with a data dictionary (made by
   `scripts/make_practice_data.py`), and seven draft data tutorials that

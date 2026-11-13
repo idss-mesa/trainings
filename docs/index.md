@@ -62,6 +62,16 @@ notebook, so do the first one first.
 | Join two tables safely | [Reconcile row counts before and after a join](tutorials/reconcile-a-join.md) | 5–10 min |
 | Hand my notebook to someone | [Leave a notebook someone else can rerun](tutorials/leave-a-rerunnable-notebook.md) | 5–10 min |
 
+## Sharing, describing, and AI agents
+
+| I want to… | Tutorial | Time |
+|---|---|---|
+| Know where things are | [Find your way around the MESA Portal](tutorials/find-your-way-around.md) | 5 min |
+| Let a colleague see my folder | [Share a folder with a collaborator](tutorials/share-a-folder.md) | 5 min |
+| Say what a folder contains | [Add metadata to a file or folder](tutorials/add-metadata.md) | 5 min |
+| Ask an AI agent about my data | [Sign in and start an AI agent in a MESA app](tutorials/start-an-ai-agent.md) | 10 min |
+| Use a token safely in a notebook | [Keep tokens and passwords out of saved files](tutorials/keep-secrets-out-of-files.md) | 5–10 min |
+
 ## How a tutorial is laid out
 
 Every tutorial has the same six parts, in the same order:

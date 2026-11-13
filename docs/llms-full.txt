@@ -68,6 +68,16 @@ notebook, so do the first one first.
 | Join two tables safely | [Reconcile row counts before and after a join](https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/) | 5–10 min |
 | Hand my notebook to someone | [Leave a notebook someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/leave-a-rerunnable-notebook/) | 5–10 min |
 
+## Sharing, describing, and AI agents
+
+| I want to… | Tutorial | Time |
+|---|---|---|
+| Know where things are | [Find your way around the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/find-your-way-around/) | 5 min |
+| Let a colleague see my folder | [Share a folder with a collaborator](https://idss-mesa.github.io/trainings/tutorials/share-a-folder/) | 5 min |
+| Say what a folder contains | [Add metadata to a file or folder](https://idss-mesa.github.io/trainings/tutorials/add-metadata/) | 5 min |
+| Ask an AI agent about my data | [Sign in and start an AI agent in a MESA app](https://idss-mesa.github.io/trainings/tutorials/start-an-ai-agent/) | 10 min |
+| Use a token safely in a notebook | [Keep tokens and passwords out of saved files](https://idss-mesa.github.io/trainings/tutorials/keep-secrets-out-of-files/) | 5–10 min |
+
 ## How a tutorial is laid out
 
 Every tutorial has the same six parts, in the same order:
@@ -167,6 +177,7 @@ lets visitors look at public data without an account, so it can seem to work. Cl
 
 ## Next
 
+- [Find your way around the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/find-your-way-around/)
 - [Find MESA's community data in the Data Browser](https://idss-mesa.github.io/trainings/tutorials/find-community-data/)
 - [Launch MESA JupyterLab with your Data Store mounted](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/)
 - Reference: [MESA Portal overview, "Sign in"](https://idss-mesa.github.io/docs/portal/overview/#sign-in),
@@ -1451,6 +1462,483 @@ definition in a cell above the one that failed, then repeat step 1.
 
 *Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the version cell was run with pandas 3.1.*
 
+---8<--- https://idss-mesa.github.io/trainings/tutorials/find-your-way-around/
+
+---
+type: Guide
+title: "Find your way around the MESA Portal"
+description: "Use the MESA Portal's sidebar, top bar, and dashboard to reach your data, the apps, your analyses, and your quota."
+tags: [byte, p1, portal, navigation, dashboard]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-12T00:00:00Z" }
+stale_after: "2027-05-12T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/overview/"
+    title: "MESA Portal overview"
+    author: "team:idss-mesa"
+---
+
+# Find your way around the MESA Portal
+
+!!! warning "Draft: not yet validated"
+    This tutorial was written from the MESA documentation. Nobody has yet followed it
+    from start to finish on the live portal, so a screen name or a step may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** know where each part of the portal is, and have checked how much of your
+quota you have used.
+
+**Time:** 5 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/).
+
+## Steps
+
+1. Click **Home** in the sidebar on the left.
+
+    You should see: your dashboard, with four panels.
+
+    ![The portal dashboard: Recent Analyses, Resource Usage, My Working Groups, and Quick Actions](https://idss-mesa.github.io/docs/assets/portal/portal-dashboard.webp)
+
+2. Read **Resource Usage**.
+
+    You should see: CPU hours and Data Store space, each as an amount used against your
+    CyVerse quota.
+
+3. Read down the sidebar.
+
+    You should see: three groups. The first holds **Home**, **Events**, and **Working
+    Groups**. **Data & Apps** holds **Data Browser**, **Applications**, and
+    **Analyses**. **Help & Docs** holds **Documentation**.
+
+4. Click **Data Browser**, then **Applications**, then **Analyses**, looking at each
+   page before you move on.
+
+    You should see: your files; a card for each MESA app; and a list of the apps you
+    have run, which is empty in a new account.
+
+5. Look along the top bar.
+
+    You should see: links to the MESA website, the Discovery Environment, and the
+    documentation, then a theme button and your user menu.
+
+6. Click the theme button until the page suits you.
+
+    You should see: the portal change between **Light**, **Dark**, and **Auto**. Auto
+    follows your computer's setting.
+
+7. Open your user menu.
+
+    You should see: your profile, settings, quotas, and sign out.
+
+## Check it worked
+
+From any page you can reach your files, the apps, and your analyses in one click, and
+you can say roughly how many CPU hours you have left.
+
+## If it didn't
+
+**There is no sidebar.** On a phone, a tablet, or a narrow window the sidebar folds
+away. Click the **☰** menu button to open it, or widen the browser window.
+
+## Next
+
+- [Find MESA's community data in the Data Browser](https://idss-mesa.github.io/trainings/tutorials/find-community-data/)
+- [Launch MESA JupyterLab with your Data Store mounted](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/)
+- Reference: [MESA Portal overview, "Find your way around"](https://idss-mesa.github.io/docs/portal/overview/#find-your-way-around)
+  and ["Dashboard"](https://idss-mesa.github.io/docs/portal/overview/#dashboard).
+
+*Not yet validated on the live portal. Drafted 2026-11-12 from the MESA documentation.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/share-a-folder/
+
+---
+type: Guide
+title: "Share a folder with a collaborator"
+description: "Give one named CyVerse user read access to a folder in your Data Store from the MESA Portal's Data Browser, and confirm the access took effect."
+tags: [byte, p1, portal, data-browser, sharing]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-12T00:00:00Z" }
+stale_after: "2027-05-12T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Share a folder with a collaborator
+
+!!! warning "Draft: not yet validated"
+    This tutorial was written from the MESA documentation. Nobody has yet followed it
+    from start to finish on the live portal, so a screen name or a step may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** have shared one folder, read only, with one person you chose.
+
+**Time:** 5 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/); a
+folder of your own in **My Files**, such as the `mesa-practice` folder from the
+[practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/); and your collaborator's CyVerse username, exactly as
+they sign in with it.
+
+## Steps
+
+1. In the sidebar, click **Data Browser**, then **My Files**, and open the folder you
+   want to share.
+
+    You should see: the folder's name in the dark header band, with **Owner** as your
+    permission and **Private** beside it.
+
+2. Click **Share** in the folder header.
+
+    You should see: the share dialog, with two public options, **Share with User**,
+    and **Current Permissions**.
+
+    ![The share dialog for a folder: public access options, Share with User, and Current Permissions](https://idss-mesa.github.io/docs/assets/portal/data-share.webp){ width="520" }
+
+3. Leave **All CyVerse Users (public)** and **Anyone without login (anonymous)**
+   switched off.
+
+    You should see: no change. Those two options open the folder to everyone, which is
+    not what this tutorial is for.
+
+4. Under **Share with User**, type your collaborator's complete CyVerse username.
+
+    You should see: the name as you typed it. The portal needs the whole username or
+    email address; part of one is not enough.
+
+5. Choose **Read**, then click **Share**.
+
+    You should see: your collaborator listed under **Current Permissions**, with
+    **Read**.
+
+6. Close the dialog and look at the folder header.
+
+    You should see: **Shared · 1** where it said **Private**.
+
+## Check it worked
+
+Ask your collaborator to sign in to the portal, open **Data Browser**, and click
+**User Shared**. They should see your folder and be able to open its files, but not
+change them.
+
+## If it didn't
+
+**There is no Share button in the folder header.** The folder is not yours: **Share**
+appears only on folders you own. Check that the header says **Owner**. If you are in
+**Community**, **Shared**, or someone else's folder, go back to **My Files**.
+
+## Next
+
+- Sharing a folder shares everything in it, including files you add later. To take
+  access away, open the dialog again and click **Remove** beside the person's name.
+- [Add metadata to a file or folder](https://idss-mesa.github.io/trainings/tutorials/add-metadata/), so that the person you share
+  with knows what they are looking at.
+- Reference: [Managing data, "Share data"](https://idss-mesa.github.io/docs/portal/data/#share-data),
+  which also covers **Write** and **Own** access and sharing several items at once.
+
+*Not yet validated on the live portal. Drafted 2026-11-12 from the MESA documentation.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/add-metadata/
+
+---
+type: Guide
+title: "Add metadata to a file or folder"
+description: "Describe a folder in your Data Store with an attribute and a value from the MESA Portal's Data Browser, and confirm the description was saved."
+tags: [byte, p5, portal, data-browser, metadata]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-12T00:00:00Z" }
+stale_after: "2027-05-12T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Add metadata to a file or folder
+
+!!! warning "Draft: not yet validated"
+    This tutorial was written from the MESA documentation. Nobody has yet followed it
+    from start to finish on the live portal, so a screen name or a step may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+The Data Store keeps metadata as *AVUs*: an attribute, a value, and an optional unit.
+"Elevation, 512, m" is one AVU. Metadata stays attached to the file or folder, so it
+reaches whoever you share the data with, and AI agents using the MESA tools can read it.
+
+**You will:** have a folder that says, in its own metadata, what it contains.
+
+**Time:** 5 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/),
+and a folder of your own in **My Files**, such as the `mesa-practice` folder from the
+[practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/).
+
+## Steps
+
+1. In the sidebar, click **Data Browser**, then **My Files**.
+
+    You should see: a card for each of your files and folders, each with a small
+    **AVUs** button under its name.
+
+2. Click **AVUs** under the folder's name.
+
+    You should see: a panel listing the folder's AVUs. For a folder you have just
+    made, the list is empty.
+
+    ![The AVU panel for data.csv, with editable attribute, value, and unit fields](https://idss-mesa.github.io/docs/assets/portal/data-avus.webp){ width="560" }
+
+3. Click **Add row**.
+
+    You should see: an empty row with three fields: attribute, value, and unit.
+
+4. Type `description` as the attribute and a short sentence as the value, for example
+   `Synthetic rain-gauge practice data from the MESA tutorials`. Leave the unit empty.
+
+    You should see: your text in the two fields.
+
+5. Click **Add row** again and enter `contact` with your name as the value.
+
+    You should see: two rows.
+
+6. Click **Save**.
+
+    You should see: the two rows kept, with no error message.
+
+7. Refresh the page and click **AVUs** on the folder again.
+
+    You should see: both rows, as you typed them.
+
+## Check it worked
+
+After a page refresh, the folder's AVU panel still lists `description` and `contact`
+with your values.
+
+## If it didn't
+
+**The fields cannot be edited, or there is no Add row.** You can read the folder but
+not write to it. Open the folder and read its header: you need **Owner** or **Can
+edit**, not **Read only**. Use a folder under **My Files**.
+
+## Next
+
+- [Share a folder with a collaborator](https://idss-mesa.github.io/trainings/tutorials/share-a-folder/)
+- Reference: [Managing data, "Describe data with metadata (AVUs)"](https://idss-mesa.github.io/docs/portal/data/#describe-data-with-metadata-avus),
+  which covers reserved attribute names and the full metadata page with its DataCite,
+  Dublin Core, and EML views.
+
+*Not yet validated on the live portal. Drafted 2026-11-12 from the MESA documentation.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/start-an-ai-agent/
+
+---
+type: Guide
+title: "Sign in and start an AI agent in a MESA app"
+description: "Sign in to CyVerse from a terminal in a MESA app, connect an AI agent to a language model, and have it list the folders in your Data Store."
+tags: [byte, p4, ai-agents, jupyterlab, cyverse]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-12T00:00:00Z" }
+stale_after: "2027-05-12T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/apps/agents/"
+    title: "AI agents in the MESA apps"
+    author: "team:idss-mesa"
+---
+
+# Sign in and start an AI agent in a MESA app
+
+!!! warning "Draft: not yet validated"
+    This tutorial was written from the MESA documentation. Nobody has yet followed it
+    from start to finish on the live portal, so a screen name or a step may differ.
+    In particular, what each command prints (steps 2 to 4) is not yet confirmed.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+Every MESA app comes with AI coding agents that run in a terminal and can work with
+your Data Store through the MESA tools. They need two things from you: who you are,
+and a language model to think with.
+
+**You will:** have an agent that answers a question about your own Data Store.
+
+**Time:** 10 minutes. **You need:** [MESA JupyterLab running](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/),
+and an API key for [CyVerse AI Verde](https://aiverde-docs.cyverse.ai/), which you get
+at <https://chat.cyverse.ai> under **Course → API Key**.
+
+## Steps
+
+1. In JupyterLab's **Launcher**, click **Terminal**.
+
+    You should see: a terminal tab with a prompt.
+
+2. Sign in to CyVerse:
+
+    ```bash
+    cyverse-login
+    ```
+
+    Enter your CyVerse username and password when it asks.
+
+    You should see: the prompt return with no error. The agents now act as you, with
+    access to your own files. Without this step they can read public data only.
+
+3. Connect the language model:
+
+    ```bash
+    aiverde-setup
+    ```
+
+    Paste your AI Verde key when it asks.
+
+    You should see: a list of the models your course can use.
+
+4. Start an agent:
+
+    ```bash
+    opencode
+    ```
+
+    You should see: OpenCode's own prompt in place of the terminal's.
+
+5. Ask it:
+
+    ```text
+    List the folders in my CyVerse home.
+    ```
+
+    You should see: the agent say it is calling one of the MESA tools, then a list of
+    folder names.
+
+6. In the portal's browser tab, click **Data Browser**, then **My Files**.
+
+    You should see: the same folder names the agent listed.
+
+## Check it worked
+
+The folders the agent lists are the ones in **My Files**. An agent that had not signed
+in as you could not see them.
+
+## If it didn't
+
+**The agent lists only public folders, or says permission was denied.** It was started
+before you signed in, so its tools are still anonymous. Quit the agent, run
+`cyverse-login` again if you skipped it, and start the agent again.
+
+## Next
+
+- Type your password and your key only where these commands ask for them. See
+  [Keep tokens and passwords out of saved files](https://idss-mesa.github.io/trainings/tutorials/keep-secrets-out-of-files/).
+- Signing in lasts only as long as the app: repeat steps 2 and 3 in each new session.
+- Reference: [AI agents in the MESA apps](https://idss-mesa.github.io/docs/apps/agents/),
+  for the other agents (`claude`, `codex`, `agy`), using your own account with an
+  agent's vendor, and local models on a GPU.
+
+*Not yet validated on the live portal. Drafted 2026-11-12 from the MESA documentation.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/keep-secrets-out-of-files/
+
+---
+type: Guide
+title: "Keep tokens and passwords out of saved files"
+description: "Give a notebook a token without typing it into a cell, and confirm that the saved notebook does not contain it."
+tags: [byte, p3, credentials, jupyterlab, notebook]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-12T00:00:00Z" }
+stale_after: "2027-05-12T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/credentials/"
+    title: "Credentials"
+    author: "team:idss-mesa"
+  - id: python
+    resource: "https://docs.python.org/3/library/getpass.html"
+    title: "getpass (Python standard library)"
+    author: "team:python"
+---
+
+# Keep tokens and passwords out of saved files
+
+!!! warning "Draft: not yet validated"
+    The check in step 5 was run on a laptop. Nobody has yet followed the tutorial in
+    MESA JupyterLab, so a menu name may differ there.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A notebook file stores every cell and every output. A token typed into a cell, or
+printed by one, is saved with the notebook and goes wherever the notebook goes: your
+Data Store, a shared folder, a Git repository.
+
+**You will:** have used a token in a notebook that does not contain it.
+
+**Time:** 5 to 10 minutes. **You need:** `practice.ipynb` from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), open in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/). You will use a made-up token, not a real one.
+
+## Steps
+
+1. In a new cell, run:
+
+    ```python
+    from getpass import getpass
+
+    token = getpass("Token: ")
+    ```
+
+    You should see: a box labelled **Token:** under the cell.
+
+2. Type `not-a-real-token` into the box and press ++enter++.
+
+    You should see: dots in place of the characters as you type, then nothing. The
+    value is in memory as `token`; it is not in the cell and not in the output.
+
+3. Confirm the notebook received it, without displaying it:
+
+    ```python
+    len(token)
+    ```
+
+    You should see: `16`.
+
+4. Choose **File → Save Notebook**.
+
+    You should see: the dot on the notebook's tab disappear.
+
+5. Count how many times the token appears in the saved file:
+
+    ```python
+    open("practice.ipynb").read().count(token)
+    ```
+
+    You should see: `0`.
+
+6. Remove it from memory when you have finished:
+
+    ```python
+    del token
+    ```
+
+    You should see: no output. Restarting the kernel does the same.
+
+## Check it worked
+
+Step 5 returns `0`: the saved notebook does not contain the token, although the
+notebook used it.
+
+## If it didn't
+
+**Step 5 returns `1` or more.** The token was typed into a cell or shown in an output,
+for example by running `token` or `print(token)`. Delete that cell, choose
+**Edit → Clear Outputs of All Cells**, save, and run step 5 again. If it had been a
+real token, clearing it would not be enough: replace the token with a new one at the
+service that issued it, because earlier copies of the file may still hold the old one.
+
+## Next
+
+- The MESA sign-in commands follow the same rule: `cyverse-login` and `aiverde-setup`
+  ask for your password or key and keep it outside your Data Store. See
+  [Sign in and start an AI agent in a MESA app](https://idss-mesa.github.io/trainings/tutorials/start-an-ai-agent/).
+- Reference: [Credentials](https://idss-mesa.github.io/docs/credentials/) in the MESA
+  documentation, which says where each MESA tool stores a password, and
+  [getpass](https://docs.python.org/3/library/getpass.html).
+
+*Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the check in step 5 was run locally.*
+
 ---8<--- https://idss-mesa.github.io/trainings/contributing/
 
 ---
@@ -1810,6 +2298,13 @@ explains.
 
 ## 2026-11-12
 
+* **Creation**: Added five draft tutorials written from the MESA documentation:
+  [Find your way around the MESA Portal](tutorials/find-your-way-around.md),
+  [Share a folder with a collaborator](tutorials/share-a-folder.md),
+  [Add metadata to a file or folder](tutorials/add-metadata.md),
+  [Sign in and start an AI agent in a MESA app](tutorials/start-an-ai-agent.md), and
+  [Keep tokens and passwords out of saved files](tutorials/keep-secrets-out-of-files.md).
+  None has been validated on the live portal.
 * **Creation**: Added the [practice data](tutorials/practice-data.md), two small
   synthetic rain-gauge files with a data dictionary (made by
   `scripts/make_practice_data.py`), and seven draft data tutorials that
