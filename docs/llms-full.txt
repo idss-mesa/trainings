@@ -29,6 +29,7 @@ anyone using MESA who wants to get one thing done. You do not need to be part of
 training program to use them.
 
 [Start with signing in :material-arrow-right:](https://idss-mesa.github.io/trainings/tutorials/sign-in/){ .md-button .md-button--primary }
+[The learning pathway](https://idss-mesa.github.io/trainings/pathway/){ .md-button }
 [All tutorials](https://idss-mesa.github.io/trainings/tutorials/){ .md-button }
 
 !!! warning "These tutorials are drafts"
@@ -67,6 +68,10 @@ notebook, so do the first one first.
 | Find repeated and missing days | [Count records per day to find incomplete days](https://idss-mesa.github.io/trainings/tutorials/count-records-per-day/) | 5–10 min |
 | Join two tables safely | [Reconcile row counts before and after a join](https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/) | 5–10 min |
 | Hand my notebook to someone | [Leave a notebook someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/leave-a-rerunnable-notebook/) | 5–10 min |
+| Group hourly data by the right day | [Turn UTC timestamps into local days](https://idss-mesa.github.io/trainings/tutorials/local-days-from-utc/) | 10 min |
+| Handle several measurements in one column | [Work with a long table, one row per kind of measurement](https://idss-mesa.github.io/trainings/tutorials/work-with-a-long-table/) | 5–10 min |
+| Run SQL on a Parquet file | [Query a Parquet file with DuckDB from a notebook](https://idss-mesa.github.io/trainings/tutorials/query-parquet-with-duckdb/) | 10 min |
+| Test a result I was handed | [Check an AI-suggested result against the data](https://idss-mesa.github.io/trainings/tutorials/check-a-suggested-result/) | 10 min |
 
 ## Sharing, describing, and AI agents
 
@@ -111,6 +116,89 @@ This site is an [Open Knowledge Format (OKF) v0.2](https://github.com/GoogleClou
 knowledge bundle with the same conventions as the MESA documentation. Start at
 [`https://idss-mesa.github.io/trainings/llms.txt`](https://idss-mesa.github.io/trainings/llms.txt)
 or read [For AI agents](https://idss-mesa.github.io/trainings/about/ai-agents/).
+
+---8<--- https://idss-mesa.github.io/trainings/pathway/
+
+---
+type: Reference
+title: "Learning pathway"
+description: "The five points of the MESA learning pathway, from finding your way around to sharing work others can rerun, with the tutorials that belong to each."
+tags: [pathway, tutorials, getting-started]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/"
+    title: "MESA documentation"
+    author: "team:idss-mesa"
+---
+
+# Learning pathway
+
+The tutorials are arranged along one pathway of five points. Each point builds on the
+one before, but every tutorial says what it needs, so you can also start wherever your
+question is.
+
+!!! warning "These tutorials are drafts"
+    Each tutorial says at the top how far it has been checked. More tutorials will be
+    added to each point.
+
+## 1. Orient and navigate
+
+Get into MESA, find data, start an app, and keep and share what you make.
+
+1. [Sign in to the MESA Portal with a CyVerse account](https://idss-mesa.github.io/trainings/tutorials/sign-in/)
+2. [Find your way around the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/find-your-way-around/)
+3. [Find MESA's community data in the Data Browser](https://idss-mesa.github.io/trainings/tutorials/find-community-data/)
+4. [Launch MESA JupyterLab with your Data Store mounted](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/)
+5. [Save your work where it survives the session](https://idss-mesa.github.io/trainings/tutorials/save-your-work/)
+6. [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/)
+7. [Share a folder with a collaborator](https://idss-mesa.github.io/trainings/tutorials/share-a-folder/)
+
+## 2. Run and understand
+
+Load a dataset and find out what it holds, and where it is incomplete or doubtful, before you compute with it.
+
+1. [Practice data: five invented rain gauges](https://idss-mesa.github.io/trainings/tutorials/practice-data/)
+2. [Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/)
+3. [Read the data dictionary before the data](https://idss-mesa.github.io/trainings/tutorials/read-the-data-dictionary/)
+4. [Check a column's range and missing values](https://idss-mesa.github.io/trainings/tutorials/check-range-and-missing/)
+5. [Tally a quality flag before you trust a number](https://idss-mesa.github.io/trainings/tutorials/tally-a-quality-flag/)
+6. [Count records per day to find incomplete days](https://idss-mesa.github.io/trainings/tutorials/count-records-per-day/)
+7. [Turn UTC timestamps into local days](https://idss-mesa.github.io/trainings/tutorials/local-days-from-utc/)
+8. [Work with a long table, one row per kind of measurement](https://idss-mesa.github.io/trainings/tutorials/work-with-a-long-table/)
+
+## 3. Query and connect
+
+Ask questions across files and tables, and check that combining them did what you meant.
+
+1. [Query a Parquet file with DuckDB from a notebook](https://idss-mesa.github.io/trainings/tutorials/query-parquet-with-duckdb/)
+2. [Reconcile row counts before and after a join](https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/)
+3. [Keep tokens and passwords out of saved files](https://idss-mesa.github.io/trainings/tutorials/keep-secrets-out-of-files/)
+
+## 4. Explore and verify
+
+Work with an AI assistant, and test what it tells you against the data.
+
+1. [Sign in and start an AI agent in a MESA app](https://idss-mesa.github.io/trainings/tutorials/start-an-ai-agent/)
+2. [Check an AI-suggested result against the data](https://idss-mesa.github.io/trainings/tutorials/check-a-suggested-result/)
+
+## 5. Preserve and share
+
+Leave work that someone else can find, understand, and run again.
+
+1. [Add metadata to a file or folder](https://idss-mesa.github.io/trainings/tutorials/add-metadata/)
+2. [Leave a notebook someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/leave-a-rerunnable-notebook/)
+
+## Where to start
+
+- **New to MESA:** take point 1 in order. It needs only a web browser and a free
+  [CyVerse account](https://user.cyverse.org).
+- **Comfortable in the portal, new to checking data:** copy the
+  [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/) and take point 2 in order. Points 3 and 4
+  use the same notebook.
+- **Looking for one thing:** every tutorial is listed, with a one-line description,
+  under [Tutorials](https://idss-mesa.github.io/trainings/tutorials/).
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/sign-in/
 
@@ -571,10 +659,10 @@ start the app again with the same settings.
 ---
 type: Reference
 title: "Practice data: five invented rain gauges"
-description: "The synthetic rain-gauge practice dataset used by the data tutorials: what its two files contain, its data dictionary, and how to copy it into your Data Store."
+description: "The synthetic rain-gauge practice dataset used by the data tutorials: what its three files contain, its data dictionary, and how to copy it into your Data Store."
 tags: [practice-data, p2, data-dictionary, jupyterlab]
 status: draft
-generated: { by: "claude-code/2.1.321", at: "2026-11-12T00:00:00Z" }
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
 stale_after: "2027-05-12T00:00:00Z"
 sources:
   - id: docs-jupyterlab
@@ -594,12 +682,13 @@ sources:
     this page from start to finish.
     [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
-The data tutorials on this site all use the same two small files, so you can practise
+The data tutorials on this site all use the same three small files, so you can practise
 a technique without first finding a dataset.
 
 **The data is synthetic.** It was generated for these tutorials by
 [`scripts/make_practice_data.py`](https://github.com/idss-mesa/trainings/blob/main/scripts/make_practice_data.py):
-five invented rain gauges, with daily readings for July 2026. It describes no
+five invented rain gauges, with daily readings for July 2026 and one week of hourly
+observations from one of them. It describes no
 real place and no real measurement. Like real data, it is not perfectly clean, and the
 tutorials show you how to find out where.
 
@@ -609,6 +698,7 @@ tutorials show you how to find out where.
 | --- | --- | --- |
 | [`gauges.csv`](https://idss-mesa.github.io/trainings/assets/practice/gauges.csv) | 5 | one rain gauge |
 | [`readings.csv`](https://idss-mesa.github.io/trainings/assets/practice/readings.csv) | 152 | one reading from one gauge |
+| [`observations.csv`](https://idss-mesa.github.io/trainings/assets/practice/observations.csv) | 336 | one hourly measurement of one kind |
 
 ## Data dictionary
 
@@ -630,6 +720,18 @@ tutorials show you how to find out where.
 | `value` | Rainfall for that day, in the gauge's own unit |
 | `flag` | Blank, or `S` for a reading the sensor marked suspect |
 
+**observations.csv**
+
+| Column | Meaning |
+| --- | --- |
+| `gauge_id` | Which gauge; all rows are from `G03`, Observatory |
+| `timestamp_utc` | Start of the hour, in UTC, as `YYYY-MM-DDTHH:MM:SSZ` |
+| `measurement` | What was measured: `rain_mm` (rainfall in the hour, in millimetres) or `air_temp_c` (air temperature, in degrees Celsius) |
+| `value` | The measured number, in the unit its `measurement` names |
+
+The invented campus keeps US Mountain Time (`America/Denver`), six hours behind UTC in
+July. The observations cover 10 to 16 July 2026 in local time.
+
 ## Copy the files into your Data Store
 
 1. In [MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), double-click **home** in the file
@@ -643,14 +745,14 @@ tutorials show you how to find out where.
     from urllib.request import urlretrieve
 
     base = "https://idss-mesa.github.io/trainings/assets/practice/"
-    for name in ["gauges.csv", "readings.csv"]:
+    for name in ["gauges.csv", "readings.csv", "observations.csv"]:
         urlretrieve(base + name, name)
     ```
 
-Both files then appear in `mesa-practice`, beside the notebook. Because the folder is in
+The three files then appear in `mesa-practice`, beside the notebook. Because the folder is in
 your Data Store, they are still there the next time you start an app.
 
-You can also download the two files from the links above and upload them with the
+You can also download the files from the links above and upload them with the
 portal's Data Browser; see
 [Managing data, "Upload, create, move, and delete"](https://idss-mesa.github.io/docs/portal/data/#upload-create-move-and-delete).
 
@@ -1242,6 +1344,7 @@ cell again to reload the file, then repeat the step.
 
 ## Next
 
+- [Turn UTC timestamps into local days](https://idss-mesa.github.io/trainings/tutorials/local-days-from-utc/)
 - [Reconcile row counts before and after a join](https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/)
 - Reference: [Group by: split-apply-combine](https://pandas.pydata.org/docs/user_guide/groupby.html)
   in the pandas user guide.
@@ -1844,6 +1947,7 @@ before you signed in, so its tools are still anonymous. Quit the agent, run
 
 ## Next
 
+- [Check an AI-suggested result against the data](https://idss-mesa.github.io/trainings/tutorials/check-a-suggested-result/)
 - Type your password and your key only where these commands ask for them. See
   [Keep tokens and passwords out of saved files](https://idss-mesa.github.io/trainings/tutorials/keep-secrets-out-of-files/).
 - Signing in lasts only as long as the app: repeat steps 2 and 3 in each new session.
@@ -1959,6 +2063,563 @@ service that issued it, because earlier copies of the file may still hold the ol
   [getpass](https://docs.python.org/3/library/getpass.html).
 
 *Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the check in step 5 was run locally.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/local-days-from-utc/
+
+---
+type: Guide
+title: "Turn UTC timestamps into local days"
+description: "Convert UTC timestamps to local time before grouping by day, and confirm the daily totals against values you already trust."
+tags: [byte, p2, time-zones, timestamps, pandas]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: pandas
+    resource: "https://pandas.pydata.org/docs/user_guide/timeseries.html#time-zone-handling"
+    title: "Time zone handling (pandas user guide)"
+    author: "team:pandas-dev"
+---
+
+# Turn UTC timestamps into local days
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
+    the tutorial in MESA JupyterLab, so output may be laid out differently there.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+Instruments usually record time in UTC. A "day" of UTC is not a day where the
+instrument stands: on the invented campus, which keeps US Mountain Time, the UTC date
+changes at six in the evening in July. Evening rain lands on the wrong day unless you
+convert first.
+
+**You will:** have daily rain totals by local day that match the gauge's daily record.
+
+**Time:** 10 minutes. **You need:** the notebook from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), open in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), with its first cell run.
+
+## Steps
+
+1. Check that `observations.csv` is in your `mesa-practice` folder. If it is not, run
+   the download cell on the [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/) page again. Then run:
+
+    ```python
+    obs = pd.read_csv("observations.csv")
+    obs.shape
+    ```
+
+    You should see:
+
+    ```text
+    (336, 4)
+    ```
+
+2. Keep the rain rows and turn the text timestamps into real ones:
+
+    ```python
+    rain = obs[obs["measurement"] == "rain_mm"].copy()
+    rain["time_utc"] = pd.to_datetime(rain["timestamp_utc"])
+    rain["time_utc"].dt.tz
+    ```
+
+    You should see: `UTC`. The trailing `Z` in the file told pandas the zone.
+
+3. Total the rain by UTC date:
+
+    ```python
+    rain.groupby(rain["time_utc"].dt.date)["value"].sum()
+    ```
+
+    You should see: eight dates for a seven-day week, the first sign of trouble.
+
+    ```text
+    time_utc
+    2026-07-10     0.0
+    2026-07-11    32.4
+    2026-07-12     7.4
+    2026-07-13    17.6
+    2026-07-14     4.4
+    2026-07-15    22.1
+    2026-07-16     1.7
+    2026-07-17     0.0
+    Name: value, dtype: float64
+    ```
+
+4. Convert to local time and total again:
+
+    ```python
+    rain["time_local"] = rain["time_utc"].dt.tz_convert("America/Denver")
+    rain.groupby(rain["time_local"].dt.date)["value"].sum()
+    ```
+
+    You should see: seven dates, and different totals.
+
+    ```text
+    time_local
+    2026-07-10    32.4
+    2026-07-11     0.0
+    2026-07-12    23.0
+    2026-07-13     6.4
+    2026-07-14    22.1
+    2026-07-15     1.7
+    2026-07-16     0.0
+    Name: value, dtype: float64
+    ```
+
+5. Compare with the same gauge's daily record:
+
+    ```python
+    week = readings["date"].between("2026-07-10", "2026-07-16")
+    readings[(readings["gauge_id"] == "G03") & week][["date", "value"]]
+    ```
+
+    You should see: the seven totals from step 4, not those from step 3.
+
+## Check it worked
+
+Your local-day totals equal the daily values in `readings.csv` for G03, day for day.
+The week's total is 85.6 mm either way; only the days it falls on change.
+
+## If it didn't
+
+**`TypeError: Cannot convert tz-naive timestamps, use tz_localize to localize`.** The
+timestamps were read without a zone, which happens when a file's times have no `Z` or
+offset. Say what zone they are in first:
+`rain["time_utc"].dt.tz_localize("UTC")`, then convert.
+
+## Next
+
+- [Work with a long table, one row per kind of measurement](https://idss-mesa.github.io/trainings/tutorials/work-with-a-long-table/)
+- Reference: [Time zone handling](https://pandas.pydata.org/docs/user_guide/timeseries.html#time-zone-handling)
+  in the pandas user guide.
+
+*Not yet validated in MESA JupyterLab. Drafted 2026-11-13; the code was run with pandas 3.1 on the practice data.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/work-with-a-long-table/
+
+---
+type: Guide
+title: "Work with a long table, one row per kind of measurement"
+description: "Recognise a table that stacks several kinds of measurement in one value column, summarise each kind separately, and reshape it to one column per measurement."
+tags: [byte, p2, long-format, reshaping, pandas]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: pandas
+    resource: "https://pandas.pydata.org/docs/user_guide/reshaping.html"
+    title: "Reshaping and pivot tables (pandas user guide)"
+    author: "team:pandas-dev"
+---
+
+# Work with a long table, one row per kind of measurement
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
+    the tutorial in MESA JupyterLab, so output may be laid out differently there.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+Many archives store data *long*: one row per time and per kind of measurement, with
+the number in a single `value` column. It is a tidy way to store data and an easy way
+to average rainfall with temperature by accident.
+
+**You will:** have the hourly observations summarised by measurement and reshaped to
+one column for each.
+
+**Time:** 5 to 10 minutes. **You need:** the notebook from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), open in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), with its first cell run.
+
+## Steps
+
+1. Check that `observations.csv` is in your `mesa-practice` folder. If it is not, run
+   the download cell on the [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/) page again. Then run:
+
+    ```python
+    obs = pd.read_csv("observations.csv")
+    obs.shape
+    ```
+
+    You should see:
+
+    ```text
+    (336, 4)
+    ```
+
+2. Look at the first rows:
+
+    ```python
+    obs.head()
+    ```
+
+    You should see: each timestamp twice, once for each kind of measurement.
+
+    ```text
+      gauge_id         timestamp_utc measurement  value
+    0      G03  2026-07-10T06:00:00Z     rain_mm    0.0
+    1      G03  2026-07-10T06:00:00Z  air_temp_c   13.8
+    2      G03  2026-07-10T07:00:00Z     rain_mm    0.0
+    3      G03  2026-07-10T07:00:00Z  air_temp_c   12.3
+    4      G03  2026-07-10T08:00:00Z     rain_mm    0.0
+    ```
+
+3. Count the rows for each kind:
+
+    ```python
+    obs["measurement"].value_counts()
+    ```
+
+    You should see:
+
+    ```text
+    measurement
+    rain_mm       168
+    air_temp_c    168
+    Name: count, dtype: int64
+    ```
+
+4. Summarise each kind on its own:
+
+    ```python
+    obs.groupby("measurement")["value"].agg(["min", "max", "mean"]).round(2)
+    ```
+
+    You should see: two rows with nothing in common. `obs["value"].mean()` would have
+    returned 9.27, a number that is neither millimetres nor degrees.
+
+    ```text
+                  min   max   mean
+    measurement
+    air_temp_c   10.2  25.4  18.03
+    rain_mm       0.0  15.8   0.51
+    ```
+
+5. Reshape to one column per measurement:
+
+    ```python
+    wide = obs.pivot(index="timestamp_utc", columns="measurement", values="value")
+    wide.head(3)
+    ```
+
+    You should see:
+
+    ```text
+    measurement           air_temp_c  rain_mm
+    timestamp_utc
+    2026-07-10T06:00:00Z        13.8      0.0
+    2026-07-10T07:00:00Z        12.3      0.0
+    2026-07-10T08:00:00Z        10.7      0.0
+    ```
+
+6. Check the reshape lost nothing:
+
+    ```python
+    wide.shape
+    ```
+
+    You should see: `(168, 2)`.
+
+## Check it worked
+
+The counts reconcile: 168 hours × 2 measurements is 336, the number of rows you
+started with, and `wide` has no empty cells (`wide.isna().sum().sum()` is 0).
+
+## If it didn't
+
+**`ValueError: Index contains duplicate entries, cannot reshape`.** Some timestamp has
+two rows for the same measurement, so pandas cannot tell which value belongs in the
+cell. Find them with
+`obs[obs.duplicated(["timestamp_utc", "measurement"], keep=False)]` and settle which
+is right before you reshape.
+
+## Next
+
+- [Turn UTC timestamps into local days](https://idss-mesa.github.io/trainings/tutorials/local-days-from-utc/)
+- Reference: [Reshaping and pivot tables](https://pandas.pydata.org/docs/user_guide/reshaping.html)
+  in the pandas user guide.
+
+*Not yet validated in MESA JupyterLab. Drafted 2026-11-13; the code was run with pandas 3.1 on the practice data.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/query-parquet-with-duckdb/
+
+---
+type: Guide
+title: "Query a Parquet file with DuckDB from a notebook"
+description: "Run SQL against a Parquet file from a notebook with DuckDB, without loading the file into memory first, and bring a result back as a pandas table."
+tags: [byte, p3, duckdb, parquet, sql]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: duckdb
+    resource: "https://duckdb.org/docs/stable/data/parquet/overview"
+    title: "Reading and writing Parquet files (DuckDB documentation)"
+    author: "team:duckdb"
+---
+
+# Query a Parquet file with DuckDB from a notebook
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run with DuckDB 2.0 on a laptop. DuckDB 2.0.0 was present
+    in MESA JupyterLab on 2026-11-12, but the MESA documentation does not yet list it,
+    and nobody has followed this tutorial there.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+Parquet is the format large shared datasets are usually stored in: compressed, typed,
+and readable one column at a time. DuckDB runs SQL straight against such a file, so
+you can ask a question of data far too large to load.
+
+**You will:** have queried a Parquet file with SQL and turned a result into a pandas
+table.
+
+**Time:** 10 minutes. **You need:** the notebook from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), open in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), with its first cell run.
+
+## Steps
+
+1. Import DuckDB:
+
+    ```python
+    import duckdb
+
+    duckdb.__version__
+    ```
+
+    You should see: a version number, such as `'2.0.0'`.
+
+2. Make a Parquet file to practise on, from the CSV you already have:
+
+    ```python
+    duckdb.sql("COPY (SELECT * FROM 'readings.csv') TO 'readings.parquet' (FORMAT parquet)")
+    ```
+
+    You should see: no output, and `readings.parquet` in the file browser.
+
+3. Ask what the file holds, without reading its rows:
+
+    ```python
+    duckdb.sql("DESCRIBE SELECT * FROM 'readings.parquet'")
+    ```
+
+    You should see: the four columns, each with a type. `date` is a real date here,
+    not text.
+
+    ```text
+    ┌─────────────┬─────────────┬─────────┬─────────┬─────────┬─────────┐
+    │ column_name │ column_type │  null   │   key   │ default │  extra  │
+    │   varchar   │   varchar   │ varchar │ varchar │ varchar │ varchar │
+    ├─────────────┼─────────────┼─────────┼─────────┼─────────┼─────────┤
+    │ gauge_id    │ VARCHAR     │ YES     │ NULL    │ NULL    │ NULL    │
+    │ date        │ DATE        │ YES     │ NULL    │ NULL    │ NULL    │
+    │ value       │ DOUBLE      │ YES     │ NULL    │ NULL    │ NULL    │
+    │ flag        │ VARCHAR     │ YES     │ NULL    │ NULL    │ NULL    │
+    └─────────────┴─────────────┴─────────┴─────────┴─────────┴─────────┘
+    ```
+
+4. Summarise it with SQL:
+
+    ```python
+    duckdb.sql("""
+        SELECT gauge_id, count(*) AS n_rows, max(value) AS largest
+        FROM 'readings.parquet'
+        GROUP BY gauge_id
+        ORDER BY gauge_id
+    """)
+    ```
+
+    You should see:
+
+    ```text
+    ┌──────────┬────────┬─────────┐
+    │ gauge_id │ n_rows │ largest │
+    │ varchar  │ int64  │ double  │
+    ├──────────┼────────┼─────────┤
+    │ G01      │     27 │    24.9 │
+    │ G02      │     31 │    2.92 │
+    │ G03      │     32 │    32.5 │
+    │ G04      │     31 │    26.4 │
+    │ G05      │     31 │   180.0 │
+    └──────────┴────────┴─────────┘
+    ```
+
+5. Bring a result into pandas with `.df()`:
+
+    ```python
+    flagged = duckdb.sql("SELECT * FROM 'readings.parquet' WHERE flag = 'S'").df()
+    flagged
+    ```
+
+    You should see: an ordinary pandas table with two rows.
+
+    ```text
+      gauge_id       date  value flag
+    0      G03 2026-07-18    0.0    S
+    1      G05 2026-07-09  180.0    S
+    ```
+
+## Check it worked
+
+The `n_rows` column adds up to 152, the number of rows pandas counted in
+`readings.csv`. Two tools reading the same data should agree before you trust either.
+
+## If it didn't
+
+**`IOException: IO Error: No files found that match the pattern "readings.parquet"`.**
+DuckDB looks in the notebook's own folder. Either step 2 did not run, or the notebook
+is not in `mesa-practice`. Run step 2 again and look for the file in the file browser.
+
+## Next
+
+- [Reconcile row counts before and after a join](https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/)
+- Reference: [Reading and writing Parquet files](https://duckdb.org/docs/stable/data/parquet/overview)
+  in the DuckDB documentation.
+
+*Not yet validated in MESA JupyterLab. Drafted 2026-11-13; the code was run with DuckDB 2.0 on the practice data.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/check-a-suggested-result/
+
+---
+type: Guide
+title: "Check an AI-suggested result against the data"
+description: "Test a result that an AI assistant, or anyone else, hands you: reproduce the number, find what it rests on, and say whether the claim survives."
+tags: [byte, p4, verification, ai-agents, pandas]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: docs-agents
+    resource: "https://idss-mesa.github.io/docs/apps/agents/"
+    title: "AI agents in the MESA apps"
+    author: "team:idss-mesa"
+---
+
+# Check an AI-suggested result against the data
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
+    the tutorial in MESA JupyterLab, so output may be laid out differently there.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+An AI assistant answers fluently whether or not the answer is sound, and so does a
+hurried colleague. The check is the same for both, and it takes a few minutes.
+
+Suppose you asked an assistant about the practice data and it replied:
+
+> Quarry (G05) was the wettest gauge in July, with 390.9 mm of rain.
+
+**You will:** have decided, from the data, whether that claim stands.
+
+**Time:** 10 minutes. **You need:** the notebook from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), open in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), with its first cell run.
+You do not need an AI assistant for this tutorial.
+
+## Steps
+
+1. In a Markdown cell, write the claim down and what would make it wrong: a different
+   total, or a total that depends on readings you would not trust.
+
+    You should see: the claim in your notebook, where the check will sit beside it.
+
+2. Reproduce the number:
+
+    ```python
+    readings.groupby("gauge_id")["value"].sum()
+    ```
+
+    You should see: 390.9 for G05. The assistant did not invent the figure.
+
+    ```text
+    gauge_id
+    G01    190.30
+    G02     21.83
+    G03    273.60
+    G04    198.80
+    G05    390.90
+    Name: value, dtype: float64
+    ```
+
+3. A number you can reproduce is not yet a number you can believe. Look at what it is
+   made of:
+
+    ```python
+    readings[readings["gauge_id"] == "G05"].nlargest(3, "value")
+    ```
+
+    You should see: one reading far larger than the rest, and flagged.
+
+    ```text
+        gauge_id        date  value flag
+    129      G05  2026-07-09  180.0    S
+    130      G05  2026-07-10   27.5  NaN
+    123      G05  2026-07-03   27.1  NaN
+    ```
+
+4. Recompute without the readings the sensor marked suspect:
+
+    ```python
+    kept = readings[readings["flag"] != "S"]
+    kept.groupby("gauge_id")["value"].sum()
+    ```
+
+    You should see: G05 fall to 210.9, below G03.
+
+    ```text
+    gauge_id
+    G01    190.30
+    G02     21.83
+    G03    273.60
+    G04    198.80
+    G05    210.90
+    Name: value, dtype: float64
+    ```
+
+5. Under the claim, write your verdict in one or two sentences: what you reproduced,
+   what it depended on, and what you conclude.
+
+    You should see: something like "The 390.9 mm is the plain sum, but 180 mm of it is
+    one reading flagged as suspect. Without it Quarry is not the wettest gauge."
+
+## Check it worked
+
+Your notebook holds the claim, the code that tests it, and a verdict a reader can
+check. You have not shown which gauge *was* wettest: these totals still mix units and
+include a repeated row and a gauge with missing days.
+
+## If it didn't
+
+**Step 4 changes nothing.** The flag was compared with the wrong text, for example
+`"s"` or `"S "`. Run `readings["flag"].value_counts(dropna=False)` to see the exact
+values, and compare against one of those.
+
+## Next
+
+- The other checks a fair comparison needs:
+  [Read the data dictionary before the data](https://idss-mesa.github.io/trainings/tutorials/read-the-data-dictionary/) for units and
+  [Count records per day to find incomplete days](https://idss-mesa.github.io/trainings/tutorials/count-records-per-day/) for repeats
+  and gaps.
+- To ask an assistant yourself:
+  [Sign in and start an AI agent in a MESA app](https://idss-mesa.github.io/trainings/tutorials/start-an-ai-agent/).
+
+*Not yet validated in MESA JupyterLab. Drafted 2026-11-13; the code was run with pandas 3.1 on the practice data.*
 
 ---8<--- https://idss-mesa.github.io/trainings/contributing/
 
@@ -2316,6 +2977,20 @@ explains.
 ---8<--- https://idss-mesa.github.io/trainings/log/
 
 # Directory Update Log
+
+## 2026-11-13
+
+* **Creation**: Added the [Learning pathway](pathway.md), which arranges every tutorial
+  under the five pathway points, and four draft tutorials:
+  [Turn UTC timestamps into local days](tutorials/local-days-from-utc.md),
+  [Work with a long table, one row per kind of measurement](tutorials/work-with-a-long-table.md),
+  [Query a Parquet file with DuckDB from a notebook](tutorials/query-parquet-with-duckdb.md),
+  and [Check an AI-suggested result against the data](tutorials/check-a-suggested-result.md).
+* **Update**: The [practice data](tutorials/practice-data.md) gained a third file,
+  `observations.csv`: a week of hourly rain and air temperature from one gauge, in long
+  format with UTC timestamps. `scripts/check_tutorial_outputs.py` now runs every
+  tutorial's code against the practice data and compares it with the output on the page;
+  the build workflow runs it on every pull request.
 
 ## 2026-11-12
 

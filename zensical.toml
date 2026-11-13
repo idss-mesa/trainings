@@ -17,6 +17,7 @@ extra_css = ["stylesheets/extra.css"]
 # docs/tutorials/index.md.
 nav = [
   { "Home" = "index.md" },
+  { "Learning pathway" = "pathway.md" },
   { "Tutorials" = [
       "tutorials/index.md",
       { "Sign in to the MESA Portal" = "tutorials/sign-in.md" },
@@ -37,6 +38,10 @@ nav = [
       { "Add metadata" = "tutorials/add-metadata.md" },
       { "Start an AI agent" = "tutorials/start-an-ai-agent.md" },
       { "Keep secrets out of files" = "tutorials/keep-secrets-out-of-files.md" },
+      { "Local days from UTC" = "tutorials/local-days-from-utc.md" },
+      { "Work with a long table" = "tutorials/work-with-a-long-table.md" },
+      { "Query Parquet with DuckDB" = "tutorials/query-parquet-with-duckdb.md" },
+      { "Check a suggested result" = "tutorials/check-a-suggested-result.md" },
   ] },
   { "Contributing" = [
       { "Contribute a tutorial" = "contributing.md" },

@@ -5,7 +5,7 @@
 * [Launch MESA JupyterLab with your Data Store mounted](launch-jupyterlab.md) - Start the MESA JupyterLab app from the MESA Portal and confirm that your CyVerse Data Store is available inside it.
 * [Save your work where it survives the session](save-your-work.md) - Save a notebook inside your Data Store from MESA JupyterLab and confirm from the MESA Portal that it will outlive the app.
 * [Stop an app and find your results](stop-app-find-results.md) - Stop a running MESA app with Save & Exit from the Analyses page and find its results in the Data Browser.
-* [Practice data: five invented rain gauges](practice-data.md) - The synthetic rain-gauge practice dataset used by the data tutorials: what its two files contain, its data dictionary, and how to copy it into your Data Store.
+* [Practice data: five invented rain gauges](practice-data.md) - The synthetic rain-gauge practice dataset used by the data tutorials: what its three files contain, its data dictionary, and how to copy it into your Data Store.
 * [Load a file from your Data Store into a notebook](load-a-file.md) - Read a CSV file that sits in your Data Store into a pandas table in MESA JupyterLab and confirm its size against what you expected.
 * [Read the data dictionary before the data](read-the-data-dictionary.md) - Use a dataset's data dictionary to find out what each column means and which column you cannot yet add up, before you compute anything.
 * [Check a column's range and missing values](check-range-and-missing.md) - Find the smallest and largest value in a column and count the blanks in every column, so that an impossible value or a gap shows up before you compute with it.
@@ -18,3 +18,7 @@
 * [Add metadata to a file or folder](add-metadata.md) - Describe a folder in your Data Store with an attribute and a value from the MESA Portal's Data Browser, and confirm the description was saved.
 * [Sign in and start an AI agent in a MESA app](start-an-ai-agent.md) - Sign in to CyVerse from a terminal in a MESA app, connect an AI agent to a language model, and have it list the folders in your Data Store.
 * [Keep tokens and passwords out of saved files](keep-secrets-out-of-files.md) - Give a notebook a token without typing it into a cell, and confirm that the saved notebook does not contain it.
+* [Turn UTC timestamps into local days](local-days-from-utc.md) - Convert UTC timestamps to local time before grouping by day, and confirm the daily totals against values you already trust.
+* [Work with a long table, one row per kind of measurement](work-with-a-long-table.md) - Recognise a table that stacks several kinds of measurement in one value column, summarise each kind separately, and reshape it to one column per measurement.
+* [Query a Parquet file with DuckDB from a notebook](query-parquet-with-duckdb.md) - Run SQL against a Parquet file from a notebook with DuckDB, without loading the file into memory first, and bring a result back as a pandas table.
+* [Check an AI-suggested result against the data](check-a-suggested-result.md) - Test a result that an AI assistant, or anyone else, hands you: reproduce the number, find what it rests on, and say whether the claim survives.

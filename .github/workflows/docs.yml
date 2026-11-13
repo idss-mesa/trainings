@@ -34,8 +34,24 @@ jobs:
           python scripts/gen_llms_txt.py
           git diff --exit-code docs/llms.txt docs/llms-full.txt
 
+  # Run the tutorials' code against the practice data and compare it with the
+  # output printed on each page. Versions match MESA JupyterLab.
+  tutorial-outputs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: 3.x
+      - run: pip install pandas==3.1.1 duckdb==2.0.0
+      - run: python scripts/check_tutorial_outputs.py
+      # The practice data must be what its generator writes.
+      - run: |
+          python scripts/make_practice_data.py
+          git diff --exit-code docs/assets/practice
+
   deploy:
-    needs: okf-conformance
+    needs: [okf-conformance, tutorial-outputs]
     if: github.event_name != 'pull_request'
     environment:
       name: github-pages

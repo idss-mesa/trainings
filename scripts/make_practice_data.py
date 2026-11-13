@@ -1,6 +1,7 @@
 """Generate the synthetic practice data in docs/assets/practice/.
 
-Five invented rain gauges, daily readings for July 2026. The data describes no
+Five invented rain gauges, daily readings for July 2026, and one week of hourly
+observations from one of them. The data describes no
 real place or measurement. It is deliberately imperfect (one gauge reports in a
 different unit, some readings are flagged, one row is repeated, some days are
 missing) so that the data tutorials have something to find. The seed is fixed,
@@ -10,6 +11,7 @@ Usage: python scripts/make_practice_data.py
 """
 import csv
 import datetime as dt
+import math
 import random
 from pathlib import Path
 
@@ -62,6 +64,43 @@ def main() -> None:
         w.writerow(["gauge_id", "date", "value", "flag"])
         w.writerows(rows)
     print(f"gauges.csv: {len(GAUGES)} rows; readings.csv: {len(rows)} rows")
+    write_observations(rows)
+
+
+def write_observations(daily_rows) -> None:
+    """Hourly observations for one gauge and one week, in long format.
+
+    One row per hour and per kind of measurement, time-stamped in UTC. The campus
+    keeps US Mountain Time (UTC-6 in July), and most rain falls in the evening, so
+    a day's rain straddles midnight UTC. Summed by local day, the hourly rain
+    equals that gauge's daily values in readings.csv.
+    """
+    gauge_id, first, n_days, utc_offset = "G03", dt.date(2026, 7, 10), 7, -6
+    rng = random.Random(7102026)             # separate stream: readings.csv is unchanged
+    daily = {r[1]: r[2] for r in daily_rows if r[0] == gauge_id}
+    out = []
+    for n in range(n_days):
+        day = first + dt.timedelta(days=n)
+        tenths = round(daily[day.isoformat()] * 10)
+        rain = [0] * 24
+        if tenths:
+            start = rng.randint(17, 20)
+            hours = list(range(start, min(start + rng.randint(3, 4), 24)))
+            weights = [rng.uniform(0.5, 1.5) for _ in hours]
+            for h, w in zip(hours, weights):
+                rain[h] = int(tenths * w / sum(weights))
+            rain[hours[0]] += tenths - sum(rain)
+        for hour in range(24):
+            local = dt.datetime(day.year, day.month, day.day, hour)
+            stamp = (local - dt.timedelta(hours=utc_offset)).strftime("%Y-%m-%dT%H:%M:%SZ")
+            temp = 18 + 7 * math.sin((hour - 9) / 24 * 2 * math.pi) + rng.uniform(-0.8, 0.8)
+            out.append([gauge_id, stamp, "rain_mm", rain[hour] / 10])
+            out.append([gauge_id, stamp, "air_temp_c", round(temp, 1)])
+    with open(OUT / "observations.csv", "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["gauge_id", "timestamp_utc", "measurement", "value"])
+        w.writerows(out)
+    print(f"observations.csv: {len(out)} rows")
 
 
 if __name__ == "__main__":

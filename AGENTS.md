@@ -39,10 +39,11 @@ zensical serve                                  # live preview at localhost:8000
 zensical build --clean --strict                 # static site -> site/
 python scripts/okf_validate.py docs             # OKF conformance (CI-enforced; 0 errors required)
 python scripts/gen_llms_txt.py                  # regenerate docs/llms.txt + docs/llms-full.txt (CI checks drift)
+python scripts/check_tutorial_outputs.py        # run the tutorials' code and compare with the printed output (CI-enforced; needs pandas, duckdb)
 python scripts/postbuild_agent_surface.py site  # after build: md mirror + okf:* meta + robots.txt
 ```
 
-The scripts are the ones in idss-mesa/docs and read `site_url`, `repo_url`,
+The validation and agent-surface scripts are the ones in idss-mesa/docs and read `site_url`, `repo_url`,
 `edit_uri`, and `nav` from `zensical.toml`. Keep them in step with that
 repository rather than changing them here.
 
@@ -101,7 +102,9 @@ repository rather than changing them here.
     history. Use placeholders such as `<your username>`.
 15. **Data tutorials use the practice data** in `docs/assets/practice/`
     (synthetic; described in `docs/tutorials/practice-data.md`). Run every
-    code block and paste its real output. The draft notice says where the
+    code block and paste its real output; `scripts/check_tutorial_outputs.py`
+    checks that they still agree. A new tutorial also goes under its pathway
+    point in `docs/pathway.md`. The draft notice says where the
     code was run; the tutorial stays a draft until someone follows it in MESA
     JupyterLab. The files come from `scripts/make_practice_data.py`; if you
     change it, rerun it and update every output the tutorials show.

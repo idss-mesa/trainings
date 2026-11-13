@@ -92,6 +92,7 @@ before you signed in, so its tools are still anonymous. Quit the agent, run
 
 ## Next
 
+- [Check an AI-suggested result against the data](check-a-suggested-result.md)
 - Type your password and your key only where these commands ask for them. See
   [Keep tokens and passwords out of saved files](keep-secrets-out-of-files.md).
 - Signing in lasts only as long as the app: repeat steps 2 and 3 in each new session.
