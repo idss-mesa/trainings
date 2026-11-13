@@ -2,6 +2,11 @@
 
 ## 2026-11-13
 
+* **Creation**: Added a first tutorial for each of the remaining MESA apps, each followed
+  once in the app:
+  [Download a file from the web into your Data Store with MESA Cloud Shell](tutorials/cloud-shell-download.md),
+  [Write and run a Python script in MESA VS Code](tutorials/vscode-run-a-script.md), and
+  [Open a file from your Data Store in a desktop program](tutorials/desktop-open-a-file.md).
 * **Update**: Closed gaps in today's tutorials after a second pass on the live portal.
   The R tutorials were followed one step at a time in MESA RStudio Geospatial. In
   [Search for a file or folder by name](tutorials/search-the-data-browser.md) every
