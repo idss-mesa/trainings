@@ -81,6 +81,9 @@ notebook, so do the first one first.
 | I want to… | Tutorial | Time |
 |---|---|---|
 | Keep work in one place | [Make a folder in your Data Store](https://idss-mesa.github.io/trainings/tutorials/make-a-folder/) | 5 min |
+| Give a folder a better name | [Rename a folder in your Data Store](https://idss-mesa.github.io/trainings/tutorials/rename-a-folder/) | 5 min |
+| Tidy folders away | [Move folders into another folder](https://idss-mesa.github.io/trainings/tutorials/move-folders/) | 5–10 min |
+| Undo a deletion | [Move a folder to the trash and get it back](https://idss-mesa.github.io/trainings/tutorials/trash-and-restore/) | 10 min |
 | Find something by name | [Search for a file or folder by name](https://idss-mesa.github.io/trainings/tutorials/search-the-data-browser/) | 5 min |
 | Give an app more memory or time | [Launch an app with the cores, memory, and time you choose](https://idss-mesa.github.io/trainings/tutorials/launch-with-options/) | 5–10 min |
 | Keep an app from timing out | [Check on a running app and give it more time](https://idss-mesa.github.io/trainings/tutorials/monitor-and-extend/) | 5 min |
@@ -186,6 +189,9 @@ Get into MESA, find data, start an app, and keep and share what you make.
 9. [Check on a running app and give it more time](https://idss-mesa.github.io/trainings/tutorials/monitor-and-extend/)
 10. [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/)
 11. [Share a folder with a collaborator](https://idss-mesa.github.io/trainings/tutorials/share-a-folder/)
+12. [Rename a folder in your Data Store](https://idss-mesa.github.io/trainings/tutorials/rename-a-folder/)
+13. [Move folders into another folder](https://idss-mesa.github.io/trainings/tutorials/move-folders/)
+14. [Move a folder to the trash and get it back](https://idss-mesa.github.io/trainings/tutorials/trash-and-restore/)
 
 The other MESA apps, one first task each:
 
@@ -4132,6 +4138,287 @@ installed. Search for one name without the `==`, for example
 
 *Not yet validated by a second person. Drafted 2026-11-13 and followed in MESA JupyterLab that day.*
 
+---8<--- https://idss-mesa.github.io/trainings/tutorials/rename-a-folder/
+
+---
+type: Guide
+title: "Rename a folder in your Data Store"
+description: "Give a folder in your Data Store a clearer name from the MESA Portal's Data Browser, and confirm its path changed with it."
+tags: [byte, p1, portal, data-browser, folders]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Rename a folder in your Data Store
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once on the live portal on 2026-11-13, by the person who
+    wrote them, on a folder. The same menu appears on files, but renaming a file was not
+    tried. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** have a folder with a new name, and know what else the change affects.
+
+**Time:** 5 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/), and
+a folder of your own to rename. [Make a folder](https://idss-mesa.github.io/trainings/tutorials/make-a-folder/) called `draft` if you
+have none to spare.
+
+## Steps
+
+1. In the sidebar, click **Data Browser**, then **My Files**.
+
+    You should see: a card for each of your folders, each with a **⋮** button at its
+    right-hand end.
+
+2. Click **⋮** on the folder's card.
+
+    You should see: a menu with **Rename**, **Metadata**, **Full Metadata Page**,
+    **Share**, and **Trash**.
+
+    ![A card's ⋮ menu: Rename, Metadata, Full Metadata Page, Share, and Trash](https://idss-mesa.github.io/docs/assets/portal/data-card-menu.webp){ width="420" }
+
+3. Click **Rename**.
+
+    You should see: a **Rename** window with a **New name** box. The present name is
+    in the box and already selected.
+
+4. Type the new name, for example `rain-2026`. Use lower-case letters, numbers, and
+   hyphens.
+
+    You should see: your text replace the old name.
+
+5. Click **Rename**.
+
+    You should see: the notice **Renamed successfully** at the top right, and after a
+    few seconds the card under its new name.
+
+6. Click the folder's new name to open it, and read the path under its name in the
+   header.
+
+    You should see: the path end in the new name.
+
+## Check it worked
+
+The path in the folder header ends with the name you typed:
+
+```text
+/iplant/home/<your username>/rain-2026
+```
+
+## If it didn't
+
+**The card still shows the old name.** The listing can lag behind the change. Wait a
+few seconds and reload the page.
+
+**There is no ⋮ button, or no Rename in the menu.** The folder is not yours. Click
+**My Files** and look there.
+
+## Next
+
+- A rename changes the path. Any notebook or script that reads from the old path must
+  be changed to the new one, so rename early, before you write code against a folder.
+- [Move folders into another folder](https://idss-mesa.github.io/trainings/tutorials/move-folders/)
+- Reference: [Managing data, "Upload, create, move, and delete"](https://idss-mesa.github.io/docs/portal/data/#upload-create-move-and-delete).
+
+*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/move-folders/
+
+---
+type: Guide
+title: "Move folders into another folder"
+description: "Select several folders in the MESA Portal's Data Browser and move them together into another folder in your Data Store."
+tags: [byte, p1, portal, data-browser, folders]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Move folders into another folder
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once on the live portal on 2026-11-13, by the person who
+    wrote them, on folders. Moving files, and moving by dragging, were not tried.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** have two folders moved together into a third.
+
+**Time:** 5–10 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/),
+and three folders of your own in the same place. [Make them](https://idss-mesa.github.io/trainings/tutorials/make-a-folder/) if you
+need to: `notes-a`, `notes-b`, and `archive`.
+
+## Steps
+
+1. In the sidebar, click **Data Browser**, then **My Files**.
+
+    You should see: a card for each folder, each with a small box at its left-hand
+    end.
+
+2. Tick the box on `notes-a`.
+
+    You should see: a toolbar above the cards that says **1 item selected**, with
+    **Trash**, **Move**, **Share**, and **Clear**.
+
+3. Tick the box on `notes-b`.
+
+    You should see: **2 items selected**. **Select All**, above the listing, ticks
+    every card on the page, and **Clear** unticks them all.
+
+4. Click **Move** in the toolbar.
+
+    You should see: a **Move 2 item(s)** window with a **Destination path** box.
+
+5. Make the box hold the full path of the folder to move into. If it already holds
+   the path of the folder you are in, add `/archive` to the end. If it is empty, type
+   the whole path:
+
+    ```text
+    /iplant/home/<your username>/archive
+    ```
+
+    You should see: the complete path in the box, starting with `/iplant/home/`.
+
+6. Click **Move**.
+
+    You should see: the notice **Moved 2 item(s)** at the top right.
+
+7. Wait about twenty seconds, reload the page, and click `archive` to open it.
+
+    You should see: `notes-a` and `notes-b` inside `archive`, and no longer in the
+    folder you started in.
+
+## Check it worked
+
+Open one of the moved folders and read the path in its header. It now passes through
+`archive`:
+
+```text
+/iplant/home/<your username>/archive/notes-a
+```
+
+## If it didn't
+
+**The folders are still listed where they were.** The notice appears before the
+listing catches up. Wait, then reload the page; do not move them a second time.
+
+**Move failed, "dest must be a non-blank string".** The path in the box was not
+complete. Type all of it, from `/iplant/home/`.
+
+**Move failed, `ERR_CONFLICT`.** CyVerse is still busy with one of the items, for
+example one just restored from the trash. Wait a minute and click **Move** again.
+
+## Next
+
+- A move changes the path, just as a rename does: update any notebook or script that
+  reads from the old one.
+- [Move a folder to the trash and get it back](https://idss-mesa.github.io/trainings/tutorials/trash-and-restore/)
+- Reference: [Managing data, "Work on several items at once"](https://idss-mesa.github.io/docs/portal/data/#work-on-several-items-at-once).
+
+*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/trash-and-restore/
+
+---
+type: Guide
+title: "Move a folder to the trash and get it back"
+description: "Move a folder to your Data Store trash from the MESA Portal, then restore it from the trash in the CyVerse Discovery Environment."
+tags: [byte, p1, portal, data-browser, folders, discovery-environment]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Move a folder to the trash and get it back
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once on 2026-11-13, by the person who wrote them, on a
+    folder. The browser used for the test could not show the confirmation box in step
+    3, so it was accepted automatically; its wording is as the portal sends it.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** have put a folder in the trash, and brought it back.
+
+**Time:** 10 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/),
+and a folder of your own that you can afford to lose. [Make one](https://idss-mesa.github.io/trainings/tutorials/make-a-folder/)
+called `old-notes`.
+
+## Steps
+
+1. In the sidebar, click **Data Browser**, then **My Files**.
+
+    You should see: a card for each folder, with a **⋮** button at its right-hand end.
+
+2. Click **⋮** on `old-notes`, then **Trash**.
+
+    You should see: your browser ask *Move "old-notes" to trash?*
+
+3. Click **OK**.
+
+    You should see: the notice *"old-notes" moved to trash — it will disappear
+    shortly*, and the card turn grey and read **Deleting…**.
+
+4. Wait half a minute and reload the page.
+
+    You should see: no `old-notes` card. The folder is in the trash, not destroyed.
+
+5. The portal has no view of the trash. Open the Discovery Environment at
+   <https://de.cyverse.org/data> in a new tab. It uses the same CyVerse account.
+
+    You should see: the Discovery Environment's **Data** page, with a button near the
+    top left that carries your username.
+
+6. Click that button and choose **Trash**.
+
+    You should see: one row for the folder, named `old-notes` followed by a dot and a
+    few random characters.
+
+7. Tick the box on that row. Then click the **Trash** button at the top right and
+   choose **Restore**.
+
+    You should see: the notice *Restoring requested item(s)*.
+
+8. Go back to the MESA Portal tab, wait a minute, and reload **My Files**.
+
+    You should see: `old-notes` again, under its original name.
+
+## Check it worked
+
+`old-notes` is listed in **My Files** with the name and path it had before you
+trashed it.
+
+## If it didn't
+
+**The grey card does not go away.** It stays until the page is reloaded. Reload.
+
+**The folder is not back yet.** Restoring is not instant. Wait another minute and
+reload. For a minute or so after it returns, moving it can fail with `ERR_CONFLICT`;
+wait and try again.
+
+## Next
+
+- In the Discovery Environment's Trash, **Delete** and **Empty Trash** destroy items
+  for good. Use them only when you are sure.
+- To trash several items at once, tick their boxes and click **Trash** in the
+  toolbar: see [Move folders into another folder](https://idss-mesa.github.io/trainings/tutorials/move-folders/) for the toolbar.
+- Reference: [Managing data, "Upload, create, move, and delete"](https://idss-mesa.github.io/docs/portal/data/#upload-create-move-and-delete).
+
+*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+
 ---8<--- https://idss-mesa.github.io/trainings/contributing/
 
 ---
@@ -4491,6 +4778,11 @@ explains.
 
 ## 2026-11-13
 
+* **Creation**: Added three file-handling tutorials, each followed once on the live
+  portal with folders:
+  [Rename a folder in your Data Store](tutorials/rename-a-folder.md),
+  [Move folders into another folder](tutorials/move-folders.md), and
+  [Move a folder to the trash and get it back](tutorials/trash-and-restore.md).
 * **Update**: Checked [Share a folder with a collaborator](tutorials/share-a-folder.md)
   from a second account. **User Shared** lists a folder for each user, so the check now
   says how the collaborator finds yours and what read-only access looks like.

@@ -55,6 +55,9 @@ nav = [
       { "Desktop: open a file" = "tutorials/desktop-open-a-file.md" },
       { "Write a README" = "tutorials/write-a-readme.md" },
       { "Record software versions" = "tutorials/record-software-versions.md" },
+      { "Rename a folder" = "tutorials/rename-a-folder.md" },
+      { "Move folders" = "tutorials/move-folders.md" },
+      { "Trash and restore a folder" = "tutorials/trash-and-restore.md" },
   ] },
   { "Contributing" = [
       { "Contribute a tutorial" = "contributing.md" },
