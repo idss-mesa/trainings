@@ -2874,8 +2874,10 @@ sources:
 
 5. Wait for the listing to refresh, then click the new folder's name.
 
-    You should see: the folder open and empty, with its name in the dark header band
-    and **Owner** as your access.
+    You should see: the folder open, with its name in the dark header band, **Owner** as
+    your access, and *No files in this directory*. If you reload the page while you are
+    in an empty folder, the portal shows a password box headed **Unable to Load Files**.
+    Nothing is wrong and you do not need to type a password: the folder is only empty.
 
 6. Read the path under the folder's name.
 
