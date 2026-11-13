@@ -12,3 +12,4 @@
 * [Tally a quality flag before you trust a number](tally-a-quality-flag.md) - Count how many rows carry each value of a quality flag, including the blanks, and look at the flagged rows before deciding what to do with them.
 * [Count records per day to find incomplete days](count-records-per-day.md) - Count the rows for each gauge and day to find days that were recorded twice and days that were not recorded at all.
 * [Reconcile row counts before and after a join](reconcile-a-join.md) - Join a table of readings to a table of gauges and confirm that the join neither added nor lost rows and left no reading without a match.
+* [Leave a notebook someone else can rerun](leave-a-rerunnable-notebook.md) - Restart a notebook and run it from the top, remove what ties it to your session, and say at the top what it needs, so that another person gets the same result.

@@ -32,9 +32,10 @@ training program to use them.
 [All tutorials](https://idss-mesa.github.io/trainings/tutorials/){ .md-button }
 
 !!! warning "These tutorials are drafts"
-    Every tutorial here was written from the
-    [MESA documentation](https://idss-mesa.github.io/docs/) and has not yet been checked
-    step by step on the live portal. Each page says so at the top and at the bottom.
+    The portal tutorials were written from the
+    [MESA documentation](https://idss-mesa.github.io/docs/), and the code in the data
+    tutorials was run on a laptop. None has yet been checked step by step on the live
+    portal. Each page says so at the top and at the bottom.
     When a tutorial has been validated, its last line gives the date, who checked it, and
     what it was checked against.
 
@@ -50,6 +51,22 @@ browser and a free [CyVerse account](https://user.cyverse.org).
 | Start working in a notebook | [Launch MESA JupyterLab with your Data Store mounted](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/) | 5–10 min |
 | Not lose my work | [Save your work where it survives the session](https://idss-mesa.github.io/trainings/tutorials/save-your-work/) | 5–10 min |
 | Finish for the day | [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/) | 5 min |
+
+## Working with data
+
+These tutorials each teach one habit for checking data before you trust a result. They
+share one small synthetic [practice dataset](https://idss-mesa.github.io/trainings/tutorials/practice-data/) and one
+notebook, so do the first one first.
+
+| I want to… | Tutorial | Time |
+|---|---|---|
+| Get a file into a notebook | [Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/) | 5 min |
+| Know what the columns mean | [Read the data dictionary before the data](https://idss-mesa.github.io/trainings/tutorials/read-the-data-dictionary/) | 5 min |
+| Spot impossible values and blanks | [Check a column's range and missing values](https://idss-mesa.github.io/trainings/tutorials/check-range-and-missing/) | 5 min |
+| See what the provider doubted | [Tally a quality flag before you trust a number](https://idss-mesa.github.io/trainings/tutorials/tally-a-quality-flag/) | 5 min |
+| Find repeated and missing days | [Count records per day to find incomplete days](https://idss-mesa.github.io/trainings/tutorials/count-records-per-day/) | 5–10 min |
+| Join two tables safely | [Reconcile row counts before and after a join](https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/) | 5–10 min |
+| Hand my notebook to someone | [Leave a notebook someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/leave-a-rerunnable-notebook/) | 5–10 min |
 
 ## How a tutorial is laid out
 
@@ -806,7 +823,7 @@ and `gauges` exist.
     You should see: G02's largest reading far below its neighbours'. The dictionary
     has already told you why: G02 reports in centimetres, the others in millimetres.
 
-6. In a Markdown cell (**Esc**, then **M**), write one sentence of your own that says
+6. In a Markdown cell (press ++esc++, then ++m++), write one sentence of your own that says
    what `value` holds and what must happen before values from different gauges are
    compared.
 
@@ -1319,12 +1336,120 @@ before you join.
 
 ## Next
 
+- [Leave a notebook someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/leave-a-rerunnable-notebook/)
 - A join carries problems along with it: rows repeated in `readings` are still
   repeated in `joined`. See
   [Count records per day to find incomplete days](https://idss-mesa.github.io/trainings/tutorials/count-records-per-day/).
 - Reference: [pandas.DataFrame.merge](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html).
 
 *Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the code was run with pandas 3.1 on the practice data.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/leave-a-rerunnable-notebook/
+
+---
+type: Guide
+title: "Leave a notebook someone else can rerun"
+description: "Restart a notebook and run it from the top, remove what ties it to your session, and say at the top what it needs, so that another person gets the same result."
+tags: [byte, p5, reproducibility, jupyterlab, notebook]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-12T00:00:00Z" }
+stale_after: "2027-05-12T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: jupyterlab
+    resource: "https://jupyterlab.readthedocs.io/en/stable/user/notebook.html"
+    title: "Notebooks (JupyterLab documentation)"
+    author: "team:jupyterlab"
+---
+
+# Leave a notebook someone else can rerun
+
+!!! warning "Draft: not yet validated"
+    Nobody has yet followed this tutorial in MESA JupyterLab, so a menu name may differ
+    there. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A notebook remembers every cell you ran, in the order you ran it, including cells you
+have since changed or deleted. What it shows can therefore differ from what it
+produces when someone else runs it from the top.
+
+**You will:** have a notebook that runs from a fresh start, top to bottom, without you.
+
+**Time:** 5 to 10 minutes. **You need:** `practice.ipynb` from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), open in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), with whatever you have added to it since.
+
+## Steps
+
+1. Choose **Kernel → Restart Kernel and Run All Cells…** and confirm with **Restart**.
+
+    You should see: every code cell numbered in order down the page, `[1]`, `[2]`,
+    `[3]`, with no red error box. If a cell fails, go to "If it didn't" below, then come
+    back.
+
+2. Choose **Edit → Find…** and search the notebook for `/home/`.
+
+    You should see: no matches. A path that starts at your own home folder works only
+    for you; a bare file name such as `"readings.csv"` works for anyone who has the
+    file beside the notebook.
+
+3. Click the first cell, press ++esc++, then ++a++ to add a cell above it, then ++m++
+   to make it a Markdown cell. Write what the notebook does, which files it needs, and
+   where they come from:
+
+    ```markdown
+    # Checks on the practice rain-gauge data
+
+    Needs `gauges.csv` and `readings.csv` in the same folder as this notebook.
+    Both are at https://idss-mesa.github.io/trainings/tutorials/practice-data/
+    ```
+
+    You should see: the heading and the text, rendered, after you press
+    ++shift+enter++.
+
+4. Add a code cell at the very end that records what the notebook ran on:
+
+    ```python
+    import sys
+
+    print("Python", sys.version.split()[0], "| pandas", pd.__version__)
+    ```
+
+    You should see: one line with two version numbers.
+
+5. Repeat step 1, then choose **File → Save Notebook**.
+
+    You should see: the cells numbered in order again, and the outputs now saved in
+    the file are the ones a fresh run produces.
+
+6. Look at the `mesa-practice` folder in the file browser.
+
+    You should see: `practice.ipynb`, `gauges.csv`, and `readings.csv`. The folder holds
+    everything the notebook needs, so the folder is what you share.
+
+## Check it worked
+
+After **Restart Kernel and Run All Cells…**, the code cells are numbered consecutively
+from `[1]` and none shows an error. Numbers that skip or run out of order mean cells
+were run by hand since the last restart.
+
+## If it didn't
+
+**A cell stops with `NameError: name '...' is not defined`.** The cell uses something
+that was defined in a cell you later deleted or changed, or in a cell further down.
+It worked before only because the kernel still remembered the old definition. Put the
+definition in a cell above the one that failed, then repeat step 1.
+
+## Next
+
+- Reference: [Managing data, "Share data"](https://idss-mesa.github.io/docs/portal/data/#share-data),
+  for giving a colleague access to the folder.
+- Reference: [Notebooks](https://jupyterlab.readthedocs.io/en/stable/user/notebook.html)
+  in the JupyterLab documentation.
+
+*Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the version cell was run with pandas 3.1.*
 
 ---8<--- https://idss-mesa.github.io/trainings/contributing/
 
@@ -1549,6 +1674,13 @@ with:
 *Validated <date> by <who> on <portal, app, and image or version>.*
 ```
 
+A data tutorial, one that teaches a technique on the
+[practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/), words both a little differently, because
+its code can be run before anyone tries it in a MESA app. Its notice says where the
+code was run, and its last line reads *Not yet validated in MESA JupyterLab*. Copy
+both from an existing data tutorial such as
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/).
+
 [^quickbytes]: https://idss-mesa.github.io/trainings/UNM CARC QuickBytes, <https://github.com/UNM-CARC/QuickBytes>.
 [^docs-agents]: https://idss-mesa.github.io/trainings/Agent guide, MESA documentation, <https://github.com/idss-mesa/docs/blob/main/AGENTS.md>.
 
@@ -1680,13 +1812,14 @@ explains.
 
 * **Creation**: Added the [practice data](tutorials/practice-data.md), two small
   synthetic rain-gauge files with a data dictionary (made by
-  `scripts/make_practice_data.py`), and six draft data tutorials that
+  `scripts/make_practice_data.py`), and seven draft data tutorials that
   use it: [Load a file from your Data Store into a notebook](tutorials/load-a-file.md),
   [Read the data dictionary before the data](tutorials/read-the-data-dictionary.md),
   [Check a column's range and missing values](tutorials/check-range-and-missing.md),
   [Tally a quality flag before you trust a number](tutorials/tally-a-quality-flag.md),
   [Count records per day to find incomplete days](tutorials/count-records-per-day.md),
-  and [Reconcile row counts before and after a join](tutorials/reconcile-a-join.md).
+  [Reconcile row counts before and after a join](tutorials/reconcile-a-join.md), and
+  [Leave a notebook someone else can rerun](tutorials/leave-a-rerunnable-notebook.md).
   The code was run with pandas 3.1 on a laptop; none has been validated in MESA
   JupyterLab.
 

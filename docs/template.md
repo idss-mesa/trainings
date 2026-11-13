@@ -134,5 +134,12 @@ with:
 *Validated <date> by <who> on <portal, app, and image or version>.*
 ```
 
+A data tutorial, one that teaches a technique on the
+[practice data](tutorials/practice-data.md), words both a little differently, because
+its code can be run before anyone tries it in a MESA app. Its notice says where the
+code was run, and its last line reads *Not yet validated in MESA JupyterLab*. Copy
+both from an existing data tutorial such as
+[Load a file from your Data Store into a notebook](tutorials/load-a-file.md).
+
 [^quickbytes]: UNM CARC QuickBytes, <https://github.com/UNM-CARC/QuickBytes>.
 [^docs-agents]: Agent guide, MESA documentation, <https://github.com/idss-mesa/docs/blob/main/AGENTS.md>.

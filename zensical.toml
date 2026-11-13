@@ -31,6 +31,7 @@ nav = [
       { "Tally a quality flag" = "tutorials/tally-a-quality-flag.md" },
       { "Count records per day" = "tutorials/count-records-per-day.md" },
       { "Reconcile a join" = "tutorials/reconcile-a-join.md" },
+      { "Leave a rerunnable notebook" = "tutorials/leave-a-rerunnable-notebook.md" },
   ] },
   { "Contributing" = [
       { "Contribute a tutorial" = "contributing.md" },

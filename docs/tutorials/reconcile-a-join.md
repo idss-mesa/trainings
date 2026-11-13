@@ -115,6 +115,7 @@ before you join.
 
 ## Next
 
+- [Leave a notebook someone else can rerun](leave-a-rerunnable-notebook.md)
 - A join carries problems along with it: rows repeated in `readings` are still
   repeated in `joined`. See
   [Count records per day to find incomplete days](count-records-per-day.md).

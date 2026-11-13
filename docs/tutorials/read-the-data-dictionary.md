@@ -76,7 +76,7 @@ and `gauges` exist.
     You should see: G02's largest reading far below its neighbours'. The dictionary
     has already told you why: G02 reports in centimetres, the others in millimetres.
 
-6. In a Markdown cell (**Esc**, then **M**), write one sentence of your own that says
+6. In a Markdown cell (press ++esc++, then ++m++), write one sentence of your own that says
    what `value` holds and what must happen before values from different gauges are
    compared.
 

@@ -36,6 +36,7 @@ The form https://idss-mesa.github.io/trainings/<path>.md also returns the same M
 - [Tally a quality flag before you trust a number](https://idss-mesa.github.io/trainings/tutorials/tally-a-quality-flag/): Count how many rows carry each value of a quality flag, including the blanks, and look at the flagged rows before deciding what to do with them. (draft) Markdown twin: https://idss-mesa.github.io/trainings/tutorials/tally-a-quality-flag/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/tally-a-quality-flag.md
 - [Count records per day to find incomplete days](https://idss-mesa.github.io/trainings/tutorials/count-records-per-day/): Count the rows for each gauge and day to find days that were recorded twice and days that were not recorded at all. (draft) Markdown twin: https://idss-mesa.github.io/trainings/tutorials/count-records-per-day/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/count-records-per-day.md
 - [Reconcile row counts before and after a join](https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/): Join a table of readings to a table of gauges and confirm that the join neither added nor lost rows and left no reading without a match. (draft) Markdown twin: https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/reconcile-a-join.md
+- [Leave a notebook someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/leave-a-rerunnable-notebook/): Restart a notebook and run it from the top, remove what ties it to your session, and say at the top what it needs, so that another person gets the same result. (draft) Markdown twin: https://idss-mesa.github.io/trainings/tutorials/leave-a-rerunnable-notebook/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/leave-a-rerunnable-notebook.md
 
 ## Contributing
 
@@ -49,7 +50,7 @@ The form https://idss-mesa.github.io/trainings/<path>.md also returns the same M
 
 ## Meta
 
-- [Full corpus in one file](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with frontmatter, links made absolute; about 65 KB, roughly 17,000 tokens. Prefer it over fetching pages one at a time.
+- [Full corpus in one file](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with frontmatter, links made absolute; about 72 KB, roughly 18,000 tokens. Prefer it over fetching pages one at a time.
 - [Update log](https://idss-mesa.github.io/trainings/log/): dated history of changes to this bundle.
 - [For AI agents](https://idss-mesa.github.io/trainings/about/ai-agents/): endpoints, trust signals, and what to do if you cannot fetch this site.
 - [Sitemap](https://idss-mesa.github.io/trainings/sitemap.xml) and [robots.txt](https://idss-mesa.github.io/trainings/robots.txt): crawlers honour only the origin https://idss-mesa.github.io/robots.txt, which is equally permissive.
