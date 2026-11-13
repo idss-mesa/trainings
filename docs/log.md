@@ -2,6 +2,10 @@
 
 ## 2026-11-13
 
+* **Creation**: Added [Map point data with sf in MESA RStudio Geospatial](tutorials/map-points-in-rstudio.md),
+  the first tutorial for that app, run there on 2026-11-13. The
+  [practice data](tutorials/practice-data.md) gained `gauge_sites.csv`, invented
+  coordinates for the five gauges.
 * **Update**: Ran every data tutorial's code inside MESA JupyterLab (pandas 3.1.1, DuckDB
   2.0.0): all 28 printed outputs matched, and the four newest tutorials ran without
   error as notebooks. Their notices now say so. They remain drafts until a person follows
