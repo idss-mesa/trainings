@@ -2,6 +2,13 @@
 
 ## 2026-11-13
 
+* **Creation**: Added four portal tutorials, each followed once on the live portal:
+  [Make a folder in your Data Store](tutorials/make-a-folder.md),
+  [Search for a file or folder by name](tutorials/search-the-data-browser.md),
+  [Launch an app with the cores, memory, and time you choose](tutorials/launch-with-options.md),
+  and [Check on a running app and give it more time](tutorials/monitor-and-extend.md).
+  Tutorials on uploading a file and relaunching an app were not written, because both
+  actions failed on the portal that day.
 * **Creation**: Added [Map point data with sf in MESA RStudio Geospatial](tutorials/map-points-in-rstudio.md),
   the first tutorial for that app, run there on 2026-11-13. The
   [practice data](tutorials/practice-data.md) gained `gauge_sites.csv`, invented

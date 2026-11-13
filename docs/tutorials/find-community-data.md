@@ -72,6 +72,7 @@ not MESA's.** You clicked **Shared**, which opens every CyVerse community projec
 
 ## Next
 
+- [Search for a file or folder by name](search-the-data-browser.md)
 - [Launch MESA JupyterLab with your Data Store mounted](launch-jupyterlab.md)
 - Reference: [Managing data, "Choose where to look"](https://idss-mesa.github.io/docs/portal/data/#choose-where-to-look),
   which explains all five views, and
