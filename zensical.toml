@@ -50,6 +50,9 @@ nav = [
       { "Load a file in RStudio" = "tutorials/r-load-a-file.md" },
       { "Tally a quality flag in R" = "tutorials/r-tally-a-quality-flag.md" },
       { "Query Parquet with DuckDB from R" = "tutorials/r-query-parquet-with-duckdb.md" },
+      { "Cloud Shell: download a file" = "tutorials/cloud-shell-download.md" },
+      { "VS Code: run a script" = "tutorials/vscode-run-a-script.md" },
+      { "Desktop: open a file" = "tutorials/desktop-open-a-file.md" },
   ] },
   { "Contributing" = [
       { "Contribute a tutorial" = "contributing.md" },

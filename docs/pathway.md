@@ -38,6 +38,12 @@ Get into MESA, find data, start an app, and keep and share what you make.
 10. [Stop an app and find your results](tutorials/stop-app-find-results.md)
 11. [Share a folder with a collaborator](tutorials/share-a-folder.md)
 
+The other MESA apps, one first task each:
+
+1. [Download a file from the web into your Data Store with MESA Cloud Shell](tutorials/cloud-shell-download.md)
+2. [Write and run a Python script in MESA VS Code](tutorials/vscode-run-a-script.md)
+3. [Open a file from your Data Store in a desktop program](tutorials/desktop-open-a-file.md)
+
 ## 2. Run and understand
 
 Load a dataset and find out what it holds, and where it is incomplete or doubtful, before you compute with it.

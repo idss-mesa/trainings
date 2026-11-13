@@ -93,6 +93,16 @@ These use MESA RStudio Geospatial and the same practice data.
 | Run SQL on a Parquet file from R | [Query a Parquet file with DuckDB from R](tutorials/r-query-parquet-with-duckdb.md) | 10 min |
 | Put points on a map | [Map point data with sf in MESA RStudio Geospatial](tutorials/map-points-in-rstudio.md) | 10 min |
 
+## The other MESA apps
+
+One first task in each of the apps besides JupyterLab and RStudio.
+
+| I want to… | Tutorial | Time |
+|---|---|---|
+| Fetch a file from the web into my Data Store | [Download a file from the web into your Data Store with MESA Cloud Shell](tutorials/cloud-shell-download.md) | 5–10 min |
+| Write and run a script | [Write and run a Python script in MESA VS Code](tutorials/vscode-run-a-script.md) | 10 min |
+| Use a program that needs a desktop | [Open a file from your Data Store in a desktop program](tutorials/desktop-open-a-file.md) | 10 min |
+
 ## How a tutorial is laid out
 
 Every tutorial has the same six parts, in the same order:

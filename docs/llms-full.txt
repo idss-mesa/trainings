@@ -99,6 +99,16 @@ These use MESA RStudio Geospatial and the same practice data.
 | Run SQL on a Parquet file from R | [Query a Parquet file with DuckDB from R](https://idss-mesa.github.io/trainings/tutorials/r-query-parquet-with-duckdb/) | 10 min |
 | Put points on a map | [Map point data with sf in MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/) | 10 min |
 
+## The other MESA apps
+
+One first task in each of the apps besides JupyterLab and RStudio.
+
+| I want to… | Tutorial | Time |
+|---|---|---|
+| Fetch a file from the web into my Data Store | [Download a file from the web into your Data Store with MESA Cloud Shell](https://idss-mesa.github.io/trainings/tutorials/cloud-shell-download/) | 5–10 min |
+| Write and run a script | [Write and run a Python script in MESA VS Code](https://idss-mesa.github.io/trainings/tutorials/vscode-run-a-script/) | 10 min |
+| Use a program that needs a desktop | [Open a file from your Data Store in a desktop program](https://idss-mesa.github.io/trainings/tutorials/desktop-open-a-file/) | 10 min |
+
 ## How a tutorial is laid out
 
 Every tutorial has the same six parts, in the same order:
@@ -174,6 +184,12 @@ Get into MESA, find data, start an app, and keep and share what you make.
 9. [Check on a running app and give it more time](https://idss-mesa.github.io/trainings/tutorials/monitor-and-extend/)
 10. [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/)
 11. [Share a folder with a collaborator](https://idss-mesa.github.io/trainings/tutorials/share-a-folder/)
+
+The other MESA apps, one first task each:
+
+1. [Download a file from the web into your Data Store with MESA Cloud Shell](https://idss-mesa.github.io/trainings/tutorials/cloud-shell-download/)
+2. [Write and run a Python script in MESA VS Code](https://idss-mesa.github.io/trainings/tutorials/vscode-run-a-script/)
+3. [Open a file from your Data Store in a desktop program](https://idss-mesa.github.io/trainings/tutorials/desktop-open-a-file/)
 
 ## 2. Run and understand
 
@@ -3556,6 +3572,316 @@ in R's working folder. Either step 2 did not run, or R is somewhere else: run
 
 *Not yet validated by a second person in MESA RStudio Geospatial. Drafted 2026-11-13; the code was run there that day (R 4.6.2, duckdb 2.0.0).*
 
+---8<--- https://idss-mesa.github.io/trainings/tutorials/cloud-shell-download/
+
+---
+type: Guide
+title: "Download a file from the web into your Data Store with MESA Cloud Shell"
+description: "Start MESA Cloud Shell, go to a folder in your Data Store, and fetch a file from a web address straight into it with curl."
+tags: [byte, p1, cloud-shell, terminal, data-store]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/apps/cli/"
+    title: "MESA CLI (Cloud Shell)"
+    author: "team:idss-mesa"
+---
+
+# Download a file from the web into your Data Store with MESA Cloud Shell
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once in the app on 2026-11-13, by the person who wrote
+    them. Nobody else has yet followed them, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+MESA Cloud Shell is a terminal in your browser. It is the quickest app to start, and
+a file it downloads goes straight into your Data Store without passing through your
+own computer.
+
+**You will:** have a file from a web address saved in your Data Store.
+
+**Time:** 5 to 10 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/).
+
+## Steps
+
+1. In the portal, click **Applications**, and on the **MESA Cloud Shell** card click
+   **Instant Launch**. Wait for the app to open; it can take a minute or two.
+
+    You should see: a terminal with a MESA welcome screen and a prompt that ends in
+    `~/data-store $>`.
+
+2. Go to your home folder in the Data Store:
+
+    ```bash
+    cd ~/data-store/home/$IPLANT_USER
+    pwd
+    ```
+
+    You should see: the path, ending in your CyVerse username.
+
+    ```text
+    /home/jovyan/data-store/home/<your username>
+    ```
+
+3. Make a folder for the file and go into it:
+
+    ```bash
+    mkdir -p mesa-practice
+    cd mesa-practice
+    ```
+
+    You should see: the prompt now ends in `mesa-practice $>`.
+
+4. Fetch the file. `-O` keeps the file's own name:
+
+    ```bash
+    curl -O https://idss-mesa.github.io/trainings/assets/practice/readings.csv
+    ```
+
+    You should see: a progress table whose first number reaches `100`.
+
+5. Check what arrived:
+
+    ```bash
+    wc -l readings.csv
+    head -3 readings.csv
+    ```
+
+    You should see: the line count, then the first three lines.
+
+    ```text
+    153 readings.csv
+    gauge_id,date,value,flag
+    G01,2026-07-01,0.0,
+    G01,2026-07-02,0.0,
+    ```
+
+6. In the portal's browser tab, click **Data Browser**, then **My Files**, and open
+   **mesa-practice**.
+
+    You should see: `readings.csv` in the listing.
+
+## Check it worked
+
+`readings.csv` is in **My Files → mesa-practice** in the portal, and `wc -l` counted
+153 lines: a header and 152 readings.
+
+## If it didn't
+
+**`head` shows HTML such as `<!doctype html>` instead of data.** The address was
+wrong, and `curl` saved the website's error page under the file's name. Delete it with
+`rm readings.csv`, check the address, and run step 4 again. Adding `-f` to `curl`
+makes it refuse to save an error page.
+
+## Next
+
+- [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/), when you have
+  finished with the terminal.
+- [Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/)
+- Reference: [MESA CLI (Cloud Shell)](https://idss-mesa.github.io/docs/apps/cli/), for
+  what else the terminal contains.
+
+*Not yet validated by a second person. Drafted 2026-11-13 and followed once in the app that day.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/vscode-run-a-script/
+
+---
+type: Guide
+title: "Write and run a Python script in MESA VS Code"
+description: "Open MESA VS Code on your Data Store, create a Python script in a folder there, and run it in the built-in terminal."
+tags: [byte, p1, vscode, python, data-store]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/apps/vscode/"
+    title: "MESA VS Code"
+    author: "team:idss-mesa"
+---
+
+# Write and run a Python script in MESA VS Code
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once in the app on 2026-11-13, by the person who wrote
+    them. Nobody else has yet followed them, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+MESA VS Code is the Visual Studio Code editor in a browser tab, opened on your Data
+Store. A script you write there is saved in your Data Store as you type.
+
+**You will:** have a Python script in your Data Store that reads a data file and prints
+a result.
+
+**Time:** 10 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/),
+and `readings.csv` in a `mesa-practice` folder in your Data Store, from the
+[practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/) or from
+[the Cloud Shell tutorial](https://idss-mesa.github.io/trainings/tutorials/cloud-shell-download/).
+
+## Steps
+
+1. In the portal, click **Applications**, and on the **MESA VS Code** card click
+   **Instant Launch**. Wait for the editor to open.
+
+    You should see: VS Code, with an **Explorer** panel on the left that lists the
+    folders of your Data Store home under your username.
+
+2. In the **Explorer**, click **mesa-practice**.
+
+    You should see: the folder open, with `readings.csv` inside it.
+
+3. Right-click **mesa-practice** and choose **New File…**. Type `count_rows.py` and
+   press ++enter++.
+
+    You should see: the new file in the folder, and an empty editor tab named
+    `count_rows.py`.
+
+4. Type this into the editor:
+
+    ```python
+    import csv
+
+    rows = list(csv.DictReader(open("readings.csv")))
+    flagged = [r for r in rows if r["flag"] == "S"]
+    print(len(rows), "readings,", len(flagged), "flagged")
+    ```
+
+    You should see: the code coloured as Python. VS Code saves it for you: **Auto
+    Save** is switched on.
+
+5. Right-click **mesa-practice** again and choose **Open in Integrated Terminal**.
+
+    You should see: a terminal panel under the editor, with a MESA welcome screen and
+    a prompt that ends in `mesa-practice $>`.
+
+6. Click in the terminal and run the script:
+
+    ```bash
+    python count_rows.py
+    ```
+
+    You should see:
+
+    ```text
+    152 readings, 2 flagged
+    ```
+
+## Check it worked
+
+The terminal prints `152 readings, 2 flagged`, and `count_rows.py` is listed in
+**My Files → mesa-practice** in the portal's Data Browser.
+
+## If it didn't
+
+**`FileNotFoundError: [Errno 2] No such file or directory: 'readings.csv'`.** The
+terminal is not in the folder that holds the data. Its prompt shows where it is. Close
+it, then repeat step 5, making sure you right-click **mesa-practice** and not the
+folder above it.
+
+## Next
+
+- [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/), when you have
+  finished with the editor.
+- Reference: [MESA VS Code](https://idss-mesa.github.io/docs/apps/vscode/), for the
+  extensions and tools the app contains.
+
+*Not yet validated by a second person. Drafted 2026-11-13 and followed once in the app that day.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/desktop-open-a-file/
+
+---
+type: Guide
+title: "Open a file from your Data Store in a desktop program"
+description: "Start the MESA KASM Ubuntu Desktop, find a file in your Data Store with its file manager, and open it in a desktop program."
+tags: [byte, p1, kasm, desktop, data-store]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/apps/kasm/"
+    title: "MESA KASM Ubuntu Desktop"
+    author: "team:idss-mesa"
+---
+
+# Open a file from your Data Store in a desktop program
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once in the app on 2026-11-13, by the person who wrote
+    them. Nobody else has yet followed them, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+Some software only has a graphical interface: desktop GIS, image editors, 3D viewers.
+The MESA KASM Ubuntu Desktop is a full Linux desktop in a browser tab, with your Data
+Store attached, for that kind of program.
+
+**You will:** have opened an image from your Data Store in GIMP, an image editor, on
+the MESA desktop.
+
+**Time:** 10 minutes, some of it waiting for the desktop to start. **You need:** to be
+[signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/), and an image in your Data Store, such as
+`gauge-map.png` from
+[Map point data with sf in MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/).
+
+## Steps
+
+1. In the portal, click **Applications**, and on the **MESA KASM Ubuntu Desktop** card
+   click **Instant Launch**. Wait for the desktop; in our test it took two and a half
+   minutes.
+
+    You should see: a desktop with **Trash**, **File System**, and **Home** icons at
+    the top left, and a row of icons at the bottom.
+
+2. Double-click **Home**.
+
+    You should see: a file manager window with a **data-store** folder among the
+    others.
+
+3. Double-click **data-store**, then **home**, then the folder named after your
+   CyVerse username.
+
+    You should see: the folders of your Data Store home, the same ones **My Files**
+    shows in the portal.
+
+4. Double-click the folder that holds your image, for example **mesa-practice**.
+
+    You should see: your files, each with an icon for its type.
+
+5. Right-click the image, point to **Open With**, and choose **GNU Image Manipulation
+   Program**.
+
+    You should see: after ten to twenty seconds, a GIMP window with the image in the
+    middle and tool panels on both sides.
+
+6. Read the title bar of the GIMP window.
+
+    You should see: the file's name and its size in pixels, for example
+    `[gauge-map] (imported)-1.0 (… 1800x1200 – GIMP`.
+
+## Check it worked
+
+The image is displayed in GIMP, and the title bar shows its name. You opened it where
+it lives: nothing was downloaded to your own computer.
+
+## If it didn't
+
+**A window asks you to accept the Google Chrome terms of service.** You double-clicked
+the image, and the desktop's default program for images is Chrome. Click **Cancel**,
+then open the image with the right-click menu as in step 5.
+
+## Next
+
+- Save anything you change under **data-store**. The rest of the desktop is deleted
+  when the app stops.
+- [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/), when you have
+  finished with the desktop.
+- Reference: [MESA KASM Ubuntu Desktop](https://idss-mesa.github.io/docs/apps/kasm/),
+  for what the desktop contains.
+
+*Not yet validated by a second person. Drafted 2026-11-13 and followed once in the app that day.*
+
 ---8<--- https://idss-mesa.github.io/trainings/contributing/
 
 ---
@@ -3915,6 +4241,11 @@ explains.
 
 ## 2026-11-13
 
+* **Creation**: Added a first tutorial for each of the remaining MESA apps, each followed
+  once in the app:
+  [Download a file from the web into your Data Store with MESA Cloud Shell](tutorials/cloud-shell-download.md),
+  [Write and run a Python script in MESA VS Code](tutorials/vscode-run-a-script.md), and
+  [Open a file from your Data Store in a desktop program](tutorials/desktop-open-a-file.md).
 * **Update**: Closed gaps in today's tutorials after a second pass on the live portal.
   The R tutorials were followed one step at a time in MESA RStudio Geospatial. In
   [Search for a file or folder by name](tutorials/search-the-data-browser.md) every

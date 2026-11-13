@@ -30,3 +30,6 @@
 * [Load a file from your Data Store in RStudio](r-load-a-file.md) - Read a CSV file from your Data Store into an R data frame in MESA RStudio Geospatial, and confirm its size and column types.
 * [Tally a quality flag in R](r-tally-a-quality-flag.md) - Count the rows for each value of a quality flag in R, including the missing ones, and look at the flagged rows before deciding what to do with them.
 * [Query a Parquet file with DuckDB from R](r-query-parquet-with-duckdb.md) - Run SQL against a Parquet file from R with the duckdb package in MESA RStudio Geospatial, and get each result back as an ordinary data frame.
+* [Download a file from the web into your Data Store with MESA Cloud Shell](cloud-shell-download.md) - Start MESA Cloud Shell, go to a folder in your Data Store, and fetch a file from a web address straight into it with curl.
+* [Write and run a Python script in MESA VS Code](vscode-run-a-script.md) - Open MESA VS Code on your Data Store, create a Python script in a folder there, and run it in the built-in terminal.
+* [Open a file from your Data Store in a desktop program](desktop-open-a-file.md) - Start the MESA KASM Ubuntu Desktop, find a file in your Data Store with its file manager, and open it in a desktop program.
