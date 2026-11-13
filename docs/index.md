@@ -23,6 +23,7 @@ anyone using MESA who wants to get one thing done. You do not need to be part of
 training program to use them.
 
 [Start with signing in :material-arrow-right:](tutorials/sign-in.md){ .md-button .md-button--primary }
+[The learning pathway](pathway.md){ .md-button }
 [All tutorials](tutorials/index.md){ .md-button }
 
 !!! warning "These tutorials are drafts"
@@ -61,6 +62,10 @@ notebook, so do the first one first.
 | Find repeated and missing days | [Count records per day to find incomplete days](tutorials/count-records-per-day.md) | 5–10 min |
 | Join two tables safely | [Reconcile row counts before and after a join](tutorials/reconcile-a-join.md) | 5–10 min |
 | Hand my notebook to someone | [Leave a notebook someone else can rerun](tutorials/leave-a-rerunnable-notebook.md) | 5–10 min |
+| Group hourly data by the right day | [Turn UTC timestamps into local days](tutorials/local-days-from-utc.md) | 10 min |
+| Handle several measurements in one column | [Work with a long table, one row per kind of measurement](tutorials/work-with-a-long-table.md) | 5–10 min |
+| Run SQL on a Parquet file | [Query a Parquet file with DuckDB from a notebook](tutorials/query-parquet-with-duckdb.md) | 10 min |
+| Test a result I was handed | [Check an AI-suggested result against the data](tutorials/check-a-suggested-result.md) | 10 min |
 
 ## Sharing, describing, and AI agents
 

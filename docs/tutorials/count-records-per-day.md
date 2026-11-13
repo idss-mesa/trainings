@@ -122,6 +122,7 @@ cell again to reload the file, then repeat the step.
 
 ## Next
 
+- [Turn UTC timestamps into local days](local-days-from-utc.md)
 - [Reconcile row counts before and after a join](reconcile-a-join.md)
 - Reference: [Group by: split-apply-combine](https://pandas.pydata.org/docs/user_guide/groupby.html)
   in the pandas user guide.

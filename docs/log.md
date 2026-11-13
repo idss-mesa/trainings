@@ -1,5 +1,19 @@
 # Directory Update Log
 
+## 2026-11-13
+
+* **Creation**: Added the [Learning pathway](pathway.md), which arranges every tutorial
+  under the five pathway points, and four draft tutorials:
+  [Turn UTC timestamps into local days](tutorials/local-days-from-utc.md),
+  [Work with a long table, one row per kind of measurement](tutorials/work-with-a-long-table.md),
+  [Query a Parquet file with DuckDB from a notebook](tutorials/query-parquet-with-duckdb.md),
+  and [Check an AI-suggested result against the data](tutorials/check-a-suggested-result.md).
+* **Update**: The [practice data](tutorials/practice-data.md) gained a third file,
+  `observations.csv`: a week of hourly rain and air temperature from one gauge, in long
+  format with UTC timestamps. `scripts/check_tutorial_outputs.py` now runs every
+  tutorial's code against the practice data and compares it with the output on the page;
+  the build workflow runs it on every pull request.
+
 ## 2026-11-12
 
 * **Update**: [Launch MESA JupyterLab](tutorials/launch-jupyterlab.md) again describes
