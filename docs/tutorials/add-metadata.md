@@ -40,7 +40,7 @@ and a folder of your own in **My Files**, such as the `mesa-practice` folder fro
 2. Click **AVUs** under the folder's name.
 
     You should see: a panel listing the folder's AVUs. For a folder you have just
-    made, the list is empty.
+    made it says *No AVUs yet*.
 
     ![The AVU panel for data.csv, with editable attribute, value, and unit fields](https://idss-mesa.github.io/docs/assets/portal/data-avus.webp){ width="560" }
 
@@ -59,7 +59,7 @@ and a folder of your own in **My Files**, such as the `mesa-practice` folder fro
 
 6. Click **Save**.
 
-    You should see: the two rows kept, with no error message.
+    You should see: **Saved.** in the panel, with both rows still listed.
 
 7. Refresh the page and click **AVUs** on the folder again.
 

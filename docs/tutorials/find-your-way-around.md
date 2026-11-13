@@ -1,7 +1,7 @@
 ---
 type: Guide
 title: "Find your way around the MESA Portal"
-description: "Use the MESA Portal's sidebar, top bar, and dashboard to reach your data, the apps, your analyses, and your quota."
+description: "Use the MESA Portal's sidebar, dashboard, and user menu to reach your data, the apps, your analyses, and your quota."
 tags: [byte, p1, portal, navigation, dashboard]
 status: draft
 generated: { by: "claude-code/2.1.321", at: "2026-11-12T00:00:00Z" }
@@ -40,8 +40,8 @@ quota you have used.
 
 3. Read down the sidebar.
 
-    You should see: three groups. The first holds **Home**, **Events**, and **Working
-    Groups**. **Data & Apps** holds **Data Browser**, **Applications**, and
+    You should see: three groups. **Portal Navigation** holds **Home**, **Events**, and
+    **Working Groups**. **Data & Apps** holds **Data Browser**, **Applications**, and
     **Analyses**. **Help & Docs** holds **Documentation**.
 
 4. Click **Data Browser**, then **Applications**, then **Analyses**, looking at each
@@ -50,19 +50,18 @@ quota you have used.
     You should see: your files; a card for each MESA app; and a list of the apps you
     have run, which is empty in a new account.
 
-5. Look along the top bar.
+5. Look at the right-hand end of the top bar.
 
-    You should see: links to the MESA website, the Discovery Environment, and the
-    documentation, then a theme button and your user menu.
+    You should see: a round theme button, and your name, which opens your user menu.
 
 6. Click the theme button until the page suits you.
 
-    You should see: the portal change between **Light**, **Dark**, and **Auto**. Auto
-    follows your computer's setting.
+    You should see: the portal change between **Light**, **Dark**, and **System**.
+    System follows your computer's setting.
 
-7. Open your user menu.
+7. Click your name.
 
-    You should see: your profile, settings, quotas, and sign out.
+    You should see: **My Profile**, **Settings**, and **Logout**.
 
 ## Check it worked
 

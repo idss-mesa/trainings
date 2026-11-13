@@ -48,8 +48,8 @@ Data Store, a shared folder, a Git repository.
 
 2. Type `not-a-real-token` into the box and press ++enter++.
 
-    You should see: dots in place of the characters as you type, then nothing. The
-    value is in memory as `token`; it is not in the cell and not in the output.
+    You should see: nothing as you type, then a row of dots beside **Token:**. The
+    dots are a placeholder, not your token. The value is in memory as `token`; it is not in the cell and not in the output.
 
 3. Confirm the notebook received it, without displaying it:
 

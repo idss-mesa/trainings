@@ -232,14 +232,15 @@ everyone, so you can do this without an account; to do it signed in, first
 3. Read the dark band at the top of the listing, the folder header.
 
     You should see: the folder's name, counts of folders and files with their total
-    size, and **Path**, the folder's full address in the CyVerse Data Store.
+    size, and under the name the folder's full address in the CyVerse Data Store, its
+    *path*.
 
 4. Click the name of a folder to open it.
 
     You should see: that folder's contents, and a longer trail in the header. Click any
     part of the trail to go back up.
 
-5. Click the copy button beside **Path**.
+5. Click the small copy button beside the path. Its tooltip is **Copy path**.
 
     You should see: nothing change on the page; the path is now on your clipboard. Paste
     it somewhere to look at it.
@@ -313,15 +314,21 @@ files available inside it.
 
 2. On the **MESA JupyterLab** card, click **Instant Launch**.
 
-    You should see: a new browser tab with a launch page that steps through
-    **Submitting**, **Queued**, **Container Starting**, **Initializing**, and **Running**.
+    You should see: a **Launching Application** window over the page, which steps
+    through **Submitting**, **Queued**, **Container Starting**, **Initializing**, and
+    **Running**.
 
 3. Wait. Starting usually takes one to three minutes.
 
-    You should see: the launch page replaced by JupyterLab, with a file browser on the
-    left and a **Launcher** tab in the middle.
+    You should see: the window's title change to **Application Ready**, and a green
+    **Open MESA JupyterLab** button.
 
-4. In the **Launcher**, click **Terminal**, then run:
+4. Click **Open MESA JupyterLab**.
+
+    You should see: JupyterLab in a new browser tab, with a file browser on the left
+    and a **Launcher** tab in the middle.
+
+5. In the **Launcher**, click **Terminal**, then run:
 
     ```bash
     pwd
@@ -335,24 +342,31 @@ files available inside it.
 
     The app opens inside `~/data-store`, which is where your Data Store is mounted.
 
-5. In the same terminal, run:
+6. In the same terminal, run:
 
     ```bash
     ls ~/data-store
     ```
 
-    You should see: one or more folder names.
+    You should see: two folders.
+
+    ```text
+    data  home
+    ```
+
+    Your own files are inside `home`, in a folder named after your CyVerse username.
 
 ## Check it worked
 
-The `ls` command in step 5 lists folders. An error such as `No such file or directory`,
+The `ls` command in step 6 lists `data` and `home`. An error such as `No such file or directory`,
 or no output at all, means the Data Store is not mounted.
 
 ## If it didn't
 
-**The launch page reaches Running, but JupyterLab never opens.** Your browser blocked the
-new tab. Allow pop-ups for `mesa.cyverse.org`, then click **Analyses** in the portal's
-sidebar and click **Open App** on the running analysis.
+**You closed the Launching Application window, or the new tab never opened.** The app
+is still running. Click **Analyses** in the portal's sidebar and click **Open App** on
+the running analysis. If nothing opens, allow pop-ups for `mesa.cyverse.org` and click
+again.
 
 ## Next
 
@@ -391,9 +405,8 @@ sources:
 
 !!! warning "Draft: not yet validated"
     This tutorial was written from the MESA documentation. Nobody has yet followed it
-    from start to finish on the live portal, so a screen name or a step may differ. In
-    particular, how the folders inside `~/data-store` are arranged (step 2) is not yet
-    confirmed. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    from start to finish on the live portal, so a screen name or a step may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 A MESA app runs in a temporary container. When the app ends, everything in it is
 deleted except what sits under `~/data-store`, which is your CyVerse Data Store.
@@ -406,15 +419,17 @@ deleted except what sits under `~/data-store`, which is your CyVerse Data Store.
 
 1. In JupyterLab, look at the file browser on the left.
 
-    You should see: the contents of `~/data-store`, the folder the app opens in.
+    You should see: the contents of `~/data-store`, the folder the app opens in: two
+    folders, `data` and `home`.
 
-2. In the file browser, open your own home folder. It is named after your CyVerse
-   username, and you may have to open a folder called **home** to reach it.
+2. In the file browser, double-click **home**, then the folder named after your
+   CyVerse username. That folder is your Data Store home folder.
 
     You should see: the same files and folders that **My Files** shows in the portal's
     Data Browser. In a new account it may be nearly empty.
 
-3. Choose **File → New → Notebook** and pick the **Python 3** kernel.
+3. Choose **File → New → Notebook**. In the **Select Kernel** box, change the
+   choice to **Python 3 (ipykernel)** (it starts on another language) and click **Select**.
 
     You should see: a new tab named `Untitled.ipynb`.
 
@@ -501,7 +516,8 @@ your CPU-hour quota until it stops, so stop the ones you have finished with.
 
     ![The Analyses page: quota badges, status cards, and running analyses](https://idss-mesa.github.io/docs/assets/portal/analyses-overview.webp)
 
-2. On that card, click **Save & Exit**.
+2. On that card, click **Save & Exit**, and click **OK** when the browser asks you
+   to confirm.
 
     You should see: the card read **Stopping…**. This lasts 10 to 30 seconds, and you do
     not need to click again.
@@ -514,7 +530,7 @@ your CPU-hour quota until it stops, so stop the ones you have finished with.
 
     You should see: the Data Browser, open on the analysis's output folder.
 
-5. Read **Path** in the folder header.
+5. Read the path under the folder's name in the header.
 
     You should see: a path under your `analyses` folder, unless you chose another output
     folder when you launched:
@@ -573,8 +589,8 @@ sources:
 # Practice data: five invented rain gauges
 
 !!! warning "Draft: not yet validated"
-    Nobody has yet copied these files into a Data Store from MESA JupyterLab by
-    following this page. The download address works only once this site is published.
+    The download below was run once in MESA JupyterLab, but nobody has yet followed
+    this page from start to finish.
     [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 The data tutorials on this site all use the same two small files, so you can practise
@@ -615,10 +631,12 @@ tutorials show you how to find out where.
 
 ## Copy the files into your Data Store
 
-1. In [MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), open your home folder in the file
-   browser, as in [Save your work where it survives the session](https://idss-mesa.github.io/trainings/tutorials/save-your-work/).
+1. In [MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), double-click **home** in the file
+   browser, then the folder named after your CyVerse username.
 2. Click the **New Folder** button, name the folder `mesa-practice`, and open it.
-3. Choose **File → New → Notebook**, pick the **Python 3** kernel, and run this cell:
+3. Choose **File → New → Notebook**. In the **Select Kernel** box, change the
+   choice to **Python 3 (ipykernel)** (it starts on another language) and click **Select**.
+   Then run this cell:
 
     ```python
     from urllib.request import urlretrieve
@@ -682,8 +700,9 @@ the [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-dat
 
     You should see: `gauges.csv` and `readings.csv`.
 
-2. Choose **File → New → Notebook**, pick the **Python 3** kernel, and rename the
-   notebook `practice.ipynb` with **File → Rename Notebook…**.
+2. Choose **File → New → Notebook**. In the **Select Kernel** box, change the
+   choice to **Python 3 (ipykernel)** (it starts on another language) and click **Select**.
+   Then rename the notebook `practice.ipynb` with **File → Rename Notebook…**.
 
     You should see: `practice.ipynb` in the file browser, beside the two CSV files.
 
@@ -1467,7 +1486,7 @@ definition in a cell above the one that failed, then repeat step 1.
 ---
 type: Guide
 title: "Find your way around the MESA Portal"
-description: "Use the MESA Portal's sidebar, top bar, and dashboard to reach your data, the apps, your analyses, and your quota."
+description: "Use the MESA Portal's sidebar, dashboard, and user menu to reach your data, the apps, your analyses, and your quota."
 tags: [byte, p1, portal, navigation, dashboard]
 status: draft
 generated: { by: "claude-code/2.1.321", at: "2026-11-12T00:00:00Z" }
@@ -1506,8 +1525,8 @@ quota you have used.
 
 3. Read down the sidebar.
 
-    You should see: three groups. The first holds **Home**, **Events**, and **Working
-    Groups**. **Data & Apps** holds **Data Browser**, **Applications**, and
+    You should see: three groups. **Portal Navigation** holds **Home**, **Events**, and
+    **Working Groups**. **Data & Apps** holds **Data Browser**, **Applications**, and
     **Analyses**. **Help & Docs** holds **Documentation**.
 
 4. Click **Data Browser**, then **Applications**, then **Analyses**, looking at each
@@ -1516,19 +1535,18 @@ quota you have used.
     You should see: your files; a card for each MESA app; and a list of the apps you
     have run, which is empty in a new account.
 
-5. Look along the top bar.
+5. Look at the right-hand end of the top bar.
 
-    You should see: links to the MESA website, the Discovery Environment, and the
-    documentation, then a theme button and your user menu.
+    You should see: a round theme button, and your name, which opens your user menu.
 
 6. Click the theme button until the page suits you.
 
-    You should see: the portal change between **Light**, **Dark**, and **Auto**. Auto
-    follows your computer's setting.
+    You should see: the portal change between **Light**, **Dark**, and **System**.
+    System follows your computer's setting.
 
-7. Open your user menu.
+7. Click your name.
 
-    You should see: your profile, settings, quotas, and sign out.
+    You should see: **My Profile**, **Settings**, and **Logout**.
 
 ## Check it worked
 
@@ -1590,13 +1608,14 @@ they sign in with it.
 
 2. Click **Share** in the folder header.
 
-    You should see: the share dialog, with two public options, **Share with User**,
-    and **Current Permissions**.
+    You should see: the share dialog, with **Public Access**, **Share with User**, and
+    **Current Permissions**, which lists only you and says *Not shared with anyone
+    else*.
 
     ![The share dialog for a folder: public access options, Share with User, and Current Permissions](https://idss-mesa.github.io/docs/assets/portal/data-share.webp){ width="520" }
 
-3. Leave **All CyVerse Users (public)** and **Anyone without login (anonymous)**
-   switched off.
+3. Leave the boxes for **All CyVerse Users (public)** and **Anyone without login
+   (anonymous)** unticked.
 
     You should see: no change. Those two options open the folder to everyone, which is
     not what this tutorial is for.
@@ -1606,7 +1625,7 @@ they sign in with it.
     You should see: the name as you typed it. The portal needs the whole username or
     email address; part of one is not enough.
 
-5. Choose **Read**, then click **Share**.
+5. Leave the access level at **Read**, then click **Share**.
 
     You should see: your collaborator listed under **Current Permissions**, with
     **Read**.
@@ -1634,7 +1653,8 @@ appears only on folders you own. Check that the header says **Owner**. If you ar
 - [Add metadata to a file or folder](https://idss-mesa.github.io/trainings/tutorials/add-metadata/), so that the person you share
   with knows what they are looking at.
 - Reference: [Managing data, "Share data"](https://idss-mesa.github.io/docs/portal/data/#share-data),
-  which also covers **Write** and **Own** access and sharing several items at once.
+  which also covers the other access levels and sharing several items at once. The
+  dialog names them **Read & Write** and **Full Control**.
 
 *Not yet validated on the live portal. Drafted 2026-11-12 from the MESA documentation.*
 
@@ -1682,7 +1702,7 @@ and a folder of your own in **My Files**, such as the `mesa-practice` folder fro
 2. Click **AVUs** under the folder's name.
 
     You should see: a panel listing the folder's AVUs. For a folder you have just
-    made, the list is empty.
+    made it says *No AVUs yet*.
 
     ![The AVU panel for data.csv, with editable attribute, value, and unit fields](https://idss-mesa.github.io/docs/assets/portal/data-avus.webp){ width="560" }
 
@@ -1701,7 +1721,7 @@ and a folder of your own in **My Files**, such as the `mesa-practice` folder fro
 
 6. Click **Save**.
 
-    You should see: the two rows kept, with no error message.
+    You should see: **Saved.** in the panel, with both rows still listed.
 
 7. Refresh the page and click **AVUs** on the folder again.
 
@@ -1884,8 +1904,8 @@ Data Store, a shared folder, a Git repository.
 
 2. Type `not-a-real-token` into the box and press ++enter++.
 
-    You should see: dots in place of the characters as you type, then nothing. The
-    value is in memory as `token`; it is not in the cell and not in the output.
+    You should see: nothing as you type, then a row of dots beside **Token:**. The
+    dots are a placeholder, not your token. The value is in memory as `token`; it is not in the cell and not in the output.
 
 3. Confirm the notebook received it, without displaying it:
 
@@ -2298,6 +2318,13 @@ explains.
 
 ## 2026-11-12
 
+* **Update**: Corrected the tutorials after a first pass on the live portal and in MESA
+  JupyterLab (pandas 3.1.1): the app starts in a **Launching Application** window with
+  an **Open MESA JupyterLab** button; `~/data-store` holds `data` and `home`, and your
+  files are in `home/<username>`; a new notebook asks for a kernel and does not offer
+  Python first; **Save & Exit** asks for confirmation; the share dialog's levels are
+  **Read**, **Read & Write**, and **Full Control**; the theme button cycles **Light**,
+  **Dark**, **System**. All tutorials remain drafts.
 * **Creation**: Added five draft tutorials written from the MESA documentation:
   [Find your way around the MESA Portal](tutorials/find-your-way-around.md),
   [Share a folder with a collaborator](tutorials/share-a-folder.md),

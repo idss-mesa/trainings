@@ -2,6 +2,13 @@
 
 ## 2026-11-12
 
+* **Update**: Corrected the tutorials after a first pass on the live portal and in MESA
+  JupyterLab (pandas 3.1.1): the app starts in a **Launching Application** window with
+  an **Open MESA JupyterLab** button; `~/data-store` holds `data` and `home`, and your
+  files are in `home/<username>`; a new notebook asks for a kernel and does not offer
+  Python first; **Save & Exit** asks for confirmation; the share dialog's levels are
+  **Read**, **Read & Write**, and **Full Control**; the theme button cycles **Light**,
+  **Dark**, **System**. All tutorials remain drafts.
 * **Creation**: Added five draft tutorials written from the MESA documentation:
   [Find your way around the MESA Portal](tutorials/find-your-way-around.md),
   [Share a folder with a collaborator](tutorials/share-a-folder.md),

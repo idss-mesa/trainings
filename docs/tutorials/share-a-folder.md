@@ -37,13 +37,14 @@ they sign in with it.
 
 2. Click **Share** in the folder header.
 
-    You should see: the share dialog, with two public options, **Share with User**,
-    and **Current Permissions**.
+    You should see: the share dialog, with **Public Access**, **Share with User**, and
+    **Current Permissions**, which lists only you and says *Not shared with anyone
+    else*.
 
     ![The share dialog for a folder: public access options, Share with User, and Current Permissions](https://idss-mesa.github.io/docs/assets/portal/data-share.webp){ width="520" }
 
-3. Leave **All CyVerse Users (public)** and **Anyone without login (anonymous)**
-   switched off.
+3. Leave the boxes for **All CyVerse Users (public)** and **Anyone without login
+   (anonymous)** unticked.
 
     You should see: no change. Those two options open the folder to everyone, which is
     not what this tutorial is for.
@@ -53,7 +54,7 @@ they sign in with it.
     You should see: the name as you typed it. The portal needs the whole username or
     email address; part of one is not enough.
 
-5. Choose **Read**, then click **Share**.
+5. Leave the access level at **Read**, then click **Share**.
 
     You should see: your collaborator listed under **Current Permissions**, with
     **Read**.
@@ -81,6 +82,7 @@ appears only on folders you own. Check that the header says **Owner**. If you ar
 - [Add metadata to a file or folder](add-metadata.md), so that the person you share
   with knows what they are looking at.
 - Reference: [Managing data, "Share data"](https://idss-mesa.github.io/docs/portal/data/#share-data),
-  which also covers **Write** and **Own** access and sharing several items at once.
+  which also covers the other access levels and sharing several items at once. The
+  dialog names them **Read & Write** and **Full Control**.
 
 *Not yet validated on the live portal. Drafted 2026-11-12 from the MESA documentation.*

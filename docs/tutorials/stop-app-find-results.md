@@ -39,7 +39,8 @@ your CPU-hour quota until it stops, so stop the ones you have finished with.
 
     ![The Analyses page: quota badges, status cards, and running analyses](https://idss-mesa.github.io/docs/assets/portal/analyses-overview.webp)
 
-2. On that card, click **Save & Exit**.
+2. On that card, click **Save & Exit**, and click **OK** when the browser asks you
+   to confirm.
 
     You should see: the card read **Stopping…**. This lasts 10 to 30 seconds, and you do
     not need to click again.
@@ -52,7 +53,7 @@ your CPU-hour quota until it stops, so stop the ones you have finished with.
 
     You should see: the Data Browser, open on the analysis's output folder.
 
-5. Read **Path** in the folder header.
+5. Read the path under the folder's name in the header.
 
     You should see: a path under your `analyses` folder, unless you chose another output
     folder when you launched:

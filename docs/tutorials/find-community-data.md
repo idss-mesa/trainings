@@ -43,14 +43,15 @@ everyone, so you can do this without an account; to do it signed in, first
 3. Read the dark band at the top of the listing, the folder header.
 
     You should see: the folder's name, counts of folders and files with their total
-    size, and **Path**, the folder's full address in the CyVerse Data Store.
+    size, and under the name the folder's full address in the CyVerse Data Store, its
+    *path*.
 
 4. Click the name of a folder to open it.
 
     You should see: that folder's contents, and a longer trail in the header. Click any
     part of the trail to go back up.
 
-5. Click the copy button beside **Path**.
+5. Click the small copy button beside the path. Its tooltip is **Copy path**.
 
     You should see: nothing change on the page; the path is now on your clipboard. Paste
     it somewhere to look at it.
