@@ -21,8 +21,8 @@ sources:
 
 !!! warning "Draft: not yet validated"
     The code on this page was run inside MESA RStudio Geospatial on 2026-11-13 (R 4.6.2)
-    and produced the output shown. Nobody else has yet followed the steps, so a screen
-    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    and produced the output shown, one step at a time. Nobody else has yet followed
+    the steps, so a screen may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** have the practice readings loaded as an R data frame, with a row count
 you have checked.

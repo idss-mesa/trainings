@@ -50,8 +50,19 @@ jobs:
           python scripts/make_practice_data.py
           git diff --exit-code docs/assets/practice
 
+  # The same check for the R tutorials, inside the MESA RStudio Geospatial image
+  # that readers use, so R, sf, and duckdb are the versions they will have.
+  tutorial-outputs-r:
+    runs-on: ubuntu-latest
+    container:
+      image: harbor.cyverse.org/vice/mesa-rstudio:latest
+      options: --user root
+    steps:
+      - uses: actions/checkout@v7
+      - run: Rscript scripts/check_tutorial_outputs.R
+
   deploy:
-    needs: [okf-conformance, tutorial-outputs]
+    needs: [okf-conformance, tutorial-outputs, tutorial-outputs-r]
     if: github.event_name != 'pull_request'
     environment:
       name: github-pages

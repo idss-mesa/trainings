@@ -21,8 +21,8 @@ sources:
 
 !!! warning "Draft: not yet validated"
     The code on this page was run inside MESA RStudio Geospatial on 2026-11-13 (R 4.6.2, duckdb 2.0.0)
-    and produced the output shown. Nobody else has yet followed the steps, so a screen
-    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    and produced the output shown, one step at a time. Nobody else has yet followed
+    the steps, so a screen may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 DuckDB runs SQL straight against a Parquet file, so R can summarise data far too large
 to read into memory. MESA RStudio Geospatial has the R `duckdb` package installed.
@@ -42,7 +42,8 @@ frame.
     con <- dbConnect(duckdb())
     ```
 
-    You should see: on first use, the question
+    You should see: `Loading required package: DBI`, and then, on first use, the
+    question
     `duckdb: create /home/rstudio/.duckdb? (Yes/no/cancel)`. Type `yes` and press
     ++enter++. That folder holds DuckDB's settings; it is on the app's own disk and is
     removed when the app stops.

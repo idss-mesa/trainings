@@ -40,6 +40,7 @@ zensical build --clean --strict                 # static site -> site/
 python scripts/okf_validate.py docs             # OKF conformance (CI-enforced; 0 errors required)
 python scripts/gen_llms_txt.py                  # regenerate docs/llms.txt + docs/llms-full.txt (CI checks drift)
 python scripts/check_tutorial_outputs.py        # run the tutorials' code and compare with the printed output (CI-enforced; needs pandas, duckdb)
+Rscript scripts/check_tutorial_outputs.R        # the same for R tutorials (CI runs it in the MESA RStudio image; needs sf, ggplot2, duckdb)
 python scripts/postbuild_agent_surface.py site  # after build: md mirror + okf:* meta + robots.txt
 ```
 
@@ -103,7 +104,7 @@ repository rather than changing them here.
 15. **Data tutorials use the practice data** in `docs/assets/practice/`
     (synthetic; described in `docs/tutorials/practice-data.md`). Run every
     code block and paste its real output; `scripts/check_tutorial_outputs.py`
-    checks that they still agree. A new tutorial also goes under its pathway
+    and `scripts/check_tutorial_outputs.R` check that they still agree. A new tutorial also goes under its pathway
     point in `docs/pathway.md`. The draft notice says where the
     code was run; the tutorial stays a draft until someone follows it in MESA
     JupyterLab. The files come from `scripts/make_practice_data.py`; if you

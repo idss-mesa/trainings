@@ -49,8 +49,8 @@ not saved under `~/data-store` is lost.
 
 4. Type a word such as `error` in the **Filter logs…** box.
 
-    You should see: only the lines that contain it, often none. This is the first
-    place to look when an app misbehaves.
+    You should see: only the lines that contain the word, with the word highlighted;
+    for a healthy app, none. This is the first place to look when an app misbehaves.
 
 5. On the same card, click **Extend Time**, and click **OK** when the browser asks
    you to confirm.
