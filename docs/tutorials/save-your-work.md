@@ -21,9 +21,8 @@ sources:
 
 !!! warning "Draft: not yet validated"
     This tutorial was written from the MESA documentation. Nobody has yet followed it
-    from start to finish on the live portal, so a screen name or a step may differ. In
-    particular, how the folders inside `~/data-store` are arranged (step 2) is not yet
-    confirmed. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    from start to finish on the live portal, so a screen name or a step may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 A MESA app runs in a temporary container. When the app ends, everything in it is
 deleted except what sits under `~/data-store`, which is your CyVerse Data Store.
@@ -36,15 +35,17 @@ deleted except what sits under `~/data-store`, which is your CyVerse Data Store.
 
 1. In JupyterLab, look at the file browser on the left.
 
-    You should see: the contents of `~/data-store`, the folder the app opens in.
+    You should see: the contents of `~/data-store`, the folder the app opens in: two
+    folders, `data` and `home`.
 
-2. In the file browser, open your own home folder. It is named after your CyVerse
-   username, and you may have to open a folder called **home** to reach it.
+2. In the file browser, double-click **home**, then the folder named after your
+   CyVerse username. That folder is your Data Store home folder.
 
     You should see: the same files and folders that **My Files** shows in the portal's
     Data Browser. In a new account it may be nearly empty.
 
-3. Choose **File → New → Notebook** and pick the **Python 3** kernel.
+3. Choose **File → New → Notebook**. In the **Select Kernel** box, change the
+   choice to **Python 3 (ipykernel)** (it starts on another language) and click **Select**.
 
     You should see: a new tab named `Untitled.ipynb`.
 

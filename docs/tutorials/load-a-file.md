@@ -36,8 +36,9 @@ the [practice data](practice-data.md) in a `mesa-practice` folder in your Data S
 
     You should see: `gauges.csv` and `readings.csv`.
 
-2. Choose **File → New → Notebook**, pick the **Python 3** kernel, and rename the
-   notebook `practice.ipynb` with **File → Rename Notebook…**.
+2. Choose **File → New → Notebook**. In the **Select Kernel** box, change the
+   choice to **Python 3 (ipykernel)** (it starts on another language) and click **Select**.
+   Then rename the notebook `practice.ipynb` with **File → Rename Notebook…**.
 
     You should see: `practice.ipynb` in the file browser, beside the two CSV files.
 

@@ -2,6 +2,23 @@
 
 ## 2026-11-12
 
+* **Update**: Corrected the tutorials after a first pass on the live portal and in MESA
+  JupyterLab (pandas 3.1.1): the app starts in a **Launching Application** window with
+  an **Open MESA JupyterLab** button; `~/data-store` holds `data` and `home`, and your
+  files are in `home/<username>`; a new notebook asks for a kernel and does not offer
+  Python first; **Save & Exit** asks for confirmation; the share dialog's levels are
+  **Read**, **Read & Write**, and **Full Control**; the theme button cycles **Light**,
+  **Dark**, **System**. After **Save & Exit** the analysis is under **Completed
+  Analyses**, which is collapsed; **View Results** opens an empty output folder for an
+  interactive app, where the portal may show **Unable to Load Files**. All tutorials
+  remain drafts.
+* **Creation**: Added five draft tutorials written from the MESA documentation:
+  [Find your way around the MESA Portal](tutorials/find-your-way-around.md),
+  [Share a folder with a collaborator](tutorials/share-a-folder.md),
+  [Add metadata to a file or folder](tutorials/add-metadata.md),
+  [Sign in and start an AI agent in a MESA app](tutorials/start-an-ai-agent.md), and
+  [Keep tokens and passwords out of saved files](tutorials/keep-secrets-out-of-files.md).
+  None has been validated on the live portal.
 * **Creation**: Added the [practice data](tutorials/practice-data.md), two small
   synthetic rain-gauge files with a data dictionary (made by
   `scripts/make_practice_data.py`), and seven draft data tutorials that

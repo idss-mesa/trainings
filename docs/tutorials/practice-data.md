@@ -20,8 +20,8 @@ sources:
 # Practice data: five invented rain gauges
 
 !!! warning "Draft: not yet validated"
-    Nobody has yet copied these files into a Data Store from MESA JupyterLab by
-    following this page. The download address works only once this site is published.
+    The download below was run once in MESA JupyterLab, but nobody has yet followed
+    this page from start to finish.
     [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 The data tutorials on this site all use the same two small files, so you can practise
@@ -62,10 +62,12 @@ tutorials show you how to find out where.
 
 ## Copy the files into your Data Store
 
-1. In [MESA JupyterLab](launch-jupyterlab.md), open your home folder in the file
-   browser, as in [Save your work where it survives the session](save-your-work.md).
+1. In [MESA JupyterLab](launch-jupyterlab.md), double-click **home** in the file
+   browser, then the folder named after your CyVerse username.
 2. Click the **New Folder** button, name the folder `mesa-practice`, and open it.
-3. Choose **File → New → Notebook**, pick the **Python 3** kernel, and run this cell:
+3. Choose **File → New → Notebook**. In the **Select Kernel** box, change the
+   choice to **Python 3 (ipykernel)** (it starts on another language) and click **Select**.
+   Then run this cell:
 
     ```python
     from urllib.request import urlretrieve

@@ -13,3 +13,8 @@
 * [Count records per day to find incomplete days](count-records-per-day.md) - Count the rows for each gauge and day to find days that were recorded twice and days that were not recorded at all.
 * [Reconcile row counts before and after a join](reconcile-a-join.md) - Join a table of readings to a table of gauges and confirm that the join neither added nor lost rows and left no reading without a match.
 * [Leave a notebook someone else can rerun](leave-a-rerunnable-notebook.md) - Restart a notebook and run it from the top, remove what ties it to your session, and say at the top what it needs, so that another person gets the same result.
+* [Find your way around the MESA Portal](find-your-way-around.md) - Use the MESA Portal's sidebar, dashboard, and user menu to reach your data, the apps, your analyses, and your quota.
+* [Share a folder with a collaborator](share-a-folder.md) - Give one named CyVerse user read access to a folder in your Data Store from the MESA Portal's Data Browser, and confirm the access took effect.
+* [Add metadata to a file or folder](add-metadata.md) - Describe a folder in your Data Store with an attribute and a value from the MESA Portal's Data Browser, and confirm the description was saved.
+* [Sign in and start an AI agent in a MESA app](start-an-ai-agent.md) - Sign in to CyVerse from a terminal in a MESA app, connect an AI agent to a language model, and have it list the folders in your Data Store.
+* [Keep tokens and passwords out of saved files](keep-secrets-out-of-files.md) - Give a notebook a token without typing it into a cell, and confirm that the saved notebook does not contain it.

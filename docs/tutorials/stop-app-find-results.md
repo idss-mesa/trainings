@@ -17,14 +17,13 @@ sources:
 
 !!! warning "Draft: not yet validated"
     This tutorial was written from the MESA documentation. Nobody has yet followed it
-    from start to finish on the live portal, so a screen name or a step may differ. In
-    particular, what the results folder of an interactive app holds (step 5) is not yet
-    confirmed. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    from start to finish on the live portal, so a screen name or a step may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 Every app you run is listed in the portal as an *analysis*. A running app counts against
 your CPU-hour quota until it stops, so stop the ones you have finished with.
 
-**You will:** have stopped a running app cleanly and opened its results folder.
+**You will:** have stopped a running app cleanly and found the work you saved.
 
 **Time:** 5 minutes. **You need:** a running app, such as
 [MESA JupyterLab](launch-jupyterlab.md), with the work you want to keep already
@@ -39,32 +38,40 @@ your CPU-hour quota until it stops, so stop the ones you have finished with.
 
     ![The Analyses page: quota badges, status cards, and running analyses](https://idss-mesa.github.io/docs/assets/portal/analyses-overview.webp)
 
-2. On that card, click **Save & Exit**.
+2. On that card, click **Save & Exit**, and click **OK** when the browser asks you
+   to confirm.
 
-    You should see: the card read **Stopping…**. This lasts 10 to 30 seconds, and you do
-    not need to click again.
+    You should see: the card's badge change to **Stopping**, its buttons disappear, and
+    the message *Saving outputs and exiting…*. This takes up to a minute, and you do not
+    need to click again.
 
-3. Wait for the page to update.
+3. Wait for the page to update, then click the **Completed Analyses** heading to open
+   that section.
 
-    You should see: the analysis leave **Running** and appear under **Completed**.
+    You should see: your analysis first in the list, with a **Completed** badge and an
+    **Output** path.
 
 4. On the completed analysis, click **View Results**.
 
-    You should see: the Data Browser, open on the analysis's output folder.
+    You should see: the Data Browser, open on the analysis's output folder. For an
+    interactive app such as JupyterLab this folder is empty, and the portal may say
+    **Unable to Load Files** and offer a password box. Leave the box empty: nothing is
+    wrong, and your work is not kept here.
 
-5. Read **Path** in the folder header.
+5. Read the path under the folder's name in the header.
 
     You should see: a path under your `analyses` folder, unless you chose another output
     folder when you launched:
 
     ```text
-    /iplant/home/<your username>/analyses/
+    /iplant/home/<your username>/analyses/<app name and start time>
     ```
 
 6. Click **My Files** and open the folder where you saved your own work.
 
-    You should see: the notebooks and files you saved under `~/data-store` while the app
-    was running.
+    You should see: the notebooks and files you saved in your home folder under
+    `~/data-store` while the app was running. This is where an interactive app's work
+    lives.
 
 ## Check it worked
 

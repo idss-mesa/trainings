@@ -41,15 +41,21 @@ files available inside it.
 
 2. On the **MESA JupyterLab** card, click **Instant Launch**.
 
-    You should see: a new browser tab with a launch page that steps through
-    **Submitting**, **Queued**, **Container Starting**, **Initializing**, and **Running**.
+    You should see: a **Launching Application** window over the page, which steps
+    through **Submitting**, **Queued**, **Container Starting**, **Initializing**, and
+    **Running**.
 
 3. Wait. Starting usually takes one to three minutes.
 
-    You should see: the launch page replaced by JupyterLab, with a file browser on the
-    left and a **Launcher** tab in the middle.
+    You should see: the window's title change to **Application Ready**, and a green
+    **Open MESA JupyterLab** button.
 
-4. In the **Launcher**, click **Terminal**, then run:
+4. Click **Open MESA JupyterLab**.
+
+    You should see: JupyterLab in a new browser tab, with a file browser on the left
+    and a **Launcher** tab in the middle.
+
+5. In the **Launcher**, click **Terminal**, then run:
 
     ```bash
     pwd
@@ -63,24 +69,31 @@ files available inside it.
 
     The app opens inside `~/data-store`, which is where your Data Store is mounted.
 
-5. In the same terminal, run:
+6. In the same terminal, run:
 
     ```bash
     ls ~/data-store
     ```
 
-    You should see: one or more folder names.
+    You should see: two folders.
+
+    ```text
+    data  home
+    ```
+
+    Your own files are inside `home`, in a folder named after your CyVerse username.
 
 ## Check it worked
 
-The `ls` command in step 5 lists folders. An error such as `No such file or directory`,
+The `ls` command in step 6 lists `data` and `home`. An error such as `No such file or directory`,
 or no output at all, means the Data Store is not mounted.
 
 ## If it didn't
 
-**The launch page reaches Running, but JupyterLab never opens.** Your browser blocked the
-new tab. Allow pop-ups for `mesa.cyverse.org`, then click **Analyses** in the portal's
-sidebar and click **Open App** on the running analysis.
+**You closed the Launching Application window, or the new tab never opened.** The app
+is still running. Click **Analyses** in the portal's sidebar and click **Open App** on
+the running analysis. If nothing opens, allow pop-ups for `mesa.cyverse.org` and click
+again.
 
 ## Next
 

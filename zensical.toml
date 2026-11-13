@@ -32,6 +32,11 @@ nav = [
       { "Count records per day" = "tutorials/count-records-per-day.md" },
       { "Reconcile a join" = "tutorials/reconcile-a-join.md" },
       { "Leave a rerunnable notebook" = "tutorials/leave-a-rerunnable-notebook.md" },
+      { "Find your way around" = "tutorials/find-your-way-around.md" },
+      { "Share a folder" = "tutorials/share-a-folder.md" },
+      { "Add metadata" = "tutorials/add-metadata.md" },
+      { "Start an AI agent" = "tutorials/start-an-ai-agent.md" },
+      { "Keep secrets out of files" = "tutorials/keep-secrets-out-of-files.md" },
   ] },
   { "Contributing" = [
       { "Contribute a tutorial" = "contributing.md" },
