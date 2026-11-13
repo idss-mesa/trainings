@@ -67,8 +67,10 @@ they sign in with it.
 ## Check it worked
 
 Ask your collaborator to sign in to the portal, open **Data Browser**, and click
-**User Shared**. They should see your folder and be able to open its files, but not
-change them.
+**User Shared**. It lists a folder for each of many CyVerse users, 25 to a page.
+They find the folder named with your username, clicking **Next** if needed, and open
+it. They should see your shared folder and nothing else of yours. Inside it the
+header says **Read only**, and there is no **Upload**, **New Folder**, or **Share**.
 
 ## If it didn't
 
