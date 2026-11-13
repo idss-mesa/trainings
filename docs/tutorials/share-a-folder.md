@@ -51,13 +51,14 @@ they sign in with it.
 
 4. Under **Share with User**, type your collaborator's complete CyVerse username.
 
-    You should see: the name as you typed it. The portal needs the whole username or
-    email address; part of one is not enough.
+    You should see: under the box, a line marked **Match** that shows the email
+    address of that account. The portal needs the whole username or email address;
+    part of one is not enough.
 
 5. Leave the access level at **Read**, then click **Share**.
 
-    You should see: your collaborator listed under **Current Permissions**, with
-    **Read**.
+    You should see: *Updating access…* for up to half a minute, then your
+    collaborator listed under **Current Permissions**, with **Read**.
 
 6. Close the dialog and look at the folder header.
 

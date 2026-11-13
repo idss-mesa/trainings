@@ -90,6 +90,11 @@ for it to read **Application Ready**, then click **Open MESA JupyterLab**. If yo
 closed the window, click **Analyses** in the sidebar and **Open App** on the running
 analysis.
 
+**The window reads Launch Failed, with `ERR_PERMISSION_NEEDED`.** A new CyVerse account
+must ask once for access to interactive apps. Ignore the advice to stop a running
+analysis. Click **Open in Discovery Environment**, then **Request Access**, and send
+the form. CyVerse says it answers within one to two days. Then launch again.
+
 ## Next
 
 - [Launch an app with the cores, memory, and time you choose](launch-with-options.md)

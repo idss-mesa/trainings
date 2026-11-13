@@ -2,6 +2,12 @@
 
 ## 2026-11-13
 
+* **Update**: Began a run of the tutorials on a new CyVerse account. A new account
+  cannot start an app until CyVerse grants access to interactive apps, so
+  [Launch MESA JupyterLab with your Data Store mounted](tutorials/launch-jupyterlab.md)
+  now says what the failed launch looks like and how to ask for access.
+  [Share a folder with a collaborator](tutorials/share-a-folder.md) now describes the
+  match line and the wait after **Share**.
 * **Creation**: Added two tutorials to pathway point 5, followed in MESA JupyterLab:
   [Write a README for a data folder](tutorials/write-a-readme.md) and
   [Record the software versions a result depends on](tutorials/record-software-versions.md).
