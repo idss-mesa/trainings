@@ -132,9 +132,8 @@ is not in `mesa-practice`. Run step 2 again and look for the file in the file br
 
 - The same SQL runs from a terminal with the `duckdb` command:
   `duckdb :memory: "SELECT count(*) FROM 'readings.parquet'"`. MESA JupyterLab does not
-  include DuckDB's R package; see
-  [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/#first-steps) for how
-  to add it.
+  include DuckDB's R package; for R, see
+  [Query a Parquet file with DuckDB from R](r-query-parquet-with-duckdb.md).
 - [Reconcile row counts before and after a join](reconcile-a-join.md)
 - Reference: [Reading and writing Parquet files](https://duckdb.org/docs/stable/data/parquet/overview)
   and the [client overview](https://duckdb.org/docs/2.0/clients/overview) in the DuckDB

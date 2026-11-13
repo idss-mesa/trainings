@@ -52,6 +52,11 @@ Load a dataset and find out what it holds, and where it is incomplete or doubtfu
 8. [Work with a long table, one row per kind of measurement](tutorials/work-with-a-long-table.md)
 9. [Map point data with sf in MESA RStudio Geospatial](tutorials/map-points-in-rstudio.md)
 
+The same ground in R, in MESA RStudio Geospatial:
+
+1. [Load a file from your Data Store in RStudio](tutorials/r-load-a-file.md)
+2. [Tally a quality flag in R](tutorials/r-tally-a-quality-flag.md)
+
 ## 3. Query and connect
 
 Ask questions across files and tables, and check that combining them did what you meant.
@@ -59,6 +64,7 @@ Ask questions across files and tables, and check that combining them did what yo
 1. [Query a Parquet file with DuckDB from a notebook](tutorials/query-parquet-with-duckdb.md)
 2. [Reconcile row counts before and after a join](tutorials/reconcile-a-join.md)
 3. [Keep tokens and passwords out of saved files](tutorials/keep-secrets-out-of-files.md)
+4. [Query a Parquet file with DuckDB from R](tutorials/r-query-parquet-with-duckdb.md)
 
 ## 4. Explore and verify
 
@@ -81,5 +87,8 @@ Leave work that someone else can find, understand, and run again.
 - **Comfortable in the portal, new to checking data:** copy the
   [practice data](tutorials/practice-data.md) and take point 2 in order. Points 3 and 4
   use the same notebook.
+- **Working in R:** start with
+  [Load a file from your Data Store in RStudio](tutorials/r-load-a-file.md); each R
+  tutorial links its Python counterpart.
 - **Looking for one thing:** every tutorial is listed, with a one-line description,
   under [Tutorials](tutorials/index.md).

@@ -82,6 +82,17 @@ notebook, so do the first one first.
 | Ask an AI agent about my data | [Sign in and start an AI agent in a MESA app](tutorials/start-an-ai-agent.md) | 10 min |
 | Use a token safely in a notebook | [Keep tokens and passwords out of saved files](tutorials/keep-secrets-out-of-files.md) | 5–10 min |
 
+## Working in R
+
+These use MESA RStudio Geospatial and the same practice data.
+
+| I want to… | Tutorial | Time |
+|---|---|---|
+| Get a file into R | [Load a file from your Data Store in RStudio](tutorials/r-load-a-file.md) | 5–10 min |
+| See what the provider doubted | [Tally a quality flag in R](tutorials/r-tally-a-quality-flag.md) | 5 min |
+| Run SQL on a Parquet file from R | [Query a Parquet file with DuckDB from R](tutorials/r-query-parquet-with-duckdb.md) | 10 min |
+| Put points on a map | [Map point data with sf in MESA RStudio Geospatial](tutorials/map-points-in-rstudio.md) | 10 min |
+
 ## How a tutorial is laid out
 
 Every tutorial has the same six parts, in the same order:

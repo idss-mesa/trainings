@@ -47,6 +47,9 @@ nav = [
       { "Search the Data Browser" = "tutorials/search-the-data-browser.md" },
       { "Launch with options" = "tutorials/launch-with-options.md" },
       { "Monitor and extend an app" = "tutorials/monitor-and-extend.md" },
+      { "Load a file in RStudio" = "tutorials/r-load-a-file.md" },
+      { "Tally a quality flag in R" = "tutorials/r-tally-a-quality-flag.md" },
+      { "Query Parquet with DuckDB from R" = "tutorials/r-query-parquet-with-duckdb.md" },
   ] },
   { "Contributing" = [
       { "Contribute a tutorial" = "contributing.md" },
