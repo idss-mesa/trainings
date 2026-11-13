@@ -26,9 +26,10 @@ training program to use them.
 [All tutorials](tutorials/index.md){ .md-button }
 
 !!! warning "These tutorials are drafts"
-    Every tutorial here was written from the
-    [MESA documentation](https://idss-mesa.github.io/docs/) and has not yet been checked
-    step by step on the live portal. Each page says so at the top and at the bottom.
+    The portal tutorials were written from the
+    [MESA documentation](https://idss-mesa.github.io/docs/), and the code in the data
+    tutorials was run on a laptop. None has yet been checked step by step on the live
+    portal. Each page says so at the top and at the bottom.
     When a tutorial has been validated, its last line gives the date, who checked it, and
     what it was checked against.
 
@@ -44,6 +45,22 @@ browser and a free [CyVerse account](https://user.cyverse.org).
 | Start working in a notebook | [Launch MESA JupyterLab with your Data Store mounted](tutorials/launch-jupyterlab.md) | 5–10 min |
 | Not lose my work | [Save your work where it survives the session](tutorials/save-your-work.md) | 5–10 min |
 | Finish for the day | [Stop an app and find your results](tutorials/stop-app-find-results.md) | 5 min |
+
+## Working with data
+
+These tutorials each teach one habit for checking data before you trust a result. They
+share one small synthetic [practice dataset](tutorials/practice-data.md) and one
+notebook, so do the first one first.
+
+| I want to… | Tutorial | Time |
+|---|---|---|
+| Get a file into a notebook | [Load a file from your Data Store into a notebook](tutorials/load-a-file.md) | 5 min |
+| Know what the columns mean | [Read the data dictionary before the data](tutorials/read-the-data-dictionary.md) | 5 min |
+| Spot impossible values and blanks | [Check a column's range and missing values](tutorials/check-range-and-missing.md) | 5 min |
+| See what the provider doubted | [Tally a quality flag before you trust a number](tutorials/tally-a-quality-flag.md) | 5 min |
+| Find repeated and missing days | [Count records per day to find incomplete days](tutorials/count-records-per-day.md) | 5–10 min |
+| Join two tables safely | [Reconcile row counts before and after a join](tutorials/reconcile-a-join.md) | 5–10 min |
+| Hand my notebook to someone | [Leave a notebook someone else can rerun](tutorials/leave-a-rerunnable-notebook.md) | 5–10 min |
 
 ## How a tutorial is laid out
 

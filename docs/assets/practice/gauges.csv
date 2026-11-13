@@ -1,0 +1,6 @@
+gauge_id,name,unit,elevation_m
+G01,Boathouse,mm,512
+G02,Orchard,cm,540
+G03,Observatory,mm,688
+G04,Depot,mm,521
+G05,Quarry,mm,603

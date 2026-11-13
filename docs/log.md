@@ -1,5 +1,20 @@
 # Directory Update Log
 
+## 2026-11-12
+
+* **Creation**: Added the [practice data](tutorials/practice-data.md), two small
+  synthetic rain-gauge files with a data dictionary (made by
+  `scripts/make_practice_data.py`), and seven draft data tutorials that
+  use it: [Load a file from your Data Store into a notebook](tutorials/load-a-file.md),
+  [Read the data dictionary before the data](tutorials/read-the-data-dictionary.md),
+  [Check a column's range and missing values](tutorials/check-range-and-missing.md),
+  [Tally a quality flag before you trust a number](tutorials/tally-a-quality-flag.md),
+  [Count records per day to find incomplete days](tutorials/count-records-per-day.md),
+  [Reconcile row counts before and after a join](tutorials/reconcile-a-join.md), and
+  [Leave a notebook someone else can rerun](tutorials/leave-a-rerunnable-notebook.md).
+  The code was run with pandas 3.1 on a laptop; none has been validated in MESA
+  JupyterLab.
+
 ## 2026-11-11
 
 * **Creation**: Scaffolded the MESA Trainings site: the [home page](index.md), the
