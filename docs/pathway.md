@@ -29,10 +29,14 @@ Get into MESA, find data, start an app, and keep and share what you make.
 1. [Sign in to the MESA Portal with a CyVerse account](tutorials/sign-in.md)
 2. [Find your way around the MESA Portal](tutorials/find-your-way-around.md)
 3. [Find MESA's community data in the Data Browser](tutorials/find-community-data.md)
-4. [Launch MESA JupyterLab with your Data Store mounted](tutorials/launch-jupyterlab.md)
-5. [Save your work where it survives the session](tutorials/save-your-work.md)
-6. [Stop an app and find your results](tutorials/stop-app-find-results.md)
-7. [Share a folder with a collaborator](tutorials/share-a-folder.md)
+4. [Search for a file or folder by name](tutorials/search-the-data-browser.md)
+5. [Make a folder in your Data Store](tutorials/make-a-folder.md)
+6. [Launch MESA JupyterLab with your Data Store mounted](tutorials/launch-jupyterlab.md)
+7. [Launch an app with the cores, memory, and time you choose](tutorials/launch-with-options.md)
+8. [Save your work where it survives the session](tutorials/save-your-work.md)
+9. [Check on a running app and give it more time](tutorials/monitor-and-extend.md)
+10. [Stop an app and find your results](tutorials/stop-app-find-results.md)
+11. [Share a folder with a collaborator](tutorials/share-a-folder.md)
 
 ## 2. Run and understand
 

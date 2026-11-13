@@ -68,10 +68,14 @@ notebook, so do the first one first.
 | Put points on a map in R | [Map point data with sf in MESA RStudio Geospatial](tutorials/map-points-in-rstudio.md) | 10 min |
 | Test a result I was handed | [Check an AI-suggested result against the data](tutorials/check-a-suggested-result.md) | 10 min |
 
-## Sharing, describing, and AI agents
+## More in the portal, sharing, and AI agents
 
 | I want to… | Tutorial | Time |
 |---|---|---|
+| Keep work in one place | [Make a folder in your Data Store](tutorials/make-a-folder.md) | 5 min |
+| Find something by name | [Search for a file or folder by name](tutorials/search-the-data-browser.md) | 5 min |
+| Give an app more memory or time | [Launch an app with the cores, memory, and time you choose](tutorials/launch-with-options.md) | 5–10 min |
+| Keep an app from timing out | [Check on a running app and give it more time](tutorials/monitor-and-extend.md) | 5 min |
 | Know where things are | [Find your way around the MESA Portal](tutorials/find-your-way-around.md) | 5 min |
 | Let a colleague see my folder | [Share a folder with a collaborator](tutorials/share-a-folder.md) | 5 min |
 | Say what a folder contains | [Add metadata to a file or folder](tutorials/add-metadata.md) | 5 min |

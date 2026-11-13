@@ -74,10 +74,14 @@ notebook, so do the first one first.
 | Put points on a map in R | [Map point data with sf in MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/) | 10 min |
 | Test a result I was handed | [Check an AI-suggested result against the data](https://idss-mesa.github.io/trainings/tutorials/check-a-suggested-result/) | 10 min |
 
-## Sharing, describing, and AI agents
+## More in the portal, sharing, and AI agents
 
 | I want to… | Tutorial | Time |
 |---|---|---|
+| Keep work in one place | [Make a folder in your Data Store](https://idss-mesa.github.io/trainings/tutorials/make-a-folder/) | 5 min |
+| Find something by name | [Search for a file or folder by name](https://idss-mesa.github.io/trainings/tutorials/search-the-data-browser/) | 5 min |
+| Give an app more memory or time | [Launch an app with the cores, memory, and time you choose](https://idss-mesa.github.io/trainings/tutorials/launch-with-options/) | 5–10 min |
+| Keep an app from timing out | [Check on a running app and give it more time](https://idss-mesa.github.io/trainings/tutorials/monitor-and-extend/) | 5 min |
 | Know where things are | [Find your way around the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/find-your-way-around/) | 5 min |
 | Let a colleague see my folder | [Share a folder with a collaborator](https://idss-mesa.github.io/trainings/tutorials/share-a-folder/) | 5 min |
 | Say what a folder contains | [Add metadata to a file or folder](https://idss-mesa.github.io/trainings/tutorials/add-metadata/) | 5 min |
@@ -151,10 +155,14 @@ Get into MESA, find data, start an app, and keep and share what you make.
 1. [Sign in to the MESA Portal with a CyVerse account](https://idss-mesa.github.io/trainings/tutorials/sign-in/)
 2. [Find your way around the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/find-your-way-around/)
 3. [Find MESA's community data in the Data Browser](https://idss-mesa.github.io/trainings/tutorials/find-community-data/)
-4. [Launch MESA JupyterLab with your Data Store mounted](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/)
-5. [Save your work where it survives the session](https://idss-mesa.github.io/trainings/tutorials/save-your-work/)
-6. [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/)
-7. [Share a folder with a collaborator](https://idss-mesa.github.io/trainings/tutorials/share-a-folder/)
+4. [Search for a file or folder by name](https://idss-mesa.github.io/trainings/tutorials/search-the-data-browser/)
+5. [Make a folder in your Data Store](https://idss-mesa.github.io/trainings/tutorials/make-a-folder/)
+6. [Launch MESA JupyterLab with your Data Store mounted](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/)
+7. [Launch an app with the cores, memory, and time you choose](https://idss-mesa.github.io/trainings/tutorials/launch-with-options/)
+8. [Save your work where it survives the session](https://idss-mesa.github.io/trainings/tutorials/save-your-work/)
+9. [Check on a running app and give it more time](https://idss-mesa.github.io/trainings/tutorials/monitor-and-extend/)
+10. [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/)
+11. [Share a folder with a collaborator](https://idss-mesa.github.io/trainings/tutorials/share-a-folder/)
 
 ## 2. Run and understand
 
@@ -351,6 +359,7 @@ not MESA's.** You clicked **Shared**, which opens every CyVerse community projec
 
 ## Next
 
+- [Search for a file or folder by name](https://idss-mesa.github.io/trainings/tutorials/search-the-data-browser/)
 - [Launch MESA JupyterLab with your Data Store mounted](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/)
 - Reference: [Managing data, "Choose where to look"](https://idss-mesa.github.io/docs/portal/data/#choose-where-to-look),
   which explains all five views, and
@@ -455,6 +464,7 @@ analysis.
 
 ## Next
 
+- [Launch an app with the cores, memory, and time you choose](https://idss-mesa.github.io/trainings/tutorials/launch-with-options/)
 - [Save your work where it survives the session](https://idss-mesa.github.io/trainings/tutorials/save-your-work/). Do this before you
   write anything you want to keep.
 - [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/)
@@ -2791,6 +2801,348 @@ the folder that is not `shared` is named after your username.
 
 *Not yet validated by a second person in MESA RStudio Geospatial. Drafted 2026-11-13; the code was run there on 2026-11-13 (R 4.6.2, sf 1.1.3).*
 
+---8<--- https://idss-mesa.github.io/trainings/tutorials/make-a-folder/
+
+---
+type: Guide
+title: "Make a folder in your Data Store"
+description: "Create a folder in your Data Store from the MESA Portal's Data Browser, so that a piece of work has one place to live."
+tags: [byte, p1, portal, data-browser, folders]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Make a folder in your Data Store
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once on the live portal on 2026-11-13, by the person who
+    wrote them. Nobody else has yet followed them, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** have a new, empty folder of your own in your Data Store.
+
+**Time:** 5 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/).
+
+## Steps
+
+1. In the sidebar, click **Data Browser**, then **My Files**.
+
+    You should see: your home folder, with **Upload**, **New File**, and **New Folder**
+    buttons above the listing.
+
+2. Click **New Folder**.
+
+    You should see: a **Create New Folder** window with a **Folder name** box.
+
+3. Type a name. Use lower-case letters, numbers, and hyphens, for example
+   `mesa-practice`.
+
+    You should see: the name in the box. The window allows spaces, but a name without
+    them is easier to type in a notebook or a terminal later.
+
+4. Click **Create**.
+
+    You should see: the button read **Creating…**. This can take ten to fifteen
+    seconds; do not click again.
+
+5. Wait for the listing to refresh, then click the new folder's name.
+
+    You should see: the folder open and empty, with its name in the dark header band
+    and **Owner** as your access.
+
+6. Read the path under the folder's name.
+
+    You should see:
+
+    ```text
+    /iplant/home/<your username>/mesa-practice
+    ```
+
+## Check it worked
+
+Click **My Files**. The new folder is listed with your other folders. Inside a MESA app
+it is at `~/data-store/home/<your username>/mesa-practice`.
+
+## If it didn't
+
+**There is no New Folder button.** You are in a folder you cannot write to, such as
+**Community**, or you are signed out. Click **My Files** and look again; if the sidebar
+shows only **Home** and **Data Browser**, [sign in](https://idss-mesa.github.io/trainings/tutorials/sign-in/) first.
+
+## Next
+
+- [Share a folder with a collaborator](https://idss-mesa.github.io/trainings/tutorials/share-a-folder/)
+- [Add metadata to a file or folder](https://idss-mesa.github.io/trainings/tutorials/add-metadata/)
+- Reference: [Managing data, "Upload, create, move, and delete"](https://idss-mesa.github.io/docs/portal/data/#upload-create-move-and-delete).
+
+*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/search-the-data-browser/
+
+---
+type: Guide
+title: "Search for a file or folder by name"
+description: "Find files and folders by name with the MESA Portal's Data Browser search, narrow the results, and open the folder a result lives in."
+tags: [byte, p1, portal, data-browser, search]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Search for a file or folder by name
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once on the live portal on 2026-11-13, by the person who
+    wrote them. Nobody else has yet followed them, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+Search looks through the folder you are in and every folder below it, so where you
+stand decides what you find.
+
+**You will:** have found a folder in MESA's community data by typing part of its name.
+
+**Time:** 5 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/).
+
+## Steps
+
+1. In the sidebar, click **Data Browser**, then **Community**.
+
+    You should see: **MESA Community** in the header, and a **Search files and
+    folders…** box above the listing.
+
+2. Click in the search box and type `lakehouse`. You do not need to press
+   ++enter++.
+
+    You should see: after a few seconds, the header change to **Search results in MESA
+    Community**, and a line that begins *Found … results for "lakehouse"*.
+
+    ![Search results for "plot" in the SRER folder](https://idss-mesa.github.io/docs/assets/portal/data-search.webp)
+
+3. Look at one result.
+
+    You should see: its name, and under the name its full path. The path tells you
+    which folder it is in.
+
+4. In the menu at the right of the search box, choose **Folders**.
+
+    You should see: only folders in the results. **Files** does the opposite, and
+    **All** shows both.
+
+5. Click the name of a folder in the results.
+
+    You should see: that folder open, with its trail in the header.
+
+6. Go back to the results with your browser's back button, then click **Clear
+   search**.
+
+    You should see: the ordinary listing of the folder you searched from.
+
+## Check it worked
+
+You reached a folder by typing part of its name, without clicking down through the
+folders above it.
+
+## If it didn't
+
+**"No results found" for something you know is there.** Two causes are common. You are
+searching from a folder that does not contain it: click **My Files** or **Community**
+and search again from the top. Or the item is new: in our test, files created within
+the previous day were not yet found by search. Browse to those instead.
+
+## Next
+
+- [Find MESA's community data in the Data Browser](https://idss-mesa.github.io/trainings/tutorials/find-community-data/)
+- Reference: [Managing data, "Search"](https://idss-mesa.github.io/docs/portal/data/#search).
+
+*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/launch-with-options/
+
+---
+type: Guide
+title: "Launch an app with the cores, memory, and time you choose"
+description: "Start MESA JupyterLab from the MESA Portal with a name, a number of CPU cores, an amount of memory, and a time limit that you set yourself."
+tags: [byte, p1, applications, resources, jupyterlab]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/applications/"
+    title: "Starting applications in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Launch an app with the cores, memory, and time you choose
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once on the live portal on 2026-11-13, by the person who
+    wrote them. Nobody else has yet followed them, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**Instant Launch** starts an app with default settings. **Launch with Options** lets
+you give it more memory for a large dataset, less time for a short task, and a name
+you will recognise later.
+
+**You will:** have MESA JupyterLab running with the resources and the name you chose.
+
+**Time:** 5 to 10 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/).
+
+## Steps
+
+1. In the sidebar, click **Applications**. On the **MESA JupyterLab** card, click
+   **Launch with Options**.
+
+    You should see: a **Launch MESA JupyterLab** window with **Analysis Settings** and
+    **Resource Configuration**.
+
+    ![The Launch MESA JupyterLab dialog with CPU selected](https://idss-mesa.github.io/docs/assets/portal/apps-launch-options.webp){ width="460" }
+
+2. Replace the **Analysis Name** with one that says what the session is for, such as
+   `practice-session`.
+
+    You should see: your name in the box, in place of the app's name and the date.
+
+3. Choose **CPU Cores**. The menu offers 1, 2, or 4.
+
+    You should see: your choice. For reading and checking small files, 1 is enough.
+
+4. Choose **Memory (RAM)**: 2, 4, 8, or 16 GB.
+
+    You should see: your choice. As a rule of thumb, allow several times the size of
+    the largest file you will load.
+
+5. Choose a **Time Limit**, from 1 hour to 48 hours.
+
+    You should see: your choice. The app stops when the limit is reached, whether or
+    not you have finished, so allow some margin.
+
+6. Click **Launch**.
+
+    You should see: the same launch progress as for
+    [Instant Launch](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), ending with JupyterLab.
+
+7. In the portal, click **Analyses**.
+
+    You should see: a card under **Running Analyses** with the name you gave.
+
+## Check it worked
+
+On the running card, **Time Remaining** is just under the limit you chose: about
+`59m` for a one-hour limit.
+
+## If it didn't
+
+**The launch fails, or the analysis never leaves Pending.** The resources you asked for
+are not available, or your CPU-hour quota is used up. Check **Resource Usage** on
+**Home**, then launch again with fewer cores or less memory.
+
+## Next
+
+- [Check on a running app and give it more time](https://idss-mesa.github.io/trainings/tutorials/monitor-and-extend/)
+- [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/). A running app uses
+  your CPU hours until it stops.
+- Reference: [Starting applications, "Launch with Options"](https://idss-mesa.github.io/docs/portal/applications/#launch-with-options),
+  which also covers GPU builds.
+
+*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/monitor-and-extend/
+
+---
+type: Guide
+title: "Check on a running app and give it more time"
+description: "Read how long a running MESA app has left, look at its logs, and extend its time limit from the Analyses page before it stops."
+tags: [byte, p1, portal, analyses, time-limit]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/analyses/"
+    title: "Managing analyses in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Check on a running app and give it more time
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once on the live portal on 2026-11-13, by the person who
+    wrote them. Nobody else has yet followed them, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+Every interactive app has a time limit. When it runs out the app stops, and anything
+not saved under `~/data-store` is lost.
+
+**You will:** know how long your app has left, and have given it more time.
+
+**Time:** 5 minutes. **You need:** a running app, such as
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/).
+
+## Steps
+
+1. In the portal's sidebar, click **Analyses**.
+
+    You should see: your app under **Running Analyses**, on a card with a **Running**
+    badge.
+
+    ![A running JupyterLab analysis with the Monitor panel open on the Logs tab](https://idss-mesa.github.io/docs/assets/portal/analyses-monitor.webp)
+
+2. Read **Time Remaining** on the card.
+
+    You should see: hours and minutes. With an hour or less left, the **Extend Time**
+    button also shows **LOW**.
+
+3. Click **Monitor**.
+
+    You should see: a panel open under the card, on its **Logs** tab, with the app's
+    own messages. For JupyterLab the last lines say that the server is running.
+
+4. Type a word such as `error` in the **Filter logs…** box.
+
+    You should see: only the lines that contain it, often none. This is the first
+    place to look when an app misbehaves.
+
+5. On the same card, click **Extend Time**, and click **OK** when the browser asks
+   you to confirm.
+
+    You should see: the button read **Extending…** for a moment.
+
+6. Read **Time Remaining** again.
+
+    You should see: a longer time, and no **LOW** badge. In our test an app with 59
+    minutes left had about 25 hours afterwards.
+
+## Check it worked
+
+**Time Remaining** is longer than it was in step 2.
+
+## If it didn't
+
+**There is no Extend Time button.** It is offered only for running interactive apps,
+and not while an app is still starting. Wait for the badge to read **Running**, click
+**Refresh**, and look again.
+
+## Next
+
+- An extended app keeps using your CPU hours. When you have finished,
+  [stop it](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/).
+- The panel's **Resources** tab does not yet show live CPU or memory use.
+- Reference: [Managing analyses, "Work with a running app"](https://idss-mesa.github.io/docs/portal/analyses/#work-with-a-running-app).
+
+*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+
 ---8<--- https://idss-mesa.github.io/trainings/contributing/
 
 ---
@@ -3150,6 +3502,13 @@ explains.
 
 ## 2026-11-13
 
+* **Creation**: Added four portal tutorials, each followed once on the live portal:
+  [Make a folder in your Data Store](tutorials/make-a-folder.md),
+  [Search for a file or folder by name](tutorials/search-the-data-browser.md),
+  [Launch an app with the cores, memory, and time you choose](tutorials/launch-with-options.md),
+  and [Check on a running app and give it more time](tutorials/monitor-and-extend.md).
+  Tutorials on uploading a file and relaunching an app were not written, because both
+  actions failed on the portal that day.
 * **Creation**: Added [Map point data with sf in MESA RStudio Geospatial](tutorials/map-points-in-rstudio.md),
   the first tutorial for that app, run there on 2026-11-13. The
   [practice data](tutorials/practice-data.md) gained `gauge_sites.csv`, invented

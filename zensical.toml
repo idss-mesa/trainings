@@ -43,6 +43,10 @@ nav = [
       { "Query Parquet with DuckDB" = "tutorials/query-parquet-with-duckdb.md" },
       { "Check a suggested result" = "tutorials/check-a-suggested-result.md" },
       { "Map points in RStudio" = "tutorials/map-points-in-rstudio.md" },
+      { "Make a folder" = "tutorials/make-a-folder.md" },
+      { "Search the Data Browser" = "tutorials/search-the-data-browser.md" },
+      { "Launch with options" = "tutorials/launch-with-options.md" },
+      { "Monitor and extend an app" = "tutorials/monitor-and-extend.md" },
   ] },
   { "Contributing" = [
       { "Contribute a tutorial" = "contributing.md" },

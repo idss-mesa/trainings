@@ -92,6 +92,7 @@ analysis.
 
 ## Next
 
+- [Launch an app with the cores, memory, and time you choose](launch-with-options.md)
 - [Save your work where it survives the session](save-your-work.md). Do this before you
   write anything you want to keep.
 - [Stop an app and find your results](stop-app-find-results.md)

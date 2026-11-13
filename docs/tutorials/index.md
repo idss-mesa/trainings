@@ -23,3 +23,7 @@
 * [Query a Parquet file with DuckDB from a notebook](query-parquet-with-duckdb.md) - Run SQL against a Parquet file from a notebook with DuckDB, without loading the file into memory first, and bring a result back as a pandas table.
 * [Check an AI-suggested result against the data](check-a-suggested-result.md) - Test a result that an AI assistant, or anyone else, hands you: reproduce the number, find what it rests on, and say whether the claim survives.
 * [Map point data with sf in MESA RStudio Geospatial](map-points-in-rstudio.md) - Turn a table of longitudes and latitudes into spatial points with sf in MESA RStudio Geospatial, check a distance, and save a map to your Data Store.
+* [Make a folder in your Data Store](make-a-folder.md) - Create a folder in your Data Store from the MESA Portal's Data Browser, so that a piece of work has one place to live.
+* [Search for a file or folder by name](search-the-data-browser.md) - Find files and folders by name with the MESA Portal's Data Browser search, narrow the results, and open the folder a result lives in.
+* [Launch an app with the cores, memory, and time you choose](launch-with-options.md) - Start MESA JupyterLab from the MESA Portal with a name, a number of CPU cores, an amount of memory, and a time limit that you set yourself.
+* [Check on a running app and give it more time](monitor-and-extend.md) - Read how long a running MESA app has left, look at its logs, and extend its time limit from the Analyses page before it stops.
