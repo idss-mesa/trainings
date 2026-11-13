@@ -40,6 +40,10 @@ Get into MESA, find data, start an app, and keep and share what you make.
 12. [Rename a folder in your Data Store](tutorials/rename-a-folder.md)
 13. [Move folders into another folder](tutorials/move-folders.md)
 14. [Move a folder to the trash and get it back](tutorials/trash-and-restore.md)
+15. [Browse a large folder as a sorted list](tutorials/browse-a-large-folder.md)
+16. [Read the metadata on a folder shared with you](tutorials/read-shared-metadata.md)
+17. [Stop sharing a folder](tutorials/stop-sharing-a-folder.md)
+18. [Check your CPU hours and storage](tutorials/check-your-usage.md)
 
 The other MESA apps, one first task each:
 
