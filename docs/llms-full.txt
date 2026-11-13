@@ -502,6 +502,11 @@ for it to read **Application Ready**, then click **Open MESA JupyterLab**. If yo
 closed the window, click **Analyses** in the sidebar and **Open App** on the running
 analysis.
 
+**The window reads Launch Failed, with `ERR_PERMISSION_NEEDED`.** A new CyVerse account
+must ask once for access to interactive apps. Ignore the advice to stop a running
+analysis. Click **Open in Discovery Environment**, then **Request Access**, and send
+the form. CyVerse says it answers within one to two days. Then launch again.
+
 ## Next
 
 - [Launch an app with the cores, memory, and time you choose](https://idss-mesa.github.io/trainings/tutorials/launch-with-options/)
@@ -1791,13 +1796,14 @@ they sign in with it.
 
 4. Under **Share with User**, type your collaborator's complete CyVerse username.
 
-    You should see: the name as you typed it. The portal needs the whole username or
-    email address; part of one is not enough.
+    You should see: under the box, a line marked **Match** that shows the email
+    address of that account. The portal needs the whole username or email address;
+    part of one is not enough.
 
 5. Leave the access level at **Read**, then click **Share**.
 
-    You should see: your collaborator listed under **Current Permissions**, with
-    **Read**.
+    You should see: *Updating access…* for up to half a minute, then your
+    collaborator listed under **Current Permissions**, with **Read**.
 
 6. Close the dialog and look at the folder header.
 
@@ -4483,6 +4489,12 @@ explains.
 
 ## 2026-11-13
 
+* **Update**: Began a run of the tutorials on a new CyVerse account. A new account
+  cannot start an app until CyVerse grants access to interactive apps, so
+  [Launch MESA JupyterLab with your Data Store mounted](tutorials/launch-jupyterlab.md)
+  now says what the failed launch looks like and how to ask for access.
+  [Share a folder with a collaborator](tutorials/share-a-folder.md) now describes the
+  match line and the wait after **Share**.
 * **Creation**: Added two tutorials to pathway point 5, followed in MESA JupyterLab:
   [Write a README for a data folder](tutorials/write-a-readme.md) and
   [Record the software versions a result depends on](tutorials/record-software-versions.md).
