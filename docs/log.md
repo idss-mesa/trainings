@@ -2,6 +2,10 @@
 
 ## 2026-11-13
 
+* **Creation**: Added an R track for MESA RStudio Geospatial, run in the app:
+  [Load a file from your Data Store in RStudio](tutorials/r-load-a-file.md),
+  [Tally a quality flag in R](tutorials/r-tally-a-quality-flag.md), and
+  [Query a Parquet file with DuckDB from R](tutorials/r-query-parquet-with-duckdb.md).
 * **Creation**: Added four portal tutorials, each followed once on the live portal:
   [Make a folder in your Data Store](tutorials/make-a-folder.md),
   [Search for a file or folder by name](tutorials/search-the-data-browser.md),

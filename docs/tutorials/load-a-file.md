@@ -102,6 +102,7 @@ the first cell again.
 
 ## Next
 
+- The same task in R: [Load a file from your Data Store in RStudio](r-load-a-file.md).
 - [Read the data dictionary before the data](read-the-data-dictionary.md)
 - Reference: [pandas.read_csv](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html),
   and [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) for what the

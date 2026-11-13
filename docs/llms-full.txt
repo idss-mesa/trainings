@@ -88,6 +88,17 @@ notebook, so do the first one first.
 | Ask an AI agent about my data | [Sign in and start an AI agent in a MESA app](https://idss-mesa.github.io/trainings/tutorials/start-an-ai-agent/) | 10 min |
 | Use a token safely in a notebook | [Keep tokens and passwords out of saved files](https://idss-mesa.github.io/trainings/tutorials/keep-secrets-out-of-files/) | 5–10 min |
 
+## Working in R
+
+These use MESA RStudio Geospatial and the same practice data.
+
+| I want to… | Tutorial | Time |
+|---|---|---|
+| Get a file into R | [Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/) | 5–10 min |
+| See what the provider doubted | [Tally a quality flag in R](https://idss-mesa.github.io/trainings/tutorials/r-tally-a-quality-flag/) | 5 min |
+| Run SQL on a Parquet file from R | [Query a Parquet file with DuckDB from R](https://idss-mesa.github.io/trainings/tutorials/r-query-parquet-with-duckdb/) | 10 min |
+| Put points on a map | [Map point data with sf in MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/) | 10 min |
+
 ## How a tutorial is laid out
 
 Every tutorial has the same six parts, in the same order:
@@ -178,6 +189,11 @@ Load a dataset and find out what it holds, and where it is incomplete or doubtfu
 8. [Work with a long table, one row per kind of measurement](https://idss-mesa.github.io/trainings/tutorials/work-with-a-long-table/)
 9. [Map point data with sf in MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/)
 
+The same ground in R, in MESA RStudio Geospatial:
+
+1. [Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/)
+2. [Tally a quality flag in R](https://idss-mesa.github.io/trainings/tutorials/r-tally-a-quality-flag/)
+
 ## 3. Query and connect
 
 Ask questions across files and tables, and check that combining them did what you meant.
@@ -185,6 +201,7 @@ Ask questions across files and tables, and check that combining them did what yo
 1. [Query a Parquet file with DuckDB from a notebook](https://idss-mesa.github.io/trainings/tutorials/query-parquet-with-duckdb/)
 2. [Reconcile row counts before and after a join](https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/)
 3. [Keep tokens and passwords out of saved files](https://idss-mesa.github.io/trainings/tutorials/keep-secrets-out-of-files/)
+4. [Query a Parquet file with DuckDB from R](https://idss-mesa.github.io/trainings/tutorials/r-query-parquet-with-duckdb/)
 
 ## 4. Explore and verify
 
@@ -207,6 +224,9 @@ Leave work that someone else can find, understand, and run again.
 - **Comfortable in the portal, new to checking data:** copy the
   [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/) and take point 2 in order. Points 3 and 4
   use the same notebook.
+- **Working in R:** start with
+  [Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/); each R
+  tutorial links its Python counterpart.
 - **Looking for one thing:** every tutorial is listed, with a one-line description,
   under [Tutorials](https://idss-mesa.github.io/trainings/tutorials/).
 
@@ -892,6 +912,7 @@ the first cell again.
 
 ## Next
 
+- The same task in R: [Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/).
 - [Read the data dictionary before the data](https://idss-mesa.github.io/trainings/tutorials/read-the-data-dictionary/)
 - Reference: [pandas.read_csv](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html),
   and [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) for what the
@@ -2508,9 +2529,8 @@ is not in `mesa-practice`. Run step 2 again and look for the file in the file br
 
 - The same SQL runs from a terminal with the `duckdb` command:
   `duckdb :memory: "SELECT count(*) FROM 'readings.parquet'"`. MESA JupyterLab does not
-  include DuckDB's R package; see
-  [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/#first-steps) for how
-  to add it.
+  include DuckDB's R package; for R, see
+  [Query a Parquet file with DuckDB from R](https://idss-mesa.github.io/trainings/tutorials/r-query-parquet-with-duckdb/).
 - [Reconcile row counts before and after a join](https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/)
 - Reference: [Reading and writing Parquet files](https://duckdb.org/docs/stable/data/parquet/overview)
   and the [client overview](https://duckdb.org/docs/2.0/clients/overview) in the DuckDB
@@ -2791,6 +2811,7 @@ the folder that is not `shared` is named after your username.
 
 ## Next
 
+- [Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/)
 - [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/), when you have
   finished with RStudio.
 - The coordinates are invented, like the rest of the [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/):
@@ -3142,6 +3163,389 @@ and not while an app is still starting. Wait for the badge to read **Running**, 
 - Reference: [Managing analyses, "Work with a running app"](https://idss-mesa.github.io/docs/portal/analyses/#work-with-a-running-app).
 
 *Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/
+
+---
+type: Guide
+title: "Load a file from your Data Store in RStudio"
+description: "Read a CSV file from your Data Store into an R data frame in MESA RStudio Geospatial, and confirm its size and column types."
+tags: [byte, p2, rstudio, r, data-store]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs-rstudio
+    resource: "https://idss-mesa.github.io/docs/apps/rstudio/"
+    title: "MESA RStudio Geospatial"
+    author: "team:idss-mesa"
+  - id: r
+    resource: "https://stat.ethz.ch/R-manual/R-devel/library/utils/html/read.table.html"
+    title: "Data Input: read.table and read.csv (R documentation)"
+    author: "team:r-core"
+---
+
+# Load a file from your Data Store in RStudio
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-13 (R 4.6.2)
+    and produced the output shown. Nobody else has yet followed the steps, so a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** have the practice readings loaded as an R data frame, with a row count
+you have checked.
+
+**Time:** 5 to 10 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/),
+and your CyVerse username.
+
+## Steps
+
+1. In the portal, click **Applications**, and on the **MESA RStudio Geospatial** card
+   click **Instant Launch**. Wait for RStudio to open.
+
+    You should see: RStudio, with the **Console** on the left.
+
+2. In the **Console**, go to a practice folder in your Data Store and fetch the files,
+   with your own username in the first line:
+
+    ```r
+    setwd("~/data-store/home/<your username>")
+    dir.create("mesa-practice", showWarnings = FALSE)
+    setwd("mesa-practice")
+    base <- "https://idss-mesa.github.io/trainings/assets/practice/"
+    for (f in c("gauges.csv", "readings.csv")) download.file(paste0(base, f), f)
+    ```
+
+    You should see: two lines that begin `downloaded`.
+
+3. Read both files:
+
+    ```r
+    readings <- read.csv("readings.csv", na.strings = "")
+    gauges <- read.csv("gauges.csv")
+    ```
+
+    You should see: `readings` and `gauges` appear in the **Environment** tab at the
+    top right. `na.strings = ""` tells R that an empty cell is a missing value, not an
+    empty piece of text.
+
+4. Check the size:
+
+    ```r
+    dim(readings)
+    ```
+
+    You should see: rows, then columns.
+
+    ```text
+    [1] 152   4
+    ```
+
+5. Look at the first rows:
+
+    ```r
+    head(readings)
+    ```
+
+    You should see: `<NA>` wherever `flag` was blank in the file.
+
+    ```text
+      gauge_id       date value flag
+    1      G01 2026-07-01   0.0 <NA>
+    2      G01 2026-07-02   0.0 <NA>
+    3      G01 2026-07-03  24.9 <NA>
+    4      G01 2026-07-04   0.0 <NA>
+    5      G01 2026-07-05  17.6 <NA>
+    6      G01 2026-07-06   0.0 <NA>
+    ```
+
+6. Check what type each column was read as:
+
+    ```r
+    str(readings)
+    ```
+
+    You should see: `value` as numbers (`num`), and `date` as text (`chr`). R did not
+    turn the dates into dates; `as.Date(readings$date)` does that when you need it.
+
+## Check it worked
+
+`dim(readings)` is `152 4`, the size the [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/) page gives,
+and the **Environment** tab lists `readings` with 152 obs. of 4 variables.
+
+## If it didn't
+
+**`cannot open file 'readings.csv': No such file or directory`.** R is not in the
+folder that holds the file. Run `getwd()` to see where it is, then repeat the `setwd()`
+lines in step 2 with your username spelled exactly.
+
+## Next
+
+- [Tally a quality flag in R](https://idss-mesa.github.io/trainings/tutorials/r-tally-a-quality-flag/)
+- The same task in Python: [Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/).
+- Reference: [MESA RStudio Geospatial](https://idss-mesa.github.io/docs/apps/rstudio/).
+
+*Not yet validated by a second person in MESA RStudio Geospatial. Drafted 2026-11-13; the code was run there that day (R 4.6.2).*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/r-tally-a-quality-flag/
+
+---
+type: Guide
+title: "Tally a quality flag in R"
+description: "Count the rows for each value of a quality flag in R, including the missing ones, and look at the flagged rows before deciding what to do with them."
+tags: [byte, p2, rstudio, r, data-quality]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs-rstudio
+    resource: "https://idss-mesa.github.io/docs/apps/rstudio/"
+    title: "MESA RStudio Geospatial"
+    author: "team:idss-mesa"
+  - id: r
+    resource: "https://stat.ethz.ch/R-manual/R-devel/library/base/html/table.html"
+    title: "Cross Tabulation and Table Creation: table (R documentation)"
+    author: "team:r-core"
+---
+
+# Tally a quality flag in R
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-13 (R 4.6.2)
+    and produced the output shown. Nobody else has yet followed the steps, so a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+Many datasets mark the readings their instrument doubted. `table()` counts them, but by
+default it leaves missing values out, which hides how many rows carry no flag at all.
+
+**You will:** know how many readings are flagged, which ones, and at which gauges.
+
+**Time:** 5 minutes. **You need:** the `readings` table from
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/), in
+[MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/).
+
+## Steps
+
+1. Read what the flag means in the
+   [data dictionary](https://idss-mesa.github.io/trainings/tutorials/practice-data/#data-dictionary).
+
+    You should see: blank, or `S` for a reading the sensor marked suspect.
+
+2. Count the rows for each flag value, missing ones included:
+
+    ```r
+    table(readings$flag, useNA = "always")
+    ```
+
+    You should see:
+
+    ```text
+       S <NA>
+       2  150
+    ```
+
+3. Check that nothing is left over: 2 + 150 = 152, the number of rows.
+
+    You should see: the counts add up, and no flag value the dictionary does not list.
+
+4. Look at the flagged rows:
+
+    ```r
+    readings[which(readings$flag == "S"), ]
+    ```
+
+    You should see:
+
+    ```text
+        gauge_id       date value flag
+    77       G03 2026-07-18     0    S
+    130      G05 2026-07-09   180    S
+    ```
+
+5. Count flags by gauge:
+
+    ```r
+    table(readings$gauge_id, readings$flag, useNA = "ifany")
+    ```
+
+    You should see:
+
+    ```text
+           S <NA>
+      G01  0   27
+      G02  0   31
+      G03  1   31
+      G04  0   31
+      G05  1   30
+    ```
+
+6. In a script or a notes file, write down what you will do with flagged readings and
+   why: keep them, leave them out, or report the result both ways.
+
+    You should see: your decision recorded where a reader of your result can find it.
+
+## Check it worked
+
+You can say how many readings are flagged (2), where they are, and what your analysis
+does with them. One is far outside its gauge's range; the other is an ordinary dry day.
+
+## If it didn't
+
+**Step 4 prints 152 rows, 150 of them all `NA`.** You wrote `readings[readings$flag == "S", ]`
+without `which()`. Comparing a missing value with `"S"` gives `NA`, and R returns a row
+of `NA` for each one. `which()` keeps only the rows where the comparison is true.
+
+## Next
+
+- [Query a Parquet file with DuckDB from R](https://idss-mesa.github.io/trainings/tutorials/r-query-parquet-with-duckdb/)
+- The same task in Python: [Tally a quality flag before you trust a number](https://idss-mesa.github.io/trainings/tutorials/tally-a-quality-flag/).
+
+*Not yet validated by a second person in MESA RStudio Geospatial. Drafted 2026-11-13; the code was run there that day (R 4.6.2).*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/r-query-parquet-with-duckdb/
+
+---
+type: Guide
+title: "Query a Parquet file with DuckDB from R"
+description: "Run SQL against a Parquet file from R with the duckdb package in MESA RStudio Geospatial, and get each result back as an ordinary data frame."
+tags: [byte, p3, rstudio, duckdb, parquet]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs-rstudio
+    resource: "https://idss-mesa.github.io/docs/apps/rstudio/"
+    title: "MESA RStudio Geospatial"
+    author: "team:idss-mesa"
+  - id: duckdb
+    resource: "https://duckdb.org/docs/2.0/clients/r"
+    title: "R Client (DuckDB documentation)"
+    author: "team:duckdb"
+---
+
+# Query a Parquet file with DuckDB from R
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-13 (R 4.6.2, duckdb 2.0.0)
+    and produced the output shown. Nobody else has yet followed the steps, so a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+DuckDB runs SQL straight against a Parquet file, so R can summarise data far too large
+to read into memory. MESA RStudio Geospatial has the R `duckdb` package installed.
+
+**You will:** have queried a Parquet file with SQL from R, and have the result as a data
+frame.
+
+**Time:** 10 minutes. **You need:** the practice files in your working folder, from
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/).
+
+## Steps
+
+1. Load the package and open a connection:
+
+    ```r
+    library(duckdb)
+    con <- dbConnect(duckdb())
+    ```
+
+    You should see: on first use, the question
+    `duckdb: create /home/rstudio/.duckdb? (Yes/no/cancel)`. Type `yes` and press
+    ++enter++. That folder holds DuckDB's settings; it is on the app's own disk and is
+    removed when the app stops.
+
+2. Make a Parquet file to practise on, from the CSV you already have:
+
+    ```r
+    dbExecute(con, "COPY (SELECT * FROM 'readings.csv') TO 'readings.parquet' (FORMAT parquet)")
+    ```
+
+    You should see: the number of rows written.
+
+    ```text
+    [1] 152
+    ```
+
+3. Ask what the file holds, without reading its rows:
+
+    ```r
+    dbGetQuery(con, "DESCRIBE SELECT * FROM 'readings.parquet'")
+    ```
+
+    You should see: the four columns with their types. Unlike `read.csv()`, DuckDB
+    recognised `date` as a date.
+
+    ```text
+      column_name column_type null  key default extra
+    1    gauge_id     VARCHAR  YES <NA>    <NA>  <NA>
+    2        date        DATE  YES <NA>    <NA>  <NA>
+    3       value      DOUBLE  YES <NA>    <NA>  <NA>
+    4        flag     VARCHAR  YES <NA>    <NA>  <NA>
+    ```
+
+4. Summarise it with SQL:
+
+    ```r
+    dbGetQuery(con, "
+      SELECT gauge_id, count(*) AS n_rows, max(value) AS largest
+      FROM 'readings.parquet'
+      GROUP BY gauge_id
+      ORDER BY gauge_id
+    ")
+    ```
+
+    You should see:
+
+    ```text
+      gauge_id n_rows largest
+    1      G01     27   24.90
+    2      G02     31    2.92
+    3      G03     32   32.50
+    4      G04     31   26.40
+    5      G05     31  180.00
+    ```
+
+5. Keep a result as a data frame:
+
+    ```r
+    flagged <- dbGetQuery(con, "SELECT * FROM 'readings.parquet' WHERE flag = 'S'")
+    flagged
+    ```
+
+    You should see: two rows, in an ordinary data frame you can pass to any R function.
+
+    ```text
+      gauge_id       date value flag
+    1      G03 2026-07-18     0    S
+    2      G05 2026-07-09   180    S
+    ```
+
+6. Close the connection when you have finished:
+
+    ```r
+    dbDisconnect(con, shutdown = TRUE)
+    ```
+
+    You should see: no output.
+
+## Check it worked
+
+The `n_rows` column adds up to 152, the number of rows `dim(readings)` reported when R
+read the CSV. Two tools reading the same data should agree before you trust either.
+
+## If it didn't
+
+**`IO Error: No files found that match the pattern "readings.parquet"`.** DuckDB looks
+in R's working folder. Either step 2 did not run, or R is somewhere else: run
+`getwd()`, and `setwd()` to your `mesa-practice` folder.
+
+## Next
+
+- The same task in Python: [Query a Parquet file with DuckDB from a notebook](https://idss-mesa.github.io/trainings/tutorials/query-parquet-with-duckdb/).
+- [Map point data with sf in MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/)
+- Reference: [R Client](https://duckdb.org/docs/2.0/clients/r) in the DuckDB
+  documentation, which also covers `dplyr` through `dbplyr`.
+
+*Not yet validated by a second person in MESA RStudio Geospatial. Drafted 2026-11-13; the code was run there that day (R 4.6.2, duckdb 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/contributing/
 
@@ -3502,6 +3906,10 @@ explains.
 
 ## 2026-11-13
 
+* **Creation**: Added an R track for MESA RStudio Geospatial, run in the app:
+  [Load a file from your Data Store in RStudio](tutorials/r-load-a-file.md),
+  [Tally a quality flag in R](tutorials/r-tally-a-quality-flag.md), and
+  [Query a Parquet file with DuckDB from R](tutorials/r-query-parquet-with-duckdb.md).
 * **Creation**: Added four portal tutorials, each followed once on the live portal:
   [Make a folder in your Data Store](tutorials/make-a-folder.md),
   [Search for a file or folder by name](tutorials/search-the-data-browser.md),

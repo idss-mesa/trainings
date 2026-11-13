@@ -27,3 +27,6 @@
 * [Search for a file or folder by name](search-the-data-browser.md) - Find files and folders by name with the MESA Portal's Data Browser search, narrow the results, and open the folder a result lives in.
 * [Launch an app with the cores, memory, and time you choose](launch-with-options.md) - Start MESA JupyterLab from the MESA Portal with a name, a number of CPU cores, an amount of memory, and a time limit that you set yourself.
 * [Check on a running app and give it more time](monitor-and-extend.md) - Read how long a running MESA app has left, look at its logs, and extend its time limit from the Analyses page before it stops.
+* [Load a file from your Data Store in RStudio](r-load-a-file.md) - Read a CSV file from your Data Store into an R data frame in MESA RStudio Geospatial, and confirm its size and column types.
+* [Tally a quality flag in R](r-tally-a-quality-flag.md) - Count the rows for each value of a quality flag in R, including the missing ones, and look at the flagged rows before deciding what to do with them.
+* [Query a Parquet file with DuckDB from R](r-query-parquet-with-duckdb.md) - Run SQL against a Parquet file from R with the duckdb package in MESA RStudio Geospatial, and get each result back as an ordinary data frame.

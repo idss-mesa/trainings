@@ -138,6 +138,7 @@ the folder that is not `shared` is named after your username.
 
 ## Next
 
+- [Load a file from your Data Store in RStudio](r-load-a-file.md)
 - [Stop an app and find your results](stop-app-find-results.md), when you have
   finished with RStudio.
 - The coordinates are invented, like the rest of the [practice data](practice-data.md):
