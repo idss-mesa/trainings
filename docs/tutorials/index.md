@@ -35,3 +35,6 @@
 * [Open a file from your Data Store in a desktop program](desktop-open-a-file.md) - Start the MESA KASM Ubuntu Desktop, find a file in your Data Store with its file manager, and open it in a desktop program.
 * [Write a README for a data folder](write-a-readme.md) - Add a short README file to a folder in your Data Store, from MESA JupyterLab, that says what the files are, where they came from, and who to ask.
 * [Record the software versions a result depends on](record-software-versions.md) - Write the Python version and the versions of every installed package to files beside your work, so that a result can be traced to the software that produced it.
+* [Rename a folder in your Data Store](rename-a-folder.md) - Give a folder in your Data Store a clearer name from the MESA Portal's Data Browser, and confirm its path changed with it.
+* [Move folders into another folder](move-folders.md) - Select several folders in the MESA Portal's Data Browser and move them together into another folder in your Data Store.
+* [Move a folder to the trash and get it back](trash-and-restore.md) - Move a folder to your Data Store trash from the MESA Portal, then restore it from the trash in the CyVerse Discovery Environment.

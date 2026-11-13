@@ -2,6 +2,11 @@
 
 ## 2026-11-13
 
+* **Creation**: Added three file-handling tutorials, each followed once on the live
+  portal with folders:
+  [Rename a folder in your Data Store](tutorials/rename-a-folder.md),
+  [Move folders into another folder](tutorials/move-folders.md), and
+  [Move a folder to the trash and get it back](tutorials/trash-and-restore.md).
 * **Update**: Checked [Share a folder with a collaborator](tutorials/share-a-folder.md)
   from a second account. **User Shared** lists a folder for each user, so the check now
   says how the collaborator finds yours and what read-only access looks like.

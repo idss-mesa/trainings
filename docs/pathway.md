@@ -37,6 +37,9 @@ Get into MESA, find data, start an app, and keep and share what you make.
 9. [Check on a running app and give it more time](tutorials/monitor-and-extend.md)
 10. [Stop an app and find your results](tutorials/stop-app-find-results.md)
 11. [Share a folder with a collaborator](tutorials/share-a-folder.md)
+12. [Rename a folder in your Data Store](tutorials/rename-a-folder.md)
+13. [Move folders into another folder](tutorials/move-folders.md)
+14. [Move a folder to the trash and get it back](tutorials/trash-and-restore.md)
 
 The other MESA apps, one first task each:
 

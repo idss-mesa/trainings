@@ -75,6 +75,9 @@ notebook, so do the first one first.
 | I want to… | Tutorial | Time |
 |---|---|---|
 | Keep work in one place | [Make a folder in your Data Store](tutorials/make-a-folder.md) | 5 min |
+| Give a folder a better name | [Rename a folder in your Data Store](tutorials/rename-a-folder.md) | 5 min |
+| Tidy folders away | [Move folders into another folder](tutorials/move-folders.md) | 5–10 min |
+| Undo a deletion | [Move a folder to the trash and get it back](tutorials/trash-and-restore.md) | 10 min |
 | Find something by name | [Search for a file or folder by name](tutorials/search-the-data-browser.md) | 5 min |
 | Give an app more memory or time | [Launch an app with the cores, memory, and time you choose](tutorials/launch-with-options.md) | 5–10 min |
 | Keep an app from timing out | [Check on a running app and give it more time](tutorials/monitor-and-extend.md) | 5 min |
