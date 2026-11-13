@@ -38,3 +38,7 @@
 * [Rename a folder in your Data Store](rename-a-folder.md) - Give a folder in your Data Store a clearer name from the MESA Portal's Data Browser, and confirm its path changed with it.
 * [Move folders into another folder](move-folders.md) - Select several folders in the MESA Portal's Data Browser and move them together into another folder in your Data Store.
 * [Move a folder to the trash and get it back](trash-and-restore.md) - Move a folder to your Data Store trash from the MESA Portal, then restore it from the trash in the CyVerse Discovery Environment.
+* [Browse a large folder as a sorted list](browse-a-large-folder.md) - Switch the MESA Portal's Data Browser to a list, page through a folder with many items, and sort what is on the page.
+* [Read the metadata on a folder shared with you](read-shared-metadata.md) - Open the metadata on a folder another CyVerse user has shared with you, in the MESA Portal's quick panel and on its full metadata page.
+* [Stop sharing a folder](stop-sharing-a-folder.md) - Take away a collaborator's access to a folder in your Data Store from the MESA Portal's share dialog, and confirm the folder is private again.
+* [Check your CPU hours and storage](check-your-usage.md) - Find how many CPU hours and how much Data Store space your CyVerse plan allows, and how much you have used, in the MESA Portal.

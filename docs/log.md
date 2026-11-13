@@ -2,6 +2,11 @@
 
 ## 2026-11-13
 
+* **Creation**: Added four short portal tutorials, each followed once on the live portal:
+  [Browse a large folder as a sorted list](tutorials/browse-a-large-folder.md),
+  [Read the metadata on a folder shared with you](tutorials/read-shared-metadata.md),
+  [Stop sharing a folder](tutorials/stop-sharing-a-folder.md), and
+  [Check your CPU hours and storage](tutorials/check-your-usage.md).
 * **Creation**: Added three file-handling tutorials, each followed once on the live
   portal with folders:
   [Rename a folder in your Data Store](tutorials/rename-a-folder.md),

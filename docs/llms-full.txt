@@ -84,6 +84,10 @@ notebook, so do the first one first.
 | Give a folder a better name | [Rename a folder in your Data Store](https://idss-mesa.github.io/trainings/tutorials/rename-a-folder/) | 5 min |
 | Tidy folders away | [Move folders into another folder](https://idss-mesa.github.io/trainings/tutorials/move-folders/) | 5–10 min |
 | Undo a deletion | [Move a folder to the trash and get it back](https://idss-mesa.github.io/trainings/tutorials/trash-and-restore/) | 10 min |
+| Look through a folder with many items | [Browse a large folder as a sorted list](https://idss-mesa.github.io/trainings/tutorials/browse-a-large-folder/) | 5 min |
+| See what a colleague recorded about a folder | [Read the metadata on a folder shared with you](https://idss-mesa.github.io/trainings/tutorials/read-shared-metadata/) | 5–10 min |
+| Take back access I gave | [Stop sharing a folder](https://idss-mesa.github.io/trainings/tutorials/stop-sharing-a-folder/) | 5 min |
+| Know how much computing time and space I have | [Check your CPU hours and storage](https://idss-mesa.github.io/trainings/tutorials/check-your-usage/) | 5 min |
 | Find something by name | [Search for a file or folder by name](https://idss-mesa.github.io/trainings/tutorials/search-the-data-browser/) | 5 min |
 | Give an app more memory or time | [Launch an app with the cores, memory, and time you choose](https://idss-mesa.github.io/trainings/tutorials/launch-with-options/) | 5–10 min |
 | Keep an app from timing out | [Check on a running app and give it more time](https://idss-mesa.github.io/trainings/tutorials/monitor-and-extend/) | 5 min |
@@ -192,6 +196,10 @@ Get into MESA, find data, start an app, and keep and share what you make.
 12. [Rename a folder in your Data Store](https://idss-mesa.github.io/trainings/tutorials/rename-a-folder/)
 13. [Move folders into another folder](https://idss-mesa.github.io/trainings/tutorials/move-folders/)
 14. [Move a folder to the trash and get it back](https://idss-mesa.github.io/trainings/tutorials/trash-and-restore/)
+15. [Browse a large folder as a sorted list](https://idss-mesa.github.io/trainings/tutorials/browse-a-large-folder/)
+16. [Read the metadata on a folder shared with you](https://idss-mesa.github.io/trainings/tutorials/read-shared-metadata/)
+17. [Stop sharing a folder](https://idss-mesa.github.io/trainings/tutorials/stop-sharing-a-folder/)
+18. [Check your CPU hours and storage](https://idss-mesa.github.io/trainings/tutorials/check-your-usage/)
 
 The other MESA apps, one first task each:
 
@@ -4419,6 +4427,338 @@ wait and try again.
 
 *Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
 
+---8<--- https://idss-mesa.github.io/trainings/tutorials/browse-a-large-folder/
+
+---
+type: Guide
+title: "Browse a large folder as a sorted list"
+description: "Switch the MESA Portal's Data Browser to a list, page through a folder with many items, and sort what is on the page."
+tags: [byte, p1, portal, data-browser]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Browse a large folder as a sorted list
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once on the live portal on 2026-11-13, by the person who
+    wrote them. Nobody else has yet followed them, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** have paged through a folder of more than a hundred items, and know what
+the sort menu does and does not do.
+
+**Time:** 5 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/).
+
+## Steps
+
+1. In the sidebar, click **Data Browser**, then **Shared**.
+
+    You should see: **Shared Data** in the header, and many folders. This is data that
+    projects across CyVerse have shared, not only MESA's. Below the last card is a
+    line such as *Showing 1–25 of 105 items*.
+
+2. At the right, above the listing, click the second of the two small square buttons.
+   Its tooltip is **List View**.
+
+    You should see: one folder to a row. The first button, **Grid View**, puts the
+    cards back.
+
+3. Scroll to the bottom and set **Per page** to **50**.
+
+    You should see: fifty rows, and *Showing 1–50*.
+
+4. Click **Next**.
+
+    You should see: *Showing 51–100*, and different folders. **Previous** takes you
+    back.
+
+5. Open the sort menu, which reads **Name A–Z**, and choose **Name Z–A**.
+
+    You should see: the rows on this page in reverse order. Only this page is sorted:
+    the folder that comes last in the whole listing is still on the last page.
+
+6. Choose **Newest first**.
+
+    You should see: the same rows again, the most recently changed at the top.
+
+## Check it worked
+
+You can say how many items the folder holds, from the *Showing … of …* line, and you
+have seen more than the first 25.
+
+## If it didn't
+
+**There is no Next button.** The folder has fewer items than one page holds. Try
+**User Shared**, which has more.
+
+**The item you expected first is not first.** Sorting applies to one page at a time.
+Set **Per page** to **100** to sort more items together, or
+[search by name](https://idss-mesa.github.io/trainings/tutorials/search-the-data-browser/) instead.
+
+## Next
+
+- [Search for a file or folder by name](https://idss-mesa.github.io/trainings/tutorials/search-the-data-browser/), which is faster
+  than paging when you know part of the name.
+- Reference: [Managing data, "Browse and find files"](https://idss-mesa.github.io/docs/portal/data/#browse-and-find-files).
+
+*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/read-shared-metadata/
+
+---
+type: Guide
+title: "Read the metadata on a folder shared with you"
+description: "Open the metadata on a folder another CyVerse user has shared with you, in the MESA Portal's quick panel and on its full metadata page."
+tags: [byte, p1, portal, data-browser, metadata, sharing]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Read the metadata on a folder shared with you
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once on the live portal on 2026-11-13, by the person who
+    wrote them. Nobody else has yet followed them, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** have read what a collaborator recorded about a folder, and found when it
+was created and who can reach it.
+
+**Time:** 5–10 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/), and a folder that a collaborator has
+[shared with you](https://idss-mesa.github.io/trainings/tutorials/share-a-folder/) after [adding metadata](https://idss-mesa.github.io/trainings/tutorials/add-metadata/) to it.
+Working in a pair, each of you can do this on the other's folder.
+
+## Steps
+
+1. In the sidebar, click **Data Browser**, then **User Shared**. Open the folder named
+   with your collaborator's username.
+
+    You should see: the folder they shared, and **Read only** in the header.
+
+2. Click **AVUs** under the shared folder's name.
+
+    You should see: a panel marked **READ ONLY** that lists each attribute, value, and
+    unit, with the note *You can view these AVUs but not change them*.
+
+3. Click **Open full metadata page** at the bottom of the panel.
+
+    You should see: a page headed with the folder's name, the number of AVUs, and
+    **Read-only**. The first tab, **Raw AVUs**, shows the same rows as the panel.
+
+4. Click the **DataCite** tab.
+
+    You should see: a form of standard fields for describing a dataset. A field is
+    filled where the folder has an attribute of the same name, such as `description`.
+
+5. Click the **iRODS** tab.
+
+    You should see: the folder's path, the dates it was created and last modified,
+    and under **Access Control** your own access, **read**.
+
+6. Click **Back**.
+
+    You should see: the Data Browser again.
+
+## Check it worked
+
+You can say, without asking your collaborator, what the folder's `description` is and
+on what date the folder was created.
+
+## If it didn't
+
+**The panel says there are no AVUs.** Your collaborator has not added any, or added
+them to a different folder. Ask them to check theirs under **My Files**.
+
+**Your collaborator's username is not on the first page of User Shared.** The list
+runs to several pages. Click **Next**, or set **Per page** to **100**.
+
+## Next
+
+- [Add metadata to a file or folder](https://idss-mesa.github.io/trainings/tutorials/add-metadata/) of your own.
+- Reference: [Managing data, "Describe data with metadata (AVUs)"](https://idss-mesa.github.io/docs/portal/data/#describe-data-with-metadata-avus).
+
+*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/stop-sharing-a-folder/
+
+---
+type: Guide
+title: "Stop sharing a folder"
+description: "Take away a collaborator's access to a folder in your Data Store from the MESA Portal's share dialog, and confirm the folder is private again."
+tags: [byte, p1, portal, data-browser, sharing]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Stop sharing a folder
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once on the live portal on 2026-11-13, by the person who
+    wrote them. The browser used for the test could not show the confirmation box in step 4, so it was accepted automatically; its wording is as the portal sends it. Nobody else has yet followed them, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** have removed one person's access to a folder, and seen the folder marked
+private again.
+
+**Time:** 5 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/), and a folder you have
+[shared with a collaborator](https://idss-mesa.github.io/trainings/tutorials/share-a-folder/).
+
+## Steps
+
+1. In the sidebar, click **Data Browser**, then **My Files**, and open the shared
+   folder.
+
+    You should see: **Shared · 1** in the folder header, or a higher number if you
+    shared it with more people.
+
+2. Click **Share** in the folder header.
+
+    You should see: the share dialog. Under **Current Permissions** are you, as
+    **OWNER**, and each person you shared with, with their access level and a
+    **Remove** button.
+
+3. Click **Remove** beside the person's name.
+
+    You should see: your browser ask *Remove access for …?*, naming the person and
+    the folder.
+
+4. Click **OK**.
+
+    You should see: *Updating access…* for up to half a minute, then the person gone
+    from the list. If nobody else has access, the list says *Not shared with anyone
+    else*.
+
+5. Click **Close** and look at the folder header.
+
+    You should see: **Private** where it said **Shared · 1**.
+
+## Check it worked
+
+Ask the person to open **User Shared** and the folder named with your username. The
+folder you stopped sharing is no longer listed there.
+
+## If it didn't
+
+**The header still says Shared.** Someone else still has access, or one of the two
+**Public Access** boxes in the dialog is ticked. Open the dialog again and look at
+both.
+
+## Next
+
+- The two **Public Access** boxes are different from sharing with a named person.
+  **All CyVerse Users** lets every CyVerse account read the folder. **Anyone without
+  login** lets anyone on the internet read it and find it by browsing your home folder
+  on data.cyverse.org. Leave both unticked unless you mean to publish.
+- Removing access does not take back copies. Anything the person already downloaded
+  or copied stays with them.
+- Reference: [Managing data, "Share data"](https://idss-mesa.github.io/docs/portal/data/#share-data).
+
+*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/check-your-usage/
+
+---
+type: Guide
+title: "Check your CPU hours and storage"
+description: "Find how many CPU hours and how much Data Store space your CyVerse plan allows, and how much you have used, in the MESA Portal."
+tags: [byte, p1, portal, account, quotas]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/overview/"
+    title: "The MESA Portal overview"
+    author: "team:idss-mesa"
+---
+
+# Check your CPU hours and storage
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once on the live portal on 2026-11-13, by the person who
+    wrote them. Nobody else has yet followed them, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** know your plan's limits for computing time and storage, and how much of
+each is left.
+
+**Time:** 5 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/).
+
+## Steps
+
+1. In the sidebar, click **Home**.
+
+    You should see: your dashboard, with a **Resource Usage** panel that carries the
+    name of your plan, for example **BASIC**.
+
+2. Read the **CPU Hours** line.
+
+    You should see: hours used and hours allowed, for example *0.0 hours / 200.0
+    hours*, and the share used as a percentage. A running app uses
+    CPU hours for as long as it runs.
+
+3. Read the **Data Storage** line.
+
+    You should see: space used and space allowed, for example *0.00 B / 5.00 GB*.
+    This is the space your files take in the Data Store.
+
+4. In the sidebar, click **Analyses**.
+
+    You should see: the same two figures in the page header, as *hours left* and as
+    storage used.
+
+5. Hold the pointer over each figure.
+
+    You should see: a tooltip with the share used, such as *CPU hours remaining (0.0%
+    used)*.
+
+## Check it worked
+
+You can state your plan's two limits and what is left of each. On a new Basic plan
+they read:
+
+```text
+200.0 hours left
+0.00 B / 5.00 GB
+```
+
+## If it didn't
+
+**Your profile page says "Resource usage data is not available".** That panel, under
+your name at the top right, was empty on the day this was written. Use **Home** or
+**Analyses** instead.
+
+**The figures have not moved after you ran an app.** They may not be updated the moment
+an app stops. Look again later.
+
+## Next
+
+- [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/): an app left running
+  keeps using CPU hours.
+- [Launch an app with the cores, memory, and time you choose](https://idss-mesa.github.io/trainings/tutorials/launch-with-options/)
+- Reference: [The MESA Portal overview](https://idss-mesa.github.io/docs/portal/overview/).
+
+*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+
 ---8<--- https://idss-mesa.github.io/trainings/contributing/
 
 ---
@@ -4778,6 +5118,11 @@ explains.
 
 ## 2026-11-13
 
+* **Creation**: Added four short portal tutorials, each followed once on the live portal:
+  [Browse a large folder as a sorted list](tutorials/browse-a-large-folder.md),
+  [Read the metadata on a folder shared with you](tutorials/read-shared-metadata.md),
+  [Stop sharing a folder](tutorials/stop-sharing-a-folder.md), and
+  [Check your CPU hours and storage](tutorials/check-your-usage.md).
 * **Creation**: Added three file-handling tutorials, each followed once on the live
   portal with folders:
   [Rename a folder in your Data Store](tutorials/rename-a-folder.md),

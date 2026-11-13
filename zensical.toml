@@ -58,6 +58,10 @@ nav = [
       { "Rename a folder" = "tutorials/rename-a-folder.md" },
       { "Move folders" = "tutorials/move-folders.md" },
       { "Trash and restore a folder" = "tutorials/trash-and-restore.md" },
+      { "Browse a large folder" = "tutorials/browse-a-large-folder.md" },
+      { "Read shared metadata" = "tutorials/read-shared-metadata.md" },
+      { "Stop sharing a folder" = "tutorials/stop-sharing-a-folder.md" },
+      { "Check your usage" = "tutorials/check-your-usage.md" },
   ] },
   { "Contributing" = [
       { "Contribute a tutorial" = "contributing.md" },
