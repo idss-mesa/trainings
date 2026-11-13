@@ -787,9 +787,9 @@ sources:
 # Load a file from your Data Store into a notebook
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
-    the tutorial in MESA JupyterLab, so output may be laid out differently there.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA JupyterLab on 2026-11-13 and produced the
+    output shown. Nobody has yet followed the steps there by hand, so a menu or a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** have both practice files loaded as tables in a notebook, with a row count
 you have checked.
@@ -874,7 +874,7 @@ the first cell again.
   and [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) for what the
   app contains.
 
-*Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the code was run with pandas 3.1 on the practice data.*
+*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/read-the-data-dictionary/
 
@@ -900,9 +900,9 @@ sources:
 # Read the data dictionary before the data
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
-    the tutorial in MESA JupyterLab, so output may be laid out differently there.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA JupyterLab on 2026-11-13 and produced the
+    output shown. Nobody has yet followed the steps there by hand, so a menu or a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 A *data dictionary* is the table that says what each column means. Five minutes with it
 saves you from a number that looks right and is not.
@@ -977,7 +977,7 @@ loaded the files. Run the notebook's first cell again, then repeat the step.
 - [Check a column's range and missing values](https://idss-mesa.github.io/trainings/tutorials/check-range-and-missing/)
 - Reference: the [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/) page, which holds the dictionary.
 
-*Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the code was run with pandas 3.1 on the practice data.*
+*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/check-range-and-missing/
 
@@ -1003,9 +1003,9 @@ sources:
 # Check a column's range and missing values
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
-    the tutorial in MESA JupyterLab, so output may be laid out differently there.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA JupyterLab on 2026-11-13 and produced the
+    output shown. Nobody has yet followed the steps there by hand, so a menu or a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** know the range of `value` at each gauge and how many blanks each column
 of `readings` holds.
@@ -1092,7 +1092,7 @@ plain `pd.read_csv("readings.csv")`.
 - Reference: [Working with missing data](https://pandas.pydata.org/docs/user_guide/missing_data.html)
   in the pandas user guide.
 
-*Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the code was run with pandas 3.1 on the practice data.*
+*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/tally-a-quality-flag/
 
@@ -1118,9 +1118,9 @@ sources:
 # Tally a quality flag before you trust a number
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
-    the tutorial in MESA JupyterLab, so output may be laid out differently there.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA JupyterLab on 2026-11-13 and produced the
+    output shown. Nobody has yet followed the steps there by hand, so a menu or a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 Many datasets carry a column in which the instrument or the provider marks readings
 it doubts. A total computed without looking at that column includes those readings.
@@ -1216,7 +1216,7 @@ again.
 - Reference: [pandas.Series.value_counts](https://pandas.pydata.org/docs/reference/api/pandas.Series.value_counts.html)
   and [pandas.crosstab](https://pandas.pydata.org/docs/reference/api/pandas.crosstab.html).
 
-*Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the code was run with pandas 3.1 on the practice data.*
+*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/count-records-per-day/
 
@@ -1242,9 +1242,9 @@ sources:
 # Count records per day to find incomplete days
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
-    the tutorial in MESA JupyterLab, so output may be laid out differently there.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA JupyterLab on 2026-11-13 and produced the
+    output shown. Nobody has yet followed the steps there by hand, so a menu or a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 The data dictionary says one row is one reading for one gauge on one day. This
 tutorial tests that claim. A day counted twice inflates a total, and a missing day
@@ -1349,7 +1349,7 @@ cell again to reload the file, then repeat the step.
 - Reference: [Group by: split-apply-combine](https://pandas.pydata.org/docs/user_guide/groupby.html)
   in the pandas user guide.
 
-*Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the code was run with pandas 3.1 on the practice data.*
+*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/
 
@@ -1375,9 +1375,9 @@ sources:
 # Reconcile row counts before and after a join
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
-    the tutorial in MESA JupyterLab, so output may be laid out differently there.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA JupyterLab on 2026-11-13 and produced the
+    output shown. Nobody has yet followed the steps there by hand, so a menu or a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 A join can silently add rows, when a key repeats in the table you look things up in,
 or lose them, when a key has no match. Counting rows before and after catches both.
@@ -1476,7 +1476,7 @@ before you join.
   [Count records per day to find incomplete days](https://idss-mesa.github.io/trainings/tutorials/count-records-per-day/).
 - Reference: [pandas.DataFrame.merge](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html).
 
-*Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the code was run with pandas 3.1 on the practice data.*
+*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/leave-a-rerunnable-notebook/
 
@@ -2088,9 +2088,9 @@ sources:
 # Turn UTC timestamps into local days
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
-    the tutorial in MESA JupyterLab, so output may be laid out differently there.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA JupyterLab on 2026-11-13 and produced the
+    output shown. Nobody has yet followed the steps there by hand, so a menu or a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 Instruments usually record time in UTC. A "day" of UTC is not a day where the
 instrument stands: on the invented campus, which keeps US Mountain Time, the UTC date
@@ -2198,7 +2198,7 @@ offset. Say what zone they are in first:
 - Reference: [Time zone handling](https://pandas.pydata.org/docs/user_guide/timeseries.html#time-zone-handling)
   in the pandas user guide.
 
-*Not yet validated in MESA JupyterLab. Drafted 2026-11-13; the code was run with pandas 3.1 on the practice data.*
+*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-13; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/work-with-a-long-table/
 
@@ -2224,9 +2224,9 @@ sources:
 # Work with a long table, one row per kind of measurement
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
-    the tutorial in MESA JupyterLab, so output may be laid out differently there.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA JupyterLab on 2026-11-13 and produced the
+    output shown. Nobody has yet followed the steps there by hand, so a menu or a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 Many archives store data *long*: one row per time and per kind of measurement, with
 the number in a single `value` column. It is a tidy way to store data and an easy way
@@ -2347,7 +2347,7 @@ is right before you reshape.
 - Reference: [Reshaping and pivot tables](https://pandas.pydata.org/docs/user_guide/reshaping.html)
   in the pandas user guide.
 
-*Not yet validated in MESA JupyterLab. Drafted 2026-11-13; the code was run with pandas 3.1 on the practice data.*
+*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-13; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/query-parquet-with-duckdb/
 
@@ -2373,9 +2373,9 @@ sources:
 # Query a Parquet file with DuckDB from a notebook
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run with DuckDB 2.0 on a laptop, the version found in
-    MESA JupyterLab on 2026-11-12. Nobody has yet followed the tutorial there.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA JupyterLab on 2026-11-13 and produced the
+    output shown. Nobody has yet followed the steps there by hand, so a menu or a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 Parquet is the format large shared datasets are usually stored in: compressed, typed,
 and readable one column at a time. DuckDB runs SQL straight against such a file, so
@@ -2483,12 +2483,17 @@ is not in `mesa-practice`. Run step 2 again and look for the file in the file br
 
 ## Next
 
+- The same SQL runs from a terminal with the `duckdb` command:
+  `duckdb :memory: "SELECT count(*) FROM 'readings.parquet'"`. MESA JupyterLab does not
+  include DuckDB's R package; see
+  [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/#first-steps) for how
+  to add it.
 - [Reconcile row counts before and after a join](https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/)
-- Reference: [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/), which
-  lists DuckDB among the app's tools, and [Reading and writing Parquet files](https://duckdb.org/docs/stable/data/parquet/overview)
-  in the DuckDB documentation.
+- Reference: [Reading and writing Parquet files](https://duckdb.org/docs/stable/data/parquet/overview)
+  and the [client overview](https://duckdb.org/docs/2.0/clients/overview) in the DuckDB
+  documentation.
 
-*Not yet validated in MESA JupyterLab. Drafted 2026-11-13; the code was run with DuckDB 2.0 on the practice data.*
+*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-13; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/check-a-suggested-result/
 
@@ -2514,9 +2519,9 @@ sources:
 # Check an AI-suggested result against the data
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
-    the tutorial in MESA JupyterLab, so output may be laid out differently there.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA JupyterLab on 2026-11-13 and produced the
+    output shown. Nobody has yet followed the steps there by hand, so a menu or a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 An AI assistant answers fluently whether or not the answer is sound, and so does a
 hurried colleague. The check is the same for both, and it takes a few minutes.
@@ -2619,7 +2624,7 @@ values, and compare against one of those.
 - To ask an assistant yourself:
   [Sign in and start an AI agent in a MESA app](https://idss-mesa.github.io/trainings/tutorials/start-an-ai-agent/).
 
-*Not yet validated in MESA JupyterLab. Drafted 2026-11-13; the code was run with pandas 3.1 on the practice data.*
+*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-13; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/contributing/
 
@@ -2980,6 +2985,10 @@ explains.
 
 ## 2026-11-13
 
+* **Update**: Ran every data tutorial's code inside MESA JupyterLab (pandas 3.1.1, DuckDB
+  2.0.0): all 28 printed outputs matched, and the four newest tutorials ran without
+  error as notebooks. Their notices now say so. They remain drafts until a person follows
+  the steps by hand.
 * **Creation**: Added the [Learning pathway](pathway.md), which arranges every tutorial
   under the five pathway points, and four draft tutorials:
   [Turn UTC timestamps into local days](tutorials/local-days-from-utc.md),

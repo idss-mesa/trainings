@@ -20,9 +20,9 @@ sources:
 # Query a Parquet file with DuckDB from a notebook
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run with DuckDB 2.0 on a laptop, the version found in
-    MESA JupyterLab on 2026-11-12. Nobody has yet followed the tutorial there.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA JupyterLab on 2026-11-13 and produced the
+    output shown. Nobody has yet followed the steps there by hand, so a menu or a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 Parquet is the format large shared datasets are usually stored in: compressed, typed,
 and readable one column at a time. DuckDB runs SQL straight against such a file, so
@@ -130,9 +130,14 @@ is not in `mesa-practice`. Run step 2 again and look for the file in the file br
 
 ## Next
 
+- The same SQL runs from a terminal with the `duckdb` command:
+  `duckdb :memory: "SELECT count(*) FROM 'readings.parquet'"`. MESA JupyterLab does not
+  include DuckDB's R package; see
+  [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/#first-steps) for how
+  to add it.
 - [Reconcile row counts before and after a join](reconcile-a-join.md)
-- Reference: [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/), which
-  lists DuckDB among the app's tools, and [Reading and writing Parquet files](https://duckdb.org/docs/stable/data/parquet/overview)
-  in the DuckDB documentation.
+- Reference: [Reading and writing Parquet files](https://duckdb.org/docs/stable/data/parquet/overview)
+  and the [client overview](https://duckdb.org/docs/2.0/clients/overview) in the DuckDB
+  documentation.
 
-*Not yet validated in MESA JupyterLab. Drafted 2026-11-13; the code was run with DuckDB 2.0 on the practice data.*
+*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-13; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
