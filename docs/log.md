@@ -2,9 +2,11 @@
 
 ## 2026-11-12
 
+* **Update**: [Launch MESA JupyterLab](tutorials/launch-jupyterlab.md) again describes
+  the launch page in a new tab. The **Launching Application** window is what the portal
+  shows when the browser blocks that tab, and is now the tutorial's recovery case.
 * **Update**: Corrected the tutorials after a first pass on the live portal and in MESA
-  JupyterLab (pandas 3.1.1): the app starts in a **Launching Application** window with
-  an **Open MESA JupyterLab** button; `~/data-store` holds `data` and `home`, and your
+  JupyterLab (pandas 3.1.1): `~/data-store` holds `data` and `home`, and your
   files are in `home/<username>`; a new notebook asks for a kernel and does not offer
   Python first; **Save & Exit** asks for confirmation; the share dialog's levels are
   **Read**, **Read & Write**, and **Full Control**; the theme button cycles **Light**,
