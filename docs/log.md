@@ -2,6 +2,10 @@
 
 ## 2026-11-13
 
+* **Update**: Ran every data tutorial's code inside MESA JupyterLab (pandas 3.1.1, DuckDB
+  2.0.0): all 28 printed outputs matched, and the four newest tutorials ran without
+  error as notebooks. Their notices now say so. They remain drafts until a person follows
+  the steps by hand.
 * **Creation**: Added the [Learning pathway](pathway.md), which arranges every tutorial
   under the five pathway points, and four draft tutorials:
   [Turn UTC timestamps into local days](tutorials/local-days-from-utc.md),

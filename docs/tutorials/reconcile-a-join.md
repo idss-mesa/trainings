@@ -20,9 +20,9 @@ sources:
 # Reconcile row counts before and after a join
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
-    the tutorial in MESA JupyterLab, so output may be laid out differently there.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA JupyterLab on 2026-11-13 and produced the
+    output shown. Nobody has yet followed the steps there by hand, so a menu or a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 A join can silently add rows, when a key repeats in the table you look things up in,
 or lose them, when a key has no match. Counting rows before and after catches both.
@@ -121,4 +121,4 @@ before you join.
   [Count records per day to find incomplete days](count-records-per-day.md).
 - Reference: [pandas.DataFrame.merge](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html).
 
-*Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the code was run with pandas 3.1 on the practice data.*
+*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*

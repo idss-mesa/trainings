@@ -20,9 +20,9 @@ sources:
 # Check an AI-suggested result against the data
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
-    the tutorial in MESA JupyterLab, so output may be laid out differently there.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA JupyterLab on 2026-11-13 and produced the
+    output shown. Nobody has yet followed the steps there by hand, so a menu or a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 An AI assistant answers fluently whether or not the answer is sound, and so does a
 hurried colleague. The check is the same for both, and it takes a few minutes.
@@ -125,4 +125,4 @@ values, and compare against one of those.
 - To ask an assistant yourself:
   [Sign in and start an AI agent in a MESA app](start-an-ai-agent.md).
 
-*Not yet validated in MESA JupyterLab. Drafted 2026-11-13; the code was run with pandas 3.1 on the practice data.*
+*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-13; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*

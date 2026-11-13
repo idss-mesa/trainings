@@ -20,9 +20,9 @@ sources:
 # Count records per day to find incomplete days
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
-    the tutorial in MESA JupyterLab, so output may be laid out differently there.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA JupyterLab on 2026-11-13 and produced the
+    output shown. Nobody has yet followed the steps there by hand, so a menu or a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 The data dictionary says one row is one reading for one gauge on one day. This
 tutorial tests that claim. A day counted twice inflates a total, and a missing day
@@ -127,4 +127,4 @@ cell again to reload the file, then repeat the step.
 - Reference: [Group by: split-apply-combine](https://pandas.pydata.org/docs/user_guide/groupby.html)
   in the pandas user guide.
 
-*Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the code was run with pandas 3.1 on the practice data.*
+*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*

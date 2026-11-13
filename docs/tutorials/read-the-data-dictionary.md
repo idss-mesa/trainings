@@ -20,9 +20,9 @@ sources:
 # Read the data dictionary before the data
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
-    the tutorial in MESA JupyterLab, so output may be laid out differently there.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA JupyterLab on 2026-11-13 and produced the
+    output shown. Nobody has yet followed the steps there by hand, so a menu or a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 A *data dictionary* is the table that says what each column means. Five minutes with it
 saves you from a number that looks right and is not.
@@ -97,4 +97,4 @@ loaded the files. Run the notebook's first cell again, then repeat the step.
 - [Check a column's range and missing values](check-range-and-missing.md)
 - Reference: the [practice data](practice-data.md) page, which holds the dictionary.
 
-*Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the code was run with pandas 3.1 on the practice data.*
+*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*

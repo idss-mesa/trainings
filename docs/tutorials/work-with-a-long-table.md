@@ -20,9 +20,9 @@ sources:
 # Work with a long table, one row per kind of measurement
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run with pandas 3.1 on a laptop. Nobody has yet followed
-    the tutorial in MESA JupyterLab, so output may be laid out differently there.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA JupyterLab on 2026-11-13 and produced the
+    output shown. Nobody has yet followed the steps there by hand, so a menu or a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 Many archives store data *long*: one row per time and per kind of measurement, with
 the number in a single `value` column. It is a tidy way to store data and an easy way
@@ -143,4 +143,4 @@ is right before you reshape.
 - Reference: [Reshaping and pivot tables](https://pandas.pydata.org/docs/user_guide/reshaping.html)
   in the pandas user guide.
 
-*Not yet validated in MESA JupyterLab. Drafted 2026-11-13; the code was run with pandas 3.1 on the practice data.*
+*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-13; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
