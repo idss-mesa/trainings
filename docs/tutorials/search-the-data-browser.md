@@ -38,28 +38,30 @@ stand decides what you find.
    ++enter++.
 
     You should see: after a few seconds, the header change to **Search results in MESA
-    Community**, and a line that begins *Found … results for "lakehouse"*.
+    Community**, and the line *Found 1 result for "lakehouse" in mesa*. The number
+    will grow as data is added.
 
-    ![Search results for "plot" in the SRER folder](https://idss-mesa.github.io/docs/assets/portal/data-search.webp)
+    ![The search box holding "lakehouse", the line "Found 1 result", and one folder with its path](../assets/tutorials/search-results.png){ width="600" }
 
-3. Look at one result.
+3. Look at the result.
 
-    You should see: its name, and under the name its full path. The path tells you
-    which folder it is in.
+    You should see: its name, and under the name the path of the folder that holds
+    it.
 
 4. In the menu at the right of the search box, choose **Folders**.
 
     You should see: only folders in the results. **Files** does the opposite, and
     **All** shows both.
 
-5. Click the name of a folder in the results.
+5. Click **Clear search**, beside the result count.
+
+    You should see: the search box empty, and the ordinary **MESA Community** listing
+    again.
+
+6. Search for `lakehouse` once more, and this time click the folder's name in the
+   results.
 
     You should see: that folder open, with its trail in the header.
-
-6. Go back to the results with your browser's back button, then click **Clear
-   search**.
-
-    You should see: the ordinary listing of the folder you searched from.
 
 ## Check it worked
 
@@ -72,6 +74,10 @@ folders above it.
 searching from a folder that does not contain it: click **My Files** or **Community**
 and search again from the top. Or the item is new: in our test, files created within
 the previous day were not yet found by search. Browse to those instead.
+
+**Searching again finds nothing where it found something before.** After you open a
+result and go back, search looks inside the folder you opened, and the result line says
+so: *in lakehouse*, not *in mesa*. Click **Community** to search from the top again.
 
 ## Next
 

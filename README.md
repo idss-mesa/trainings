@@ -41,7 +41,7 @@ See [Contribute a tutorial](docs/contributing.md) and the
 | `docs/template.md` | The template and rules every tutorial follows |
 | `docs/stylesheets/extra.css` | The main MESA site's colors and type, applied to the theme |
 | `zensical.toml` | Site settings and navigation |
-| `scripts/` | Validation and agent-surface scripts, shared with idss-mesa/docs; `make_practice_data.py` writes the practice data; `check_tutorial_outputs.py` checks the tutorials' printed output |
+| `scripts/` | Validation and agent-surface scripts, shared with idss-mesa/docs; `make_practice_data.py` writes the practice data; `check_tutorial_outputs.py` and `.R` check the tutorials' printed output |
 
 ## License
 

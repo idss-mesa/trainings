@@ -2,6 +2,12 @@
 
 ## 2026-11-13
 
+* **Update**: Closed gaps in today's tutorials after a second pass on the live portal.
+  The R tutorials were followed one step at a time in MESA RStudio Geospatial. In
+  [Search for a file or folder by name](tutorials/search-the-data-browser.md) every
+  step is now one that was clicked, with its own screenshot and a note on searching
+  after you open a result. `scripts/check_tutorial_outputs.R` checks the R tutorials'
+  printed output, and the build workflow runs it in the MESA RStudio image.
 * **Creation**: Added an R track for MESA RStudio Geospatial, run in the app:
   [Load a file from your Data Store in RStudio](tutorials/r-load-a-file.md),
   [Tally a quality flag in R](tutorials/r-tally-a-quality-flag.md), and
