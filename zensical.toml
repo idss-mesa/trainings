@@ -42,6 +42,7 @@ nav = [
       { "Work with a long table" = "tutorials/work-with-a-long-table.md" },
       { "Query Parquet with DuckDB" = "tutorials/query-parquet-with-duckdb.md" },
       { "Check a suggested result" = "tutorials/check-a-suggested-result.md" },
+      { "Map points in RStudio" = "tutorials/map-points-in-rstudio.md" },
   ] },
   { "Contributing" = [
       { "Contribute a tutorial" = "contributing.md" },

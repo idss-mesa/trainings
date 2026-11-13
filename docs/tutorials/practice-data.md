@@ -1,7 +1,7 @@
 ---
 type: Reference
 title: "Practice data: five invented rain gauges"
-description: "The synthetic rain-gauge practice dataset used by the data tutorials: what its three files contain, its data dictionary, and how to copy it into your Data Store."
+description: "The synthetic rain-gauge practice dataset used by the data tutorials: what its four files contain, its data dictionary, and how to copy it into your Data Store."
 tags: [practice-data, p2, data-dictionary, jupyterlab]
 status: draft
 generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
@@ -24,7 +24,7 @@ sources:
     this page from start to finish.
     [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
-The data tutorials on this site all use the same three small files, so you can practise
+The data tutorials on this site all use the same four small files, so you can practise
 a technique without first finding a dataset.
 
 **The data is synthetic.** It was generated for these tutorials by
@@ -41,6 +41,7 @@ tutorials show you how to find out where.
 | [`gauges.csv`](../assets/practice/gauges.csv) | 5 | one rain gauge |
 | [`readings.csv`](../assets/practice/readings.csv) | 152 | one reading from one gauge |
 | [`observations.csv`](../assets/practice/observations.csv) | 336 | one hourly measurement of one kind |
+| [`gauge_sites.csv`](../assets/practice/gauge_sites.csv) | 5 | the position of one rain gauge |
 
 ## Data dictionary
 
@@ -61,6 +62,16 @@ tutorials show you how to find out where.
 | `date` | Day of the reading, as `YYYY-MM-DD` |
 | `value` | Rainfall for that day, in the gauge's own unit |
 | `flag` | Blank, or `S` for a reading the sensor marked suspect |
+
+**gauge_sites.csv**
+
+| Column | Meaning |
+| --- | --- |
+| `gauge_id` | Which gauge |
+| `longitude` | Longitude in decimal degrees, WGS 84; negative is west |
+| `latitude` | Latitude in decimal degrees, WGS 84 |
+
+The coordinates are invented and mark no real instruments.
 
 **observations.csv**
 
@@ -87,11 +98,11 @@ July. The observations cover 10 to 16 July 2026 in local time.
     from urllib.request import urlretrieve
 
     base = "https://idss-mesa.github.io/trainings/assets/practice/"
-    for name in ["gauges.csv", "readings.csv", "observations.csv"]:
+    for name in ["gauges.csv", "readings.csv", "observations.csv", "gauge_sites.csv"]:
         urlretrieve(base + name, name)
     ```
 
-The three files then appear in `mesa-practice`, beside the notebook. Because the folder is in
+The four files then appear in `mesa-practice`, beside the notebook. Because the folder is in
 your Data Store, they are still there the next time you start an app.
 
 You can also download the files from the links above and upload them with the

@@ -46,6 +46,7 @@ Load a dataset and find out what it holds, and where it is incomplete or doubtfu
 6. [Count records per day to find incomplete days](tutorials/count-records-per-day.md)
 7. [Turn UTC timestamps into local days](tutorials/local-days-from-utc.md)
 8. [Work with a long table, one row per kind of measurement](tutorials/work-with-a-long-table.md)
+9. [Map point data with sf in MESA RStudio Geospatial](tutorials/map-points-in-rstudio.md)
 
 ## 3. Query and connect
 

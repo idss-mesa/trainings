@@ -65,6 +65,7 @@ notebook, so do the first one first.
 | Group hourly data by the right day | [Turn UTC timestamps into local days](tutorials/local-days-from-utc.md) | 10 min |
 | Handle several measurements in one column | [Work with a long table, one row per kind of measurement](tutorials/work-with-a-long-table.md) | 5–10 min |
 | Run SQL on a Parquet file | [Query a Parquet file with DuckDB from a notebook](tutorials/query-parquet-with-duckdb.md) | 10 min |
+| Put points on a map in R | [Map point data with sf in MESA RStudio Geospatial](tutorials/map-points-in-rstudio.md) | 10 min |
 | Test a result I was handed | [Check an AI-suggested result against the data](tutorials/check-a-suggested-result.md) | 10 min |
 
 ## Sharing, describing, and AI agents
