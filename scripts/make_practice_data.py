@@ -1,7 +1,7 @@
 """Generate the synthetic practice data in docs/assets/practice/.
 
-Five invented rain gauges, daily readings for July 2026, and one week of hourly
-observations from one of them. The data describes no
+Five invented rain gauges with invented coordinates, daily readings for July 2026,
+and one week of hourly observations from one of the gauges. The data describes no
 real place or measurement. It is deliberately imperfect (one gauge reports in a
 different unit, some readings are flagged, one row is repeated, some days are
 missing) so that the data tutorials have something to find. The seed is fixed,
@@ -25,6 +25,14 @@ GAUGES = [
     ("G04", "Depot", "mm", 521, 1.00),
     ("G05", "Quarry", "mm", 603, 1.05),
 ]
+# Invented coordinates (longitude, latitude, WGS 84). They mark no real instruments.
+SITES = {
+    "G01": (-104.7612, 47.1034),
+    "G02": (-104.7391, 47.1108),
+    "G03": (-104.7228, 47.1287),
+    "G04": (-104.7533, 47.1175),
+    "G05": (-104.7306, 47.0962),
+}
 DAYS = [dt.date(2026, 7, 1) + dt.timedelta(days=n) for n in range(31)]
 MISSING = {"G01": set(DAYS[21:25])}          # days with no row at all
 SUSPECT = {("G05", DAYS[8]): 180.0,          # flagged, and far out of range
@@ -63,7 +71,11 @@ def main() -> None:
         w = csv.writer(f)
         w.writerow(["gauge_id", "date", "value", "flag"])
         w.writerows(rows)
-    print(f"gauges.csv: {len(GAUGES)} rows; readings.csv: {len(rows)} rows")
+    with open(OUT / "gauge_sites.csv", "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["gauge_id", "longitude", "latitude"])
+        w.writerows([g, lon, lat] for g, (lon, lat) in SITES.items())
+    print(f"gauges.csv: {len(GAUGES)} rows; readings.csv: {len(rows)} rows; gauge_sites.csv: {len(SITES)} rows")
     write_observations(rows)
 
 
