@@ -8,7 +8,10 @@
   files are in `home/<username>`; a new notebook asks for a kernel and does not offer
   Python first; **Save & Exit** asks for confirmation; the share dialog's levels are
   **Read**, **Read & Write**, and **Full Control**; the theme button cycles **Light**,
-  **Dark**, **System**. All tutorials remain drafts.
+  **Dark**, **System**. After **Save & Exit** the analysis is under **Completed
+  Analyses**, which is collapsed; **View Results** opens an empty output folder for an
+  interactive app, where the portal may show **Unable to Load Files**. All tutorials
+  remain drafts.
 * **Creation**: Added five draft tutorials written from the MESA documentation:
   [Find your way around the MESA Portal](tutorials/find-your-way-around.md),
   [Share a folder with a collaborator](tutorials/share-a-folder.md),
