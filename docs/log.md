@@ -2,6 +2,9 @@
 
 ## 2026-11-13
 
+* **Update**: Checked [Share a folder with a collaborator](tutorials/share-a-folder.md)
+  from a second account. **User Shared** lists a folder for each user, so the check now
+  says how the collaborator finds yours and what read-only access looks like.
 * **Update**: Began a run of the tutorials on a new CyVerse account. A new account
   cannot start an app until CyVerse grants access to interactive apps, so
   [Launch MESA JupyterLab with your Data Store mounted](tutorials/launch-jupyterlab.md)
