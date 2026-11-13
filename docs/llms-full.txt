@@ -2373,9 +2373,8 @@ sources:
 # Query a Parquet file with DuckDB from a notebook
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run with DuckDB 2.0 on a laptop. DuckDB 2.0.0 was present
-    in MESA JupyterLab on 2026-11-12, but the MESA documentation does not yet list it,
-    and nobody has followed this tutorial there.
+    The code on this page was run with DuckDB 2.0 on a laptop, the version found in
+    MESA JupyterLab on 2026-11-12. Nobody has yet followed the tutorial there.
     [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 Parquet is the format large shared datasets are usually stored in: compressed, typed,
@@ -2485,7 +2484,8 @@ is not in `mesa-practice`. Run step 2 again and look for the file in the file br
 ## Next
 
 - [Reconcile row counts before and after a join](https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/)
-- Reference: [Reading and writing Parquet files](https://duckdb.org/docs/stable/data/parquet/overview)
+- Reference: [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/), which
+  lists DuckDB among the app's tools, and [Reading and writing Parquet files](https://duckdb.org/docs/stable/data/parquet/overview)
   in the DuckDB documentation.
 
 *Not yet validated in MESA JupyterLab. Drafted 2026-11-13; the code was run with DuckDB 2.0 on the practice data.*
