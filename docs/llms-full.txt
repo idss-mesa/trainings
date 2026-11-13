@@ -67,6 +67,8 @@ notebook, so do the first one first.
 | See what the provider doubted | [Tally a quality flag before you trust a number](https://idss-mesa.github.io/trainings/tutorials/tally-a-quality-flag/) | 5 min |
 | Find repeated and missing days | [Count records per day to find incomplete days](https://idss-mesa.github.io/trainings/tutorials/count-records-per-day/) | 5–10 min |
 | Join two tables safely | [Reconcile row counts before and after a join](https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/) | 5–10 min |
+| Say what a folder of data is | [Write a README for a data folder](https://idss-mesa.github.io/trainings/tutorials/write-a-readme/) | 10 min |
+| Know which software made a result | [Record the software versions a result depends on](https://idss-mesa.github.io/trainings/tutorials/record-software-versions/) | 5 min |
 | Hand my notebook to someone | [Leave a notebook someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/leave-a-rerunnable-notebook/) | 5–10 min |
 | Group hourly data by the right day | [Turn UTC timestamps into local days](https://idss-mesa.github.io/trainings/tutorials/local-days-from-utc/) | 10 min |
 | Handle several measurements in one column | [Work with a long table, one row per kind of measurement](https://idss-mesa.github.io/trainings/tutorials/work-with-a-long-table/) | 5–10 min |
@@ -230,8 +232,10 @@ Work with an AI assistant, and test what it tells you against the data.
 
 Leave work that someone else can find, understand, and run again.
 
-1. [Add metadata to a file or folder](https://idss-mesa.github.io/trainings/tutorials/add-metadata/)
-2. [Leave a notebook someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/leave-a-rerunnable-notebook/)
+1. [Write a README for a data folder](https://idss-mesa.github.io/trainings/tutorials/write-a-readme/)
+2. [Add metadata to a file or folder](https://idss-mesa.github.io/trainings/tutorials/add-metadata/)
+3. [Record the software versions a result depends on](https://idss-mesa.github.io/trainings/tutorials/record-software-versions/)
+4. [Leave a notebook someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/leave-a-rerunnable-notebook/)
 
 ## Where to start
 
@@ -1638,6 +1642,7 @@ definition in a cell above the one that failed, then repeat step 1.
 
 ## Next
 
+- [Record the software versions a result depends on](https://idss-mesa.github.io/trainings/tutorials/record-software-versions/)
 - Reference: [Managing data, "Share data"](https://idss-mesa.github.io/docs/portal/data/#share-data),
   for giving a colleague access to the folder.
 - Reference: [Notebooks](https://jupyterlab.readthedocs.io/en/stable/user/notebook.html)
@@ -3882,6 +3887,243 @@ then open the image with the right-click menu as in step 5.
 
 *Not yet validated by a second person. Drafted 2026-11-13 and followed once in the app that day.*
 
+---8<--- https://idss-mesa.github.io/trainings/tutorials/write-a-readme/
+
+---
+type: Guide
+title: "Write a README for a data folder"
+description: "Add a short README file to a folder in your Data Store, from MESA JupyterLab, that says what the files are, where they came from, and who to ask."
+tags: [byte, p5, documentation, jupyterlab, data-store]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+---
+
+# Write a README for a data folder
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once in MESA JupyterLab on 2026-11-13, by the person who
+    wrote them, except that the rename in step 5 was done from a terminal and the
+    preview in step 6 was not seen. Nobody else has yet followed them.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A folder of data without a description is a puzzle for the next person, and in six
+months that person is you. A README is a plain text file, kept with the data, that
+answers the first questions anyone asks.
+
+**You will:** have a `README.md` in a folder of your Data Store that describes what is
+in it.
+
+**Time:** 10 minutes. **You need:** [MESA JupyterLab running](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/),
+and a folder of your own to describe, such as `mesa-practice` from the
+[practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/).
+
+## Steps
+
+1. In JupyterLab's file browser, open the folder you want to describe. Click the **+**
+   button at the top of the file browser if no **Launcher** tab is open.
+
+    You should see: a **Launcher** tab that names your folder at its top.
+
+2. In the **Launcher**, under **Other**, click **Markdown File**.
+
+    You should see: an empty editor tab named `untitled.md`, and the same file in the
+    file browser.
+
+3. Type the description. Five short parts cover most folders:
+
+    ```markdown
+    # Practice rain-gauge data
+
+    Synthetic data from the MESA Trainings tutorials. It describes no real place.
+
+    ## Files
+
+    - `gauges.csv`: one row per rain gauge (5 rows)
+    - `readings.csv`: one row per gauge and day, July 2026 (152 rows)
+
+    ## Source
+
+    https://idss-mesa.github.io/trainings/tutorials/practice-data/
+
+    ## Notes
+
+    - Orchard (G02) reports in centimetres; the other gauges report in millimetres.
+    - Readings flagged `S` were marked suspect by the sensor.
+
+    ## Contact
+
+    Your name, your email address
+    ```
+
+    You should see: the headings in bold in the editor.
+
+4. Choose **File → Save Markdown File**.
+
+    You should see: *Saving completed* in the bar at the bottom, and the dot on the tab
+    disappear.
+
+5. In the file browser, right-click `untitled.md`, choose **Rename**, and type
+   `README.md`.
+
+    You should see: `README.md` in the file browser. By convention that name is the
+    one people look for first.
+
+6. Right-click inside the editor and choose **Show Markdown Preview**.
+
+    You should see: the README laid out with headings and bullets, beside the text.
+
+## Check it worked
+
+`README.md` is listed in the folder, in JupyterLab and in the portal's Data Browser,
+and a person who has never seen the folder could say from it what each file holds.
+
+## If it didn't
+
+**The folder has both `untitled.md` and `README.md`.** You chose **File → Save Markdown
+File As…**, which writes a second copy. Open `README.md` to check it is complete, then
+right-click `untitled.md` and choose **Delete**.
+
+## Next
+
+- [Record the software versions a result depends on](https://idss-mesa.github.io/trainings/tutorials/record-software-versions/)
+- [Add metadata to a file or folder](https://idss-mesa.github.io/trainings/tutorials/add-metadata/), which makes the same facts
+  searchable by tools.
+- [Share a folder with a collaborator](https://idss-mesa.github.io/trainings/tutorials/share-a-folder/)
+- Reference: [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/).
+
+*Not yet validated by a second person. Drafted 2026-11-13 and followed in MESA JupyterLab that day.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/record-software-versions/
+
+---
+type: Guide
+title: "Record the software versions a result depends on"
+description: "Write the Python version and the versions of every installed package to files beside your work, so that a result can be traced to the software that produced it."
+tags: [byte, p5, reproducibility, jupyterlab, environment]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: pip
+    resource: "https://pip.pypa.io/en/stable/cli/pip_list/"
+    title: "pip list (pip documentation)"
+    author: "team:pypa"
+---
+
+# Record the software versions a result depends on
+
+!!! warning "Draft: not yet validated"
+    The commands on this page were run in MESA JupyterLab on 2026-11-13 and produced
+    the output shown. Nobody else has yet followed the steps.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+The software in a MESA app changes when the app is rebuilt. A number you computed
+today may not come out the same next year, and without a record you cannot tell
+whether the data or the software changed.
+
+**You will:** have two small files beside your work that say which Python and which
+package versions it ran on.
+
+**Time:** 5 minutes. **You need:** [MESA JupyterLab running](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), and
+a folder that holds your work, such as `mesa-practice` from the
+[practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/).
+
+## Steps
+
+1. In JupyterLab's file browser, open the folder that holds your work. In the
+   **Launcher**, click **Terminal**.
+
+    You should see: a terminal whose prompt ends with the name of your folder. A
+    terminal opened from the Launcher starts in the folder the file browser is showing.
+
+2. Check the Python version:
+
+    ```bash
+    python --version
+    ```
+
+    You should see: one line, such as `Python 3.13.18`.
+
+3. Write every installed package and its version to a file:
+
+    ```bash
+    pip list --format=freeze > requirements.txt
+    ```
+
+    You should see: no output, and `requirements.txt` in the file browser.
+
+4. Count what was recorded:
+
+    ```bash
+    wc -l requirements.txt
+    ```
+
+    You should see: a few hundred lines, one for each package. In our test:
+
+    ```text
+    244 requirements.txt
+    ```
+
+5. Look up the packages your work imports:
+
+    ```bash
+    grep -E '^(pandas|duckdb|numpy)==' requirements.txt
+    ```
+
+    You should see: one line for each, with its version. In our test:
+
+    ```text
+    duckdb==2.0.0
+    numpy==2.5.4
+    pandas==3.1.1
+    ```
+
+6. Write a one-line note that ties the two together and dates them:
+
+    ```bash
+    echo "Python $(python --version | cut -d' ' -f2), packages in requirements.txt, recorded $(date +%F)" > environment.txt
+    cat environment.txt
+    ```
+
+    You should see: the note. In our test:
+
+    ```text
+    Python 3.13.18, packages in requirements.txt, recorded 2026-11-13
+    ```
+
+## Check it worked
+
+The folder holds `requirements.txt` and `environment.txt`, and step 5 shows a version
+for each package your work imports.
+
+## If it didn't
+
+**Step 5 prints nothing.** The package names in the pattern do not match what is
+installed. Search for one name without the `==`, for example
+`grep -i pandas requirements.txt`, and use the spelling it shows.
+
+## Next
+
+- These files record the software; they do not rebuild it. To run old work again you
+  need an app with the same versions, or to install them yourself.
+- Record again whenever a result goes into a report: the date in `environment.txt`
+  says which run the record belongs to.
+- [Leave a notebook someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/leave-a-rerunnable-notebook/)
+- [Write a README for a data folder](https://idss-mesa.github.io/trainings/tutorials/write-a-readme/), and mention these two files
+  in it.
+
+*Not yet validated by a second person. Drafted 2026-11-13 and followed in MESA JupyterLab that day.*
+
 ---8<--- https://idss-mesa.github.io/trainings/contributing/
 
 ---
@@ -4241,6 +4483,9 @@ explains.
 
 ## 2026-11-13
 
+* **Creation**: Added two tutorials to pathway point 5, followed in MESA JupyterLab:
+  [Write a README for a data folder](tutorials/write-a-readme.md) and
+  [Record the software versions a result depends on](tutorials/record-software-versions.md).
 * **Creation**: Added a first tutorial for each of the remaining MESA apps, each followed
   once in the app:
   [Download a file from the web into your Data Store with MESA Cloud Shell](tutorials/cloud-shell-download.md),

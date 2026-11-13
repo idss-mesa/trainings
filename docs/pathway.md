@@ -83,8 +83,10 @@ Work with an AI assistant, and test what it tells you against the data.
 
 Leave work that someone else can find, understand, and run again.
 
-1. [Add metadata to a file or folder](tutorials/add-metadata.md)
-2. [Leave a notebook someone else can rerun](tutorials/leave-a-rerunnable-notebook.md)
+1. [Write a README for a data folder](tutorials/write-a-readme.md)
+2. [Add metadata to a file or folder](tutorials/add-metadata.md)
+3. [Record the software versions a result depends on](tutorials/record-software-versions.md)
+4. [Leave a notebook someone else can rerun](tutorials/leave-a-rerunnable-notebook.md)
 
 ## Where to start
 

@@ -61,6 +61,8 @@ notebook, so do the first one first.
 | See what the provider doubted | [Tally a quality flag before you trust a number](tutorials/tally-a-quality-flag.md) | 5 min |
 | Find repeated and missing days | [Count records per day to find incomplete days](tutorials/count-records-per-day.md) | 5–10 min |
 | Join two tables safely | [Reconcile row counts before and after a join](tutorials/reconcile-a-join.md) | 5–10 min |
+| Say what a folder of data is | [Write a README for a data folder](tutorials/write-a-readme.md) | 10 min |
+| Know which software made a result | [Record the software versions a result depends on](tutorials/record-software-versions.md) | 5 min |
 | Hand my notebook to someone | [Leave a notebook someone else can rerun](tutorials/leave-a-rerunnable-notebook.md) | 5–10 min |
 | Group hourly data by the right day | [Turn UTC timestamps into local days](tutorials/local-days-from-utc.md) | 10 min |
 | Handle several measurements in one column | [Work with a long table, one row per kind of measurement](tutorials/work-with-a-long-table.md) | 5–10 min |

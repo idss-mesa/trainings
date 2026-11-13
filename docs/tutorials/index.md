@@ -33,3 +33,5 @@
 * [Download a file from the web into your Data Store with MESA Cloud Shell](cloud-shell-download.md) - Start MESA Cloud Shell, go to a folder in your Data Store, and fetch a file from a web address straight into it with curl.
 * [Write and run a Python script in MESA VS Code](vscode-run-a-script.md) - Open MESA VS Code on your Data Store, create a Python script in a folder there, and run it in the built-in terminal.
 * [Open a file from your Data Store in a desktop program](desktop-open-a-file.md) - Start the MESA KASM Ubuntu Desktop, find a file in your Data Store with its file manager, and open it in a desktop program.
+* [Write a README for a data folder](write-a-readme.md) - Add a short README file to a folder in your Data Store, from MESA JupyterLab, that says what the files are, where they came from, and who to ask.
+* [Record the software versions a result depends on](record-software-versions.md) - Write the Python version and the versions of every installed package to files beside your work, so that a result can be traced to the software that produced it.

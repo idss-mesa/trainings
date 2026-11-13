@@ -58,6 +58,8 @@ The form https://idss-mesa.github.io/trainings/<path>.md also returns the same M
 - [Download a file from the web into your Data Store with MESA Cloud Shell](https://idss-mesa.github.io/trainings/tutorials/cloud-shell-download/): Start MESA Cloud Shell, go to a folder in your Data Store, and fetch a file from a web address straight into it with curl. (draft) Markdown twin: https://idss-mesa.github.io/trainings/tutorials/cloud-shell-download/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/cloud-shell-download.md
 - [Write and run a Python script in MESA VS Code](https://idss-mesa.github.io/trainings/tutorials/vscode-run-a-script/): Open MESA VS Code on your Data Store, create a Python script in a folder there, and run it in the built-in terminal. (draft) Markdown twin: https://idss-mesa.github.io/trainings/tutorials/vscode-run-a-script/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/vscode-run-a-script.md
 - [Open a file from your Data Store in a desktop program](https://idss-mesa.github.io/trainings/tutorials/desktop-open-a-file/): Start the MESA KASM Ubuntu Desktop, find a file in your Data Store with its file manager, and open it in a desktop program. (draft) Markdown twin: https://idss-mesa.github.io/trainings/tutorials/desktop-open-a-file/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/desktop-open-a-file.md
+- [Write a README for a data folder](https://idss-mesa.github.io/trainings/tutorials/write-a-readme/): Add a short README file to a folder in your Data Store, from MESA JupyterLab, that says what the files are, where they came from, and who to ask. (draft) Markdown twin: https://idss-mesa.github.io/trainings/tutorials/write-a-readme/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/write-a-readme.md
+- [Record the software versions a result depends on](https://idss-mesa.github.io/trainings/tutorials/record-software-versions/): Write the Python version and the versions of every installed package to files beside your work, so that a result can be traced to the software that produced it. (draft) Markdown twin: https://idss-mesa.github.io/trainings/tutorials/record-software-versions/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/record-software-versions.md
 
 ## Contributing
 
@@ -71,7 +73,7 @@ The form https://idss-mesa.github.io/trainings/<path>.md also returns the same M
 
 ## Meta
 
-- [Full corpus in one file](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with frontmatter, links made absolute; about 169 KB, roughly 44,000 tokens. Prefer it over fetching pages one at a time.
+- [Full corpus in one file](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with frontmatter, links made absolute; about 179 KB, roughly 46,000 tokens. Prefer it over fetching pages one at a time.
 - [Update log](https://idss-mesa.github.io/trainings/log/): dated history of changes to this bundle.
 - [For AI agents](https://idss-mesa.github.io/trainings/about/ai-agents/): endpoints, trust signals, and what to do if you cannot fetch this site.
 - [Sitemap](https://idss-mesa.github.io/trainings/sitemap.xml) and [robots.txt](https://idss-mesa.github.io/trainings/robots.txt): crawlers honour only the origin https://idss-mesa.github.io/robots.txt, which is equally permissive.
