@@ -86,6 +86,13 @@ The terminal prints `152 readings, 2 flagged`, and `count_rows.py` is listed in
 
 ## If it didn't
 
+**There is a Chat panel on the right, or notices at the bottom right.** A new account
+sees these the first time, with **Restricted Mode** in the bottom bar. None of them
+stops these steps. Close the panel and the notices with their **×**.
+
+**The command came out garbled.** You typed before the terminal had finished starting.
+Wait for the welcome screen and the prompt, press ++ctrl+c++, and type it again.
+
 **`FileNotFoundError: [Errno 2] No such file or directory: 'readings.csv'`.** The
 terminal is not in the folder that holds the data. Its prompt shows where it is. Close
 it, then repeat step 5, making sure you right-click **mesa-practice** and not the

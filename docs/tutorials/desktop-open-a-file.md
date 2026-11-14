@@ -35,7 +35,7 @@ the MESA desktop.
 ## Steps
 
 1. In the portal, click **Applications**, and on the **MESA KASM Ubuntu Desktop** card
-   click **Instant Launch**. Wait for the desktop; in our test it took two and a half
+   click **Instant Launch**. Wait for the desktop; in our tests it took between forty seconds and two and a half
    minutes.
 
     You should see: a desktop with **Trash**, **File System**, and **Home** icons at

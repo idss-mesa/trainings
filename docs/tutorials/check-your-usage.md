@@ -55,8 +55,9 @@ each is left.
 
 ## Check it worked
 
-You can state your plan's two limits and what is left of each. On a new Basic plan
-they read:
+You can state your plan's two limits and what is left of each. Your limits depend on
+your plan, and may be larger once CyVerse has given you access to interactive apps. On
+a new Basic plan they read:
 
 ```text
 200.0 hours left

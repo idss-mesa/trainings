@@ -16,8 +16,9 @@ sources:
 # Share a folder with a collaborator
 
 !!! warning "Draft: not yet validated"
-    This tutorial was written from the MESA documentation. Nobody has yet followed it
-    from start to finish on the live portal, so a screen name or a step may differ.
+    These steps were followed on the live portal on 2026-11-13, on a newly created
+    account, by the person who wrote them. The check from the second account was done too. Nobody else has yet followed them, so a
+    screen may differ.
     [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** have shared one folder, read only, with one person you chose.
@@ -88,4 +89,4 @@ appears only on folders you own. Check that the header says **Owner**. If you ar
   which also covers the other access levels and sharing several items at once. The
   dialog names them **Read & Write** and **Full Control**.
 
-*Not yet validated on the live portal. Drafted 2026-11-12 from the MESA documentation.*
+*Not yet validated by a second person. Drafted 2026-11-12 from the MESA documentation and followed once on the live portal on 2026-11-13.*

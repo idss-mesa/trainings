@@ -45,7 +45,7 @@ not saved under `~/data-store` is lost.
 3. Click **Monitor**.
 
     You should see: a panel open under the card, on its **Logs** tab, with the app's
-    own messages. For JupyterLab the last lines say that the server is running.
+    own messages. For JupyterLab they include a line for each notebook you opened.
 
 4. Type a word such as `error` in the **Filter logs…** box.
 
