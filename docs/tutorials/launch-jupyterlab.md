@@ -20,8 +20,9 @@ sources:
 # Launch MESA JupyterLab with your Data Store mounted
 
 !!! warning "Draft: not yet validated"
-    This tutorial was written from the MESA documentation. Nobody has yet followed it
-    from start to finish on the live portal, so a screen name or a step may differ.
+    These steps were followed on the live portal on 2026-11-13, on a newly created
+    account, by the person who wrote them. Nobody else has yet followed them, so a
+    screen may differ.
     [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** have JupyterLab running in a browser tab, with your CyVerse Data Store
@@ -44,10 +45,11 @@ files available inside it.
     You should see: a new browser tab with a launch page that steps through
     **Submitting**, **Queued**, **Container Starting**, **Initializing**, and **Running**.
 
-3. Wait. Starting usually takes one to three minutes.
+3. Wait. Starting usually takes half a minute to three minutes.
 
     You should see: the launch page replaced by JupyterLab, with a file browser on the
-    left and a **Launcher** tab in the middle.
+    left and a **Launcher** tab in the middle. The first time, a small box at the bottom
+    right asks whether you want Jupyter news; click **No**.
 
 4. In the **Launcher**, click **Terminal**, then run:
 
@@ -76,6 +78,7 @@ files available inside it.
     ```
 
     Your own files are inside `home`, in a folder named after your CyVerse username.
+    `home` also holds `shared`, which is data that projects have shared.
 
 ## Check it worked
 
@@ -106,4 +109,4 @@ the form. CyVerse says it answers within one to two days. Then launch again.
   [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) for what the app
   contains.
 
-*Not yet validated on the live portal. Drafted 2026-11-11 from the MESA documentation.*
+*Not yet validated by a second person. Drafted 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*

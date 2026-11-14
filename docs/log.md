@@ -2,6 +2,19 @@
 
 ## 2026-11-13
 
+* **Update**: Finished the run on a newly created account, once CyVerse had granted it
+  access to interactive apps. All five MESA apps started. The Python tutorials' code
+  (28 outputs) and the R tutorials' code (11 outputs) gave the printed results inside
+  MESA JupyterLab and MESA RStudio Geospatial. Followed by hand: launching JupyterLab,
+  saving a notebook, loading a file, Monitor and Extend Time, Save & Exit, loading a
+  file in RStudio, and the Cloud Shell, VS Code and desktop tutorials. Small corrections
+  for what a new account sees went into
+  [Launch MESA JupyterLab with your Data Store mounted](tutorials/launch-jupyterlab.md),
+  [Save your work where it survives the session](tutorials/save-your-work.md),
+  [Check on a running app and give it more time](tutorials/monitor-and-extend.md),
+  [Write and run a Python script in MESA VS Code](tutorials/vscode-run-a-script.md),
+  [Open a file from your Data Store in a desktop program](tutorials/desktop-open-a-file.md), and
+  [Check your CPU hours and storage](tutorials/check-your-usage.md).
 * **Creation**: Added four short portal tutorials, each followed once on the live portal:
   [Browse a large folder as a sorted list](tutorials/browse-a-large-folder.md),
   [Read the metadata on a folder shared with you](tutorials/read-shared-metadata.md),

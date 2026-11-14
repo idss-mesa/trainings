@@ -20,8 +20,9 @@ sources:
 # Save your work where it survives the session
 
 !!! warning "Draft: not yet validated"
-    This tutorial was written from the MESA documentation. Nobody has yet followed it
-    from start to finish on the live portal, so a screen name or a step may differ.
+    These steps were followed on the live portal on 2026-11-13, on a newly created
+    account, by the person who wrote them. On that run the notebook was made from the Launcher, not the File menu. Nobody else has yet followed them, so a
+    screen may differ.
     [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 A MESA app runs in a temporary container. When the app ends, everything in it is
@@ -75,6 +76,9 @@ when the app ends.
 
 ## If it didn't
 
+**A Rename file box appears when you save.** JupyterLab asks for a name the first time
+you save a notebook still called `Untitled`. Type the name and click **Rename and Save**.
+
 **The notebook is in JupyterLab but never appears in My Files.** It was saved outside
 your home folder in the Data Store. Find it in JupyterLab's file browser, drag it into
 your home folder (step 2), and check **My Files** again. The same applies to anything a
@@ -87,4 +91,4 @@ the app.
 - Reference: [Your Data Store inside the app](https://idss-mesa.github.io/docs/apps/agents/#your-data-store-inside-the-app)
   and [Managing data, "Data in the apps"](https://idss-mesa.github.io/docs/portal/data/#data-in-the-apps).
 
-*Not yet validated on the live portal. Drafted 2026-11-11 from the MESA documentation.*
+*Not yet validated by a second person. Drafted 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*

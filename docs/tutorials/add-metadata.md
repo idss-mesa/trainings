@@ -16,8 +16,9 @@ sources:
 # Add metadata to a file or folder
 
 !!! warning "Draft: not yet validated"
-    This tutorial was written from the MESA documentation. Nobody has yet followed it
-    from start to finish on the live portal, so a screen name or a step may differ.
+    These steps were followed on the live portal on 2026-11-13, on a newly created
+    account, by the person who wrote them. Nobody else has yet followed them, so a
+    screen may differ.
     [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 The Data Store keeps metadata as *AVUs*: an attribute, a value, and an optional unit.
@@ -83,4 +84,4 @@ edit**, not **Read only**. Use a folder under **My Files**.
   which covers reserved attribute names and the full metadata page with its DataCite,
   Dublin Core, and EML views.
 
-*Not yet validated on the live portal. Drafted 2026-11-12 from the MESA documentation.*
+*Not yet validated by a second person. Drafted 2026-11-12 from the MESA documentation and followed once on the live portal on 2026-11-13.*

@@ -16,8 +16,9 @@ sources:
 # Find MESA's community data in the Data Browser
 
 !!! warning "Draft: not yet validated"
-    This tutorial was written from the MESA documentation. Nobody has yet followed it
-    from start to finish on the live portal, so a screen name or a step may differ.
+    These steps were followed on the live portal on 2026-11-13, on a newly created
+    account, by the person who wrote them. Nobody else has yet followed them, so a
+    screen may differ.
     [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** have the MESA community folder open and the path of one of its folders
@@ -79,4 +80,4 @@ not MESA's.** You clicked **Shared**, which opens every CyVerse community projec
   ["Browse and find files"](https://idss-mesa.github.io/docs/portal/data/#browse-and-find-files)
   for search and the built-in file viewer.
 
-*Not yet validated on the live portal. Drafted 2026-11-11 from the MESA documentation.*
+*Not yet validated by a second person. Drafted 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*
