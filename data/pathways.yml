@@ -1,0 +1,230 @@
+# The learning pathways of MESA Trainings: the one source for the pathway pages,
+# the by-point list at docs/pathway.md, and docs/assets/pathways.json.
+#
+# After any change here, or to a tutorial's title, tags, or Time line, run
+#     python scripts/gen_pathways.py
+# and commit what it writes. CI fails if the generated files have drifted.
+#
+# A tutorial is named by its file name without ".md". Its title, pathway point,
+# time, status, and dates are read from its own page and never repeated here.
+#
+# To add a tutorial to a pathway, add its name to one `tutorials:` list.
+# Pathways are named for a reader's goal, never for a numbered session or a date.
+
+schema: 1
+
+# Bump on a meaningful change to the pathways (AGENTS.md rule 7), not on typo fixes.
+revised: "2026-11-14"
+
+# The five points. `competency` names what the point builds; `can_do` is the
+# sentence shown under the point's heading.
+points:
+  p1:
+    title: Orient and navigate
+    competency: Work in MESA
+    can_do: You can get into MESA, find data, run an app, and keep what you make.
+  p2:
+    title: Run and understand
+    competency: Understand data
+    can_do: >-
+      You can say what a dataset holds and where it is incomplete or doubtful,
+      before you compute with it.
+  p3:
+    title: Query and connect
+    competency: Query and connect
+    can_do: >-
+      You can ask questions across files and tables, and show that combining
+      them did what you meant.
+  p4:
+    title: Explore and verify
+    competency: Explore with AI and verify
+    can_do: You can work with an AI assistant and test what it tells you against the data.
+  p5:
+    title: Preserve and share
+    competency: Preserve and share
+    can_do: You can leave work that someone else can find, understand, and run again.
+
+# Minutes [least, most] for a page that has no "**Time:**" line.
+times:
+  practice-data: [5, 5]
+
+# What a tutorial builds on is read from the links in its "You need" line. List a
+# tutorial here only where one of those links names an app or an optional source,
+# not an earlier task; the list given replaces the links.
+builds_on:
+  r-tally-a-quality-flag: [r-load-a-file]
+  desktop-open-a-file: [sign-in]
+  preview-a-table: [sign-in]
+  vscode-run-a-script: [sign-in]
+
+# Goal-based routes. A stage is one pathway point, in the order the reader meets
+# it; `more` holds tutorials shown after the stage under "More in this area".
+# At most seven tutorials in one `tutorials:` list. `after` names the pathway to
+# suggest to a reader who has not used the portal yet.
+pathways:
+  - id: new-to-mesa
+    title: New to MESA
+    promise: Sign in, find data, run a notebook, and keep what you make.
+    stages:
+      - point: p1
+        tutorials:
+          - sign-in
+          - find-your-way-around
+          - find-community-data
+          - launch-jupyterlab
+          - save-your-work
+          - stop-app-find-results
+
+  - id: get-ready-for-a-session
+    title: Get ready for a hands-on session
+    promise: >-
+      Arrive able to sign in, run a notebook, check a dataset, and leave work
+      that reruns.
+    stages:
+      - point: p1
+        tutorials:
+          - sign-in
+          - find-your-way-around
+          - launch-jupyterlab
+          - save-your-work
+          - stop-app-find-results
+      - point: p2
+        tutorials:
+          - practice-data
+          - load-a-file
+          - read-the-data-dictionary
+          - check-range-and-missing
+          - tally-a-quality-flag
+      - point: p3
+        tutorials:
+          - reconcile-a-join
+      - point: p4
+        tutorials:
+          - check-a-suggested-result
+      - point: p5
+        tutorials:
+          - leave-a-rerunnable-notebook
+
+  - id: check-a-dataset
+    title: Check a dataset before you trust it
+    promise: Find out what a dataset holds and where it is incomplete or doubtful.
+    after: new-to-mesa
+    stages:
+      - point: p2
+        tutorials:
+          - practice-data
+          - load-a-file
+          - read-the-data-dictionary
+          - check-range-and-missing
+          - tally-a-quality-flag
+          - count-records-per-day
+        more:
+          - local-days-from-utc
+          - work-with-a-long-table
+      - point: p3
+        tutorials:
+          - reconcile-a-join
+        more:
+          - query-parquet-with-duckdb
+
+  - id: work-in-r
+    title: Work in R
+    promise: Do the data checks in MESA RStudio Geospatial.
+    after: new-to-mesa
+    stages:
+      - point: p2
+        tutorials:
+          - r-load-a-file
+          - r-tally-a-quality-flag
+          - map-points-in-rstudio
+      - point: p3
+        tutorials:
+          - r-query-parquet-with-duckdb
+
+  - id: use-an-ai-agent
+    title: Use an AI agent and check what it says
+    promise: Start an agent in a MESA app and test its answers against the data.
+    after: new-to-mesa
+    stages:
+      - point: p2
+        tutorials:
+          - practice-data
+          - load-a-file
+          - tally-a-quality-flag
+      - point: p3
+        tutorials:
+          - keep-secrets-out-of-files
+      - point: p4
+        tutorials:
+          - start-an-ai-agent
+          - check-a-suggested-result
+
+  - id: leave-work-others-can-rerun
+    title: Leave work others can rerun
+    promise: Describe, record, and share work so that someone else can run it again.
+    after: new-to-mesa
+    stages:
+      - point: p5
+        tutorials:
+          - write-a-readme
+          - add-metadata
+          - record-software-versions
+          - leave-a-rerunnable-notebook
+      - point: p1
+        tutorials:
+          - share-a-folder
+        more:
+          - read-shared-metadata
+          - stop-sharing-a-folder
+
+# The complete list at docs/pathway.md: every tutorial under its point, in
+# groups of at most seven. The first group of a point may go without a title.
+# A tutorial left out is added to the end of its point, with a notice when the
+# generator runs, so a new tutorial appears there with no edit to this file.
+by_point:
+  p1:
+    - tutorials:
+        - sign-in
+        - find-your-way-around
+        - find-community-data
+        - launch-jupyterlab
+        - save-your-work
+        - stop-app-find-results
+    - title: Organise folders
+      tutorials: [make-a-folder, rename-a-folder, move-folders, trash-and-restore]
+    - title: Find and look
+      tutorials: [search-the-data-browser, browse-a-large-folder, view-a-notebook, preview-a-table]
+    - title: Run apps
+      tutorials: [launch-with-options, monitor-and-extend, check-your-usage]
+    - title: The other MESA apps
+      tutorials: [cloud-shell-download, vscode-run-a-script, desktop-open-a-file]
+    - title: Share
+      tutorials: [share-a-folder, read-shared-metadata, stop-sharing-a-folder]
+  p2:
+    - tutorials:
+        - practice-data
+        - load-a-file
+        - read-the-data-dictionary
+        - check-range-and-missing
+        - tally-a-quality-flag
+        - count-records-per-day
+    - title: More kinds of table
+      tutorials: [local-days-from-utc, work-with-a-long-table]
+    - title: In R, in MESA RStudio Geospatial
+      tutorials: [r-load-a-file, r-tally-a-quality-flag, map-points-in-rstudio]
+  p3:
+    - tutorials:
+        - query-parquet-with-duckdb
+        - reconcile-a-join
+        - keep-secrets-out-of-files
+        - r-query-parquet-with-duckdb
+  p4:
+    - tutorials:
+        - start-an-ai-agent
+        - check-a-suggested-result
+  p5:
+    - tutorials:
+        - write-a-readme
+        - add-metadata
+        - record-software-versions
+        - leave-a-rerunnable-notebook

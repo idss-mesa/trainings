@@ -22,8 +22,8 @@ They are written for two readers: people preparing for a MESA training session, 
 anyone using MESA who wants to get one thing done. You do not need to be part of a
 training program to use them.
 
-[Start with signing in :material-arrow-right:](tutorials/sign-in.md){ .md-button .md-button--primary }
-[The learning pathway](pathway.md){ .md-button }
+[New to MESA? Start here :material-arrow-right:](pathways/new-to-mesa.md){ .md-button .md-button--primary }
+[Choose a pathway](pathways/index.md){ .md-button }
 [All tutorials](tutorials/index.md){ .md-button }
 
 !!! warning "These tutorials are drafts"

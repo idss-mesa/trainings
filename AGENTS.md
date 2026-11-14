@@ -38,7 +38,9 @@ pip install zensical pyyaml                     # or prefix each command with `u
 zensical serve                                  # live preview at localhost:8000
 zensical build --clean --strict                 # static site -> site/
 python scripts/okf_validate.py docs             # OKF conformance (CI-enforced; 0 errors required)
-python scripts/gen_llms_txt.py                  # regenerate docs/llms.txt + docs/llms-full.txt (CI checks drift)
+python scripts/gen_pathways.py                  # regenerate docs/pathways/, docs/pathway.md, docs/assets/pathways.json from data/pathways.yml (CI checks drift)
+python scripts/gen_llms_txt.py                  # regenerate docs/llms.txt + docs/llms-full.txt (CI checks drift); run after gen_pathways.py
+python -m unittest discover tests               # tests for gen_pathways.py (CI-enforced)
 python scripts/check_tutorial_outputs.py        # run the tutorials' code and compare with the printed output (CI-enforced; needs pandas, duckdb)
 Rscript scripts/check_tutorial_outputs.R        # the same for R tutorials (CI runs it in the MESA RStudio image; needs sf, ggplot2, duckdb)
 python scripts/postbuild_agent_surface.py site  # after build: md mirror + okf:* meta + robots.txt
@@ -65,8 +67,11 @@ repository rather than changing them here.
 3. **`docs/log.md`** gets a dated entry (`## YYYY-MM-DD`, newest first;
    `* **Creation**:` / `* **Update**:` / `* **Deprecation**:`) for every
    substantive change.
-4. **Regenerate after content changes:** `python scripts/gen_llms_txt.py`,
-   then commit `docs/llms.txt` and `docs/llms-full.txt` with the change.
+4. **Regenerate after content changes:** `python scripts/gen_pathways.py`, then
+   `python scripts/gen_llms_txt.py`, and commit what they write with the change.
+   The pathway pages (`docs/pathways/`, `docs/pathway.md`) and
+   `docs/assets/pathways.json` are generated from `data/pathways.yml` and the
+   tutorials; never edit them by hand.
 5. **New pages go in the `nav` array of `zensical.toml`** and in their
    section's `index.md`; `zensical build --strict` must still succeed.
 6. **Links:** links inside this site are relative and plain
@@ -104,8 +109,10 @@ repository rather than changing them here.
 15. **Data tutorials use the practice data** in `docs/assets/practice/`
     (synthetic; described in `docs/tutorials/practice-data.md`). Run every
     code block and paste its real output; `scripts/check_tutorial_outputs.py`
-    and `scripts/check_tutorial_outputs.R` check that they still agree. A new tutorial also goes under its pathway
-    point in `docs/pathway.md`. The draft notice says where the
+    and `scripts/check_tutorial_outputs.R` check that they still agree. A new tutorial is listed under its pathway
+    point in `docs/pathway.md` by `scripts/gen_pathways.py`, from its `p1` to `p5` tag; to choose its
+    place there, or to put it in a pathway, add its file name to `data/pathways.yml`. Pathways are named
+    for a reader's goal, never for a session or a date. The draft notice says where the
     code was run; the tutorial stays a draft until someone follows it in MESA
     JupyterLab. The files come from `scripts/make_practice_data.py`; if you
     change it, rerun it and update every output the tutorials show.

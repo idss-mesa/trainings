@@ -1,5 +1,21 @@
 # Directory Update Log
 
+## 2026-11-14
+
+* **Creation**: Added six [learning pathways](pathways/index.md), goal-based routes
+  through the tutorials that each state their total time:
+  [New to MESA](pathways/new-to-mesa.md),
+  [Get ready for a hands-on session](pathways/get-ready-for-a-session.md),
+  [Check a dataset before you trust it](pathways/check-a-dataset.md),
+  [Work in R](pathways/work-in-r.md),
+  [Use an AI agent and check what it says](pathways/use-an-ai-agent.md), and
+  [Leave work others can rerun](pathways/leave-work-others-can-rerun.md).
+  They are generated from `data/pathways.yml` by `scripts/gen_pathways.py`.
+* **Update**: [Every tutorial, by pathway point](pathway.md), formerly "Learning
+  pathway", is now generated at the same address. It gives each tutorial's time, names
+  what each point builds, and splits point 1 into the six tutorials a newcomer needs and
+  five small groups of reference tutorials. The home page now opens on the pathways.
+
 ## 2026-11-13
 
 * **Creation**: Added two tutorials on the portal's built-in viewers, each followed once
