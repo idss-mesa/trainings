@@ -17,8 +17,8 @@ sources:
 
 !!! warning "Draft: not yet validated"
     These steps were followed once on the live portal on 2026-11-13, by the person who
-    wrote them, on a folder. The same menu appears on files, but renaming a file was not
-    tried. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    wrote them, on a folder and then on a file.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** have a folder with a new name, and know what else the change affects.
 
@@ -43,7 +43,8 @@ have none to spare.
 3. Click **Rename**.
 
     You should see: a **Rename** window with a **New name** box. The present name is
-    in the box and already selected.
+    in the box and already selected. A file is renamed the same way; for a file, only
+    the part before the ending (such as `.ipynb`) is selected, so the ending stays.
 
 4. Type the new name, for example `rain-2026`. Use lower-case letters, numbers, and
    hyphens.

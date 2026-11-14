@@ -67,6 +67,8 @@ The form https://idss-mesa.github.io/trainings/<path>.md also returns the same M
 - [Read the metadata on a folder shared with you](https://idss-mesa.github.io/trainings/tutorials/read-shared-metadata/): Open the metadata on a folder another CyVerse user has shared with you, in the MESA Portal's quick panel and on its full metadata page. (draft) Markdown twin: https://idss-mesa.github.io/trainings/tutorials/read-shared-metadata/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/read-shared-metadata.md
 - [Stop sharing a folder](https://idss-mesa.github.io/trainings/tutorials/stop-sharing-a-folder/): Take away a collaborator's access to a folder in your Data Store from the MESA Portal's share dialog, and confirm the folder is private again. (draft) Markdown twin: https://idss-mesa.github.io/trainings/tutorials/stop-sharing-a-folder/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/stop-sharing-a-folder.md
 - [Check your CPU hours and storage](https://idss-mesa.github.io/trainings/tutorials/check-your-usage/): Find how many CPU hours and how much Data Store space your CyVerse plan allows, and how much you have used, in the MESA Portal. (draft) Markdown twin: https://idss-mesa.github.io/trainings/tutorials/check-your-usage/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/check-your-usage.md
+- [Read a notebook in the portal without starting an app](https://idss-mesa.github.io/trainings/tutorials/view-a-notebook/): Open a saved Jupyter notebook in the MESA Portal's Notebook Viewer to read its code and saved output, without launching JupyterLab. (draft) Markdown twin: https://idss-mesa.github.io/trainings/tutorials/view-a-notebook/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/view-a-notebook.md
+- [Look inside a CSV file from the portal](https://idss-mesa.github.io/trainings/tutorials/preview-a-table/): Open a CSV file in the MESA Portal's Data Viewer and read its columns, row count, and value ranges, then run one SQL query, without launching an app. (draft) Markdown twin: https://idss-mesa.github.io/trainings/tutorials/preview-a-table/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/tutorials/preview-a-table.md
 
 ## Contributing
 
@@ -80,7 +82,7 @@ The form https://idss-mesa.github.io/trainings/<path>.md also returns the same M
 
 ## Meta
 
-- [Full corpus in one file](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with frontmatter, links made absolute; about 208 KB, roughly 53,000 tokens. Prefer it over fetching pages one at a time.
+- [Full corpus in one file](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with frontmatter, links made absolute; about 217 KB, roughly 56,000 tokens. Prefer it over fetching pages one at a time.
 - [Update log](https://idss-mesa.github.io/trainings/log/): dated history of changes to this bundle.
 - [For AI agents](https://idss-mesa.github.io/trainings/about/ai-agents/): endpoints, trust signals, and what to do if you cannot fetch this site.
 - [Sitemap](https://idss-mesa.github.io/trainings/sitemap.xml) and [robots.txt](https://idss-mesa.github.io/trainings/robots.txt): crawlers honour only the origin https://idss-mesa.github.io/robots.txt, which is equally permissive.

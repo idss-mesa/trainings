@@ -17,7 +17,8 @@ sources:
 
 !!! warning "Draft: not yet validated"
     These steps were followed once on the live portal on 2026-11-13, by the person who
-    wrote them, on folders. Moving files, and moving by dragging, were not tried.
+    wrote them, on folders. Moving one file the same way was also tried once and
+    behaved the same. Moving by dragging was not tried.
     [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** have two folders moved together into a third.

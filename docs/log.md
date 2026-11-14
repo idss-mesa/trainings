@@ -2,6 +2,15 @@
 
 ## 2026-11-13
 
+* **Creation**: Added two tutorials on the portal's built-in viewers, each followed once
+  on the live portal:
+  [Read a notebook in the portal without starting an app](tutorials/view-a-notebook.md) and
+  [Look inside a CSV file from the portal](tutorials/preview-a-table.md).
+* **Update**: Renamed, moved, trashed and restored a file on the live portal, and
+  recorded that these work as they do for folders in
+  [Rename a folder in your Data Store](tutorials/rename-a-folder.md),
+  [Move folders into another folder](tutorials/move-folders.md), and
+  [Move a folder to the trash and get it back](tutorials/trash-and-restore.md).
 * **Update**: Finished the run on a newly created account, once CyVerse had granted it
   access to interactive apps. All five MESA apps started. The Python tutorials' code
   (28 outputs) and the R tutorials' code (11 outputs) gave the printed results inside

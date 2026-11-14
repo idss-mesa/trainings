@@ -62,6 +62,8 @@ nav = [
       { "Read shared metadata" = "tutorials/read-shared-metadata.md" },
       { "Stop sharing a folder" = "tutorials/stop-sharing-a-folder.md" },
       { "Check your usage" = "tutorials/check-your-usage.md" },
+      { "Read a notebook in the portal" = "tutorials/view-a-notebook.md" },
+      { "Look inside a CSV file" = "tutorials/preview-a-table.md" },
   ] },
   { "Contributing" = [
       { "Contribute a tutorial" = "contributing.md" },
