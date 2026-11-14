@@ -44,6 +44,8 @@ Get into MESA, find data, start an app, and keep and share what you make.
 16. [Read the metadata on a folder shared with you](tutorials/read-shared-metadata.md)
 17. [Stop sharing a folder](tutorials/stop-sharing-a-folder.md)
 18. [Check your CPU hours and storage](tutorials/check-your-usage.md)
+19. [Read a notebook in the portal without starting an app](tutorials/view-a-notebook.md)
+20. [Look inside a CSV file from the portal](tutorials/preview-a-table.md)
 
 The other MESA apps, one first task each:
 

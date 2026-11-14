@@ -82,6 +82,8 @@ notebook, so do the first one first.
 | See what a colleague recorded about a folder | [Read the metadata on a folder shared with you](tutorials/read-shared-metadata.md) | 5–10 min |
 | Take back access I gave | [Stop sharing a folder](tutorials/stop-sharing-a-folder.md) | 5 min |
 | Know how much computing time and space I have | [Check your CPU hours and storage](tutorials/check-your-usage.md) | 5 min |
+| Read a notebook without starting an app | [Read a notebook in the portal without starting an app](tutorials/view-a-notebook.md) | 5 min |
+| See what is in a table before I launch anything | [Look inside a CSV file from the portal](tutorials/preview-a-table.md) | 5–10 min |
 | Find something by name | [Search for a file or folder by name](tutorials/search-the-data-browser.md) | 5 min |
 | Give an app more memory or time | [Launch an app with the cores, memory, and time you choose](tutorials/launch-with-options.md) | 5–10 min |
 | Keep an app from timing out | [Check on a running app and give it more time](tutorials/monitor-and-extend.md) | 5 min |

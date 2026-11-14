@@ -88,6 +88,8 @@ notebook, so do the first one first.
 | See what a colleague recorded about a folder | [Read the metadata on a folder shared with you](https://idss-mesa.github.io/trainings/tutorials/read-shared-metadata/) | 5–10 min |
 | Take back access I gave | [Stop sharing a folder](https://idss-mesa.github.io/trainings/tutorials/stop-sharing-a-folder/) | 5 min |
 | Know how much computing time and space I have | [Check your CPU hours and storage](https://idss-mesa.github.io/trainings/tutorials/check-your-usage/) | 5 min |
+| Read a notebook without starting an app | [Read a notebook in the portal without starting an app](https://idss-mesa.github.io/trainings/tutorials/view-a-notebook/) | 5 min |
+| See what is in a table before I launch anything | [Look inside a CSV file from the portal](https://idss-mesa.github.io/trainings/tutorials/preview-a-table/) | 5–10 min |
 | Find something by name | [Search for a file or folder by name](https://idss-mesa.github.io/trainings/tutorials/search-the-data-browser/) | 5 min |
 | Give an app more memory or time | [Launch an app with the cores, memory, and time you choose](https://idss-mesa.github.io/trainings/tutorials/launch-with-options/) | 5–10 min |
 | Keep an app from timing out | [Check on a running app and give it more time](https://idss-mesa.github.io/trainings/tutorials/monitor-and-extend/) | 5 min |
@@ -200,6 +202,8 @@ Get into MESA, find data, start an app, and keep and share what you make.
 16. [Read the metadata on a folder shared with you](https://idss-mesa.github.io/trainings/tutorials/read-shared-metadata/)
 17. [Stop sharing a folder](https://idss-mesa.github.io/trainings/tutorials/stop-sharing-a-folder/)
 18. [Check your CPU hours and storage](https://idss-mesa.github.io/trainings/tutorials/check-your-usage/)
+19. [Read a notebook in the portal without starting an app](https://idss-mesa.github.io/trainings/tutorials/view-a-notebook/)
+20. [Look inside a CSV file from the portal](https://idss-mesa.github.io/trainings/tutorials/preview-a-table/)
 
 The other MESA apps, one first task each:
 
@@ -4186,8 +4190,8 @@ sources:
 
 !!! warning "Draft: not yet validated"
     These steps were followed once on the live portal on 2026-11-13, by the person who
-    wrote them, on a folder. The same menu appears on files, but renaming a file was not
-    tried. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    wrote them, on a folder and then on a file.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** have a folder with a new name, and know what else the change affects.
 
@@ -4212,7 +4216,8 @@ have none to spare.
 3. Click **Rename**.
 
     You should see: a **Rename** window with a **New name** box. The present name is
-    in the box and already selected.
+    in the box and already selected. A file is renamed the same way; for a file, only
+    the part before the ending (such as `.ipynb`) is selected, so the ending stays.
 
 4. Type the new name, for example `rain-2026`. Use lower-case letters, numbers, and
    hyphens.
@@ -4275,7 +4280,8 @@ sources:
 
 !!! warning "Draft: not yet validated"
     These steps were followed once on the live portal on 2026-11-13, by the person who
-    wrote them, on folders. Moving files, and moving by dragging, were not tried.
+    wrote them, on folders. Moving one file the same way was also tried once and
+    behaved the same. Moving by dragging was not tried.
     [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** have two folders moved together into a third.
@@ -4374,8 +4380,9 @@ sources:
 
 !!! warning "Draft: not yet validated"
     These steps were followed once on 2026-11-13, by the person who wrote them, on a
-    folder. The browser used for the test could not show the confirmation box in step
-    3, so it was accepted automatically; its wording is as the portal sends it.
+    folder and then on a file. The browser used for the test could not show the
+    confirmation box in step 3, so it was accepted automatically; its wording is as
+    the portal sends it.
     [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** have put a folder in the trash, and brought it back.
@@ -4440,6 +4447,9 @@ wait and try again.
 
 - In the Discovery Environment's Trash, **Delete** and **Empty Trash** destroy items
   for good. Use them only when you are sure.
+- A file goes to the trash and comes back the same way. On the test, a trashed
+  file's card left the listing by itself after a few seconds, and the file was back
+  half a minute after **Restore**.
 - To trash several items at once, tick their boxes and click **Trash** in the
   toolbar: see [Move folders into another folder](https://idss-mesa.github.io/trainings/tutorials/move-folders/) for the toolbar.
 - Reference: [Managing data, "Upload, create, move, and delete"](https://idss-mesa.github.io/docs/portal/data/#upload-create-move-and-delete).
@@ -4776,6 +4786,202 @@ an app stops. Look again later.
   keeps using CPU hours.
 - [Launch an app with the cores, memory, and time you choose](https://idss-mesa.github.io/trainings/tutorials/launch-with-options/)
 - Reference: [The MESA Portal overview](https://idss-mesa.github.io/docs/portal/overview/).
+
+*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/view-a-notebook/
+
+---
+type: Guide
+title: "Read a notebook in the portal without starting an app"
+description: "Open a saved Jupyter notebook in the MESA Portal's Notebook Viewer to read its code and saved output, without launching JupyterLab."
+tags: [byte, p1, portal, data-browser, notebook]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Read a notebook in the portal without starting an app
+
+!!! warning "Draft: not yet validated"
+    The viewer was opened once on the live portal on 2026-11-13, by the person who
+    wrote these steps. The browser used for the test blocks new tabs, so the viewer
+    was opened at its address, not with the **View** button.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+Starting JupyterLab takes a minute and uses CPU hours. To read a notebook, you do not
+need it: the portal shows the code and the output that was saved with it.
+
+**You will:** have read a saved notebook, with its output, in the portal.
+
+**Time:** 5 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/),
+and a notebook in your Data Store, such as `first-notebook.ipynb` from
+[Save your work](https://idss-mesa.github.io/trainings/tutorials/save-your-work/).
+
+## Steps
+
+1. In the sidebar, click **Data Browser**, then **My Files**. Open the folder that
+   holds the notebook, if it is in one.
+
+    You should see: a card for the notebook, with `.ipynb` under its name and a green
+    **View** button.
+
+2. Click **View**.
+
+    You should see: a new browser tab named `first-notebook.ipynb - Notebook Viewer`.
+    Under the notebook's name it says **Jupyter Notebook** and how many cells there
+    are.
+
+3. Read down the page.
+
+    You should see: each cell's code beside a label such as `In [1]:`, and under it
+    the output that cell gave when the notebook was last saved. For
+    `first-notebook.ipynb`:
+
+    ```text
+    saved in my Data Store
+    ```
+
+4. Close the tab.
+
+    You should see: the Data Browser tab, as you left it.
+
+## Check it worked
+
+You read the notebook's output, and the **Analyses** page shows no new running app.
+The viewer only displays the file. It runs nothing and changes nothing.
+
+## If it didn't
+
+**No tab opened.** Your browser blocked the pop-up. Allow pop-ups for
+`mesa.cyverse.org` and click **View** again.
+
+**A cell has no output under it.** The notebook was saved before that cell was run.
+The viewer shows what is in the file; it cannot run a cell. Open the notebook in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), run it, and save.
+
+**A card has no View button.** The portal has no viewer for that kind of file. A
+Python script (`.py`) is one example.
+
+## Next
+
+- Images open the same way. **View** on a `.png` opens the Image Viewer, which shows
+  the picture with its size in pixels and zoom buttons.
+- [Look inside a CSV file from the portal](https://idss-mesa.github.io/trainings/tutorials/preview-a-table/)
+- Reference: [Managing data, "View files in the browser"](https://idss-mesa.github.io/docs/portal/data/#view-files-in-the-browser).
+
+*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/preview-a-table/
+
+---
+type: Guide
+title: "Look inside a CSV file from the portal"
+description: "Open a CSV file in the MESA Portal's Data Viewer and read its columns, row count, and value ranges, then run one SQL query, without launching an app."
+tags: [byte, p1, portal, data-browser, csv, duckdb]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+stale_after: "2027-05-13T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+  - id: duckdb-summarize
+    resource: "https://duckdb.org/docs/stable/guides/meta/summarize"
+    title: "DuckDB: SUMMARIZE"
+    author: "team:duckdb"
+---
+
+# Look inside a CSV file from the portal
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once on the live portal on 2026-11-13, by the person who
+    wrote them. The browser used for the test blocks new tabs, so the viewer was
+    opened at its address, not with the **View** button.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** know a table's columns, how many rows it has, and the range of each
+column, before you launch anything.
+
+**Time:** 5–10 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/),
+and `readings.csv` in a `mesa-practice` folder in your Data Store.
+[Download it with MESA Cloud Shell](https://idss-mesa.github.io/trainings/tutorials/cloud-shell-download/) if you have not.
+
+## Steps
+
+1. In the sidebar, click **Data Browser**, then **My Files**, then `mesa-practice`.
+   On the `readings.csv` card, click **View**.
+
+    You should see: a new tab named `readings.csv - Data Viewer`, with an **SQL
+    Query** box and, under it, the first rows of the table.
+
+2. Click **Schema**.
+
+    You should see: one row for each column, with its type.
+
+    ```text
+    gauge_id   VARCHAR
+    date       DATE
+    value      DOUBLE
+    flag       VARCHAR
+    ```
+
+3. Click **Count**.
+
+    You should see: `total_rows` and, under it, `152`.
+
+4. Click **Stats**.
+
+    You should see: one row for each column again, now with its smallest and largest
+    value. `date` runs from `2026-07-01` to `2026-07-31`, and `value` from `0.0` to
+    `180.0`.
+
+5. Each button wrote a query into the **SQL Query** box. Replace it with this one,
+   then click **Run**:
+
+    ```sql
+    SELECT flag, count(*) AS n FROM read_csv('source.csv', auto_detect=true) GROUP BY flag;
+    ```
+
+    You should see: two rows.
+
+    ```text
+    flag   n
+    NULL   150
+    S      2
+    ```
+
+## Check it worked
+
+The two counts in step 5 add up to the row count in step 3: 150 + 2 = 152. Two
+readings carry the flag `S`, and the rest have none.
+
+## If it didn't
+
+**The dates are long numbers.** **Preview**, and the table the viewer opens with, show
+a date as a number such as `1782864000000`. **Stats** shows the same column as dates.
+The file is not damaged.
+
+**Run gives an error.** Check the quotes and the spelling. `'source.csv'` is the
+viewer's name for the CSV file you opened, whatever the file is called. Clicking
+**Preview** puts a working query back.
+
+**There is no View button.** The Data Viewer opens CSV, TSV, Parquet, and DuckDB
+files. For other tables, [load the file into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/).
+
+## Next
+
+- A largest value of 180 is worth a second look:
+  [Check a column's range and missing values](https://idss-mesa.github.io/trainings/tutorials/check-range-and-missing/).
+- [Tally a quality flag before you trust a number](https://idss-mesa.github.io/trainings/tutorials/tally-a-quality-flag/) does step
+  5 in a notebook, where you can keep the result.
+- Reference: [Managing data, "View files in the browser"](https://idss-mesa.github.io/docs/portal/data/#view-files-in-the-browser).
 
 *Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
 
@@ -5138,6 +5344,15 @@ explains.
 
 ## 2026-11-13
 
+* **Creation**: Added two tutorials on the portal's built-in viewers, each followed once
+  on the live portal:
+  [Read a notebook in the portal without starting an app](tutorials/view-a-notebook.md) and
+  [Look inside a CSV file from the portal](tutorials/preview-a-table.md).
+* **Update**: Renamed, moved, trashed and restored a file on the live portal, and
+  recorded that these work as they do for folders in
+  [Rename a folder in your Data Store](tutorials/rename-a-folder.md),
+  [Move folders into another folder](tutorials/move-folders.md), and
+  [Move a folder to the trash and get it back](tutorials/trash-and-restore.md).
 * **Update**: Finished the run on a newly created account, once CyVerse had granted it
   access to interactive apps. All five MESA apps started. The Python tutorials' code
   (28 outputs) and the R tutorials' code (11 outputs) gave the printed results inside

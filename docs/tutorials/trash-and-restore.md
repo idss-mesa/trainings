@@ -17,8 +17,9 @@ sources:
 
 !!! warning "Draft: not yet validated"
     These steps were followed once on 2026-11-13, by the person who wrote them, on a
-    folder. The browser used for the test could not show the confirmation box in step
-    3, so it was accepted automatically; its wording is as the portal sends it.
+    folder and then on a file. The browser used for the test could not show the
+    confirmation box in step 3, so it was accepted automatically; its wording is as
+    the portal sends it.
     [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** have put a folder in the trash, and brought it back.
@@ -83,6 +84,9 @@ wait and try again.
 
 - In the Discovery Environment's Trash, **Delete** and **Empty Trash** destroy items
   for good. Use them only when you are sure.
+- A file goes to the trash and comes back the same way. On the test, a trashed
+  file's card left the listing by itself after a few seconds, and the file was back
+  half a minute after **Restore**.
 - To trash several items at once, tick their boxes and click **Trash** in the
   toolbar: see [Move folders into another folder](move-folders.md) for the toolbar.
 - Reference: [Managing data, "Upload, create, move, and delete"](https://idss-mesa.github.io/docs/portal/data/#upload-create-move-and-delete).
