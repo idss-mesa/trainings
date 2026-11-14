@@ -31,6 +31,7 @@ The form https://idss-mesa.github.io/trainings/<path>.md also returns the same M
 - [Use an AI agent and check what it says](https://idss-mesa.github.io/trainings/pathways/use-an-ai-agent/): Start an agent in a MESA app and test its answers against the data: a route of 6 tutorials that takes 40 to 45 minutes in all. (draft) Markdown twin: https://idss-mesa.github.io/trainings/pathways/use-an-ai-agent/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/pathways/use-an-ai-agent.md
 - [Leave work others can rerun](https://idss-mesa.github.io/trainings/pathways/leave-work-others-can-rerun/): Describe, record, and share work so that someone else can run it again: a route of 5 tutorials that takes 30 to 35 minutes in all. (draft) Markdown twin: https://idss-mesa.github.io/trainings/pathways/leave-work-others-can-rerun/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/pathways/leave-work-others-can-rerun.md
 - [Every tutorial, by pathway point](https://idss-mesa.github.io/trainings/pathway/): Every MESA tutorial under the five points of the learning pathway, from finding your way around to sharing work others can rerun, with the time each takes. (draft) Markdown twin: https://idss-mesa.github.io/trainings/pathway/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/pathway.md
+- [Your progress](https://idss-mesa.github.io/trainings/progress/): Where you are on each learning pathway, kept only in your own browser, with ways to save a copy to a file, bring one back, and clear it. (draft) Markdown twin: https://idss-mesa.github.io/trainings/progress/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/progress.md
 
 ## Tutorials
 
@@ -91,7 +92,7 @@ The form https://idss-mesa.github.io/trainings/<path>.md also returns the same M
 
 ## Meta
 
-- [Full corpus in one file](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with frontmatter, links made absolute; about 235 KB, roughly 60,000 tokens. Prefer it over fetching pages one at a time.
+- [Full corpus in one file](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with frontmatter, links made absolute; about 238 KB, roughly 61,000 tokens. Prefer it over fetching pages one at a time.
 - [Update log](https://idss-mesa.github.io/trainings/log/): dated history of changes to this bundle.
 - [For AI agents](https://idss-mesa.github.io/trainings/about/ai-agents/): endpoints, trust signals, and what to do if you cannot fetch this site.
 - [Sitemap](https://idss-mesa.github.io/trainings/sitemap.xml) and [robots.txt](https://idss-mesa.github.io/trainings/robots.txt): crawlers honour only the origin https://idss-mesa.github.io/robots.txt, which is equally permissive.

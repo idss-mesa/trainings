@@ -17,7 +17,7 @@ DATA = yaml.safe_load((ROOT / "data" / "pathways.yml").read_text(encoding="utf-8
 
 
 def tutorial(point="p1", low=5, high=5):
-    return {"title": "T", "point": point, "min": low, "max": high, "status": "draft",
+    return {"title": "T", "description": "D.", "outcome": "have T.", "point": point, "min": low, "max": high, "status": "draft",
             "revised": "2026-11-14T00:00:00Z", "stale_after": "2027-05-14T00:00:00Z",
             "builds_on": []}
 
@@ -56,6 +56,11 @@ class TimeLine(unittest.TestCase):
                 "and [a key](https://example.org/), and [again](load-a-file.md).\n\n"
                 "## Steps\n\n1. See [another](sign-in.md).\n")
         self.assertEqual(gp.parse_needs(body, "tally"), ["load-a-file", "launch-jupyterlab"])
+
+    def test_outcome(self):
+        body = "# T\n\n**You will:** have a notebook saved\nin your Data Store.\n\n**Time:** 5 minutes.\n"
+        self.assertEqual(gp.parse_outcome(body), "have a notebook saved in your Data Store.")
+        self.assertEqual(gp.parse_outcome("No such line.\n"), "")
 
     def test_minutes_wording(self):
         self.assertEqual(gp.minutes(5, 5), "5 minutes")
