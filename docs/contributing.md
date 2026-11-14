@@ -33,18 +33,21 @@ A screenshot helps. Leave passwords, tokens, and private data out of it.
 3. Add the page in two places: the `nav` list in `zensical.toml`, and a bullet in
    `docs/tutorials/index.md` whose description matches the page's `description`.
 4. Add a dated entry to `docs/log.md`.
-5. Check it locally:
+5. To put the tutorial in a learning pathway, add its file name to one `tutorials:` list
+   in `data/pathways.yml`. Without that it is still listed under its point on
+   [Every tutorial, by pathway point](pathway.md).
+6. Check it locally:
 
     ```bash
     pip install zensical pyyaml
     python scripts/okf_validate.py docs      # front matter is complete
+    python scripts/gen_pathways.py           # regenerate the pathway pages
     python scripts/gen_llms_txt.py           # regenerate llms.txt and llms-full.txt
     zensical build --clean --strict          # the site builds with no broken links
     zensical serve                           # preview at http://localhost:8000
     ```
 
-6. Commit the regenerated `docs/llms.txt` and `docs/llms-full.txt` with your change, and
-   open a pull request. Changes reach the site only through a reviewed pull request.
+7. Commit the regenerated files with your change, and open a pull request. Changes reach the site only through a reviewed pull request.
 
 ## What belongs here
 

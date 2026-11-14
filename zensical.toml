@@ -14,10 +14,20 @@ copyright = "Copyright &copy; 2026 The Regents of the University of New Mexico. 
 extra_css = ["stylesheets/extra.css"]
 
 # Explicit navigation. A new tutorial is one line here and one bullet in
-# docs/tutorials/index.md.
+# docs/tutorials/index.md. The pages under "Pathways" are written by
+# scripts/gen_pathways.py from data/pathways.yml; a new pathway is one line here.
 nav = [
   { "Home" = "index.md" },
-  { "Learning pathway" = "pathway.md" },
+  { "Pathways" = [
+      "pathways/index.md",
+      { "New to MESA" = "pathways/new-to-mesa.md" },
+      { "Get ready for a hands-on session" = "pathways/get-ready-for-a-session.md" },
+      { "Check a dataset before you trust it" = "pathways/check-a-dataset.md" },
+      { "Work in R" = "pathways/work-in-r.md" },
+      { "Use an AI agent and check what it says" = "pathways/use-an-ai-agent.md" },
+      { "Leave work others can rerun" = "pathways/leave-work-others-can-rerun.md" },
+      { "Every tutorial, by point" = "pathway.md" },
+  ] },
   { "Tutorials" = [
       "tutorials/index.md",
       { "Sign in to the MESA Portal" = "tutorials/sign-in.md" },

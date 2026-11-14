@@ -21,6 +21,7 @@ instead of repeating it.
 pip install zensical pyyaml
 zensical serve                                  # preview at http://localhost:8000
 python scripts/okf_validate.py docs             # check page front matter
+python scripts/gen_pathways.py                  # regenerate the pathway pages from data/pathways.yml
 python scripts/gen_llms_txt.py                  # regenerate docs/llms.txt and docs/llms-full.txt
 zensical build --clean --strict                 # build into site/
 ```
@@ -38,6 +39,8 @@ See [Contribute a tutorial](docs/contributing.md) and the
 | Path | What it is |
 |---|---|
 | `docs/tutorials/` | The tutorials, one Markdown file per task |
+| `data/pathways.yml` | The learning pathways: which tutorials each holds, in order |
+| `docs/pathways/`, `docs/pathway.md` | Pathway pages, written by `scripts/gen_pathways.py`; do not edit by hand |
 | `docs/template.md` | The template and rules every tutorial follows |
 | `docs/stylesheets/extra.css` | The main MESA site's colors and type, applied to the theme |
 | `zensical.toml` | Site settings and navigation |

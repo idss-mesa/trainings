@@ -29,6 +29,13 @@ jobs:
           python-version: 3.x
       - run: pip install pyyaml
       - run: python scripts/okf_validate.py docs
+      # Fail if the pathway pages drifted from data/pathways.yml and the
+      # tutorials. This runs before gen_llms_txt.py, which indexes those pages.
+      - run: python -m unittest discover tests
+      - run: |
+          python scripts/gen_pathways.py
+          test -z "$(git status --porcelain docs/pathways docs/pathway.md docs/assets/pathways.json)" \
+            || { git status --short docs; git diff docs; exit 1; }
       # Fail if the llms.txt machine-readable indexes drifted from the pages.
       - run: |
           python scripts/gen_llms_txt.py

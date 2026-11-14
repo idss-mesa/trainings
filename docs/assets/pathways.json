@@ -1,0 +1,898 @@
+{
+ "schema": 1,
+ "revised": "2026-11-14",
+ "points": {
+  "p1": {
+   "title": "Orient and navigate",
+   "competency": "Work in MESA",
+   "can_do": "You can get into MESA, find data, run an app, and keep what you make."
+  },
+  "p2": {
+   "title": "Run and understand",
+   "competency": "Understand data",
+   "can_do": "You can say what a dataset holds and where it is incomplete or doubtful, before you compute with it."
+  },
+  "p3": {
+   "title": "Query and connect",
+   "competency": "Query and connect",
+   "can_do": "You can ask questions across files and tables, and show that combining them did what you meant."
+  },
+  "p4": {
+   "title": "Explore and verify",
+   "competency": "Explore with AI and verify",
+   "can_do": "You can work with an AI assistant and test what it tells you against the data."
+  },
+  "p5": {
+   "title": "Preserve and share",
+   "competency": "Preserve and share",
+   "can_do": "You can leave work that someone else can find, understand, and run again."
+  }
+ },
+ "pathways": [
+  {
+   "id": "new-to-mesa",
+   "title": "New to MESA",
+   "promise": "Sign in, find data, run a notebook, and keep what you make.",
+   "after": "",
+   "min": 30,
+   "max": 40,
+   "stages": [
+    {
+     "point": "p1",
+     "tutorials": [
+      "sign-in",
+      "find-your-way-around",
+      "find-community-data",
+      "launch-jupyterlab",
+      "save-your-work",
+      "stop-app-find-results"
+     ],
+     "more": []
+    }
+   ]
+  },
+  {
+   "id": "get-ready-for-a-session",
+   "title": "Get ready for a hands-on session",
+   "promise": "Arrive able to sign in, run a notebook, check a dataset, and leave work that reruns.",
+   "after": "",
+   "min": 70,
+   "max": 90,
+   "stages": [
+    {
+     "point": "p1",
+     "tutorials": [
+      "sign-in",
+      "find-your-way-around",
+      "launch-jupyterlab",
+      "save-your-work",
+      "stop-app-find-results"
+     ],
+     "more": []
+    },
+    {
+     "point": "p2",
+     "tutorials": [
+      "practice-data",
+      "load-a-file",
+      "read-the-data-dictionary",
+      "check-range-and-missing",
+      "tally-a-quality-flag"
+     ],
+     "more": []
+    },
+    {
+     "point": "p3",
+     "tutorials": [
+      "reconcile-a-join"
+     ],
+     "more": []
+    },
+    {
+     "point": "p4",
+     "tutorials": [
+      "check-a-suggested-result"
+     ],
+     "more": []
+    },
+    {
+     "point": "p5",
+     "tutorials": [
+      "leave-a-rerunnable-notebook"
+     ],
+     "more": []
+    }
+   ]
+  },
+  {
+   "id": "check-a-dataset",
+   "title": "Check a dataset before you trust it",
+   "promise": "Find out what a dataset holds and where it is incomplete or doubtful.",
+   "after": "new-to-mesa",
+   "min": 35,
+   "max": 45,
+   "stages": [
+    {
+     "point": "p2",
+     "tutorials": [
+      "practice-data",
+      "load-a-file",
+      "read-the-data-dictionary",
+      "check-range-and-missing",
+      "tally-a-quality-flag",
+      "count-records-per-day"
+     ],
+     "more": [
+      "local-days-from-utc",
+      "work-with-a-long-table"
+     ]
+    },
+    {
+     "point": "p3",
+     "tutorials": [
+      "reconcile-a-join"
+     ],
+     "more": [
+      "query-parquet-with-duckdb"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "work-in-r",
+   "title": "Work in R",
+   "promise": "Do the data checks in MESA RStudio Geospatial.",
+   "after": "new-to-mesa",
+   "min": 30,
+   "max": 35,
+   "stages": [
+    {
+     "point": "p2",
+     "tutorials": [
+      "r-load-a-file",
+      "r-tally-a-quality-flag",
+      "map-points-in-rstudio"
+     ],
+     "more": []
+    },
+    {
+     "point": "p3",
+     "tutorials": [
+      "r-query-parquet-with-duckdb"
+     ],
+     "more": []
+    }
+   ]
+  },
+  {
+   "id": "use-an-ai-agent",
+   "title": "Use an AI agent and check what it says",
+   "promise": "Start an agent in a MESA app and test its answers against the data.",
+   "after": "new-to-mesa",
+   "min": 40,
+   "max": 45,
+   "stages": [
+    {
+     "point": "p2",
+     "tutorials": [
+      "practice-data",
+      "load-a-file",
+      "tally-a-quality-flag"
+     ],
+     "more": []
+    },
+    {
+     "point": "p3",
+     "tutorials": [
+      "keep-secrets-out-of-files"
+     ],
+     "more": []
+    },
+    {
+     "point": "p4",
+     "tutorials": [
+      "start-an-ai-agent",
+      "check-a-suggested-result"
+     ],
+     "more": []
+    }
+   ]
+  },
+  {
+   "id": "leave-work-others-can-rerun",
+   "title": "Leave work others can rerun",
+   "promise": "Describe, record, and share work so that someone else can run it again.",
+   "after": "new-to-mesa",
+   "min": 30,
+   "max": 35,
+   "stages": [
+    {
+     "point": "p5",
+     "tutorials": [
+      "write-a-readme",
+      "add-metadata",
+      "record-software-versions",
+      "leave-a-rerunnable-notebook"
+     ],
+     "more": []
+    },
+    {
+     "point": "p1",
+     "tutorials": [
+      "share-a-folder"
+     ],
+     "more": [
+      "read-shared-metadata",
+      "stop-sharing-a-folder"
+     ]
+    }
+   ]
+  }
+ ],
+ "by_point": {
+  "p1": [
+   {
+    "title": "",
+    "tutorials": [
+     "sign-in",
+     "find-your-way-around",
+     "find-community-data",
+     "launch-jupyterlab",
+     "save-your-work",
+     "stop-app-find-results"
+    ]
+   },
+   {
+    "title": "Organise folders",
+    "tutorials": [
+     "make-a-folder",
+     "rename-a-folder",
+     "move-folders",
+     "trash-and-restore"
+    ]
+   },
+   {
+    "title": "Find and look",
+    "tutorials": [
+     "search-the-data-browser",
+     "browse-a-large-folder",
+     "view-a-notebook",
+     "preview-a-table"
+    ]
+   },
+   {
+    "title": "Run apps",
+    "tutorials": [
+     "launch-with-options",
+     "monitor-and-extend",
+     "check-your-usage"
+    ]
+   },
+   {
+    "title": "The other MESA apps",
+    "tutorials": [
+     "cloud-shell-download",
+     "vscode-run-a-script",
+     "desktop-open-a-file"
+    ]
+   },
+   {
+    "title": "Share",
+    "tutorials": [
+     "share-a-folder",
+     "read-shared-metadata",
+     "stop-sharing-a-folder"
+    ]
+   }
+  ],
+  "p2": [
+   {
+    "title": "",
+    "tutorials": [
+     "practice-data",
+     "load-a-file",
+     "read-the-data-dictionary",
+     "check-range-and-missing",
+     "tally-a-quality-flag",
+     "count-records-per-day"
+    ]
+   },
+   {
+    "title": "More kinds of table",
+    "tutorials": [
+     "local-days-from-utc",
+     "work-with-a-long-table"
+    ]
+   },
+   {
+    "title": "In R, in MESA RStudio Geospatial",
+    "tutorials": [
+     "r-load-a-file",
+     "r-tally-a-quality-flag",
+     "map-points-in-rstudio"
+    ]
+   }
+  ],
+  "p3": [
+   {
+    "title": "",
+    "tutorials": [
+     "query-parquet-with-duckdb",
+     "reconcile-a-join",
+     "keep-secrets-out-of-files",
+     "r-query-parquet-with-duckdb"
+    ]
+   }
+  ],
+  "p4": [
+   {
+    "title": "",
+    "tutorials": [
+     "start-an-ai-agent",
+     "check-a-suggested-result"
+    ]
+   }
+  ],
+  "p5": [
+   {
+    "title": "",
+    "tutorials": [
+     "write-a-readme",
+     "add-metadata",
+     "record-software-versions",
+     "leave-a-rerunnable-notebook"
+    ]
+   }
+  ]
+ },
+ "tutorials": {
+  "add-metadata": {
+   "title": "Add metadata to a file or folder",
+   "point": "p5",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-12T00:00:00Z",
+   "stale_after": "2027-05-12T00:00:00Z",
+   "builds_on": [
+    "sign-in",
+    "practice-data"
+   ]
+  },
+  "browse-a-large-folder": {
+   "title": "Browse a large folder as a sorted list",
+   "point": "p1",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "sign-in"
+   ]
+  },
+  "check-a-suggested-result": {
+   "title": "Check an AI-suggested result against the data",
+   "point": "p4",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "load-a-file",
+    "launch-jupyterlab"
+   ]
+  },
+  "check-range-and-missing": {
+   "title": "Check a column's range and missing values",
+   "point": "p2",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-12T00:00:00Z",
+   "stale_after": "2027-05-12T00:00:00Z",
+   "builds_on": [
+    "load-a-file",
+    "launch-jupyterlab"
+   ]
+  },
+  "check-your-usage": {
+   "title": "Check your CPU hours and storage",
+   "point": "p1",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "sign-in"
+   ]
+  },
+  "cloud-shell-download": {
+   "title": "Download a file from the web into your Data Store with MESA Cloud Shell",
+   "point": "p1",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "sign-in"
+   ]
+  },
+  "count-records-per-day": {
+   "title": "Count records per day to find incomplete days",
+   "point": "p2",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-12T00:00:00Z",
+   "stale_after": "2027-05-12T00:00:00Z",
+   "builds_on": [
+    "load-a-file",
+    "launch-jupyterlab"
+   ]
+  },
+  "desktop-open-a-file": {
+   "title": "Open a file from your Data Store in a desktop program",
+   "point": "p1",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "sign-in"
+   ]
+  },
+  "find-community-data": {
+   "title": "Find MESA's community data in the Data Browser",
+   "point": "p1",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-11T00:00:00Z",
+   "stale_after": "2027-05-11T00:00:00Z",
+   "builds_on": [
+    "sign-in"
+   ]
+  },
+  "find-your-way-around": {
+   "title": "Find your way around the MESA Portal",
+   "point": "p1",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-12T00:00:00Z",
+   "stale_after": "2027-05-12T00:00:00Z",
+   "builds_on": [
+    "sign-in"
+   ]
+  },
+  "keep-secrets-out-of-files": {
+   "title": "Keep tokens and passwords out of saved files",
+   "point": "p3",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-12T00:00:00Z",
+   "stale_after": "2027-05-12T00:00:00Z",
+   "builds_on": [
+    "load-a-file",
+    "launch-jupyterlab"
+   ]
+  },
+  "launch-jupyterlab": {
+   "title": "Launch MESA JupyterLab with your Data Store mounted",
+   "point": "p1",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-11T00:00:00Z",
+   "stale_after": "2027-05-11T00:00:00Z",
+   "builds_on": [
+    "sign-in"
+   ]
+  },
+  "launch-with-options": {
+   "title": "Launch an app with the cores, memory, and time you choose",
+   "point": "p1",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "sign-in"
+   ]
+  },
+  "leave-a-rerunnable-notebook": {
+   "title": "Leave a notebook someone else can rerun",
+   "point": "p5",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-12T00:00:00Z",
+   "stale_after": "2027-05-12T00:00:00Z",
+   "builds_on": [
+    "load-a-file",
+    "launch-jupyterlab"
+   ]
+  },
+  "load-a-file": {
+   "title": "Load a file from your Data Store into a notebook",
+   "point": "p2",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-12T00:00:00Z",
+   "stale_after": "2027-05-12T00:00:00Z",
+   "builds_on": [
+    "launch-jupyterlab",
+    "practice-data"
+   ]
+  },
+  "local-days-from-utc": {
+   "title": "Turn UTC timestamps into local days",
+   "point": "p2",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "load-a-file",
+    "launch-jupyterlab"
+   ]
+  },
+  "make-a-folder": {
+   "title": "Make a folder in your Data Store",
+   "point": "p1",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "sign-in"
+   ]
+  },
+  "map-points-in-rstudio": {
+   "title": "Map point data with sf in MESA RStudio Geospatial",
+   "point": "p2",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "sign-in"
+   ]
+  },
+  "monitor-and-extend": {
+   "title": "Check on a running app and give it more time",
+   "point": "p1",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "launch-jupyterlab"
+   ]
+  },
+  "move-folders": {
+   "title": "Move folders into another folder",
+   "point": "p1",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "sign-in",
+    "make-a-folder"
+   ]
+  },
+  "practice-data": {
+   "title": "Practice data: five invented rain gauges",
+   "point": "p2",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-12T00:00:00Z",
+   "builds_on": []
+  },
+  "preview-a-table": {
+   "title": "Look inside a CSV file from the portal",
+   "point": "p1",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "sign-in"
+   ]
+  },
+  "query-parquet-with-duckdb": {
+   "title": "Query a Parquet file with DuckDB from a notebook",
+   "point": "p3",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "load-a-file",
+    "launch-jupyterlab"
+   ]
+  },
+  "r-load-a-file": {
+   "title": "Load a file from your Data Store in RStudio",
+   "point": "p2",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "sign-in"
+   ]
+  },
+  "r-query-parquet-with-duckdb": {
+   "title": "Query a Parquet file with DuckDB from R",
+   "point": "p3",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "r-load-a-file"
+   ]
+  },
+  "r-tally-a-quality-flag": {
+   "title": "Tally a quality flag in R",
+   "point": "p2",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "r-load-a-file"
+   ]
+  },
+  "read-shared-metadata": {
+   "title": "Read the metadata on a folder shared with you",
+   "point": "p1",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "sign-in",
+    "share-a-folder",
+    "add-metadata"
+   ]
+  },
+  "read-the-data-dictionary": {
+   "title": "Read the data dictionary before the data",
+   "point": "p2",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-12T00:00:00Z",
+   "stale_after": "2027-05-12T00:00:00Z",
+   "builds_on": [
+    "load-a-file",
+    "launch-jupyterlab"
+   ]
+  },
+  "reconcile-a-join": {
+   "title": "Reconcile row counts before and after a join",
+   "point": "p3",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-12T00:00:00Z",
+   "stale_after": "2027-05-12T00:00:00Z",
+   "builds_on": [
+    "load-a-file",
+    "launch-jupyterlab"
+   ]
+  },
+  "record-software-versions": {
+   "title": "Record the software versions a result depends on",
+   "point": "p5",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "launch-jupyterlab",
+    "practice-data"
+   ]
+  },
+  "rename-a-folder": {
+   "title": "Rename a folder in your Data Store",
+   "point": "p1",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "sign-in",
+    "make-a-folder"
+   ]
+  },
+  "save-your-work": {
+   "title": "Save your work where it survives the session",
+   "point": "p1",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-11T00:00:00Z",
+   "stale_after": "2027-05-11T00:00:00Z",
+   "builds_on": [
+    "launch-jupyterlab"
+   ]
+  },
+  "search-the-data-browser": {
+   "title": "Search for a file or folder by name",
+   "point": "p1",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "sign-in"
+   ]
+  },
+  "share-a-folder": {
+   "title": "Share a folder with a collaborator",
+   "point": "p1",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-12T00:00:00Z",
+   "stale_after": "2027-05-12T00:00:00Z",
+   "builds_on": [
+    "sign-in",
+    "practice-data"
+   ]
+  },
+  "sign-in": {
+   "title": "Sign in to the MESA Portal with a CyVerse account",
+   "point": "p1",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-11T00:00:00Z",
+   "stale_after": "2027-05-11T00:00:00Z",
+   "builds_on": []
+  },
+  "start-an-ai-agent": {
+   "title": "Sign in and start an AI agent in a MESA app",
+   "point": "p4",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-12T00:00:00Z",
+   "stale_after": "2027-05-12T00:00:00Z",
+   "builds_on": [
+    "launch-jupyterlab"
+   ]
+  },
+  "stop-app-find-results": {
+   "title": "Stop an app and find your results",
+   "point": "p1",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-11T00:00:00Z",
+   "stale_after": "2027-05-11T00:00:00Z",
+   "builds_on": [
+    "launch-jupyterlab",
+    "save-your-work"
+   ]
+  },
+  "stop-sharing-a-folder": {
+   "title": "Stop sharing a folder",
+   "point": "p1",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "sign-in",
+    "share-a-folder"
+   ]
+  },
+  "tally-a-quality-flag": {
+   "title": "Tally a quality flag before you trust a number",
+   "point": "p2",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-12T00:00:00Z",
+   "stale_after": "2027-05-12T00:00:00Z",
+   "builds_on": [
+    "load-a-file",
+    "launch-jupyterlab"
+   ]
+  },
+  "trash-and-restore": {
+   "title": "Move a folder to the trash and get it back",
+   "point": "p1",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "sign-in",
+    "make-a-folder"
+   ]
+  },
+  "view-a-notebook": {
+   "title": "Read a notebook in the portal without starting an app",
+   "point": "p1",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "sign-in",
+    "save-your-work"
+   ]
+  },
+  "vscode-run-a-script": {
+   "title": "Write and run a Python script in MESA VS Code",
+   "point": "p1",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "sign-in"
+   ]
+  },
+  "work-with-a-long-table": {
+   "title": "Work with a long table, one row per kind of measurement",
+   "point": "p2",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "load-a-file",
+    "launch-jupyterlab"
+   ]
+  },
+  "write-a-readme": {
+   "title": "Write a README for a data folder",
+   "point": "p5",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-13T00:00:00Z",
+   "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "launch-jupyterlab",
+    "practice-data"
+   ]
+  }
+ }
+}

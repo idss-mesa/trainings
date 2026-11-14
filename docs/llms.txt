@@ -18,10 +18,19 @@ The form https://idss-mesa.github.io/trainings/<path>.md also returns the same M
 ## Start here
 
 - [MESA Trainings](https://idss-mesa.github.io/trainings/): MESA Trainings — short, single-task tutorials for the MESA Portal at mesa.cyverse.org and its apps, written for training participants and for anyone using MESA. Markdown twin: https://idss-mesa.github.io/trainings/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/index.md
-- [Learning pathway](https://idss-mesa.github.io/trainings/pathway/): The five points of the MESA learning pathway, from finding your way around to sharing work others can rerun, with the tutorials that belong to each. (draft) Markdown twin: https://idss-mesa.github.io/trainings/pathway/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/pathway.md
 - [MESA website](https://idss-mesa.github.io/): External resource.
 - [Documentation](https://idss-mesa.github.io/docs/): External resource.
 - [Portal](https://mesa.cyverse.org): External resource.
+
+## Pathways
+
+- [New to MESA](https://idss-mesa.github.io/trainings/pathways/new-to-mesa/): Sign in, find data, run a notebook, and keep what you make: a route of 6 tutorials that takes 30 to 40 minutes in all. (draft) Markdown twin: https://idss-mesa.github.io/trainings/pathways/new-to-mesa/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/pathways/new-to-mesa.md
+- [Get ready for a hands-on session](https://idss-mesa.github.io/trainings/pathways/get-ready-for-a-session/): Arrive able to sign in, run a notebook, check a dataset, and leave work that reruns: a route of 13 tutorials that takes 70 to 90 minutes in all. (draft) Markdown twin: https://idss-mesa.github.io/trainings/pathways/get-ready-for-a-session/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/pathways/get-ready-for-a-session.md
+- [Check a dataset before you trust it](https://idss-mesa.github.io/trainings/pathways/check-a-dataset/): Find out what a dataset holds and where it is incomplete or doubtful: a route of 7 tutorials that takes 35 to 45 minutes in all. (draft) Markdown twin: https://idss-mesa.github.io/trainings/pathways/check-a-dataset/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/pathways/check-a-dataset.md
+- [Work in R](https://idss-mesa.github.io/trainings/pathways/work-in-r/): Do the data checks in MESA RStudio Geospatial: a route of 4 tutorials that takes 30 to 35 minutes in all. (draft) Markdown twin: https://idss-mesa.github.io/trainings/pathways/work-in-r/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/pathways/work-in-r.md
+- [Use an AI agent and check what it says](https://idss-mesa.github.io/trainings/pathways/use-an-ai-agent/): Start an agent in a MESA app and test its answers against the data: a route of 6 tutorials that takes 40 to 45 minutes in all. (draft) Markdown twin: https://idss-mesa.github.io/trainings/pathways/use-an-ai-agent/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/pathways/use-an-ai-agent.md
+- [Leave work others can rerun](https://idss-mesa.github.io/trainings/pathways/leave-work-others-can-rerun/): Describe, record, and share work so that someone else can run it again: a route of 5 tutorials that takes 30 to 35 minutes in all. (draft) Markdown twin: https://idss-mesa.github.io/trainings/pathways/leave-work-others-can-rerun/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/pathways/leave-work-others-can-rerun.md
+- [Every tutorial, by pathway point](https://idss-mesa.github.io/trainings/pathway/): Every MESA tutorial under the five points of the learning pathway, from finding your way around to sharing work others can rerun, with the time each takes. (draft) Markdown twin: https://idss-mesa.github.io/trainings/pathway/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/pathway.md
 
 ## Tutorials
 
@@ -82,7 +91,7 @@ The form https://idss-mesa.github.io/trainings/<path>.md also returns the same M
 
 ## Meta
 
-- [Full corpus in one file](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with frontmatter, links made absolute; about 217 KB, roughly 56,000 tokens. Prefer it over fetching pages one at a time.
+- [Full corpus in one file](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with frontmatter, links made absolute; about 235 KB, roughly 60,000 tokens. Prefer it over fetching pages one at a time.
 - [Update log](https://idss-mesa.github.io/trainings/log/): dated history of changes to this bundle.
 - [For AI agents](https://idss-mesa.github.io/trainings/about/ai-agents/): endpoints, trust signals, and what to do if you cannot fetch this site.
 - [Sitemap](https://idss-mesa.github.io/trainings/sitemap.xml) and [robots.txt](https://idss-mesa.github.io/trainings/robots.txt): crawlers honour only the origin https://idss-mesa.github.io/robots.txt, which is equally permissive.
