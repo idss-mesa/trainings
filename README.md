@@ -41,6 +41,8 @@ See [Contribute a tutorial](docs/contributing.md) and the
 | `docs/tutorials/` | The tutorials, one Markdown file per task |
 | `data/pathways.yml` | The learning pathways: which tutorials each holds, in order |
 | `docs/pathways/`, `docs/pathway.md` | Pathway pages, written by `scripts/gen_pathways.py`; do not edit by hand |
+| `docs/javascripts/`, `docs/stylesheets/pathways.css` | Progress on the pathways, kept in the reader's own browser; nothing is sent anywhere |
+| `tests/` | Tests for the pathway generator, the progress logic, and a browser run |
 | `docs/template.md` | The template and rules every tutorial follows |
 | `docs/stylesheets/extra.css` | The main MESA site's colors and type, applied to the theme |
 | `zensical.toml` | Site settings and navigation |

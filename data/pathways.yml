@@ -177,6 +177,11 @@ pathways:
           - read-shared-metadata
           - stop-sharing-a-folder
 
+# Hand-written pages to list with the pathways in docs/pathways/index.md, as
+# paths under docs/.
+also_list:
+  - progress.md
+
 # The complete list at docs/pathway.md: every tutorial under its point, in
 # groups of at most seven. The first group of a point may go without a title.
 # A tutorial left out is added to the end of its point, with a notice when the

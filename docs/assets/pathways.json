@@ -348,6 +348,8 @@
  "tutorials": {
   "add-metadata": {
    "title": "Add metadata to a file or folder",
+   "description": "Describe a folder in your Data Store with an attribute and a value from the MESA Portal's Data Browser, and confirm the description was saved.",
+   "outcome": "have a folder that says, in its own metadata, what it contains.",
    "point": "p5",
    "min": 5,
    "max": 5,
@@ -361,6 +363,8 @@
   },
   "browse-a-large-folder": {
    "title": "Browse a large folder as a sorted list",
+   "description": "Switch the MESA Portal's Data Browser to a list, page through a folder with many items, and sort what is on the page.",
+   "outcome": "have paged through a folder of more than a hundred items, and know what the sort menu does and does not do.",
    "point": "p1",
    "min": 5,
    "max": 5,
@@ -373,6 +377,8 @@
   },
   "check-a-suggested-result": {
    "title": "Check an AI-suggested result against the data",
+   "description": "Test a result that an AI assistant, or anyone else, hands you: reproduce the number, find what it rests on, and say whether the claim survives.",
+   "outcome": "have decided, from the data, whether that claim stands.",
    "point": "p4",
    "min": 10,
    "max": 10,
@@ -386,6 +392,8 @@
   },
   "check-range-and-missing": {
    "title": "Check a column's range and missing values",
+   "description": "Find the smallest and largest value in a column and count the blanks in every column, so that an impossible value or a gap shows up before you compute with it.",
+   "outcome": "know the range of `value` at each gauge and how many blanks each column of `readings` holds.",
    "point": "p2",
    "min": 5,
    "max": 5,
@@ -399,6 +407,8 @@
   },
   "check-your-usage": {
    "title": "Check your CPU hours and storage",
+   "description": "Find how many CPU hours and how much Data Store space your CyVerse plan allows, and how much you have used, in the MESA Portal.",
+   "outcome": "know your plan's limits for computing time and storage, and how much of each is left.",
    "point": "p1",
    "min": 5,
    "max": 5,
@@ -411,6 +421,8 @@
   },
   "cloud-shell-download": {
    "title": "Download a file from the web into your Data Store with MESA Cloud Shell",
+   "description": "Start MESA Cloud Shell, go to a folder in your Data Store, and fetch a file from a web address straight into it with curl.",
+   "outcome": "have a file from a web address saved in your Data Store.",
    "point": "p1",
    "min": 5,
    "max": 10,
@@ -423,6 +435,8 @@
   },
   "count-records-per-day": {
    "title": "Count records per day to find incomplete days",
+   "description": "Count the rows for each gauge and day to find days that were recorded twice and days that were not recorded at all.",
+   "outcome": "know, for each gauge, whether July has exactly one row per day.",
    "point": "p2",
    "min": 5,
    "max": 10,
@@ -436,6 +450,8 @@
   },
   "desktop-open-a-file": {
    "title": "Open a file from your Data Store in a desktop program",
+   "description": "Start the MESA KASM Ubuntu Desktop, find a file in your Data Store with its file manager, and open it in a desktop program.",
+   "outcome": "have opened an image from your Data Store in GIMP, an image editor, on the MESA desktop.",
    "point": "p1",
    "min": 10,
    "max": 10,
@@ -448,6 +464,8 @@
   },
   "find-community-data": {
    "title": "Find MESA's community data in the Data Browser",
+   "description": "Open the MESA community folder in the portal's Data Browser, confirm where you are from the folder header, and copy a folder's path.",
+   "outcome": "have the MESA community folder open and the path of one of its folders copied, ready to paste into a notebook or a terminal.",
    "point": "p1",
    "min": 5,
    "max": 5,
@@ -460,6 +478,8 @@
   },
   "find-your-way-around": {
    "title": "Find your way around the MESA Portal",
+   "description": "Use the MESA Portal's sidebar, dashboard, and user menu to reach your data, the apps, your analyses, and your quota.",
+   "outcome": "know where each part of the portal is, and have checked how much of your quota you have used.",
    "point": "p1",
    "min": 5,
    "max": 5,
@@ -472,6 +492,8 @@
   },
   "keep-secrets-out-of-files": {
    "title": "Keep tokens and passwords out of saved files",
+   "description": "Give a notebook a token without typing it into a cell, and confirm that the saved notebook does not contain it.",
+   "outcome": "have used a token in a notebook that does not contain it.",
    "point": "p3",
    "min": 5,
    "max": 10,
@@ -485,6 +507,8 @@
   },
   "launch-jupyterlab": {
    "title": "Launch MESA JupyterLab with your Data Store mounted",
+   "description": "Start the MESA JupyterLab app from the MESA Portal and confirm that your CyVerse Data Store is available inside it.",
+   "outcome": "have JupyterLab running in a browser tab, with your CyVerse Data Store files available inside it.",
    "point": "p1",
    "min": 5,
    "max": 10,
@@ -497,6 +521,8 @@
   },
   "launch-with-options": {
    "title": "Launch an app with the cores, memory, and time you choose",
+   "description": "Start MESA JupyterLab from the MESA Portal with a name, a number of CPU cores, an amount of memory, and a time limit that you set yourself.",
+   "outcome": "have MESA JupyterLab running with the resources and the name you chose.",
    "point": "p1",
    "min": 5,
    "max": 10,
@@ -509,6 +535,8 @@
   },
   "leave-a-rerunnable-notebook": {
    "title": "Leave a notebook someone else can rerun",
+   "description": "Restart a notebook and run it from the top, remove what ties it to your session, and say at the top what it needs, so that another person gets the same result.",
+   "outcome": "have a notebook that runs from a fresh start, top to bottom, without you.",
    "point": "p5",
    "min": 5,
    "max": 10,
@@ -522,6 +550,8 @@
   },
   "load-a-file": {
    "title": "Load a file from your Data Store into a notebook",
+   "description": "Read a CSV file that sits in your Data Store into a pandas table in MESA JupyterLab and confirm its size against what you expected.",
+   "outcome": "have both practice files loaded as tables in a notebook, with a row count you have checked.",
    "point": "p2",
    "min": 5,
    "max": 5,
@@ -535,6 +565,8 @@
   },
   "local-days-from-utc": {
    "title": "Turn UTC timestamps into local days",
+   "description": "Convert UTC timestamps to local time before grouping by day, and confirm the daily totals against values you already trust.",
+   "outcome": "have daily rain totals by local day that match the gauge's daily record.",
    "point": "p2",
    "min": 10,
    "max": 10,
@@ -548,6 +580,8 @@
   },
   "make-a-folder": {
    "title": "Make a folder in your Data Store",
+   "description": "Create a folder in your Data Store from the MESA Portal's Data Browser, so that a piece of work has one place to live.",
+   "outcome": "have a new, empty folder of your own in your Data Store.",
    "point": "p1",
    "min": 5,
    "max": 5,
@@ -560,6 +594,8 @@
   },
   "map-points-in-rstudio": {
    "title": "Map point data with sf in MESA RStudio Geospatial",
+   "description": "Turn a table of longitudes and latitudes into spatial points with sf in MESA RStudio Geospatial, check a distance, and save a map to your Data Store.",
+   "outcome": "have a map of the five practice gauges, saved as an image in your Data Store.",
    "point": "p2",
    "min": 10,
    "max": 10,
@@ -572,6 +608,8 @@
   },
   "monitor-and-extend": {
    "title": "Check on a running app and give it more time",
+   "description": "Read how long a running MESA app has left, look at its logs, and extend its time limit from the Analyses page before it stops.",
+   "outcome": "know how long your app has left, and have given it more time.",
    "point": "p1",
    "min": 5,
    "max": 5,
@@ -584,6 +622,8 @@
   },
   "move-folders": {
    "title": "Move folders into another folder",
+   "description": "Select several folders in the MESA Portal's Data Browser and move them together into another folder in your Data Store.",
+   "outcome": "have two folders moved together into a third.",
    "point": "p1",
    "min": 5,
    "max": 10,
@@ -597,6 +637,8 @@
   },
   "practice-data": {
    "title": "Practice data: five invented rain gauges",
+   "description": "The synthetic rain-gauge practice dataset used by the data tutorials: what its four files contain, its data dictionary, and how to copy it into your Data Store.",
+   "outcome": "",
    "point": "p2",
    "min": 5,
    "max": 5,
@@ -607,6 +649,8 @@
   },
   "preview-a-table": {
    "title": "Look inside a CSV file from the portal",
+   "description": "Open a CSV file in the MESA Portal's Data Viewer and read its columns, row count, and value ranges, then run one SQL query, without launching an app.",
+   "outcome": "know a table's columns, how many rows it has, and the range of each column, before you launch anything.",
    "point": "p1",
    "min": 5,
    "max": 10,
@@ -619,6 +663,8 @@
   },
   "query-parquet-with-duckdb": {
    "title": "Query a Parquet file with DuckDB from a notebook",
+   "description": "Run SQL against a Parquet file from a notebook with DuckDB, without loading the file into memory first, and bring a result back as a pandas table.",
+   "outcome": "have queried a Parquet file with SQL and turned a result into a pandas table.",
    "point": "p3",
    "min": 10,
    "max": 10,
@@ -632,6 +678,8 @@
   },
   "r-load-a-file": {
    "title": "Load a file from your Data Store in RStudio",
+   "description": "Read a CSV file from your Data Store into an R data frame in MESA RStudio Geospatial, and confirm its size and column types.",
+   "outcome": "have the practice readings loaded as an R data frame, with a row count you have checked.",
    "point": "p2",
    "min": 5,
    "max": 10,
@@ -644,6 +692,8 @@
   },
   "r-query-parquet-with-duckdb": {
    "title": "Query a Parquet file with DuckDB from R",
+   "description": "Run SQL against a Parquet file from R with the duckdb package in MESA RStudio Geospatial, and get each result back as an ordinary data frame.",
+   "outcome": "have queried a Parquet file with SQL from R, and have the result as a data frame.",
    "point": "p3",
    "min": 10,
    "max": 10,
@@ -656,6 +706,8 @@
   },
   "r-tally-a-quality-flag": {
    "title": "Tally a quality flag in R",
+   "description": "Count the rows for each value of a quality flag in R, including the missing ones, and look at the flagged rows before deciding what to do with them.",
+   "outcome": "know how many readings are flagged, which ones, and at which gauges.",
    "point": "p2",
    "min": 5,
    "max": 5,
@@ -668,6 +720,8 @@
   },
   "read-shared-metadata": {
    "title": "Read the metadata on a folder shared with you",
+   "description": "Open the metadata on a folder another CyVerse user has shared with you, in the MESA Portal's quick panel and on its full metadata page.",
+   "outcome": "have read what a collaborator recorded about a folder, and found when it was created and who can reach it.",
    "point": "p1",
    "min": 5,
    "max": 10,
@@ -682,6 +736,8 @@
   },
   "read-the-data-dictionary": {
    "title": "Read the data dictionary before the data",
+   "description": "Use a dataset's data dictionary to find out what each column means and which column you cannot yet add up, before you compute anything.",
+   "outcome": "be able to say what one row of `readings.csv` is, and why its `value` column cannot simply be added up across gauges.",
    "point": "p2",
    "min": 5,
    "max": 5,
@@ -695,6 +751,8 @@
   },
   "reconcile-a-join": {
    "title": "Reconcile row counts before and after a join",
+   "description": "Join a table of readings to a table of gauges and confirm that the join neither added nor lost rows and left no reading without a match.",
+   "outcome": "have each reading joined to its gauge's name and unit, with row counts that prove the join changed nothing else.",
    "point": "p3",
    "min": 5,
    "max": 10,
@@ -708,6 +766,8 @@
   },
   "record-software-versions": {
    "title": "Record the software versions a result depends on",
+   "description": "Write the Python version and the versions of every installed package to files beside your work, so that a result can be traced to the software that produced it.",
+   "outcome": "have two small files beside your work that say which Python and which package versions it ran on.",
    "point": "p5",
    "min": 5,
    "max": 5,
@@ -721,6 +781,8 @@
   },
   "rename-a-folder": {
    "title": "Rename a folder in your Data Store",
+   "description": "Give a folder in your Data Store a clearer name from the MESA Portal's Data Browser, and confirm its path changed with it.",
+   "outcome": "have a folder with a new name, and know what else the change affects.",
    "point": "p1",
    "min": 5,
    "max": 5,
@@ -734,6 +796,8 @@
   },
   "save-your-work": {
    "title": "Save your work where it survives the session",
+   "description": "Save a notebook inside your Data Store from MESA JupyterLab and confirm from the MESA Portal that it will outlive the app.",
+   "outcome": "have a notebook saved in your Data Store, and have seen it from the portal.",
    "point": "p1",
    "min": 5,
    "max": 10,
@@ -746,6 +810,8 @@
   },
   "search-the-data-browser": {
    "title": "Search for a file or folder by name",
+   "description": "Find files and folders by name with the MESA Portal's Data Browser search, narrow the results, and open the folder a result lives in.",
+   "outcome": "have found a folder in MESA's community data by typing part of its name.",
    "point": "p1",
    "min": 5,
    "max": 5,
@@ -758,6 +824,8 @@
   },
   "share-a-folder": {
    "title": "Share a folder with a collaborator",
+   "description": "Give one named CyVerse user read access to a folder in your Data Store from the MESA Portal's Data Browser, and confirm the access took effect.",
+   "outcome": "have shared one folder, read only, with one person you chose.",
    "point": "p1",
    "min": 5,
    "max": 5,
@@ -771,6 +839,8 @@
   },
   "sign-in": {
    "title": "Sign in to the MESA Portal with a CyVerse account",
+   "description": "Sign in to the MESA Portal at mesa.cyverse.org with a free CyVerse account and confirm that you reached your dashboard.",
+   "outcome": "be signed in to the MESA Portal, looking at your own dashboard.",
    "point": "p1",
    "min": 5,
    "max": 5,
@@ -781,6 +851,8 @@
   },
   "start-an-ai-agent": {
    "title": "Sign in and start an AI agent in a MESA app",
+   "description": "Sign in to CyVerse from a terminal in a MESA app, connect an AI agent to a language model, and have it list the folders in your Data Store.",
+   "outcome": "have an agent that answers a question about your own Data Store.",
    "point": "p4",
    "min": 10,
    "max": 10,
@@ -793,6 +865,8 @@
   },
   "stop-app-find-results": {
    "title": "Stop an app and find your results",
+   "description": "Stop a running MESA app with Save & Exit from the Analyses page and find its results in the Data Browser.",
+   "outcome": "have stopped a running app cleanly and found the work you saved.",
    "point": "p1",
    "min": 5,
    "max": 5,
@@ -806,6 +880,8 @@
   },
   "stop-sharing-a-folder": {
    "title": "Stop sharing a folder",
+   "description": "Take away a collaborator's access to a folder in your Data Store from the MESA Portal's share dialog, and confirm the folder is private again.",
+   "outcome": "have removed one person's access to a folder, and seen the folder marked private again.",
    "point": "p1",
    "min": 5,
    "max": 5,
@@ -819,6 +895,8 @@
   },
   "tally-a-quality-flag": {
    "title": "Tally a quality flag before you trust a number",
+   "description": "Count how many rows carry each value of a quality flag, including the blanks, and look at the flagged rows before deciding what to do with them.",
+   "outcome": "know how many readings are flagged, which ones, and at which gauges.",
    "point": "p2",
    "min": 5,
    "max": 5,
@@ -832,6 +910,8 @@
   },
   "trash-and-restore": {
    "title": "Move a folder to the trash and get it back",
+   "description": "Move a folder to your Data Store trash from the MESA Portal, then restore it from the trash in the CyVerse Discovery Environment.",
+   "outcome": "have put a folder in the trash, and brought it back.",
    "point": "p1",
    "min": 10,
    "max": 10,
@@ -845,6 +925,8 @@
   },
   "view-a-notebook": {
    "title": "Read a notebook in the portal without starting an app",
+   "description": "Open a saved Jupyter notebook in the MESA Portal's Notebook Viewer to read its code and saved output, without launching JupyterLab.",
+   "outcome": "have read a saved notebook, with its output, in the portal.",
    "point": "p1",
    "min": 5,
    "max": 5,
@@ -858,6 +940,8 @@
   },
   "vscode-run-a-script": {
    "title": "Write and run a Python script in MESA VS Code",
+   "description": "Open MESA VS Code on your Data Store, create a Python script in a folder there, and run it in the built-in terminal.",
+   "outcome": "have a Python script in your Data Store that reads a data file and prints a result.",
    "point": "p1",
    "min": 10,
    "max": 10,
@@ -870,6 +954,8 @@
   },
   "work-with-a-long-table": {
    "title": "Work with a long table, one row per kind of measurement",
+   "description": "Recognise a table that stacks several kinds of measurement in one value column, summarise each kind separately, and reshape it to one column per measurement.",
+   "outcome": "have the hourly observations summarised by measurement and reshaped to one column for each.",
    "point": "p2",
    "min": 5,
    "max": 10,
@@ -883,6 +969,8 @@
   },
   "write-a-readme": {
    "title": "Write a README for a data folder",
+   "description": "Add a short README file to a folder in your Data Store, from MESA JupyterLab, that says what the files are, where they came from, and who to ask.",
+   "outcome": "have a `README.md` in a folder of your Data Store that describes what is in it.",
    "point": "p5",
    "min": 10,
    "max": 10,

@@ -41,6 +41,8 @@ python scripts/okf_validate.py docs             # OKF conformance (CI-enforced; 
 python scripts/gen_pathways.py                  # regenerate docs/pathways/, docs/pathway.md, docs/assets/pathways.json from data/pathways.yml (CI checks drift)
 python scripts/gen_llms_txt.py                  # regenerate docs/llms.txt + docs/llms-full.txt (CI checks drift); run after gen_pathways.py
 python -m unittest discover tests               # tests for gen_pathways.py (CI-enforced)
+node --test tests/progress.test.js              # tests for docs/javascripts/mesa-progress.js (CI-enforced)
+python tests/e2e/test_browser.py                # browser run of the pathways against site/ (CI-enforced; needs playwright)
 python scripts/check_tutorial_outputs.py        # run the tutorials' code and compare with the printed output (CI-enforced; needs pandas, duckdb)
 Rscript scripts/check_tutorial_outputs.R        # the same for R tutorials (CI runs it in the MESA RStudio image; needs sf, ggplot2, duckdb)
 python scripts/postbuild_agent_surface.py site  # after build: md mirror + okf:* meta + robots.txt
@@ -83,6 +85,12 @@ repository rather than changing them here.
    content change, not on typo or formatting fixes.
 8. **Never add `verified:`.** Only a human maintainer does that, as
    `verified: { by: "human:<id>", at: <ISO 8601> }`.
+
+8a. **Reader progress stays in the reader's browser.** `docs/javascripts/` marks
+   what a reader has finished, in `localStorage` only. Never add a request,
+   analytics call, or third-party script that carries anything about a reader.
+   Every page must still read and navigate with JavaScript off, so content
+   goes in the Markdown and the script only draws on top of it.
 
 ## Tutorial rules
 

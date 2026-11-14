@@ -2,6 +2,13 @@
 
 ## 2026-11-14
 
+* **Creation**: Added [Your progress](progress.md) and progress on the
+  [learning pathways](pathways/index.md). With scripts on, a pathway is drawn as a path
+  with a stop for each tutorial; a tutorial can be marked done, and each finished one
+  says what it set out to do; [Tutorials](tutorials/index.md) and
+  [Every tutorial, by pathway point](pathway.md) are drawn the same way. The record is
+  kept only in the reader's browser, and can be saved to a file, brought back, and
+  cleared. Every page still reads as plain lists with scripts off.
 * **Creation**: Added six [learning pathways](pathways/index.md), goal-based routes
   through the tutorials that each state their total time:
   [New to MESA](pathways/new-to-mesa.md),
