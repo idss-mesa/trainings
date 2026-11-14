@@ -32,6 +32,7 @@ nav = [
       { "Use an AI agent and check what it says" = "pathways/use-an-ai-agent.md" },
       { "Leave work others can rerun" = "pathways/leave-work-others-can-rerun.md" },
       { "Every tutorial, by point" = "pathway.md" },
+      { "Self-checks" = "pathways/self-checks.md" },
       { "Your progress" = "progress.md" },
   ] },
   { "Tutorials" = [

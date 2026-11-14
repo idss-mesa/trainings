@@ -5,27 +5,330 @@
   "p1": {
    "title": "Orient and navigate",
    "competency": "Work in MESA",
-   "can_do": "You can get into MESA, find data, run an app, and keep what you make."
+   "can_do": "You can get into MESA, find data, run an app, and keep what you make.",
+   "reflection": "What would you do first if a file you saved was not where you expected it?",
+   "skip_check": [
+    "shared-or-community",
+    "where-a-file-is-kept",
+    "how-the-app-ended"
+   ]
   },
   "p2": {
    "title": "Run and understand",
    "competency": "Understand data",
-   "can_do": "You can say what a dataset holds and where it is incomplete or doubtful, before you compute with it."
+   "can_do": "You can say what a dataset holds and where it is incomplete or doubtful, before you compute with it.",
+   "reflection": "What would you check first if this result looked wrong?",
+   "skip_check": [
+    "zero-readings",
+    "largest-unflagged",
+    "rows-without-repeats"
+   ]
   },
   "p3": {
    "title": "Query and connect",
    "competency": "Query and connect",
-   "can_do": "You can ask questions across files and tables, and show that combining them did what you meant."
+   "can_do": "You can ask questions across files and tables, and show that combining them did what you meant.",
+   "reflection": "After combining two tables, what tells you that nothing was added or lost?",
+   "skip_check": [
+    "rows-in-centimetres",
+    "readings-above-twenty"
+   ]
   },
   "p4": {
    "title": "Explore and verify",
    "competency": "Explore with AI and verify",
-   "can_do": "You can work with an AI assistant and test what it tells you against the data."
+   "can_do": "You can work with an AI assistant and test what it tells you against the data.",
+   "reflection": "What would make you trust, or not trust, an answer an AI assistant gave you?",
+   "skip_check": [
+    "wettest-after-cleaning"
+   ]
   },
   "p5": {
    "title": "Preserve and share",
    "competency": "Preserve and share",
-   "can_do": "You can leave work that someone else can find, understand, and run again."
+   "can_do": "You can leave work that someone else can find, understand, and run again.",
+   "reflection": "What would someone else need from you to run this again without asking you?",
+   "skip_check": []
+  }
+ },
+ "checks": {
+  "last-row": {
+   "tutorial": "load-a-file",
+   "ask": "Show the last row of `readings`. Which gauge and day is it?",
+   "answer": "G05, 2026-07-31",
+   "options": [
+    "G05, 2026-07-31",
+    "G01, 2026-07-01",
+    "G05, 2026-07-09",
+    "G03, 2026-07-31"
+   ],
+   "unit": "",
+   "how": "readings.tail(1)",
+   "right": "The file runs gauge by gauge, so it ends with G05 on the last day of July.",
+   "slips": {
+    "G01, 2026-07-01": "That is the first row, which `head()` shows. `tail()` shows the end."
+   },
+   "otherwise": "Run `readings.tail(1)` and read the `gauge_id` and `date` columns.",
+   "verify": {
+    "python": "\", \".join(readings.iloc[-1][[\"gauge_id\", \"date\"]])\n"
+   }
+  },
+  "g02-in-millimetres": {
+   "tutorial": "read-the-data-dictionary",
+   "ask": "The largest reading at G02 is 2.92. What is it in millimetres?",
+   "answer": "29.2",
+   "options": [],
+   "unit": "mm",
+   "how": "",
+   "right": "G02 reports in centimetres, and a centimetre is ten millimetres.",
+   "slips": {
+    "2.92": "That is the value as stored, in centimetres. It has not been converted.",
+    "0.292": "That divides by ten. Centimetres to millimetres multiplies by ten."
+   },
+   "otherwise": "Find G02's unit in `gauges`, then convert 2.92 to millimetres.",
+   "verify": {
+    "python": "round(readings.loc[readings[\"gauge_id\"] == \"G02\", \"value\"].max() * 10, 1)\n"
+   }
+  },
+  "zero-readings": {
+   "tutorial": "check-range-and-missing",
+   "ask": "How many readings have a `value` of exactly 0?",
+   "answer": "80",
+   "options": [],
+   "unit": "",
+   "how": "(readings[\"value\"] == 0).sum()",
+   "right": "More than half of the 152 readings are dry days.",
+   "slips": {
+    "150": "That is the number of blank flags. The question is about `value`.",
+    "72": "Those are the readings above 0.",
+    "0": "No `value` is blank, but 80 of them are zero. A zero is a measurement, not a gap."
+   },
+   "otherwise": "Compare `value` with 0 and add up the matches.",
+   "verify": {
+    "python": "int((readings[\"value\"] == 0).sum())\n"
+   }
+  },
+  "largest-unflagged": {
+   "tutorial": "tally-a-quality-flag",
+   "ask": "Leave out the flagged readings. What is the largest `value` that remains?",
+   "answer": "32.5",
+   "options": [],
+   "unit": "",
+   "how": "readings.loc[readings[\"flag\"] != \"S\", \"value\"].max()",
+   "right": "Without the suspect reading of 180, the largest is an ordinary wet day at G03.",
+   "slips": {
+    "180": "The flagged reading is still in. Keep only the rows whose flag is not `S`.",
+    "2.92": "That is the largest at G02 alone."
+   },
+   "otherwise": "Keep the rows whose flag is not `S`, then take the largest `value`.",
+   "verify": {
+    "python": "readings.loc[readings[\"flag\"] != \"S\", \"value\"].max()\n"
+   }
+  },
+  "rows-without-repeats": {
+   "tutorial": "count-records-per-day",
+   "ask": "Remove exact repeats with `drop_duplicates()`. How many rows remain?",
+   "answer": "151",
+   "options": [],
+   "unit": "",
+   "how": "len(readings.drop_duplicates())",
+   "right": "One row, G03 on 5 July, is written twice, so 152 becomes 151.",
+   "slips": {
+    "152": "That is the table as loaded. One row for G03 is written twice.",
+    "155": "That is a complete table, 5 gauges for 31 days. This one has four missing days as well as a repeat.",
+    "1": "That is how many rows are removed, not how many remain."
+   },
+   "otherwise": "Count the rows of `readings.drop_duplicates()`.",
+   "verify": {
+    "python": "len(readings.drop_duplicates())\n"
+   }
+  },
+  "rainy-local-days": {
+   "tutorial": "local-days-from-utc",
+   "ask": "In local time, on how many days of the week did rain fall at G03?",
+   "answer": "5",
+   "options": [],
+   "unit": "",
+   "how": "",
+   "right": "Two of the seven local days were dry.",
+   "slips": {
+    "6": "That counts UTC dates. Evening rain crosses midnight UTC, so it spills into an extra date.",
+    "7": "That counts every day of the week. Two had no rain.",
+    "8": "That is the number of UTC dates the week touches, wet or dry."
+   },
+   "otherwise": "Convert to local time, total the rain for each local day, and count the totals above 0.",
+   "verify": {
+    "python": "rain = obs[obs[\"measurement\"] == \"rain_mm\"].copy()\nrain[\"day\"] = pd.to_datetime(rain[\"timestamp_utc\"]).dt.tz_convert(\"America/Denver\").dt.date\nint((rain.groupby(\"day\")[\"value\"].sum() > 0).sum())\n"
+   }
+  },
+  "rainy-hours": {
+   "tutorial": "work-with-a-long-table",
+   "ask": "In how many of the 168 hours is `rain_mm` above 0?",
+   "answer": "17",
+   "options": [],
+   "unit": "",
+   "how": "(wide[\"rain_mm\"] > 0).sum()",
+   "right": "Rain fell in about one hour in ten.",
+   "slips": {
+    "168": "That is every hour. Most of them are dry.",
+    "336": "That is every row of the long table, both measurements together."
+   },
+   "otherwise": "In the reshaped table, compare `rain_mm` with 0 and add up the matches.",
+   "verify": {
+    "python": "wide = obs.pivot(index=\"timestamp_utc\", columns=\"measurement\", values=\"value\")\nint((wide[\"rain_mm\"] > 0).sum())\n"
+   }
+  },
+  "rows-in-centimetres": {
+   "tutorial": "reconcile-a-join",
+   "ask": "After the join, how many rows have a `unit` of `cm`?",
+   "answer": "31",
+   "options": [],
+   "unit": "",
+   "how": "(joined[\"unit\"] == \"cm\").sum()",
+   "right": "Only G02 reports in centimetres, and it has 31 readings.",
+   "slips": {
+    "1": "That counts gauges. The join gives every one of G02's readings its unit.",
+    "121": "Those are the rows in millimetres."
+   },
+   "otherwise": "Count the rows of `joined` whose `unit` is `cm`.",
+   "verify": {
+    "python": "joined = readings.merge(gauges, on=\"gauge_id\", how=\"left\", validate=\"many_to_one\")\nint((joined[\"unit\"] == \"cm\").sum())\n"
+   }
+  },
+  "readings-above-twenty": {
+   "tutorial": "query-parquet-with-duckdb",
+   "ask": "With one SQL query on `readings.parquet`, count the readings above 20.",
+   "answer": "19",
+   "options": [],
+   "unit": "",
+   "how": "duckdb.sql(\"SELECT count(*) FROM 'readings.parquet' WHERE value > 20\")",
+   "right": "The count mixes units, as the file does, so G02's centimetre values never pass 20.",
+   "slips": {
+    "10": "That is the count above 25.",
+    "152": "That is every row. Add `WHERE value > 20`."
+   },
+   "otherwise": "Use `SELECT count(*)` with `WHERE value > 20`.",
+   "verify": {
+    "python": "duckdb.sql(\"SELECT count(*) FROM 'readings.csv' WHERE value > 20\").fetchall()[0][0]\n"
+   }
+  },
+  "wettest-after-cleaning": {
+   "tutorial": "check-a-suggested-result",
+   "ask": "Convert G02 to millimetres, leave out the flagged readings, and drop the repeated row. Which gauge then has the largest July total?",
+   "answer": "G03, 251.1 mm",
+   "options": [
+    "G03, 251.1 mm",
+    "G05, 390.9 mm",
+    "G05, 210.9 mm",
+    "G03, 273.6 mm"
+   ],
+   "unit": "",
+   "how": "",
+   "right": "Observatory leads once the data is cleaned. G01 is still missing four days, so even this is not yet a fair comparison.",
+   "slips": {
+    "G05, 390.9 mm": "That total includes the reading of 180 that the sensor flagged as suspect.",
+    "G05, 210.9 mm": "That is G05 without its flagged reading, but G03 is higher.",
+    "G03, 273.6 mm": "The repeated row for 5 July is still counted twice."
+   },
+   "otherwise": "Apply all three steps, then total by gauge.",
+   "verify": {
+    "python": "clean = readings.merge(gauges, on=\"gauge_id\", validate=\"many_to_one\")\nclean[\"mm\"] = clean[\"value\"].where(clean[\"unit\"] == \"mm\", clean[\"value\"] * 10)\nclean = clean[clean[\"flag\"] != \"S\"].drop_duplicates(subset=[\"gauge_id\", \"date\"])\ntotals = clean.groupby(\"gauge_id\")[\"mm\"].sum().round(1)\nf\"{totals.idxmax()}, {totals.max()} mm\"\n"
+   }
+  },
+  "missing-flags-in-r": {
+   "tutorial": "r-load-a-file",
+   "ask": "What does `sum(is.na(readings$flag))` return?",
+   "answer": "150",
+   "options": [],
+   "unit": "",
+   "how": "",
+   "right": "All but two readings have a blank flag, and `na.strings = \"\"` reads a blank as missing.",
+   "slips": {
+    "0": "The file was read without `na.strings = \"\"`, so blanks are empty text, not missing values.",
+    "2": "Those are the flagged readings. `is.na()` counts the ones with no flag."
+   },
+   "otherwise": "Read the file with `na.strings = \"\"`, then run the line.",
+   "verify": {
+    "r": "sum(is.na(readings$flag))"
+   }
+  },
+  "northernmost-gauge": {
+   "tutorial": "map-points-in-rstudio",
+   "ask": "Which gauge is furthest north?",
+   "answer": "G03, Observatory",
+   "options": [
+    "G03, Observatory",
+    "G05, Quarry",
+    "G01, Boathouse",
+    "G02, Orchard"
+   ],
+   "unit": "",
+   "how": "",
+   "right": "Observatory has the largest latitude, so it sits at the top of the map.",
+   "slips": {
+    "G05, Quarry": "Quarry has the smallest latitude. It is furthest south.",
+    "G01, Boathouse": "Boathouse is furthest west. Its longitude is the most negative."
+   },
+   "otherwise": "North is up on the map, and larger latitude is further north.",
+   "verify": {
+    "python": "top = sites.merge(gauges, on=\"gauge_id\").sort_values(\"latitude\").iloc[-1]\nf\"{top['gauge_id']}, {top['name']}\"\n"
+   }
+  },
+  "shared-or-community": {
+   "tutorial": "find-community-data",
+   "ask": "The path you copied stops at `/iplant/home/shared`, and the listing holds many projects that are not MESA's. Which did you click?",
+   "answer": "Shared",
+   "options": [
+    "Shared",
+    "Community",
+    "User Shared"
+   ],
+   "unit": "",
+   "how": "",
+   "right": "Shared opens every CyVerse community project. Community is the MESA folder inside it.",
+   "slips": {
+    "Community": "Community opens the MESA folder, and its path goes on to `/iplant/home/shared/mesa`."
+   },
+   "otherwise": "Look at where the path ends. The MESA folder's path ends in `mesa`.",
+   "verify": {}
+  },
+  "where-a-file-is-kept": {
+   "tutorial": "save-your-work",
+   "ask": "Which of these tells you that a file will still be there after the app stops?",
+   "answer": "It is listed under My Files in the portal",
+   "options": [
+    "It is listed under My Files in the portal",
+    "It is listed in JupyterLab's file browser",
+    "The dot on the notebook's tab has gone"
+   ],
+   "unit": "",
+   "how": "",
+   "right": "The Data Browser reads the Data Store directly, not the running app.",
+   "slips": {
+    "It is listed in JupyterLab's file browser": "JupyterLab also lists files on the app's own disk, which is removed when the app ends.",
+    "The dot on the notebook's tab has gone": "That means the notebook is saved, but not where. It may be on the app's own disk."
+   },
+   "otherwise": "Ask which place shows the Data Store itself.",
+   "verify": {}
+  },
+  "how-the-app-ended": {
+   "tutorial": "stop-app-find-results",
+   "ask": "Your analysis is listed under Canceled, not Completed. Which button ended it?",
+   "answer": "Terminate",
+   "options": [
+    "Terminate",
+    "Save & Exit",
+    "Relaunch"
+   ],
+   "unit": "",
+   "how": "",
+   "right": "Terminate ends the app at once without saving its outputs.",
+   "slips": {
+    "Save & Exit": "Save & Exit stops the app cleanly, and the analysis is then listed under Completed.",
+    "Relaunch": "Relaunch starts the app again with the same settings. It does not end one."
+   },
+   "otherwise": "One button stops the app cleanly, and one ends it at once.",
+   "verify": {}
   }
  },
  "pathways": [

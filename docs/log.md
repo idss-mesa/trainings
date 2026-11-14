@@ -2,6 +2,12 @@
 
 ## 2026-11-14
 
+* **Creation**: Added fifteen [self-checks](pathways/self-checks.md), short questions
+  whose answers come from doing a task, each with the likely slips explained. Twelve
+  are confirmed against the practice data whenever the site is built; three are about
+  portal screens and say so. With scripts on, a tutorial's self-check appears on its
+  page, a point can be skipped by answering its questions, and each point ends with an
+  optional reflection, which [Your progress](progress.md) can save as Markdown.
 * **Creation**: Added [Your progress](progress.md) and progress on the
   [learning pathways](pathways/index.md). With scripts on, a pathway is drawn as a path
   with a stop for each tutorial; a tutorial can be marked done, and each finished one

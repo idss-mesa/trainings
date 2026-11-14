@@ -196,6 +196,123 @@
     return record;
   }
 
+  /* --- self-checks, skip-checks, and reflections --- */
+
+  function asNumber(text) {
+    var found = String(text).replace(/,/g, "").match(/-?\d+(?:\.\d+)?/);
+    return found ? Number(found[0]) : NaN;
+  }
+
+  /* Mark an answer. Returns { empty, correct, message }: for a wrong answer the
+     message names the likely slip, or gives the general hint. */
+  function grade(check, input) {
+    var given = String(input === undefined || input === null ? "" : input).trim();
+    if (!given) return { empty: true, correct: false, message: "" };
+    var same;
+    if (check.options.length) {
+      same = function (a, b) { return a === b; };
+    } else {
+      if (isNaN(asNumber(given))) return { empty: false, correct: false, message: "Give your answer as a number. " + check.otherwise };
+      same = function (a, b) { return Math.abs(asNumber(a) - asNumber(b)) < 1e-9; };
+    }
+    if (same(given, check.answer)) return { empty: false, correct: true, message: check.right };
+    var slip = Object.keys(check.slips).filter(function (k) { return same(given, k); })[0];
+    return { empty: false, correct: false, message: slip !== undefined ? check.slips[slip] : check.otherwise };
+  }
+
+  /* Record one try at a self-check. A correct answer marks its tutorial
+     "checked" (and done, if it was not): the answer comes from doing the task. */
+  function recordCheck(record, id, check, correct, sure, day, rev) {
+    var was = record.checks[id] || { correct: false, tries: 0 };
+    var entry = { correct: was.correct || correct, tries: Math.min(was.tries + 1, 999) };
+    if (sure) entry.sure = sure; else if (was.sure) entry.sure = was.sure;
+    entry.on = was.correct && !correct ? was.on : day;
+    record.checks[id] = entry;
+    if (!record.started) record.started = day;
+    if (correct) {
+      var t = record.tutorials[check.tutorial];
+      record.tutorials[check.tutorial] = { done: t ? t.done : day, checked: t && t.checked ? t.checked : day, rev: t ? t.rev : (rev || "") };
+    }
+    return record;
+  }
+
+  function isCorrect(record, id) {
+    return Boolean(record.checks[id] && record.checks[id].correct);
+  }
+
+  /* Where a point's skip-check stands: "none" | "open" | "missed" | "passed". */
+  function skipState(manifest, record, point) {
+    var ids = manifest.points[point].skip_check || [];
+    if (!ids.length) return "none";
+    if (ids.every(function (id) { return isCorrect(record, id); })) return "passed";
+    return ids.some(function (id) { return record.checks[id] && !record.checks[id].correct; }) ? "missed" : "open";
+  }
+
+  /* Note a passed skip-check on the point. It never ticks the tutorials. */
+  function syncSkipped(manifest, record, day) {
+    Object.keys(manifest.points).forEach(function (point) {
+      var entry = record.points[point] || {};
+      if (skipState(manifest, record, point) === "passed" && !entry.skipped) {
+        entry.skipped = day;
+        record.points[point] = entry;
+      }
+    });
+    return record;
+  }
+
+  function isSkipped(record, point) {
+    return Boolean(record.points[point] && record.points[point].skipped);
+  }
+
+  function setReflection(record, point, text, day) {
+    var entry = record.points[point] || {};
+    var clean = String(text || "").slice(0, MAX_TEXT);
+    if (clean.trim()) { entry.reflection = clean; entry.on = day; } else { delete entry.reflection; }
+    if (Object.keys(entry).filter(function (k) { return k !== "on"; }).length) record.points[point] = entry;
+    else delete record.points[point];
+    return record;
+  }
+
+  /* The reader's reflections, levels, and finished tutorials as Markdown. */
+  function reflectionsMarkdown(record, manifest, day) {
+    var lines = ["# My MESA Trainings notes", "", "Saved on " + day + " from my own browser. Levels are my own assessment.", ""];
+    Object.keys(manifest.points).forEach(function (point, i) {
+      var facts = manifest.points[point], entry = record.points[point] || {};
+      var names = pointNames(manifest, point);
+      var finished = names.filter(function (n) { return isFinished(record, n); });
+      lines.push("## " + (i + 1) + ". " + facts.title, "");
+      lines.push("- Tutorials done: " + finished.length + " of " + names.length);
+      if (entry.level) lines.push("- My level: " + entry.level.charAt(0).toUpperCase() + entry.level.slice(1));
+      if (entry.skipped) lines.push("- Passed the skip-check on " + entry.skipped);
+      lines.push("");
+      if (facts.reflection) {
+        lines.push("**" + facts.reflection + "**", "");
+        lines.push(entry.reflection ? entry.reflection.trim() : "_Nothing written yet._", "");
+      }
+      finished.forEach(function (n) {
+        lines.push("- " + (state(record, n) === "checked" ? "Checked" : "Done") + ": " + manifest.tutorials[n].title);
+      });
+      if (finished.length) lines.push("");
+    });
+    return lines.join("\n").replace(/\n+$/, "") + "\n";
+  }
+
+  /* The tutorials of a pathway still on the reader's route: all of them,
+     except those in a point whose skip-check was passed. */
+  function openNames(pathway, record) {
+    return pathway.stages.reduce(function (all, s) {
+      return isSkipped(record, s.point) ? all : all.concat(s.tutorials);
+    }, []);
+  }
+
+  /* Progress on a pathway: counts over every tutorial, and the next step and
+     time left over the part of the route that was not skipped. */
+  function route(pathway, record, manifest) {
+    var all = progress(core(pathway), record, manifest);
+    var open = progress(openNames(pathway, record), record, manifest);
+    return { done: all.done, total: all.total, minLeft: open.minLeft, maxLeft: open.maxLeft, next: open.next };
+  }
+
   /* Combine an imported record with the one already here. Nothing finished is
      lost: an entry in either stays, and the earlier "done" date is kept. */
   function merge(here, incoming) {
@@ -283,9 +400,11 @@
     return names.slice(at + 1).filter(open)[0] || names.filter(open)[0] || "";
   }
 
-  /* The index of the stage the learner is in: the first with something left. */
+  /* The index of the stage the learner is in: the first with something left,
+     passing over points whose skip-check was passed. */
   function currentStage(pathway, record) {
     for (var i = 0; i < pathway.stages.length; i++) {
+      if (isSkipped(record, pathway.stages[i].point)) continue;
       if (pathway.stages[i].tutorials.some(function (n) { return !isFinished(record, n); })) return i;
     }
     return -1;
@@ -314,6 +433,9 @@
     setPathway: setPathway, setLevel: setLevel, merge: merge, parseImport: parseImport,
     state: state, isFinished: isFinished, isUpdated: isUpdated, isStale: isStale, core: core,
     findPathway: findPathway, progress: progress, nextAfter: nextAfter, currentStage: currentStage,
-    pathwaysWith: pathwaysWith, pointNames: pointNames, minutes: minutes
+    pathwaysWith: pathwaysWith, pointNames: pointNames, minutes: minutes,
+    grade: grade, recordCheck: recordCheck, isCorrect: isCorrect, skipState: skipState,
+    syncSkipped: syncSkipped, isSkipped: isSkipped, setReflection: setReflection,
+    reflectionsMarkdown: reflectionsMarkdown, openNames: openNames, route: route
   };
 });

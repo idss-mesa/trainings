@@ -242,6 +242,42 @@
 .mesa-ask .mesa-btn { margin: 0 0.4rem 0.4rem 0; }
 .md-typeset .mesa-said { margin: 0.8rem 0 0; font-weight: 600; }
 
+/* — a self-check: question, answer, optional "how sure", feedback in words — */
+.mesa-check { margin: 0.7rem 0 0; padding: 0.7rem 0.8rem; background: var(--mesa-surface); border-left: var(--mesa-rail) solid var(--mesa-text); }
+.mesa-stop .mesa-check, .mesa-skip .mesa-check { background: var(--mesa-bg); }
+.md-typeset .mesa-check p { margin: 0 0 0.5rem; }
+.md-typeset .mesa-check__ask { font-weight: 600; }
+.mesa-check__options, .md-typeset .mesa-check__sure { display: grid; gap: 0.1rem; margin: 0 0 0.6rem; padding: 0; border: 0; }
+.md-typeset .mesa-check__sure { display: flex; flex-wrap: wrap; gap: 0.1rem 1rem; }
+.md-typeset .mesa-check__sure > legend { font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mesa-muted); padding: 0; margin-bottom: 0.2rem; }
+.md-typeset .mesa-check label { display: flex; gap: 0.5rem; align-items: flex-start; min-height: 24px; padding: 0.15rem 0; font-size: 0.75rem; cursor: pointer; }
+.md-typeset .mesa-check input[type="radio"] { width: 1rem; height: 1rem; margin: 0.15rem 0 0; flex: none; accent-color: var(--mesa-text); }
+.mesa-check__number { display: flex; gap: 0.5rem; align-items: center; margin: 0 0 0.6rem; }
+.md-typeset .mesa-check__input, .md-typeset .mesa-reflect__text {
+  font: inherit; color: var(--mesa-text); background: var(--mesa-bg);
+  border: 2px solid var(--mesa-text); border-radius: 0; padding: 0.4rem 0.5rem;
+}
+.md-typeset .mesa-check__input { width: 9rem; max-width: 100%; min-height: 2.2rem; }
+.md-typeset .mesa-check__input:focus-visible, .md-typeset .mesa-reflect__text:focus-visible,
+.md-typeset .mesa-check input[type="radio"]:focus-visible,
+.md-typeset .mesa-check__result:focus-visible {
+  outline: 2px solid var(--mesa-accent); outline-offset: 2px;
+}
+.mesa-check__actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.md-typeset .mesa-check__result { margin: 0.6rem 0 0; padding-top: 0.5rem; border-top: 1px solid var(--mesa-hair); }
+.md-typeset .mesa-check.is-right > .mesa-check__result { border-top: 0; padding-top: 0; }
+.md-typeset pre.mesa-check__how { margin: 0.4rem 0 0; padding: 0.4rem 0.6rem; background: var(--mesa-bg); border: 1px solid var(--mesa-hair); overflow-x: auto; }
+.md-typeset pre.mesa-check__how > code { background: transparent; padding: 0; font-size: 0.7rem; }
+.md-typeset .mesa-strip__label { margin-top: 1.2rem; }
+
+/* — check first, and reflect — */
+.mesa-skip:empty { display: none; }
+.md-typeset .mesa-skip__said { margin: 0.4rem 0 0; font-weight: 600; font-size: 0.75rem; }
+.mesa-reflect { margin: 0.5rem 0 0; }
+.md-typeset .mesa-reflect > label { display: block; font-weight: 600; font-size: 0.75rem; margin: 0 0 0.3rem; }
+.md-typeset .mesa-reflect__text { display: block; width: 100%; resize: vertical; font-size: 0.75rem; }
+.mesa-point > .mesa-reflect { margin-top: 0.9rem; }
+
 /* — ticks in the navigation — */
 .mesa-nav-tick { margin-left: 0.4em; font-weight: 800; color: var(--mesa-text); }
 

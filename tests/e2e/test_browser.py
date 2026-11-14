@@ -176,6 +176,107 @@ class Browser(unittest.TestCase):
         self.assertEqual(errors, [])
         context.close()
 
+    def test_self_checks_skip_check_and_reflection(self):
+        context = self.chromium.new_context(viewport={"width": 1280, "height": 900}, accept_downloads=True)
+        page = context.new_page()
+        requests = []
+        page.on("request", lambda r: requests.append(r))
+        errors = []
+        page.on("pageerror", lambda e: errors.append(str(e)))
+
+        # A wrong answer names the slip and links back; nothing is marked.
+        page.goto(self.base + "tutorials/count-records-per-day/")
+        box = page.locator(".mesa-strip .mesa-check")
+        box.wait_for()
+        box.locator(".mesa-check__input").fill("152")
+        box.get_by_label("Fairly sure").check()
+        box.get_by_role("button", name="Check answer").click()
+        wrong = box.locator(".mesa-check__result.is-wrong")
+        wrong.wait_for()
+        self.assertIn("Not yet. That is the table as loaded", wrong.inner_text())
+        self.assertIn("#steps", wrong.locator("a").get_attribute("href"))
+        record = json.loads(self.stored(page))
+        self.assertEqual(record["checks"]["rows-without-repeats"], {"correct": False, "tries": 1, "sure": 3, "on": record["checks"]["rows-without-repeats"]["on"]})
+        self.assertEqual(record["tutorials"], {})
+        self.shot(page, "08-self-check-wrong", full=False)
+
+        # Seeing the answer does not count.
+        box.get_by_role("button", name="Show the answer").click()
+        page.locator(".mesa-check__result", has_text="The answer is 151").wait_for()
+        self.assertEqual(json.loads(self.stored(page))["tutorials"], {})
+
+        # The right answer, by keyboard, marks the tutorial checked.
+        field = page.locator(".mesa-strip .mesa-check__input")
+        field.fill("151")
+        field.press("Enter")
+        right = page.locator(".mesa-check.is-right .mesa-check__result")
+        right.wait_for()
+        self.assertIn("Right: 151", right.inner_text())
+        page.wait_for_function("document.getElementById('mesa-live').textContent.startsWith('Right.')")
+        record = json.loads(self.stored(page))
+        self.assertTrue(record["checks"]["rows-without-repeats"]["correct"])
+        self.assertEqual(record["checks"]["rows-without-repeats"]["tries"], 2)
+        self.assertIn("checked", record["tutorials"]["count-records-per-day"])
+        self.shot(page, "09-self-check-right", full=False)
+
+        # On a pathway the tutorial now reads "Checked", and the point offers a skip-check.
+        page.goto(self.base + "pathways/check-a-dataset/")
+        page.locator(".mesa-stop.is-checked").wait_for()
+        self.assertEqual(page.locator(".mesa-stop.is-checked .mesa-state").inner_text(), "Checked")
+        stage = page.locator(".mesa-stage >> nth=0")
+        stage.locator(".mesa-skip__fold > summary").click()
+        forms = stage.locator(".mesa-skip .mesa-check")
+        self.assertEqual(forms.count(), 3)
+        # One question was already answered on its tutorial. Miss one, then get both right.
+        zero = stage.locator(".mesa-skip .mesa-check", has_text="exactly 0")
+        zero.locator(".mesa-check__input").fill("150")
+        zero.get_by_role("button", name="Check answer").click()
+        said = stage.locator(".mesa-skip__said")
+        said.wait_for()
+        self.assertIn("Not yet. This tutorial covers it: Check a column's range and missing values.", said.inner_text())
+        self.assertTrue(stage.locator(".mesa-skip__fold").evaluate("d => d.open"))
+        zero = stage.locator(".mesa-skip .mesa-check", has_text="exactly 0")
+        zero.locator(".mesa-check__input").fill("80")
+        zero.get_by_role("button", name="Check answer").click()
+        largest = stage.locator(".mesa-skip .mesa-check", has_text="flagged readings")
+        largest.locator(".mesa-check__input").fill("32.5")
+        largest.get_by_role("button", name="Check answer").click()
+        page.locator(".mesa-skip__said", has_text="You already have this").wait_for()
+        self.assertIn("Skip-check passed", stage.locator(".mesa-meter").inner_text())
+        self.assertIn("you are at point 2 of 2, Query and connect", page.inner_text(".mesa-story"))
+        self.assertEqual(page.locator(".mesa-stage.is-here h2").inner_text().strip("¶ \n"), "Query and connect")
+        # Continue passes over the skipped point; skipping ticked nothing it did not check.
+        self.assertIn("Reconcile row counts", page.inner_text(".mesa-continue"))
+        record = json.loads(self.stored(page))
+        self.assertIn("skipped", record["points"]["p2"])
+        self.assertNotIn("practice-data", record["tutorials"])
+        self.shot(page, "10-skip-check-passed")
+
+        # A reflection is the reader's own: typed, kept here, and exported as Markdown.
+        stage.locator(".mesa-reflect-fold > summary").click()
+        area = stage.locator("textarea")
+        area.fill("I would check the units first.")
+        area.blur()
+        page.wait_for_function(f"(JSON.parse(localStorage.getItem('{KEY}')).points.p2 || {{}}).reflection === 'I would check the units first.'")
+        page.goto(self.base + "progress/")
+        page.get_by_role("button", name="Save my notes as Markdown").wait_for()
+        self.assertEqual(page.locator("#mesa-reflect-p2-p").input_value(), "I would check the units first.")
+        with page.expect_download() as download:
+            page.get_by_role("button", name="Save my notes as Markdown").click()
+        notes = Path(download.value.path()).read_text(encoding="utf-8")
+        self.assertIn("**What would you check first if this result looked wrong?**\n\nI would check the units first.", notes)
+        self.assertIn("- Checked: Count records per day to find incomplete days", notes)
+        self.assertIn("- Passed the skip-check on", notes)
+        self.shot(page, "11-progress-with-checks")
+
+        for request in requests:
+            self.assertEqual(request.method, "GET", request.url)
+            self.assertIsNone(request.post_data, request.url)
+            if request.url.startswith(self.base):
+                self.assertNotIn("?", request.url, request.url)
+        self.assertEqual(errors, [])
+        context.close()
+
     def test_phone_shows_one_point_at_a_time(self):
         context = self.chromium.new_context(viewport={"width": 375, "height": 812})
         page = context.new_page()
@@ -210,6 +311,17 @@ class Browser(unittest.TestCase):
             self.assertIn(expect, page.inner_text("h1"))
             self.assertEqual(page.locator("article button, article input").count(), 0, path)
         self.assertIn("scripts are off", page.inner_text("article"))
+        # Self-check questions and answers are readable, folded away but in the page.
+        page.goto(self.base + "pathways/self-checks/")
+        text = page.locator("article").inner_text()
+        self.assertIn("Remove exact repeats with drop_duplicates(). How many rows remain?", text)
+        self.assertEqual(page.locator("article details details").count(), 15)
+        first = page.locator("article details >> nth=0")
+        first.locator("summary >> nth=0").click()
+        first.locator("details > summary").click()
+        self.assertIn("Shared.", first.locator("details").inner_text())
+        self.assertIn("151.", page.locator("article").inner_html())
+        self.shot(page, "12-self-checks-javascript-off", full=False)
         context.close()
 
 

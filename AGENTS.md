@@ -45,6 +45,8 @@ node --test tests/progress.test.js              # tests for docs/javascripts/mes
 python tests/e2e/test_browser.py                # browser run of the pathways against site/ (CI-enforced; needs playwright)
 python scripts/check_tutorial_outputs.py        # run the tutorials' code and compare with the printed output (CI-enforced; needs pandas, duckdb)
 Rscript scripts/check_tutorial_outputs.R        # the same for R tutorials (CI runs it in the MESA RStudio image; needs sf, ggplot2, duckdb)
+python scripts/check_self_checks.py             # every self-check answer in data/pathways.yml against the practice data (CI-enforced; needs pandas, duckdb, pyyaml)
+Rscript scripts/check_self_checks.R             # the same for self-checks answered in R (CI-enforced; needs jsonlite)
 python scripts/postbuild_agent_surface.py site  # after build: md mirror + okf:* meta + robots.txt
 ```
 
@@ -124,6 +126,12 @@ repository rather than changing them here.
     code was run; the tutorial stays a draft until someone follows it in MESA
     JupyterLab. The files come from `scripts/make_practice_data.py`; if you
     change it, rerun it and update every output the tutorials show.
+16. **Self-checks live in `data/pathways.yml`, not in tutorials.** Each asks for
+    something its tutorial does not print, and carries `verify` code that CI
+    runs against the practice data. A question about a portal screen has no
+    `verify`, is labelled "not machine-checked", and may only draw on a
+    tutorial that has been followed on the live portal. Self-check answers are
+    public and for self-study; rule 13 still keeps session answer keys out.
 
 ## Changes
 

@@ -44,6 +44,13 @@ and no account is involved.
 For each tutorial you finish: its name, the day you marked it done, and which revision
 of the tutorial that was, so the site can tell you if the tutorial has changed since.
 It also holds the pathway you are following and, if you choose one, the level you give
-yourself at each point. It holds nothing about who you are.
+yourself at each point.
+
+If you use the [self-checks](pathways/self-checks.md), it holds for each question
+whether you got it right, how many tries you took, how sure you said you were, and the
+day. If you write a reflection at the end of a point, it holds your words. You can save
+your reflections, levels, and finished tutorials as a Markdown file to bring with you.
+
+It holds nothing about who you are.
 
 [^webkit-itp]: WebKit, "Full Third-Party Cookie Blocking and More", <https://webkit.org/blog/10218/full-third-party-cookie-blocking-and-more/>.

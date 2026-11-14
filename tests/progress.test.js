@@ -201,3 +201,97 @@ test("minutes are worded as on the pages", () => {
   assert.equal(P.minutes(5, 5), "5 minutes");
   assert.equal(P.minutes(30, 40), "30 to 40 minutes");
 });
+
+// --- self-checks, skip-checks, reflections (phase 4) ---
+
+test("every self-check accepts its own answer and explains each listed slip", () => {
+  const ids = Object.keys(manifest.checks);
+  assert.ok(ids.length >= 15);
+  for (const id of ids) {
+    const check = manifest.checks[id];
+    const right = P.grade(check, check.answer);
+    assert.deepEqual([right.correct, right.message], [true, check.right], id);
+    for (const [slip, why] of Object.entries(check.slips)) {
+      const wrong = P.grade(check, slip);
+      assert.deepEqual([wrong.correct, wrong.message], [false, why], id + " / " + slip);
+    }
+    assert.equal(P.grade(check, "").empty, true);
+  }
+});
+
+test("a number may be typed with a unit, spaces, or a thousands comma", () => {
+  const check = manifest.checks["g02-in-millimetres"];
+  for (const typed of ["29.2", " 29.2 mm", "29.20", "29.2mm"]) assert.equal(P.grade(check, typed).correct, true, typed);
+  assert.equal(P.grade(check, "29.3").correct, false);
+  assert.equal(P.grade(check, "29.3").message, check.otherwise);
+  assert.match(P.grade(check, "about thirty").message, /as a number/);
+  assert.equal(P.grade({ options: [], answer: "1151", slips: {}, otherwise: "o", right: "r" }, "1,151").correct, true);
+});
+
+test("a correct self-check marks its tutorial checked and done; a wrong one marks nothing", () => {
+  const check = manifest.checks["rows-without-repeats"];
+  const rec = P.empty();
+  P.recordCheck(rec, "rows-without-repeats", check, false, 4, "2026-11-14", "rev1");
+  assert.deepEqual(rec.checks["rows-without-repeats"], { correct: false, tries: 1, sure: 4, on: "2026-11-14" });
+  assert.equal(P.state(rec, check.tutorial), "todo");
+  P.recordCheck(rec, "rows-without-repeats", check, true, 0, "2026-11-15", "rev1");
+  assert.deepEqual(rec.checks["rows-without-repeats"], { correct: true, tries: 2, sure: 4, on: "2026-11-15" });
+  assert.deepEqual(rec.tutorials[check.tutorial], { done: "2026-11-15", checked: "2026-11-15", rev: "rev1" });
+  P.recordCheck(rec, "rows-without-repeats", check, false, 0, "2026-11-16", "rev1");
+  assert.equal(P.isCorrect(rec, "rows-without-repeats"), true);
+  assert.equal(rec.checks["rows-without-repeats"].on, "2026-11-15");
+  assert.equal(P.validate(rec).ok, true);
+});
+
+test("a correct self-check keeps the day a tutorial was first marked done", () => {
+  const check = manifest.checks["last-row"];
+  const rec = P.markDone(P.empty(), "load-a-file", "rev0", "2026-11-01");
+  P.recordCheck(rec, "last-row", check, true, 0, "2026-11-14", "rev9");
+  assert.deepEqual(rec.tutorials["load-a-file"], { done: "2026-11-01", checked: "2026-11-14", rev: "rev0" });
+});
+
+test("a skip-check is passed only when every question is right, and it moves the route on", () => {
+  const rec = P.empty();
+  assert.equal(P.skipState(manifest, rec, "p2"), "open");
+  assert.equal(P.skipState(manifest, rec, "p5"), "none");
+  const ids = manifest.points.p2.skip_check;
+  P.recordCheck(rec, ids[0], manifest.checks[ids[0]], false, 0, "2026-11-14", "r");
+  assert.equal(P.skipState(manifest, rec, "p2"), "missed");
+  ids.forEach((id) => P.recordCheck(rec, id, manifest.checks[id], true, 0, "2026-11-14", "r"));
+  assert.equal(P.skipState(manifest, rec, "p2"), "passed");
+  P.syncSkipped(manifest, rec, "2026-11-14");
+  assert.equal(P.isSkipped(rec, "p2"), true);
+  assert.equal(P.isSkipped(rec, "p1"), false);
+
+  const pathway = P.findPathway(manifest, "check-a-dataset");
+  const got = P.route(pathway, rec, manifest);
+  assert.equal(got.total, 7);
+  assert.equal(got.done, 3, "only the three tutorials whose checks were answered count as done");
+  assert.equal(got.next, "reconcile-a-join", "the route passes over the skipped point");
+  assert.equal(P.currentStage(pathway, rec), 1);
+  assert.equal(P.state(rec, "practice-data"), "todo", "skipping never ticks a tutorial");
+});
+
+test("reflections are kept, trimmed to the limit, and removed when emptied", () => {
+  const rec = P.setReflection(P.empty(), "p2", "Check the units first.", "2026-11-14");
+  assert.deepEqual(rec.points.p2, { reflection: "Check the units first.", on: "2026-11-14" });
+  P.setReflection(rec, "p3", "x".repeat(5000), "2026-11-14");
+  assert.equal(rec.points.p3.reflection.length, 4000);
+  assert.equal(P.validate(rec).ok, true);
+  P.setReflection(rec, "p2", "   ", "2026-11-15");
+  assert.equal(rec.points.p2, undefined);
+});
+
+test("reflections export as Markdown with the prompt, the level, and what was finished", () => {
+  const rec = P.empty();
+  P.setReflection(rec, "p2", "Check the units first.\n", "2026-11-14");
+  P.setLevel(rec, "p2", "exploring", "2026-11-14");
+  P.markDone(rec, "load-a-file", "r", "2026-11-14");
+  const text = P.reflectionsMarkdown(rec, manifest, "2026-11-14");
+  assert.match(text, /^# My MESA Trainings notes\n/);
+  assert.match(text, /## 2\. Run and understand\n\n- Tutorials done: 1 of 11\n- My level: Exploring\n/);
+  assert.match(text, /\*\*What would you check first if this result looked wrong\?\*\*\n\nCheck the units first\.\n/);
+  assert.match(text, /- Done: Load a file from your Data Store into a notebook\n/);
+  assert.match(text, /## 1\. Orient and navigate[\s\S]*_Nothing written yet\._/);
+  assert.ok(text.endsWith("\n") && !text.endsWith("\n\n"));
+});
