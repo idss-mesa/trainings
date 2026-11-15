@@ -7132,7 +7132,7 @@ Which of these is an agent?
 
 *Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15. No person has yet reviewed this page.*
 
-[PLACEHOLDER: attribution line. The outline traces this explainer's ideas to corpus sections 1.1 to 1.3 (`claude/fellows-corpus.md`), adapted from the UNM CARC course or GPT 101, both CC BY 4.0. The line must name creator, link, revision, license, and what changed. The drafter did not have the corpus, so the line is not written and the text has not been compared with those sections.]
+*Adapted from [AI Automation and Agents](https://tyson-swetnam.github.io/AI-Automation-and-Agents/), Center for Advanced Research Computing, University of New Mexico, 2026 (developed at the Arizona Institute for Artificial Intelligence, University of Arizona), by Carlos Lizárraga-Celaya, Michelle Yung, Michele Cosi, and Tyson Swetnam: [Guest Lecture: Agentic AI Loops](https://tyson-swetnam.github.io/AI-Automation-and-Agents/guest-lectures/agentic-ai-loops/) and [Guest Lecture: Say What You Mean](https://tyson-swetnam.github.io/AI-Automation-and-Agents/guest-lectures/say-what-you-mean/). [Revision a65855c](https://github.com/tyson-swetnam/AI-Automation-and-Agents/tree/a65855c), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Changes: the ideas are restated and shortened in MESA's words, with MESA examples added; no text is copied.*
 
 [^docs-agents]: https://idss-mesa.github.io/trainings/explainers/AI agents in the MESA apps, <https://idss-mesa.github.io/docs/apps/agents/>.
 
@@ -7216,7 +7216,7 @@ The run shows one call, which returned the row holding 180.0. Which part is retr
 
 *Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15. No person has yet reviewed this page.*
 
-[PLACEHOLDER: attribution line. The outline traces this explainer's ideas to corpus sections 1.8 to 1.9 (`claude/fellows-corpus.md`), adapted from the UNM CARC course or GPT 101, both CC BY 4.0. The line must name creator, link, revision, license, and what changed. The drafter did not have the corpus, so the line is not written and the text has not been compared with those sections.]
+*Adapted from [AI Automation and Agents](https://tyson-swetnam.github.io/AI-Automation-and-Agents/), Center for Advanced Research Computing, University of New Mexico, 2026 (developed at the Arizona Institute for Artificial Intelligence, University of Arizona), by Carlos Lizárraga-Celaya, Michelle Yung, Michele Cosi, and Tyson Swetnam: [Module 2 Reading Guides, Reading Guide 3](https://tyson-swetnam.github.io/AI-Automation-and-Agents/modules/module-2/reading-guides/#reading-guide-3) and [Guest Lecture: Agentic AI Loops](https://tyson-swetnam.github.io/AI-Automation-and-Agents/guest-lectures/agentic-ai-loops/). [Revision a65855c](https://github.com/tyson-swetnam/AI-Automation-and-Agents/tree/a65855c), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Changes: the ideas are restated; the worked example is MESA's own, on the practice data; no text is copied.*
 
 [^docs-agents]: https://idss-mesa.github.io/trainings/explainers/AI agents in the MESA apps, <https://idss-mesa.github.io/docs/apps/agents/>.
 [^practice-data]: https://idss-mesa.github.io/trainings/explainers/Practice data: five invented rain gauges, <https://idss-mesa.github.io/trainings/tutorials/practice-data/>.
@@ -7303,7 +7303,7 @@ failure is it?
 
 *Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15. No person has yet reviewed this page.*
 
-[PLACEHOLDER: attribution line. The outline traces this explainer's ideas to corpus sections 1.7 (`claude/fellows-corpus.md`), adapted from the UNM CARC course or GPT 101, both CC BY 4.0. The line must name creator, link, revision, license, and what changed. The drafter did not have the corpus, so the line is not written and the text has not been compared with those sections.]
+*Adapted from [AI Automation and Agents](https://tyson-swetnam.github.io/AI-Automation-and-Agents/), Center for Advanced Research Computing, University of New Mexico, 2026 (developed at the Arizona Institute for Artificial Intelligence, University of Arizona), by Carlos Lizárraga-Celaya, Michelle Yung, Michele Cosi, and Tyson Swetnam: [Module 2 Reading Guides, Reading Guide 3](https://tyson-swetnam.github.io/AI-Automation-and-Agents/modules/module-2/reading-guides/#reading-guide-3). [Revision a65855c](https://github.com/tyson-swetnam/AI-Automation-and-Agents/tree/a65855c), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Changes: the ideas are restated and shortened; the five example runs are MESA's own; no text is copied.*
 
 [^docs-agents]: https://idss-mesa.github.io/trainings/explainers/AI agents in the MESA apps, <https://idss-mesa.github.io/docs/apps/agents/>.
 [^practice-data]: https://idss-mesa.github.io/trainings/explainers/Practice data: five invented rain gauges, <https://idss-mesa.github.io/trainings/tutorials/practice-data/>.
@@ -8497,6 +8497,10 @@ explains.
 * **Update**: A route shortened or filled by your answers now runs point by point: a
   tutorial added because you have time sits with its own point. The practice-data page
   now says what you set out to do when you mark it done.
+* **Update**: A tutorial you have finished now stays on your route and keeps counting,
+  even when you later pass the skip-check for its point or say you have used the portal
+  or checked a dataset before. Before, answering the last self-check on "Use an AI
+  agent" turned a finished route of three tutorials into two.
 * **Update**: Fixes for readers who answer "R" to "Where are you starting?". The R
   version of a tutorial now has its own stop on the pathway page, under the point it
   belongs to; its page names the pathway you are following and links to what comes

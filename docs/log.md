@@ -41,6 +41,10 @@
 * **Update**: A route shortened or filled by your answers now runs point by point: a
   tutorial added because you have time sits with its own point. The practice-data page
   now says what you set out to do when you mark it done.
+* **Update**: A tutorial you have finished now stays on your route and keeps counting,
+  even when you later pass the skip-check for its point or say you have used the portal
+  or checked a dataset before. Before, answering the last self-check on "Use an AI
+  agent" turned a finished route of three tutorials into two.
 * **Update**: Fixes for readers who answer "R" to "Where are you starting?". The R
   version of a tutorial now has its own stop on the pathway page, under the point it
   belongs to; its page names the pathway you are following and links to what comes
