@@ -46,6 +46,11 @@ of the tutorial that was, so the site can tell you if the tutorial has changed s
 It also holds the pathway you are following and, if you choose one, the level you give
 yourself at each point.
 
+If you answer "Where are you starting?" on the [pathways page](pathways/index.md), it
+holds those answers: whether you have used the portal, Python or R, whether you have
+checked a dataset before, and how long you have. They shorten your route and can be
+cleared there at any time.
+
 If you use the [self-checks](pathways/self-checks.md), it holds for each question
 whether you got it right, how many tries you took, how sure you said you were, and the
 day. If you write a reflection at the end of a point, it holds your words. You can save

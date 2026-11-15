@@ -139,8 +139,11 @@ def check(data: dict, tutorials: dict[str, dict]) -> list[str]:
         if pathway.get("after") and pathway["after"] not in ids:
             problems.append(f"{where}: `after` names no pathway: {pathway['after']}")
         for stage in pathway["stages"]:
+            stage.setdefault("tutorials", [])
             if stage["point"] not in points:
                 problems.append(f"{where}: unknown point {stage['point']}")
+            if not stage["tutorials"] and not stage.get("more"):
+                problems.append(f"{where}, {stage['point']}: the stage is empty")
             if len(stage["tutorials"]) > MAX_IN_VIEW:
                 problems.append(f"{where}, {stage['point']}: {len(stage['tutorials'])} tutorials in "
                                 f"view; the limit is {MAX_IN_VIEW}. Move some under `more`.")
@@ -153,6 +156,21 @@ def check(data: dict, tutorials: dict[str, dict]) -> list[str]:
                 if slug in seen:
                     problems.append(f"{where}: {slug} is listed twice")
                 seen.add(slug)
+        limit = data.get("essentials_minutes")
+        named = [s for s in core(pathway) if s in tutorials]
+        if not named:
+            problems.append(f"{where}: no essentials; put at least one tutorial under `tutorials:`")
+        elif limit and total(named, tutorials)[1] > limit:
+            problems.append(f"{where}: the essentials take up to {total(named, tutorials)[1]} minutes; "
+                            f"the limit is {limit}. Move some under `more`.")
+    tailoring = data.get("tailoring") or {}
+    for slug in tailoring.get("foundations") or []:
+        if slug not in tutorials:
+            problems.append(f"tailoring.foundations: no tutorial named {slug}")
+    for slug, instead in (tailoring.get("in_r") or {}).items():
+        for name in (slug, instead):
+            if name is not None and name not in tutorials:
+                problems.append(f"tailoring.in_r: no tutorial named {name}")
     checks = data.get("checks") or {}
     for cid, c in checks.items():
         where = f"check {cid}"
@@ -221,7 +239,7 @@ def total(slugs: list[str], tutorials: dict[str, dict]) -> tuple[int, int]:
 
 def core(pathway: dict) -> list[str]:
     """The tutorials of a pathway, in order, without those under `more`."""
-    return [s for stage in pathway["stages"] for s in stage["tutorials"]]
+    return [s for stage in pathway["stages"] for s in stage.get("tutorials", [])]
 
 
 def item(slug: str, tutorials: dict[str, dict], prefix: str) -> str:
@@ -323,8 +341,8 @@ def front_matter(kind: str, title: str, description: str, tags: list[str], at: s
 
 def describe(pathway: dict, tutorials: dict[str, dict]) -> str:
     slugs = core(pathway)
-    return (f"{pathway['promise'].rstrip('.')}: a route of {count(len(slugs))} "
-            f"that takes {minutes(*total(slugs, tutorials))} in all.")
+    return (f"{pathway['promise'].rstrip('.')}: {count(len(slugs))} to start with, "
+            f"{minutes(*total(slugs, tutorials))} in all, and more for when you have time.")
 
 
 def earliest_stale(slugs: list[str], tutorials: dict[str, dict]) -> str:
@@ -340,8 +358,11 @@ def pathway_page(pathway: dict, data: dict, tutorials: dict[str, dict], source: 
                          ["pathway", pathway["id"]], data["revised"],
                          earliest_stale(everything, tutorials), [source])
     lines += [f"# {pathway['title']}", "", NOTE, "", pathway["promise"], "",
-              f"**{count(len(slugs))}, {minutes(*total(slugs, tutorials))} in all.** "
-              "Take them in order, or start wherever your question is. Nothing is locked.", ""]
+              f"**The essentials: {count(len(slugs))}, {minutes(*total(slugs, tutorials))} in all.** "
+              "Take them in order, or start wherever your question is. Nothing is locked. "
+              "Each point also lists what to take if you have more time.", ""]
+    if pathway.get("note"):
+        lines += [plain(pathway["note"]), ""]
     if pathway.get("after"):
         lines += [f"New to the portal? Take [{titles[pathway['after']]}]({pathway['after']}.md) "
                   "first.", ""]
@@ -349,9 +370,10 @@ def pathway_page(pathway: dict, data: dict, tutorials: dict[str, dict], source: 
     for stage in pathway["stages"]:
         point = data["points"][stage["point"]]
         lines += [f"## {point['title']}", "", ability(point), ""]
-        lines += numbered(stage["tutorials"], tutorials, "../tutorials/") + [""]
+        if stage["tutorials"]:
+            lines += numbered(stage["tutorials"], tutorials, "../tutorials/") + [""]
         if stage.get("more"):
-            lines += ["More in this area:", ""]
+            lines += ["If you have more time:", ""]
             lines += [f"- {item(s, tutorials, '../tutorials/')}" for s in stage["more"]] + [""]
     lines += ["## Next", "",
               "- [Choose another pathway](index.md)",
@@ -414,7 +436,7 @@ def manifest(data: dict, tutorials: dict[str, dict], groups: dict) -> str:
         low, high = total(core(pathway), tutorials)
         pathways.append({
             "id": pathway["id"], "title": pathway["title"], "promise": pathway["promise"],
-            "after": pathway.get("after", ""), "min": low, "max": high,
+            "after": pathway.get("after", ""), "note": plain(pathway.get("note", "")), "min": low, "max": high,
             "stages": [{"point": s["point"], "tutorials": s["tutorials"], "more": s.get("more", [])}
                        for s in pathway["stages"]],
         })
@@ -431,6 +453,8 @@ def manifest(data: dict, tutorials: dict[str, dict], groups: dict) -> str:
                          "otherwise": plain(c["otherwise"]), "verify": c.get("verify") or {}}
                    for cid, c in (data.get("checks") or {}).items()},
         "pathways": pathways,
+        "tailoring": {"foundations": list((data.get("tailoring") or {}).get("foundations") or []),
+                      "in_r": dict((data.get("tailoring") or {}).get("in_r") or {})},
         "by_point": groups,
         "tutorials": tutorials,
     }

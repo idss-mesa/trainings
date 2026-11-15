@@ -1,10 +1,10 @@
 ---
 type: Guide
 title: "Check a dataset before you trust it"
-description: "Find out what a dataset holds and where it is incomplete or doubtful: a route of 7 tutorials that takes 35 to 45 minutes in all."
+description: "Find out what a dataset holds and where it is incomplete or doubtful: 5 tutorials to start with, 25 minutes in all, and more for when you have time."
 tags: [pathway, check-a-dataset]
 status: draft
-generated: { by: "gen-pathways/1", at: "2026-11-14T00:00:00Z" }
+generated: { by: "gen-pathways/1", at: "2026-11-15T00:00:00Z" }
 stale_after: "2027-05-12T00:00:00Z"
 sources:
   - id: pathways
@@ -19,7 +19,7 @@ sources:
 
 Find out what a dataset holds and where it is incomplete or doubtful.
 
-**7 tutorials, 35 to 45 minutes in all.** Take them in order, or start wherever your question is. Nothing is locked.
+**The essentials: 5 tutorials, 25 minutes in all.** Take them in order, or start wherever your question is. Nothing is locked. Each point also lists what to take if you have more time.
 
 New to the portal? Take [New to MESA](new-to-mesa.md) first.
 
@@ -35,10 +35,10 @@ New to the portal? Take [New to MESA](new-to-mesa.md) first.
 3. [Read the data dictionary before the data](../tutorials/read-the-data-dictionary.md) (5 minutes)
 4. [Check a column's range and missing values](../tutorials/check-range-and-missing.md) (5 minutes)
 5. [Tally a quality flag before you trust a number](../tutorials/tally-a-quality-flag.md) (5 minutes)
-6. [Count records per day to find incomplete days](../tutorials/count-records-per-day.md) (5 to 10 minutes)
 
-More in this area:
+If you have more time:
 
+- [Count records per day to find incomplete days](../tutorials/count-records-per-day.md) (5 to 10 minutes)
 - [Turn UTC timestamps into local days](../tutorials/local-days-from-utc.md) (10 minutes)
 - [Work with a long table, one row per kind of measurement](../tutorials/work-with-a-long-table.md) (5 to 10 minutes)
 
@@ -46,10 +46,9 @@ More in this area:
 
 You can ask questions across files and tables, and show that combining them did what you meant.
 
-1. [Reconcile row counts before and after a join](../tutorials/reconcile-a-join.md) (5 to 10 minutes)
+If you have more time:
 
-More in this area:
-
+- [Reconcile row counts before and after a join](../tutorials/reconcile-a-join.md) (5 to 10 minutes)
 - [Query a Parquet file with DuckDB from a notebook](../tutorials/query-parquet-with-duckdb.md) (10 minutes)
 
 ## Next

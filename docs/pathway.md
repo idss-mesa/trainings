@@ -4,7 +4,7 @@ title: "Every tutorial, by pathway point"
 description: "Every MESA tutorial under the five points of the learning pathway, from finding your way around to sharing work others can rerun, with the time each takes."
 tags: [pathway, tutorials, getting-started]
 status: draft
-generated: { by: "gen-pathways/1", at: "2026-11-14T00:00:00Z" }
+generated: { by: "gen-pathways/1", at: "2026-11-15T00:00:00Z" }
 stale_after: "2027-05-11T00:00:00Z"
 sources:
   - id: pathways
@@ -25,12 +25,12 @@ The tutorials build five abilities, one at each point of the MESA learning pathw
 
 This page lists them all. If you have a goal in mind, a pathway is a shorter route:
 
-- [New to MESA](pathways/new-to-mesa.md): 6 tutorials, 30 to 40 minutes
-- [Get ready for a hands-on session](pathways/get-ready-for-a-session.md): 13 tutorials, 70 to 90 minutes
-- [Check a dataset before you trust it](pathways/check-a-dataset.md): 7 tutorials, 35 to 45 minutes
-- [Work in R](pathways/work-in-r.md): 4 tutorials, 30 to 35 minutes
-- [Use an AI agent and check what it says](pathways/use-an-ai-agent.md): 6 tutorials, 40 to 45 minutes
-- [Leave work others can rerun](pathways/leave-work-others-can-rerun.md): 5 tutorials, 30 to 35 minutes
+- [New to MESA](pathways/new-to-mesa.md): 3 tutorials, 15 to 25 minutes
+- [Get ready for a hands-on session](pathways/get-ready-for-a-session.md): 4 tutorials, 20 to 25 minutes
+- [Check a dataset before you trust it](pathways/check-a-dataset.md): 5 tutorials, 25 minutes
+- [Work in R](pathways/work-in-r.md): 2 tutorials, 10 to 15 minutes
+- [Use an AI agent and check what it says](pathways/use-an-ai-agent.md): 3 tutorials, 20 minutes
+- [Leave work others can rerun](pathways/leave-work-others-can-rerun.md): 2 tutorials, 15 to 20 minutes
 
 !!! warning "These tutorials are drafts"
     Each tutorial says at the top how far it has been checked.

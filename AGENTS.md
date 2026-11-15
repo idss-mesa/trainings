@@ -110,7 +110,12 @@ D. **Accessibility is tested, not assumed.** `tests/e2e/test_accessibility.py`
    keyboard. State is always shown in words as well as colour.
 E. **One light scheme.** Do not add a dark scheme. Small text never uses the
    bright accent; use `--mesa-accent-700`.
-F. **How to add a tutorial to a pathway and how to write a self-check** are in
+F. **Pathways are short.** The essentials of a pathway (`tutorials:` in
+   `data/pathways.yml`) may not exceed `essentials_minutes`; everything else
+   goes under `more:`. Do not raise the limit to fit a tutorial in. Readers'
+   answers to "Where are you starting?" shorten a route further and never
+   remove or lock a page.
+G. **How to add a tutorial to a pathway and how to write a self-check** are in
    `docs/contributing.md`. Change `data/pathways.yml`, run
    `scripts/gen_pathways.py`, and commit what it writes.
 

@@ -1,5 +1,18 @@
 # Directory Update Log
 
+## 2026-11-15
+
+* **Update**: The [learning pathways](pathways/index.md) are much shorter. Each now
+  opens with its essentials, 10 to 25 minutes, and lists the rest under "If you have
+  more time". [Get ready for a hands-on session](pathways/get-ready-for-a-session.md)
+  went from 13 tutorials and 70 to 90 minutes to 4 tutorials and 20 to 25 minutes: sign
+  in, start an app, and load the practice data. It also says to do the first two at
+  least two days ahead, because a new account must ask for access to apps.
+* **Creation**: With scripts on, the pathways page asks "Where are you starting?": what
+  you are here for, whether you have used the portal, Python or R, whether you have
+  checked a dataset before, and how long you have. The answers shorten your route, say
+  what was left out and why, and stay in your browser. Nothing is locked.
+
 ## 2026-11-14
 
 * **Update**: Accessibility pass. The pathway, tutorial, list, self-check and progress

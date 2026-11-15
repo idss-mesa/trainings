@@ -34,7 +34,8 @@ PAGES = ["pathways/", "pathways/get-ready-for-a-session/", "pathway/", "tutorial
 # A record with every state in it: done, checked, updated since, a missed and
 # a passed self-check, a level, a reflection, and a passed skip-check.
 RECORD = {
-    "schema": 1, "started": "2026-11-01", "pathway": "get-ready-for-a-session",
+    "schema": 2, "started": "2026-11-01", "pathway": "get-ready-for-a-session",
+    "profile": {"language": "r", "minutes": 30},
     "tutorials": {
         "sign-in": {"done": "2026-11-01", "rev": "2026-01-01T00:00:00Z"},
         "find-your-way-around": {"done": "2026-11-01", "rev": "2026-11-12T00:00:00Z"},
@@ -174,20 +175,20 @@ class Accessibility(unittest.TestCase):
         page.wait_for_selector(".mesa-continue .mesa-btn")
         tab_to(".mesa-continue .mesa-btn")
         page.keyboard.press("Enter")
-        for step in range(6):
+        for step in range(3):
             page.wait_for_selector(".mesa-strip button[data-key=mark]")
             tab_to(".mesa-strip button[data-key=mark]")
             page.keyboard.press("Enter")
             page.wait_for_selector(".mesa-strip button[data-key=undo]")
             self.assertTrue(page.evaluate("document.activeElement.matches('[data-key=undo]')"))
-            if step < 5:
+            if step < 2:
                 before = page.url
                 tab_to(".mesa-strip__next a:first-child")
                 page.keyboard.press("Enter")
                 page.wait_for_function("u => location.href !== u", arg=before)
                 page.wait_for_function("document.querySelector('article[data-mesa] .mesa-strip') !== null")
         self.assertIn("you have finished", page.inner_text(".mesa-strip__next"))
-        self.assertEqual(len(json.loads(page.evaluate(f"localStorage.getItem('{KEY}')"))["tutorials"]), 6)
+        self.assertEqual(len(json.loads(page.evaluate(f"localStorage.getItem('{KEY}')"))["tutorials"]), 3)
         context.close()
 
 
