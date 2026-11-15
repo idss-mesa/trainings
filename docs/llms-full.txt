@@ -106,6 +106,12 @@ notebook, so do the first one first.
 | Ask an AI agent about my data | [Sign in and start an AI agent in a MESA app](https://idss-mesa.github.io/trainings/tutorials/start-an-ai-agent/) | 10 min |
 | Use a token safely in a notebook | [Keep tokens and passwords out of saved files](https://idss-mesa.github.io/trainings/tutorials/keep-secrets-out-of-files/) | 5–10 min |
 
+## Ideas, explained
+
+An [explainer](https://idss-mesa.github.io/trainings/explainers/) explains one idea in a page, with no steps to
+follow: what an AI agent is, where a figure in its answer came from, and how to read
+what it did.
+
 ## Practise reading what an AI agent did
 
 A [trace card](https://idss-mesa.github.io/trainings/trace-cards/) shows one short run of an AI agent on the practice
@@ -6877,7 +6883,7 @@ terms as the rest of the site.
 ---
 type: Reference
 title: "Tutorial template"
-description: "The template every MESA tutorial follows: the front matter, the six fixed parts, the draft notice, and the validation line."
+description: "The template every MESA tutorial follows: the front matter, the six fixed parts, the draft notice, and the validation line; and the rules for an explainer."
 tags: [contributing, template, byte]
 status: draft
 generated: { by: "claude-code/2.1.224", at: "2026-11-11T00:00:00Z" }
@@ -7027,8 +7033,280 @@ code was run, and its last line reads *Not yet validated in MESA JupyterLab*. Co
 both from an existing data tutorial such as
 [Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/).
 
+## Explainers
+
+An *explainer* is the other kind of page: it explains one idea and gives no steps to
+follow. It lives under `docs/explainers/`, has `type: Explainer` and the tag
+`explainer`, and otherwise carries the same front matter as a tutorial: `status: draft`,
+`sources` naming every page it rests on, and never `verified:`.
+
+| Rule | Detail |
+|---|---|
+| Length | 500 words or fewer; one idea |
+| Parts, in this order | **The idea in one sentence** · **Why it matters for your result** · **How it works** (one figure or one small table at most) · **What it looks like in MESA** (only what the documentation describes) · **A common mistake** · **Check your understanding** (one question, with the answer folded away) · **Next** (one tutorial) |
+| Never | Steps to follow (that is a tutorial); product comparisons; claims about what a model can do; a training session |
+| Attribution | Where an idea is adapted from another course, a line at the foot names the creator, the link, the revision, the license, and what changed |
+| AI disclosure | The last line says when AI helped draft it, as for a tutorial |
+| Review | A second person reads it against the MESA documentation before it leaves draft |
+
 [^quickbytes]: https://idss-mesa.github.io/trainings/UNM CARC QuickBytes, <https://github.com/UNM-CARC/QuickBytes>.
 [^docs-agents]: https://idss-mesa.github.io/trainings/Agent guide, MESA documentation, <https://github.com/idss-mesa/docs/blob/main/AGENTS.md>.
+
+---8<--- https://idss-mesa.github.io/trainings/explainers/what-an-agent-is/
+
+---
+type: Explainer
+title: "What an agent is, and is not"
+description: "An agent is a language model that calls tools in a loop and chooses its own next step; this page sets it beside a chat model and a fixed pipeline."
+tags: [explainer, ai-agents, p4]
+status: draft
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-15T00:00:00Z" }
+stale_after: "2027-05-15T00:00:00Z"
+sources:
+  - id: docs-agents
+    resource: "https://idss-mesa.github.io/docs/apps/agents/"
+    title: "AI agents in the MESA apps"
+    author: "team:idss-mesa"
+---
+
+# What an agent is, and is not
+
+!!! warning "Draft: not yet reviewed"
+    This explainer was drafted with an AI assistant. Nobody has yet read it against
+    the MESA documentation.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+## The idea in one sentence
+
+An agent is a language model that can call tools in a loop and decide the next step
+itself.
+
+## Why it matters for your result
+
+What an agent can reach decides what it can get wrong. A model that only writes text
+can mislead you. A model that can also run commands can change a file, and can base an
+answer on something it fetched without your seeing it.
+
+## How it works
+
+Three things are often called by the same name. The difference between them is who
+decides what happens next.
+
+| | Who decides the next step | What that looks like |
+|---|---|---|
+| A chat model | You | It writes an answer. You read it and choose what to do with it. |
+| A fixed pipeline | Whoever wrote it, in advance | The same steps run in the same order every time. |
+| An agent | The model, after each result | It calls a tool, reads what came back, and chooses whether to call another. |
+
+## What it looks like in MESA
+
+- Every MESA featured app includes AI agents as command-line tools, which you start
+  by typing a command in a terminal[^docs-agents].
+- After you run `cyverse-login`, the agents act as you, with access to your home
+  folder and to what is shared with you.
+- Without it, they have anonymous, read-only access to public data.
+- The apps contain no keys for a language model: each person connects their own.
+
+## A common mistake
+
+Treating a fluent answer as a retrieved one. An agent writes the same confident
+sentence whether a tool returned the fact or not. How well it reads tells you nothing
+about where it came from.
+
+## Check your understanding
+
+Which of these is an agent?
+
+- A chatbot that writes a query for you to run
+- A script that runs the same three queries every night
+- A program that runs a query, reads the result, and decides whether to run another
+
+??? success "Answer"
+    **The third.** It alone chooses its next step from what came back. In the first
+    you decide what to do with the query, and in the second the steps were fixed when
+    the script was written.
+
+## Next
+
+- [Sign in and start an AI agent in a MESA app](https://idss-mesa.github.io/trainings/tutorials/start-an-ai-agent/)
+
+*Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15. No person has yet reviewed this page.*
+
+[PLACEHOLDER: attribution line. The outline traces this explainer's ideas to corpus sections 1.1 to 1.3 (`claude/fellows-corpus.md`), adapted from the UNM CARC course or GPT 101, both CC BY 4.0. The line must name creator, link, revision, license, and what changed. The drafter did not have the corpus, so the line is not written and the text has not been compared with those sections.]
+
+[^docs-agents]: https://idss-mesa.github.io/trainings/explainers/AI agents in the MESA apps, <https://idss-mesa.github.io/docs/apps/agents/>.
+
+---8<--- https://idss-mesa.github.io/trainings/explainers/recalled-or-retrieved/
+
+---
+type: Explainer
+title: "Recalled or retrieved"
+description: "A figure in an AI agent's answer either came back from a tool call or came from the model's memory, and only the first can be checked against your data."
+tags: [explainer, ai-agents, verification, p4]
+status: draft
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-15T00:00:00Z" }
+stale_after: "2027-05-15T00:00:00Z"
+sources:
+  - id: docs-agents
+    resource: "https://idss-mesa.github.io/docs/apps/agents/"
+    title: "AI agents in the MESA apps"
+    author: "team:idss-mesa"
+  - id: practice-data
+    resource: "https://idss-mesa.github.io/trainings/tutorials/practice-data/"
+    title: "Practice data: five invented rain gauges"
+    author: "team:idss-mesa"
+---
+
+# Recalled or retrieved
+
+!!! warning "Draft: not yet reviewed"
+    This explainer was drafted with an AI assistant. Nobody has yet read it against
+    the MESA documentation.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+## The idea in one sentence
+
+A figure in an answer either came back from a tool call or came from the model's
+memory, and only the first can be checked against your data.
+
+## Why it matters for your result
+
+Memory produces plausible numbers with no source. A retrieved figure has a call behind
+it that you can run again. A recalled one has nothing behind it but the sentence.
+
+## How it works
+
+Take one answer about the [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/)[^practice-data],
+with two figures in it:
+
+> Observatory recorded 251.1 mm of rain in July, well above the 60 mm that is usual for
+> the region.
+
+| Figure | Kind | How you can tell |
+|---|---|---|
+| 251.1 mm | Retrieved | A call in the run summed the readings and returned this number. Run it again and you get it again. |
+| 60 mm | Recalled | No call returned it. The data hold one month from invented gauges, so nothing in them says what is usual. |
+
+Both figures are stated in the same voice. Only the record of the run tells them apart.
+
+## What it looks like in MESA
+
+The agents in the MESA apps do their work by calling tools: the MCP servers that are
+registered in every app[^docs-agents]. A figure is retrieved when one of those calls
+returned it.
+
+## A common mistake
+
+Checking that the number is reasonable instead of where it came from. A recalled figure
+is usually reasonable. That is what makes it hard to catch.
+
+## Check your understanding
+
+An answer says: "G05's largest reading was 180.0 mm, a new record for the station."
+The run shows one call, which returned the row holding 180.0. Which part is retrieved?
+
+??? success "Answer"
+    **Only the 180.0 mm.** The call returned that reading. Nothing in the run compared
+    it with earlier years, and the file holds a single month, so "a new record" came
+    from nowhere you can check.
+
+## Next
+
+- [Check an AI-suggested result against the data](https://idss-mesa.github.io/trainings/tutorials/check-a-suggested-result/)
+
+*Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15. No person has yet reviewed this page.*
+
+[PLACEHOLDER: attribution line. The outline traces this explainer's ideas to corpus sections 1.8 to 1.9 (`claude/fellows-corpus.md`), adapted from the UNM CARC course or GPT 101, both CC BY 4.0. The line must name creator, link, revision, license, and what changed. The drafter did not have the corpus, so the line is not written and the text has not been compared with those sections.]
+
+[^docs-agents]: https://idss-mesa.github.io/trainings/explainers/AI agents in the MESA apps, <https://idss-mesa.github.io/docs/apps/agents/>.
+[^practice-data]: https://idss-mesa.github.io/trainings/explainers/Practice data: five invented rain gauges, <https://idss-mesa.github.io/trainings/tutorials/practice-data/>.
+
+---8<--- https://idss-mesa.github.io/trainings/explainers/reading-what-an-agent-did/
+
+---
+type: Explainer
+title: "Reading what an agent did"
+description: "The record of an AI agent's calls can be read like a lab notebook, and it goes wrong in five recognisable ways, each with a tell."
+tags: [explainer, ai-agents, verification, trace-card, p4]
+status: draft
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-15T00:00:00Z" }
+stale_after: "2027-05-15T00:00:00Z"
+sources:
+  - id: docs-agents
+    resource: "https://idss-mesa.github.io/docs/apps/agents/"
+    title: "AI agents in the MESA apps"
+    author: "team:idss-mesa"
+  - id: practice-data
+    resource: "https://idss-mesa.github.io/trainings/tutorials/practice-data/"
+    title: "Practice data: five invented rain gauges"
+    author: "team:idss-mesa"
+---
+
+# Reading what an agent did
+
+!!! warning "Draft: not yet reviewed"
+    This explainer was drafted with an AI assistant. Nobody has yet read it against
+    the MESA documentation.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+## The idea in one sentence
+
+The record of an agent's calls can be read like a lab notebook, and it fails in a small
+number of recognisable ways.
+
+## Why it matters for your result
+
+An answer can be wrong while every sentence in it sounds right. The record of what the
+agent ran, and what came back, is where the fault shows.
+
+## How it works
+
+Read the run line by line and look for five things.
+
+| Failure | The tell |
+|---|---|
+| The wrong tool or query | What the call asks for is not what the question asked for |
+| A malformed call | A call comes back with an error, and an answer follows anyway |
+| A result misread | The call and its result are right, but the answer says they mean something else: a unit or a column's meaning that was never looked up |
+| Stopping early | Every check made is right, and something in a result that does not add up is never followed |
+| A fact from memory | A figure in the answer appears in no result |
+
+## What it looks like in MESA
+
+The agents in the MESA apps run in a terminal and work by calling the MCP servers
+registered in every app[^docs-agents]. Those calls, and what they returned, are the
+record to read.
+
+## A common mistake
+
+Reading only the final answer. It is the one part of the run that the agent wrote to
+be believed.
+
+## Check your understanding
+
+A run on the [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/)[^practice-data]. Which
+failure is it?
+
+1. The question: "On how many days in July did G04 record rain?"
+2. The agent says: "I will count G04's readings."
+3. The call returns: 31.
+4. The agent answers: "G04 recorded rain on 31 days in July."
+
+??? success "Answer"
+    **The wrong query.** The call counted G04's rows, one for every day, and many of
+    those rows record no rain. Counting only the rows with a value above zero gives 14.
+    The tell is at line 2: the plan already asks a different question.
+
+## Next
+
+- [Trace cards](https://idss-mesa.github.io/trainings/trace-cards/): five short runs to judge, with answers.
+
+*Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15. No person has yet reviewed this page.*
+
+[PLACEHOLDER: attribution line. The outline traces this explainer's ideas to corpus sections 1.7 (`claude/fellows-corpus.md`), adapted from the UNM CARC course or GPT 101, both CC BY 4.0. The line must name creator, link, revision, license, and what changed. The drafter did not have the corpus, so the line is not written and the text has not been compared with those sections.]
+
+[^docs-agents]: https://idss-mesa.github.io/trainings/explainers/AI agents in the MESA apps, <https://idss-mesa.github.io/docs/apps/agents/>.
+[^practice-data]: https://idss-mesa.github.io/trainings/explainers/Practice data: five invented rain gauges, <https://idss-mesa.github.io/trainings/tutorials/practice-data/>.
 
 ---8<--- https://idss-mesa.github.io/trainings/trace-cards/how-to-use/
 
@@ -8180,6 +8458,12 @@ explains.
 
 ## 2026-11-15
 
+* **Creation**: Added a second kind of page, the explainer, which explains one idea
+  and gives no steps, with three to begin:
+  [What an agent is, and is not](explainers/what-an-agent-is.md),
+  [Recalled or retrieved](explainers/recalled-or-retrieved.md), and
+  [Reading what an agent did](explainers/reading-what-an-agent-did.md). The
+  [tutorial template](template.md) says how one is written.
 * **Creation**: Added [Bring your own data to MESA](bring-your-own-data.md): what you
   can bring, what to leave out, how to get it into your Data Store, how to check it
   arrived, and what to do if it is not ready. A draft: nobody has yet used it with a

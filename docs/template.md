@@ -1,7 +1,7 @@
 ---
 type: Reference
 title: "Tutorial template"
-description: "The template every MESA tutorial follows: the front matter, the six fixed parts, the draft notice, and the validation line."
+description: "The template every MESA tutorial follows: the front matter, the six fixed parts, the draft notice, and the validation line; and the rules for an explainer."
 tags: [contributing, template, byte]
 status: draft
 generated: { by: "claude-code/2.1.224", at: "2026-11-11T00:00:00Z" }
@@ -150,6 +150,22 @@ its code can be run before anyone tries it in a MESA app. Its notice says where 
 code was run, and its last line reads *Not yet validated in MESA JupyterLab*. Copy
 both from an existing data tutorial such as
 [Load a file from your Data Store into a notebook](tutorials/load-a-file.md).
+
+## Explainers
+
+An *explainer* is the other kind of page: it explains one idea and gives no steps to
+follow. It lives under `docs/explainers/`, has `type: Explainer` and the tag
+`explainer`, and otherwise carries the same front matter as a tutorial: `status: draft`,
+`sources` naming every page it rests on, and never `verified:`.
+
+| Rule | Detail |
+|---|---|
+| Length | 500 words or fewer; one idea |
+| Parts, in this order | **The idea in one sentence** · **Why it matters for your result** · **How it works** (one figure or one small table at most) · **What it looks like in MESA** (only what the documentation describes) · **A common mistake** · **Check your understanding** (one question, with the answer folded away) · **Next** (one tutorial) |
+| Never | Steps to follow (that is a tutorial); product comparisons; claims about what a model can do; a training session |
+| Attribution | Where an idea is adapted from another course, a line at the foot names the creator, the link, the revision, the license, and what changed |
+| AI disclosure | The last line says when AI helped draft it, as for a tutorial |
+| Review | A second person reads it against the MESA documentation before it leaves draft |
 
 [^quickbytes]: UNM CARC QuickBytes, <https://github.com/UNM-CARC/QuickBytes>.
 [^docs-agents]: Agent guide, MESA documentation, <https://github.com/idss-mesa/docs/blob/main/AGENTS.md>.

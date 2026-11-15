@@ -2,6 +2,12 @@
 
 ## 2026-11-15
 
+* **Creation**: Added a second kind of page, the explainer, which explains one idea
+  and gives no steps, with three to begin:
+  [What an agent is, and is not](explainers/what-an-agent-is.md),
+  [Recalled or retrieved](explainers/recalled-or-retrieved.md), and
+  [Reading what an agent did](explainers/reading-what-an-agent-did.md). The
+  [tutorial template](template.md) says how one is written.
 * **Creation**: Added [Bring your own data to MESA](bring-your-own-data.md): what you
   can bring, what to leave out, how to get it into your Data Store, how to check it
   arrived, and what to do if it is not ready. A draft: nobody has yet used it with a

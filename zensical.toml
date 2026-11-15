@@ -93,6 +93,12 @@ nav = [
       { "Contribute a tutorial" = "contributing.md" },
       { "Tutorial template" = "template.md" },
   ] },
+  { "Explainers" = [
+      "explainers/index.md",
+      { "What an agent is" = "explainers/what-an-agent-is.md" },
+      { "Recalled or retrieved" = "explainers/recalled-or-retrieved.md" },
+      { "Reading what an agent did" = "explainers/reading-what-an-agent-did.md" },
+  ] },
   { "Trace cards" = [
       "trace-cards/index.md",
       { "How to use the cards" = "trace-cards/how-to-use.md" },
