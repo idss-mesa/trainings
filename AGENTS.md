@@ -44,7 +44,7 @@ python -m unittest discover tests               # tests for gen_pathways.py and 
 node --test tests/progress.test.js              # tests for docs/javascripts/mesa-progress.js (CI-enforced)
 python tests/e2e/test_browser.py                # browser run of the pathways against site/ (CI-enforced; needs playwright)
 python tests/e2e/test_accessibility.py          # axe, reflow, target size, focus, motion, keyboard (CI-enforced; needs playwright and `npm install --no-save axe-core@4`)
-python scripts/check_tutorial_outputs.py        # run the tutorials' code and compare with the printed output (CI-enforced; needs pandas, duckdb)
+python scripts/check_tutorial_outputs.py        # run the code in the tutorials and trace cards and compare with the printed output (CI-enforced; needs pandas, duckdb)
 Rscript scripts/check_tutorial_outputs.R        # the same for R tutorials (CI runs it in the MESA RStudio image; needs sf, ggplot2, duckdb)
 python scripts/check_self_checks.py             # every self-check answer in data/pathways.yml against the practice data (CI-enforced; needs pandas, duckdb, pyyaml)
 Rscript scripts/check_self_checks.R             # the same for self-checks answered in R (CI-enforced; needs jsonlite)
@@ -169,6 +169,15 @@ G. **How to add a tutorial to a pathway and how to write a self-check** are in
     Other pages are covered by that page and the site footer. If you are an
     agent, never remove or soften a disclosure, and never describe a check
     as done by a person unless a person did it.
+
+18. **Trace cards** (`docs/trace-cards/`) each show one short agent run on the
+    practice data and ask the reader to judge it. A card written by hand is
+    labelled "Constructed example"; a recorded one names the agent, the model,
+    and the date. Cards are text only: no screenshot carries meaning. The
+    answer sits in a folded block, and some runs are sound. Every figure comes
+    from code on the card, which `scripts/check_tutorial_outputs.py` runs.
+    Only the practice set is public; cards written for a training session
+    stay out (rule 13).
 
 ## Changes
 

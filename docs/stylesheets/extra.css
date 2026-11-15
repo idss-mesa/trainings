@@ -121,7 +121,9 @@ body, .md-typeset { font-family: "Archivo", system-ui, sans-serif; }
 }
 .md-typeset table:not([class]) th {
   font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 400;
-  color: color-mix(in srgb, var(--mesa-text) 60%, transparent);
+  /* 72%, not the main site's 60%: at 60% these small headings are 4.3:1 on the
+     page ground, under the 4.5:1 that WCAG 1.4.3 asks of small text. */
+  color: color-mix(in srgb, var(--mesa-text) 72%, transparent);
   background: transparent; border-bottom: 2px solid var(--mesa-divider);
 }
 .md-typeset table:not([class]) td { border-top: 0; border-bottom: 1px solid var(--mesa-divider); }

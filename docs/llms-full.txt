@@ -106,6 +106,13 @@ notebook, so do the first one first.
 | Ask an AI agent about my data | [Sign in and start an AI agent in a MESA app](https://idss-mesa.github.io/trainings/tutorials/start-an-ai-agent/) | 10 min |
 | Use a token safely in a notebook | [Keep tokens and passwords out of saved files](https://idss-mesa.github.io/trainings/tutorials/keep-secrets-out-of-files/) | 5–10 min |
 
+## Practise reading what an AI agent did
+
+A [trace card](https://idss-mesa.github.io/trainings/trace-cards/) shows one short run of an AI agent on the practice
+data, as text, and asks whether its answer is supported. The answer is folded away
+until you open it. You need no agent, no model, and no key. Start with
+[How to use the trace cards](https://idss-mesa.github.io/trainings/trace-cards/how-to-use/).
+
 ## Working in R
 
 These use MESA RStudio Geospatial and the same practice data.
@@ -7017,6 +7024,849 @@ both from an existing data tutorial such as
 [^quickbytes]: https://idss-mesa.github.io/trainings/UNM CARC QuickBytes, <https://github.com/UNM-CARC/QuickBytes>.
 [^docs-agents]: https://idss-mesa.github.io/trainings/Agent guide, MESA documentation, <https://github.com/idss-mesa/docs/blob/main/AGENTS.md>.
 
+---8<--- https://idss-mesa.github.io/trainings/trace-cards/how-to-use/
+
+---
+type: Reference
+title: "How to use the trace cards"
+description: "What a trace card is, how to work through one, and the kinds of failure to look for when you read what an AI agent did."
+tags: [trace-card, ai-agents, verification]
+status: draft
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-15T00:00:00Z" }
+stale_after: "2027-05-15T00:00:00Z"
+sources:
+  - id: practice-data
+    resource: "https://idss-mesa.github.io/trainings/tutorials/practice-data/"
+    title: "Practice data: five invented rain gauges"
+    author: "team:idss-mesa"
+  - id: docs-agents
+    resource: "https://idss-mesa.github.io/docs/apps/agents/"
+    title: "AI agents in the MESA apps"
+    author: "team:idss-mesa"
+---
+
+# How to use the trace cards
+
+A trace card shows one short run of an AI agent, as text, and asks you to judge it. An
+agent in a MESA app answers a question by running things and reading what comes
+back[^docs-agents]. The record of those steps tells you far more than the final answer
+does. The cards let you practise reading such a record with no agent, no model, and no
+key.
+
+## What is on a card
+
+| Part | What it holds |
+|---|---|
+| The question put to the agent | One sentence |
+| The run | Numbered lines: what the agent said it would do, what it ran, what came back, and its final answer |
+| Your task | Three questions, the same on every card |
+| Run the check | You run your own query on the practice data |
+| Answer | Folded away until you open it |
+
+Every card on this site is a **constructed example**: written by hand to show one thing
+clearly, and labelled so. No agent or model produced it. The code in each run was run
+on the [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/)[^practice-data], and the output
+shown is what it gives; a script compares them each time the site is built.
+
+## How to work through one
+
+1. Read the question, then the run, line by line. Do not skip to the answer the agent
+   gave.
+2. Answer the three questions for yourself, in writing: is the answer supported, where
+   does it go wrong if it does, and what one query would settle it.
+3. Run your query on the practice data.
+4. Open the answer and compare.
+
+Some runs are sound. "Find the flaw" is not always the right answer, and saying that
+a sound run is sound, and why, is part of the skill.
+
+## What to look for
+
+| Kind of failure | What it looks like in a run |
+|---|---|
+| A different question answered | The plan, or the query, asks for something other than what was asked |
+| A result misread | The call is right and what came back is right, but the agent says it means something it does not |
+| Stopped early | Every check made is correct, and one that matters was never made |
+
+Two more kinds are not in this practice set: a call that fails, after which the agent
+answers anyway; and a figure in the answer that no call returned.
+
+## The cards
+
+- [Trace card 1: the wettest gauge in July](https://idss-mesa.github.io/trainings/trace-cards/card-1-wettest-gauge/)
+- [Trace card 2: G01's missing days](https://idss-mesa.github.io/trainings/trace-cards/card-2-missing-days/)
+- [Trace card 4: the wettest gauge, a second run](https://idss-mesa.github.io/trainings/trace-cards/card-4-wettest-gauge/)
+- [Trace card 5: the wettest gauge, a third run](https://idss-mesa.github.io/trainings/trace-cards/card-5-wettest-gauge/)
+- [Trace card 7: G03's July total](https://idss-mesa.github.io/trainings/trace-cards/card-7-g03-total/)
+
+The numbers have gaps because cards 3, 6, and 8 are not published.
+
+## Next
+
+- [Check an AI-suggested result against the data](https://idss-mesa.github.io/trainings/tutorials/check-a-suggested-result/)
+- [Keep a log of AI-assisted steps](https://idss-mesa.github.io/trainings/tutorials/keep-an-ai-log/)
+
+*This page was drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15. No person has yet checked it.*
+
+[^docs-agents]: https://idss-mesa.github.io/trainings/trace-cards/AI agents in the MESA apps, <https://idss-mesa.github.io/docs/apps/agents/>.
+[^practice-data]: https://idss-mesa.github.io/trainings/trace-cards/Practice data: five invented rain gauges, <https://idss-mesa.github.io/trainings/tutorials/practice-data/>.
+
+---8<--- https://idss-mesa.github.io/trainings/trace-cards/card-1-wettest-gauge/
+
+---
+type: Guide
+title: "Trace card 1: the wettest gauge in July"
+description: "A short constructed run of an AI agent answering \"Which gauge was wettest in July?\" on the practice data, for you to judge before you open the answer."
+tags: [trace-card, ai-agents, verification, practice-data]
+status: draft
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-15T00:00:00Z" }
+stale_after: "2027-05-15T00:00:00Z"
+sources:
+  - id: practice-data
+    resource: "https://idss-mesa.github.io/trainings/tutorials/practice-data/"
+    title: "Practice data: five invented rain gauges"
+    author: "team:idss-mesa"
+  - id: docs-agents
+    resource: "https://idss-mesa.github.io/docs/apps/agents/"
+    title: "AI agents in the MESA apps"
+    author: "team:idss-mesa"
+---
+
+# Trace card 1: the wettest gauge in July
+
+!!! note "Constructed example"
+    This run was written by hand, to practise on. No agent and no model produced it.
+    The code in it was run on the practice data and gives the output shown.
+    [How to use the trace cards](https://idss-mesa.github.io/trainings/trace-cards/how-to-use/) explains the format.
+
+**Card 1.** **Data:** `readings.csv` and `gauges.csv`, from the [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/).
+**Time:** 5 to 8 minutes.
+
+## The question put to the agent
+
+> Which gauge was wettest in July?
+
+## The run
+
+Each numbered item is one line of the run: what the agent said, what it ran, or what
+it answered.
+
+1. **The agent says:** "I will read both files, check which unit each gauge reports in,
+   leave out anything repeated or flagged, and add up the rest for each gauge."
+
+2. **The agent runs:**
+
+    ```python
+    import pandas as pd
+
+    readings = pd.read_csv("readings.csv")
+    gauges = pd.read_csv("gauges.csv")
+    gauges[["gauge_id", "unit"]]
+    ```
+
+    **It gets back:**
+
+    ```text
+      gauge_id unit
+    0      G01   mm
+    1      G02   cm
+    2      G03   mm
+    3      G04   mm
+    4      G05   mm
+    ```
+
+3. **The agent says:** "G02 reports in centimetres. I will convert it to millimetres
+   before I add anything up."
+
+4. **The agent runs:**
+
+    ```python
+    clean = readings.drop_duplicates()
+    clean = clean[clean["flag"] != "S"]
+    (len(readings), len(clean))
+    ```
+
+    **It gets back:**
+
+    ```text
+    (152, 149)
+    ```
+
+5. **The agent says:** "Three rows are left out: one exact repeat and two readings
+   flagged `S`."
+
+6. **The agent runs:**
+
+    ```python
+    clean = clean.merge(gauges[["gauge_id", "unit"]], on="gauge_id")
+    clean["mm"] = clean["value"] * clean["unit"].map({"mm": 1, "cm": 10})
+    clean.groupby("gauge_id")["mm"].sum().round(1)
+    ```
+
+    **It gets back:**
+
+    ```text
+    gauge_id
+    G01    190.3
+    G02    218.3
+    G03    251.1
+    G04    198.8
+    G05    210.9
+    Name: mm, dtype: float64
+    ```
+
+7. **The agent answers:** "Observatory (G03) was the wettest gauge in July, with
+   251.1 mm. I converted G02 from centimetres to millimetres, and left out one
+   repeated row and two readings the sensor flagged as suspect."
+
+## Your task
+
+Decide before you open the answer.
+
+1. Is the answer supported by the run?
+2. If it is not, at which line does it go wrong?
+3. What one query would confirm the answer or refute it?
+
+## Run the check
+
+Run your query from question 3 on the practice data, in the notebook from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), and
+compare what you get with what the agent reported.
+
+## Answer
+
+??? success "Open the answer"
+    **Verdict: supported.** Not every card hides a flaw.
+
+    **Why.** Each thing the answer states came back from a call. The units are at
+    line 2, the three rows left out are at line 4, and the totals are at line 6. The
+    answer also says what was done to the data, so a reader can disagree with a choice.
+
+    **A query that confirms it,** written another way, in SQL:
+
+    ```python
+    import duckdb
+
+    duckdb.sql("""
+        SELECT r.gauge_id,
+               round(sum(r.value * CASE g.unit WHEN 'cm' THEN 10 ELSE 1 END), 1) AS mm
+        FROM (SELECT DISTINCT * FROM 'readings.csv') AS r
+        JOIN 'gauges.csv' AS g ON r.gauge_id = g.gauge_id
+        WHERE r.flag IS DISTINCT FROM 'S'
+        GROUP BY r.gauge_id
+        ORDER BY mm DESC
+    """)
+    ```
+
+    ```text
+    ┌──────────┬────────┐
+    │ gauge_id │   mm   │
+    │ varchar  │ double │
+    ├──────────┼────────┤
+    │ G03      │  251.1 │
+    │ G02      │  218.3 │
+    │ G05      │  210.9 │
+    │ G04      │  198.8 │
+    │ G01      │  190.3 │
+    └──────────┴────────┘
+    ```
+
+    **What the run did not look at.** Whether every gauge has a row for every day. G01
+    has none for 22 to 25 July. The largest reading at any other gauge on those days is:
+
+    ```python
+    float(readings[readings["date"].between("2026-07-22", "2026-07-25")]["value"].max())
+    ```
+
+    ```text
+    0.0
+    ```
+
+    Those days were dry everywhere, so the gap changes nothing here. A careful answer
+    would still have said that it checked.
+
+
+## Next
+
+- [Trace card 2: G01's missing days](https://idss-mesa.github.io/trainings/trace-cards/card-2-missing-days/)
+- The checks this run made, one at a time: [Bring two units onto one scale before comparing](https://idss-mesa.github.io/trainings/tutorials/convert-units-before-comparing/) and [Find and remove a repeated row](https://idss-mesa.github.io/trainings/tutorials/remove-a-repeated-row/).
+
+*Constructed example, drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15. The code was run that day outside MESA (pandas 3.1.1, DuckDB 2.0.0). No person has yet checked this card.*
+
+---8<--- https://idss-mesa.github.io/trainings/trace-cards/card-2-missing-days/
+
+---
+type: Guide
+title: "Trace card 2: G01's missing days"
+description: "A short constructed run of an AI agent answering \"How many days is G01 missing in July?\" on the practice data, for you to judge before you open the answer."
+tags: [trace-card, ai-agents, verification, practice-data]
+status: draft
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-15T00:00:00Z" }
+stale_after: "2027-05-15T00:00:00Z"
+sources:
+  - id: practice-data
+    resource: "https://idss-mesa.github.io/trainings/tutorials/practice-data/"
+    title: "Practice data: five invented rain gauges"
+    author: "team:idss-mesa"
+  - id: docs-agents
+    resource: "https://idss-mesa.github.io/docs/apps/agents/"
+    title: "AI agents in the MESA apps"
+    author: "team:idss-mesa"
+---
+
+# Trace card 2: G01's missing days
+
+!!! note "Constructed example"
+    This run was written by hand, to practise on. No agent and no model produced it.
+    The code in it was run on the practice data and gives the output shown.
+    [How to use the trace cards](https://idss-mesa.github.io/trainings/trace-cards/how-to-use/) explains the format.
+
+**Card 2.** **Data:** `readings.csv`, from the [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/).
+**Time:** 5 to 8 minutes.
+
+## The question put to the agent
+
+> How many days is G01 missing in July?
+
+## The run
+
+Each numbered item is one line of the run: what the agent said, what it ran, or what
+it answered.
+
+1. **The agent says:** "I will count the days G01 has, and compare them with the
+   calendar for July."
+
+2. **The agent runs:**
+
+    ```python
+    import pandas as pd
+
+    readings = pd.read_csv("readings.csv")
+    g01 = readings[readings["gauge_id"] == "G01"]
+    (len(g01), g01["date"].nunique(), g01["date"].min(), g01["date"].max())
+    ```
+
+    **It gets back:**
+
+    ```text
+    (27, 27, '2026-07-01', '2026-07-31')
+    ```
+
+3. **The agent says:** "27 rows for 27 different days, so no day is repeated. The first
+   and the last day of July are both there, so the gap is inside the month."
+
+4. **The agent runs:**
+
+    ```python
+    july = pd.date_range("2026-07-01", "2026-07-31").strftime("%Y-%m-%d")
+    sorted(set(july) - set(g01["date"]))
+    ```
+
+    **It gets back:**
+
+    ```text
+    ['2026-07-22', '2026-07-23', '2026-07-24', '2026-07-25']
+    ```
+
+5. **The agent answers:** "G01 is missing four days in July 2026: the 22nd, 23rd, 24th,
+   and 25th. It has 27 rows for 27 different days, so none of its days is repeated."
+
+## Your task
+
+Decide before you open the answer.
+
+1. Is the answer supported by the run?
+2. If it is not, at which line does it go wrong?
+3. What one query would confirm the answer or refute it?
+
+## Run the check
+
+Run your query from question 3 on the practice data, in the notebook from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), and
+compare what you get with what the agent reported.
+
+## Answer
+
+??? success "Open the answer"
+    **Verdict: supported.** Not every card hides a flaw.
+
+    **Why.** The answer gives a count and the days, and both came back from line 4.
+    Line 2 rules out the other way to get 27 rows from fewer days, a repeated day,
+    before the agent relies on the count.
+
+    **A query that confirms it,** from the other side: on those four days, which gauges
+    do have a row?
+
+    ```python
+    readings[readings["date"].between("2026-07-22", "2026-07-25")].groupby("gauge_id").size()
+    ```
+
+    ```text
+    gauge_id
+    G02    4
+    G03    4
+    G04    4
+    G05    4
+    dtype: int64
+    ```
+
+    Four gauges have all four days, and G01 is not in the list.
+
+
+## Next
+
+- [Trace card 4: the wettest gauge, a second run](https://idss-mesa.github.io/trainings/trace-cards/card-4-wettest-gauge/)
+- The same check as a tutorial: [Count records per day to find incomplete days](https://idss-mesa.github.io/trainings/tutorials/count-records-per-day/).
+
+*Constructed example, drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15. The code was run that day outside MESA (pandas 3.1.1, DuckDB 2.0.0). No person has yet checked this card.*
+
+---8<--- https://idss-mesa.github.io/trainings/trace-cards/card-4-wettest-gauge/
+
+---
+type: Guide
+title: "Trace card 4: the wettest gauge, a second run"
+description: "A short constructed run of an AI agent answering \"Which gauge was wettest in July?\" on the practice data, for you to judge before you open the answer."
+tags: [trace-card, ai-agents, verification, practice-data]
+status: draft
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-15T00:00:00Z" }
+stale_after: "2027-05-15T00:00:00Z"
+sources:
+  - id: practice-data
+    resource: "https://idss-mesa.github.io/trainings/tutorials/practice-data/"
+    title: "Practice data: five invented rain gauges"
+    author: "team:idss-mesa"
+  - id: docs-agents
+    resource: "https://idss-mesa.github.io/docs/apps/agents/"
+    title: "AI agents in the MESA apps"
+    author: "team:idss-mesa"
+---
+
+# Trace card 4: the wettest gauge, a second run
+
+!!! note "Constructed example"
+    This run was written by hand, to practise on. No agent and no model produced it.
+    The code in it was run on the practice data and gives the output shown.
+    [How to use the trace cards](https://idss-mesa.github.io/trainings/trace-cards/how-to-use/) explains the format.
+
+**Card 4.** **Data:** `readings.csv`, from the [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/).
+**Time:** 5 to 8 minutes.
+
+## The question put to the agent
+
+> Which gauge was wettest in July?
+
+## The run
+
+Each numbered item is one line of the run: what the agent said, what it ran, or what
+it answered.
+
+1. **The agent says:** "`readings.csv` has one row for each gauge and day, with the
+   rainfall in `value`. I will add up `value` for each gauge."
+
+2. **The agent runs:**
+
+    ```python
+    import pandas as pd
+
+    readings = pd.read_csv("readings.csv")
+    readings.head(3)
+    ```
+
+    **It gets back:**
+
+    ```text
+      gauge_id        date  value flag
+    0      G01  2026-07-01    0.0  NaN
+    1      G01  2026-07-02    0.0  NaN
+    2      G01  2026-07-03   24.9  NaN
+    ```
+
+3. **The agent runs:**
+
+    ```python
+    readings.groupby("gauge_id")["value"].sum()
+    ```
+
+    **It gets back:**
+
+    ```text
+    gauge_id
+    G01    190.30
+    G02     21.83
+    G03    273.60
+    G04    198.80
+    G05    390.90
+    Name: value, dtype: float64
+    ```
+
+4. **The agent answers:** "Quarry (G05) was the wettest gauge in July, with 390.9 mm.
+   Orchard (G02) was much the driest, with 21.8 mm."
+
+## Your task
+
+Decide before you open the answer.
+
+1. Is the answer supported by the run?
+2. If it is not, at which line does it go wrong?
+3. What one query would confirm the answer or refute it?
+
+## Run the check
+
+Run your query from question 3 on the practice data, in the notebook from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), and
+compare what you get with what the agent reported.
+
+## Answer
+
+??? success "Open the answer"
+    **Verdict: not supported.**
+
+    **Where it goes wrong: line 1.** The agent says what `value` holds without looking
+    it up. It never opens `gauges.csv`, which records that G02 reports in centimetres,
+    and it never looks at the `flag` column that line 2 shows.
+
+    **Kind of failure: a result misread.** The sums at line 3 are correct arithmetic.
+    Reading them as millimetres of trustworthy rain is the mistake. The clue is on the
+    page: G02 at about a tenth of its neighbours.
+
+    **A query that refutes it,** with the units made the same, the repeated row
+    counted once, and the flagged readings left out:
+
+    ```python
+    import duckdb
+
+    duckdb.sql("""
+        SELECT r.gauge_id,
+               round(sum(r.value * CASE g.unit WHEN 'cm' THEN 10 ELSE 1 END), 1) AS mm
+        FROM (SELECT DISTINCT * FROM 'readings.csv') AS r
+        JOIN 'gauges.csv' AS g ON r.gauge_id = g.gauge_id
+        WHERE r.flag IS DISTINCT FROM 'S'
+        GROUP BY r.gauge_id
+        ORDER BY mm DESC
+    """)
+    ```
+
+    ```text
+    ┌──────────┬────────┐
+    │ gauge_id │   mm   │
+    │ varchar  │ double │
+    ├──────────┼────────┤
+    │ G03      │  251.1 │
+    │ G02      │  218.3 │
+    │ G05      │  210.9 │
+    │ G04      │  198.8 │
+    │ G01      │  190.3 │
+    └──────────┴────────┘
+    ```
+
+    Observatory (G03) leads, with 251.1 mm. Of G05's 390.9, 180.0 is one reading
+    flagged as suspect, and G02's true total is 218.3 mm, not 21.8.
+
+
+## Next
+
+- [Trace card 5: the wettest gauge, a third run](https://idss-mesa.github.io/trainings/trace-cards/card-5-wettest-gauge/)
+- [Read the data dictionary before the data](https://idss-mesa.github.io/trainings/tutorials/read-the-data-dictionary/)
+
+*Constructed example, drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15. The code was run that day outside MESA (pandas 3.1.1, DuckDB 2.0.0). No person has yet checked this card.*
+
+---8<--- https://idss-mesa.github.io/trainings/trace-cards/card-5-wettest-gauge/
+
+---
+type: Guide
+title: "Trace card 5: the wettest gauge, a third run"
+description: "A short constructed run of an AI agent answering \"Which gauge was wettest in July?\" on the practice data, for you to judge before you open the answer."
+tags: [trace-card, ai-agents, verification, practice-data]
+status: draft
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-15T00:00:00Z" }
+stale_after: "2027-05-15T00:00:00Z"
+sources:
+  - id: practice-data
+    resource: "https://idss-mesa.github.io/trainings/tutorials/practice-data/"
+    title: "Practice data: five invented rain gauges"
+    author: "team:idss-mesa"
+  - id: docs-agents
+    resource: "https://idss-mesa.github.io/docs/apps/agents/"
+    title: "AI agents in the MESA apps"
+    author: "team:idss-mesa"
+---
+
+# Trace card 5: the wettest gauge, a third run
+
+!!! note "Constructed example"
+    This run was written by hand, to practise on. No agent and no model produced it.
+    The code in it was run on the practice data and gives the output shown.
+    [How to use the trace cards](https://idss-mesa.github.io/trainings/trace-cards/how-to-use/) explains the format.
+
+**Card 5.** **Data:** `readings.csv`, from the [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/).
+**Time:** 5 to 8 minutes.
+
+## The question put to the agent
+
+> Which gauge was wettest in July?
+
+## The run
+
+Each numbered item is one line of the run: what the agent said, what it ran, or what
+it answered.
+
+1. **The agent says:** "To find the wettest gauge I will look for the largest
+   reading."
+
+2. **The agent runs:**
+
+    ```python
+    import pandas as pd
+
+    readings = pd.read_csv("readings.csv")
+    readings.loc[readings["value"].idxmax()]
+    ```
+
+    **It gets back:**
+
+    ```text
+    gauge_id           G05
+    date        2026-07-09
+    value            180.0
+    flag                 S
+    Name: 129, dtype: object
+    ```
+
+3. **The agent answers:** "Quarry (G05) was the wettest gauge in July. It recorded
+   180.0 mm on 9 July, far more than any other gauge on any day."
+
+## Your task
+
+Decide before you open the answer.
+
+1. Is the answer supported by the run?
+2. If it is not, at which line does it go wrong?
+3. What one query would confirm the answer or refute it?
+
+## Run the check
+
+Run your query from question 3 on the practice data, in the notebook from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), and
+compare what you get with what the agent reported.
+
+## Answer
+
+??? success "Open the answer"
+    **Verdict: not supported.**
+
+    **Where it goes wrong: line 1.** The question is about a month. The plan looks for
+    one reading. Everything after it is carried out correctly, on the wrong question.
+
+    **Kind of failure: a different question answered.** The call at line 2 does what it
+    was asked to do, and the figure in the answer is in the data. An answer can be
+    retrieved, and exact, and still not be the answer to what was asked.
+
+    **What else to notice.** Line 2 came back with `flag` set to `S`: the one reading
+    the answer rests on is marked suspect, and the answer does not say so.
+
+    **A query that refutes it,** by answering the question that was asked:
+
+    ```python
+    import duckdb
+
+    duckdb.sql("""
+        SELECT r.gauge_id,
+               round(sum(r.value * CASE g.unit WHEN 'cm' THEN 10 ELSE 1 END), 1) AS mm
+        FROM (SELECT DISTINCT * FROM 'readings.csv') AS r
+        JOIN 'gauges.csv' AS g ON r.gauge_id = g.gauge_id
+        WHERE r.flag IS DISTINCT FROM 'S'
+        GROUP BY r.gauge_id
+        ORDER BY mm DESC
+    """)
+    ```
+
+    ```text
+    ┌──────────┬────────┐
+    │ gauge_id │   mm   │
+    │ varchar  │ double │
+    ├──────────┼────────┤
+    │ G03      │  251.1 │
+    │ G02      │  218.3 │
+    │ G05      │  210.9 │
+    │ G04      │  198.8 │
+    │ G01      │  190.3 │
+    └──────────┴────────┘
+    ```
+
+    Over the month, Observatory (G03) leads with 251.1 mm.
+
+
+## Next
+
+- [Trace card 7: G03's July total](https://idss-mesa.github.io/trainings/trace-cards/card-7-g03-total/)
+- [Tally a quality flag before you trust a number](https://idss-mesa.github.io/trainings/tutorials/tally-a-quality-flag/)
+
+*Constructed example, drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15. The code was run that day outside MESA (pandas 3.1.1, DuckDB 2.0.0). No person has yet checked this card.*
+
+---8<--- https://idss-mesa.github.io/trainings/trace-cards/card-7-g03-total/
+
+---
+type: Guide
+title: "Trace card 7: G03's July total"
+description: "A short constructed run of an AI agent answering \"What is G03's July total?\" on the practice data, for you to judge before you open the answer."
+tags: [trace-card, ai-agents, verification, practice-data]
+status: draft
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-15T00:00:00Z" }
+stale_after: "2027-05-15T00:00:00Z"
+sources:
+  - id: practice-data
+    resource: "https://idss-mesa.github.io/trainings/tutorials/practice-data/"
+    title: "Practice data: five invented rain gauges"
+    author: "team:idss-mesa"
+  - id: docs-agents
+    resource: "https://idss-mesa.github.io/docs/apps/agents/"
+    title: "AI agents in the MESA apps"
+    author: "team:idss-mesa"
+---
+
+# Trace card 7: G03's July total
+
+!!! note "Constructed example"
+    This run was written by hand, to practise on. No agent and no model produced it.
+    The code in it was run on the practice data and gives the output shown.
+    [How to use the trace cards](https://idss-mesa.github.io/trainings/trace-cards/how-to-use/) explains the format.
+
+**Card 7.** **Data:** `readings.csv` and `gauges.csv`, from the [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/).
+**Time:** 5 to 8 minutes.
+
+## The question put to the agent
+
+> What is G03's July total?
+
+## The run
+
+Each numbered item is one line of the run: what the agent said, what it ran, or what
+it answered.
+
+1. **The agent says:** "I will check G03's unit and its flagged readings, then add up
+   its values."
+
+2. **The agent runs:**
+
+    ```python
+    import pandas as pd
+
+    readings = pd.read_csv("readings.csv")
+    gauges = pd.read_csv("gauges.csv")
+    gauges[gauges["gauge_id"] == "G03"]
+    ```
+
+    **It gets back:**
+
+    ```text
+      gauge_id         name unit  elevation_m
+    2      G03  Observatory   mm          688
+    ```
+
+3. **The agent runs:**
+
+    ```python
+    g03 = readings[readings["gauge_id"] == "G03"]
+    g03["flag"].value_counts(dropna=False)
+    ```
+
+    **It gets back:**
+
+    ```text
+    flag
+    NaN    31
+    S       1
+    Name: count, dtype: int64
+    ```
+
+4. **The agent runs:**
+
+    ```python
+    g03[g03["flag"] == "S"]
+    ```
+
+    **It gets back:**
+
+    ```text
+       gauge_id        date  value flag
+    76      G03  2026-07-18    0.0    S
+    ```
+
+5. **The agent says:** "The one flagged reading is 0.0, so the total is the same
+   whether I keep it or not."
+
+6. **The agent runs:**
+
+    ```python
+    float(g03["value"].sum().round(1))
+    ```
+
+    **It gets back:**
+
+    ```text
+    273.6
+    ```
+
+7. **The agent answers:** "Observatory (G03) recorded 273.6 mm in July. It reports in
+   millimetres, and its one flagged reading is 0.0, so it does not change the total."
+
+## Your task
+
+Decide before you open the answer.
+
+1. Is the answer supported by the run?
+2. If it is not, at which line does it go wrong?
+3. What one query would confirm the answer or refute it?
+
+## Run the check
+
+Run your query from question 3 on the practice data, in the notebook from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), and
+compare what you get with what the agent reported.
+
+## Answer
+
+??? success "Open the answer"
+    **Verdict: not supported.**
+
+    **Where it goes wrong.** No line is wrong. Everything the agent checked, it checked
+    correctly: the unit at line 2, the flag at lines 3 to 5. It stopped one check short
+    and answered at line 7. The clue it passed over is at line 3: 31 rows and 1 row
+    make 32, and July has 31 days.
+
+    **Kind of failure: stopped early.** A run that makes two careful checks reads as
+    thorough. Ask what it did not look at.
+
+    **A query that refutes it:** count G03's rows and its different days.
+
+    ```python
+    (len(g03), g03["date"].nunique())
+    ```
+
+    ```text
+    (32, 31)
+    ```
+
+    One day is written twice. With the repeated row counted once:
+
+    ```python
+    float(g03.drop_duplicates()["value"].sum().round(1))
+    ```
+
+    ```text
+    251.1
+    ```
+
+    G03's July total is 251.1 mm, not 273.6.
+
+
+## Next
+
+- [Check an AI-suggested result against the data](https://idss-mesa.github.io/trainings/tutorials/check-a-suggested-result/)
+- [Find and remove a repeated row](https://idss-mesa.github.io/trainings/tutorials/remove-a-repeated-row/)
+
+*Constructed example, drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15. The code was run that day outside MESA (pandas 3.1.1, DuckDB 2.0.0). No person has yet checked this card.*
+
 ---8<--- https://idss-mesa.github.io/trainings/about/license/
 
 ---
@@ -7218,6 +8068,13 @@ explains.
 
 ## 2026-11-15
 
+* **Creation**: Added five [trace cards](trace-cards/index.md): short runs of an AI
+  agent on the practice data, written as text, for practising how to read what an
+  agent did. Each asks whether the answer is supported, with the answer folded away.
+  All five are constructed examples, written by hand and labelled so; some of the runs
+  are sound. [How to use the trace cards](trace-cards/how-to-use.md) explains them.
+  The output check now covers the cards, so every figure on one is recomputed when
+  the site is built.
 * **Creation**: Added seven tutorials for the thinner pathway points. Under point 3:
   [Join two tables and keep the unmatched rows visible](tutorials/join-and-keep-unmatched.md),
   [Bring two units onto one scale before comparing](tutorials/convert-units-before-comparing.md),

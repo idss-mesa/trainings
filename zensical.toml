@@ -93,6 +93,15 @@ nav = [
       { "Contribute a tutorial" = "contributing.md" },
       { "Tutorial template" = "template.md" },
   ] },
+  { "Trace cards" = [
+      "trace-cards/index.md",
+      { "How to use the cards" = "trace-cards/how-to-use.md" },
+      { "Card 1: the wettest gauge" = "trace-cards/card-1-wettest-gauge.md" },
+      { "Card 2: G01's missing days" = "trace-cards/card-2-missing-days.md" },
+      { "Card 4: the wettest gauge, again" = "trace-cards/card-4-wettest-gauge.md" },
+      { "Card 5: the wettest gauge, a third run" = "trace-cards/card-5-wettest-gauge.md" },
+      { "Card 7: G03's July total" = "trace-cards/card-7-g03-total.md" },
+  ] },
   { "About" = [
       "about/index.md",
       { "License" = "about/license.md" },

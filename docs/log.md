@@ -2,6 +2,13 @@
 
 ## 2026-11-15
 
+* **Creation**: Added five [trace cards](trace-cards/index.md): short runs of an AI
+  agent on the practice data, written as text, for practising how to read what an
+  agent did. Each asks whether the answer is supported, with the answer folded away.
+  All five are constructed examples, written by hand and labelled so; some of the runs
+  are sound. [How to use the trace cards](trace-cards/how-to-use.md) explains them.
+  The output check now covers the cards, so every figure on one is recomputed when
+  the site is built.
 * **Creation**: Added seven tutorials for the thinner pathway points. Under point 3:
   [Join two tables and keep the unmatched rows visible](tutorials/join-and-keep-unmatched.md),
   [Bring two units onto one scale before comparing](tutorials/convert-units-before-comparing.md),
