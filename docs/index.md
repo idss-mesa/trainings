@@ -100,6 +100,12 @@ notebook, so do the first one first.
 | Ask an AI agent about my data | [Sign in and start an AI agent in a MESA app](tutorials/start-an-ai-agent.md) | 10 min |
 | Use a token safely in a notebook | [Keep tokens and passwords out of saved files](tutorials/keep-secrets-out-of-files.md) | 5–10 min |
 
+## Ideas, explained
+
+An [explainer](explainers/index.md) explains one idea in a page, with no steps to
+follow: what an AI agent is, where a figure in its answer came from, and how to read
+what it did.
+
 ## Practise reading what an AI agent did
 
 A [trace card](trace-cards/index.md) shows one short run of an AI agent on the practice

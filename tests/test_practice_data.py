@@ -78,5 +78,34 @@ class August(unittest.TestCase):
         self.assertNotEqual(max(total, key=total.get), max(shared, key=shared.get))
 
 
+class FiguresQuotedOnPages(unittest.TestCase):
+    """Figures that pages without runnable code state about the July readings."""
+
+    def setUp(self):
+        self.unit = {g["gauge_id"]: g["unit"] for g in rows("gauges.csv")}
+        self.july = rows("readings.csv")
+
+    def test_g04_has_31_rows_and_rain_on_14_days(self):
+        # docs/explainers/reading-what-an-agent-did.md
+        g04 = [r for r in self.july if r["gauge_id"] == "G04"]
+        self.assertEqual(len(g04), 31)
+        self.assertEqual(sum(float(r["value"]) > 0 for r in g04), 14)
+
+    def test_largest_reading_is_180_at_g05_and_flagged(self):
+        # docs/explainers/recalled-or-retrieved.md
+        top = max(self.july, key=lambda r: float(r["value"]))
+        self.assertEqual((top["gauge_id"], float(top["value"]), top["flag"]), ("G05", 180.0, "S"))
+
+    def test_g03_checked_total_is_251_1(self):
+        # docs/explainers/recalled-or-retrieved.md: repeated row once, flagged readings out
+        seen, total = set(), 0.0
+        for r in self.july:
+            key = tuple(r.values())
+            if r["gauge_id"] == "G03" and r["flag"] != "S" and key not in seen:
+                seen.add(key)
+                total += float(r["value"])
+        self.assertEqual(round(total, 1), 251.1)
+
+
 if __name__ == "__main__":
     unittest.main()

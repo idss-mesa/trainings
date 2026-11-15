@@ -7,7 +7,7 @@ https://idss-mesa.github.io/trainings/, built with
 **Open Knowledge Format (OKF) v0.2 knowledge bundle**
 ([spec](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md)),
 and every content page carries YAML frontmatter with `type` (Guide |
-Reference), `title`, `description`, `tags`, provenance (`generated`,
+Reference | Explainer), `title`, `description`, `tags`, provenance (`generated`,
 `sources`) and lifecycle (`status`, `stale_after`) fields. Section `index.md`
 files are OKF §8 directory listings (no frontmatter); `docs/log.md` is the
 OKF §9 dated change log.
@@ -178,6 +178,13 @@ G. **How to add a tutorial to a pathway and how to write a self-check** are in
     from code on the card, which `scripts/check_tutorial_outputs.py` runs.
     Only the practice set is public; cards written for a training session
     stay out (rule 13).
+
+19. **Explainers** (`docs/explainers/`, `type: Explainer`, tag `explainer`)
+    explain one idea in 500 words or fewer and give no steps. They follow the
+    seven parts under "Explainers" in `docs/template.md`. "What it looks like
+    in MESA" holds only what the documentation describes. An idea adapted from
+    another course carries an attribution line: creator, link, revision,
+    license, and what changed. An explainer names no training session.
 
 ## Changes
 
