@@ -403,6 +403,17 @@
         });
       }
     }
+    /* Walk the route point by point: something added because there is time
+       sits with its own point, after that point's essentials. */
+    var stageOf = function (name) {
+      for (var i = 0; i < pathway.stages.length; i++) {
+        if (stageNames(manifest, pathway.stages[i]).indexOf(name) >= 0) return i;
+      }
+      return pathway.stages.length;
+    };
+    names = names.map(function (name, i) { return { name: name, stage: stageOf(name), i: i }; })
+      .sort(function (x, y) { return x.stage - y.stage || x.i - y.i; })
+      .map(function (x) { return x.name; });
     return { names: names, left: left };
   }
 

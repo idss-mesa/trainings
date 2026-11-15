@@ -57,10 +57,10 @@
    "ask": "Show the last row of `readings`. Which gauge and day is it?",
    "answer": "G05, 2026-07-31",
    "options": [
-    "G05, 2026-07-31",
     "G01, 2026-07-01",
+    "G03, 2026-07-31",
     "G05, 2026-07-09",
-    "G03, 2026-07-31"
+    "G05, 2026-07-31"
    ],
    "unit": "",
    "how": "readings.tail(1)",
@@ -217,10 +217,10 @@
    "ask": "Convert G02 to millimetres, leave out the flagged readings, and drop the repeated row. Which gauge then has the largest July total?",
    "answer": "G03, 251.1 mm",
    "options": [
-    "G03, 251.1 mm",
-    "G05, 390.9 mm",
     "G05, 210.9 mm",
-    "G03, 273.6 mm"
+    "G03, 251.1 mm",
+    "G03, 273.6 mm",
+    "G05, 390.9 mm"
    ],
    "unit": "",
    "how": "",
@@ -257,10 +257,10 @@
    "ask": "Which gauge is furthest north?",
    "answer": "G03, Observatory",
    "options": [
-    "G03, Observatory",
-    "G05, Quarry",
     "G01, Boathouse",
-    "G02, Orchard"
+    "G02, Orchard",
+    "G03, Observatory",
+    "G05, Quarry"
    ],
    "unit": "",
    "how": "",
@@ -279,8 +279,8 @@
    "ask": "The path you copied stops at `/iplant/home/shared`, and the listing holds many projects that are not MESA's. Which did you click?",
    "answer": "Shared",
    "options": [
-    "Shared",
     "Community",
+    "Shared",
     "User Shared"
    ],
    "unit": "",
@@ -297,9 +297,9 @@
    "ask": "Which of these tells you that a file will still be there after the app stops?",
    "answer": "It is listed under My Files in the portal",
    "options": [
-    "It is listed under My Files in the portal",
     "It is listed in JupyterLab's file browser",
-    "The dot on the notebook's tab has gone"
+    "The dot on the notebook's tab has gone",
+    "It is listed under My Files in the portal"
    ],
    "unit": "",
    "how": "",
@@ -316,9 +316,9 @@
    "ask": "Your analysis is listed under Canceled, not Completed. Which button ended it?",
    "answer": "Terminate",
    "options": [
-    "Terminate",
+    "Relaunch",
     "Save & Exit",
-    "Relaunch"
+    "Terminate"
    ],
    "unit": "",
    "how": "",
@@ -1052,7 +1052,7 @@
   "practice-data": {
    "title": "Practice data: five invented rain gauges",
    "description": "The synthetic rain-gauge practice dataset used by the data tutorials: what its five files contain, its data dictionary, and how to copy it into your Data Store.",
-   "outcome": "",
+   "outcome": "have the practice files in your Data Store, and know what each one holds.",
    "point": "p2",
    "min": 5,
    "max": 5,

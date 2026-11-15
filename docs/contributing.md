@@ -119,7 +119,9 @@ tutorial keeps its six parts.
    by a small change to what the tutorial taught. If the answer is on the page, it can
    be read off without doing the task.
 2. **Give a number**, or for an answer in two parts, a list of `options:` with the right
-   one repeated as `answer:`.
+   one repeated as `answer:`. List the options in a plain order, such as by name or by
+   size, not with the right one first. The site will not build if the right answer
+   sits in the same place in most self-checks.
 3. **Write `verify:` code** whose last line gives the answer from the practice data.
    `pandas` as `pd`, `duckdb`, and the tables `readings`, `august`, `gauges`, `sites`, and `obs`
    are already loaded. For an R tutorial use `r:` with one expression. The site will

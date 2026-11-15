@@ -350,7 +350,8 @@ test("the time a reader has trims the route, or fills it with more", () => {
   assert.deepEqual(short.names, ["sign-in", "launch-jupyterlab"]);
   assert.deepEqual(short.left, [{ name: "practice-data", why: "time" }, { name: "load-a-file", why: "time" }]);
   const long = planFor("get-ready-for-a-session", { minutes: 60 });
-  assert.deepEqual(long.names.slice(0, 4), ["sign-in", "launch-jupyterlab", "practice-data", "load-a-file"]);
+  for (const name of ["sign-in", "launch-jupyterlab", "practice-data", "load-a-file"]) assert.ok(long.names.includes(name), name);
+  assert.deepEqual(long.names.slice(0, 2), ["sign-in", "launch-jupyterlab"]);
   assert.ok(long.names.length > 4 && long.left.length === 0);
   const cost = long.names.reduce((sum, n) => sum + manifest.tutorials[n].max, 0);
   assert.ok(cost <= 60, "fits the hour: " + cost);
@@ -408,4 +409,12 @@ test("an R version on the reader's route belongs to the pathway being followed",
   /* Without the answers, the R tutorial is on Work in R only. */
   const plain = P.setPathway(P.empty(), "get-ready-for-a-session");
   assert.deepEqual(P.pathwaysWith(manifest, "r-load-a-file", plain).map((p) => p.id), ["work-in-r"]);
+});
+
+test("a route runs point by point, with what time adds placed in its own point", () => {
+  const rec = P.setPathway(P.empty(), "get-ready-for-a-session");
+  rec.profile = { portal: "no", language: "python", data: "no", minutes: 30 };
+  const session = P.findPathway(manifest, "get-ready-for-a-session");
+  assert.deepEqual(P.openNames(session, rec, manifest),
+    ["sign-in", "launch-jupyterlab", "find-your-way-around", "practice-data", "load-a-file"]);
 });
