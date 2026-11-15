@@ -102,6 +102,7 @@ nav = [
       { "Card 5: the wettest gauge, a third run" = "trace-cards/card-5-wettest-gauge.md" },
       { "Card 7: G03's July total" = "trace-cards/card-7-g03-total.md" },
   ] },
+  { "Bring your own data" = "bring-your-own-data.md" },
   { "About" = [
       "about/index.md",
       { "License" = "about/license.md" },

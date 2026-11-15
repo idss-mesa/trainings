@@ -18,6 +18,7 @@ The form https://idss-mesa.github.io/trainings/<path>.md also returns the same M
 ## Start here
 
 - [MESA Trainings](https://idss-mesa.github.io/trainings/): MESA Trainings — short, single-task tutorials for the MESA Portal at mesa.cyverse.org and its apps, written for training participants and for anyone using MESA. Markdown twin: https://idss-mesa.github.io/trainings/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/index.md
+- [Bring your own data to MESA](https://idss-mesa.github.io/trainings/bring-your-own-data/): What data you can bring into MESA to work on, what to leave out, how to get it into your Data Store, how to check it arrived, and what to do if it is not ready. (draft) Markdown twin: https://idss-mesa.github.io/trainings/bring-your-own-data/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/bring-your-own-data.md
 - [MESA website](https://idss-mesa.github.io/): External resource.
 - [Documentation](https://idss-mesa.github.io/docs/): External resource.
 - [Portal](https://mesa.cyverse.org): External resource.
@@ -110,7 +111,7 @@ The form https://idss-mesa.github.io/trainings/<path>.md also returns the same M
 
 ## Meta
 
-- [Full corpus in one file](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with frontmatter, links made absolute; about 339 KB, roughly 87,000 tokens. Prefer it over fetching pages one at a time.
+- [Full corpus in one file](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with frontmatter, links made absolute; about 345 KB, roughly 88,000 tokens. Prefer it over fetching pages one at a time.
 - [Update log](https://idss-mesa.github.io/trainings/log/): dated history of changes to this bundle.
 - [For AI agents](https://idss-mesa.github.io/trainings/about/ai-agents/): endpoints, trust signals, and what to do if you cannot fetch this site.
 - [Sitemap](https://idss-mesa.github.io/trainings/sitemap.xml) and [robots.txt](https://idss-mesa.github.io/trainings/robots.txt): crawlers honour only the origin https://idss-mesa.github.io/robots.txt, which is equally permissive.

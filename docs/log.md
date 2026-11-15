@@ -2,6 +2,10 @@
 
 ## 2026-11-15
 
+* **Creation**: Added [Bring your own data to MESA](bring-your-own-data.md): what you
+  can bring, what to leave out, how to get it into your Data Store, how to check it
+  arrived, and what to do if it is not ready. A draft: nobody has yet used it with a
+  dataset of their own.
 * **Creation**: Added five [trace cards](trace-cards/index.md): short runs of an AI
   agent on the practice data, written as text, for practising how to read what an
   agent did. Each asks whether the answer is supported, with the answer folded away.
