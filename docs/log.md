@@ -41,6 +41,10 @@
 * **Update**: A route shortened or filled by your answers now runs point by point: a
   tutorial added because you have time sits with its own point. The practice-data page
   now says what you set out to do when you mark it done.
+* **Update**: For a reader working in R, passing the skip-check for a point now leaves
+  nothing to do on it. Since the change that keeps a finished tutorial on your route,
+  the R version of a tutorial whose question you had just answered came back as
+  something still to take.
 * **Update**: "Clear everything" now also forgets a self-check answered earlier in the
   same visit. Before, going back to that tutorial without reloading the page still
   showed the answer as right, although nothing was stored. Replacing your progress

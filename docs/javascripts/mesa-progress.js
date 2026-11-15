@@ -354,8 +354,11 @@
     var settle = function (name, point, quiet) {
       var why = "", instead = "";
       /* A tutorial the reader has finished is never left out for being
-         something they already know: they did it, so it stays and counts. */
-      var fresh = !isFinished(record, name);
+         something they already know: they did it, so it stays and counts.
+         In R the tutorial they would take is the R version, so that is the
+         one that has to be finished. */
+      var taken = inR && has(rules.in_r, name) && rules.in_r[name] ? rules.in_r[name] : name;
+      var fresh = !isFinished(record, taken);
       if (fresh && isSkipped(record, point)) why = "skip";
       else if (fresh && profile.portal === "yes" && point === "p1") why = "portal";
       else if (fresh && profile.data === "yes" && point === "p2" && rules.foundations.indexOf(name) < 0) why = "data";

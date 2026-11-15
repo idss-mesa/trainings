@@ -444,3 +444,28 @@ test("a finished tutorial stays on the route when its point's skip-check is pass
   P.setProfile(seen, "portal", "yes");
   assert.ok(P.plan(manifest, start, seen).names.includes("sign-in"));
 });
+
+test("in R, a passed skip-check leaves nothing to do on that point", () => {
+  const pass = (rec) => {
+    manifest.points.p2.skip_check.forEach((id) => P.recordCheck(rec, id, manifest.checks[id], true, 0, "2026-11-15", "r"));
+    return P.syncSkipped(manifest, rec, "2026-11-15");
+  };
+  // The questions belong to the Python tutorials, which now count as checked.
+  // Their R versions were not taken, so they must not come back onto the route.
+  for (const [goal, minutes, want] of [["check-a-dataset", 0, []], ["check-a-dataset", 30, ["r-query-parquet-with-duckdb"]],
+    ["use-an-ai-agent", 30, ["start-an-ai-agent"]], ["work-in-r", 0, []]]) {
+    const rec = P.setProfile(P.empty(), "language", "r");
+    if (minutes) P.setProfile(rec, "minutes", minutes);
+    const pathway = P.findPathway(manifest, goal);
+    const names = P.plan(manifest, pathway, pass(rec)).names;
+    assert.deepEqual(names, want, goal + " with " + minutes + " minutes");
+    assert.ok(!names.some((n) => manifest.tutorials[n].point === "p2"), goal + ": nothing from the skipped point");
+  }
+  // An R version the reader did finish stays and counts.
+  const rec = P.setProfile(P.empty(), "language", "r");
+  P.markDone(rec, "r-tally-a-quality-flag", "r", "2026-11-15");
+  const pathway = P.findPathway(manifest, "check-a-dataset");
+  assert.deepEqual(P.plan(manifest, pathway, pass(rec)).names, ["r-tally-a-quality-flag"]);
+  const got = P.route(pathway, rec, manifest);
+  assert.deepEqual([got.done, got.total], [1, 1]);
+});
