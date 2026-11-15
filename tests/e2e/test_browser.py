@@ -244,8 +244,10 @@ class Browser(unittest.TestCase):
         largest.get_by_role("button", name="Check answer").click()
         page.locator(".mesa-skip__said", has_text="You already have this").wait_for()
         self.assertIn("Skip-check passed", stage.locator(".mesa-meter").inner_text())
-        # The skipped point leaves the route; the essentials it held are named, not hidden or ticked.
-        self.assertIn("Your answers leave nothing you need to do", page.inner_text(".mesa-story"))
+        # The two tutorials whose questions were answered stay and count as checked;
+        # the other essentials leave the route, named, not hidden or ticked.
+        self.assertIn("2 of 2 done. Point finished. Skip-check passed.", stage.locator(".mesa-meter").inner_text())
+        self.assertIn("all 2 tutorials are marked done", page.inner_text(".mesa-story"))
         self.assertIn("Shortened for you: 3 left out", page.inner_text(".mesa-tailored"))
         self.assertEqual(stage.locator(".mesa-stop.is-off").count(), 3)
         self.assertIn("Left out because you passed the skip-check", stage.locator(".mesa-stop.is-off >> nth=0").inner_text())

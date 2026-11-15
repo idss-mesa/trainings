@@ -270,8 +270,11 @@ test("a skip-check is passed only when every question is right, and it moves the
 
   const pathway = P.findPathway(manifest, "check-a-dataset");
   const got = P.route(pathway, rec, manifest);
-  assert.deepEqual([got.done, got.total, got.next], [0, 0, ""], "every essential of this pathway is in the skipped point");
-  assert.deepEqual(P.plan(manifest, pathway, rec).left.map((l) => l.why), ["skip", "skip", "skip", "skip", "skip"]);
+  const checked = pathway.stages[0].tutorials.filter((n) => ids.some((id) => manifest.checks[id].tutorial === n));
+  const kept = P.plan(manifest, pathway, rec);
+  assert.deepEqual(kept.names.slice().sort(), checked.slice().sort(), "only the tutorials whose questions were answered stay: they count as checked");
+  assert.deepEqual([got.done, got.total, got.next], [checked.length, checked.length, ""]);
+  assert.deepEqual(kept.left.map((l) => l.why), Array(5 - checked.length).fill("skip"));
   assert.equal(P.currentStage(pathway, rec, manifest), -1);
   assert.equal(P.state(rec, "practice-data"), "todo", "skipping never ticks a tutorial");
   const session = P.findPathway(manifest, "get-ready-for-a-session");
@@ -417,4 +420,27 @@ test("a route runs point by point, with what time adds placed in its own point",
   const session = P.findPathway(manifest, "get-ready-for-a-session");
   assert.deepEqual(P.openNames(session, rec, manifest),
     ["sign-in", "launch-jupyterlab", "find-your-way-around", "practice-data", "load-a-file"]);
+});
+
+test("a finished tutorial stays on the route when its point's skip-check is passed", () => {
+  const pathway = P.findPathway(manifest, "use-an-ai-agent");
+  const rec = P.empty();
+  const before = P.plan(manifest, pathway, rec).names;
+  assert.deepEqual(before, ["practice-data", "load-a-file", "check-a-suggested-result"]);
+  before.forEach((n) => P.markDone(rec, n, "r", "2026-11-15"));
+  // The self-check on the last tutorial is also the whole skip-check for point 4.
+  manifest.points.p4.skip_check.forEach((id) => P.recordCheck(rec, id, manifest.checks[id], true, 0, "2026-11-15", "r"));
+  P.syncSkipped(manifest, rec, "2026-11-15");
+  assert.equal(P.isSkipped(rec, "p4"), true);
+  const after = P.plan(manifest, pathway, rec);
+  assert.deepEqual(after.names, before, "the reader did it, so it still counts");
+  assert.deepEqual(after.left, []);
+  const got = P.route(pathway, rec, manifest);
+  assert.deepEqual([got.done, got.total, got.next], [3, 3, ""]);
+
+  // The same holds for a reader who says they have used the portal before.
+  const start = P.findPathway(manifest, "new-to-mesa");
+  const seen = P.markDone(P.empty(), "sign-in", "r", "2026-11-15");
+  P.setProfile(seen, "portal", "yes");
+  assert.ok(P.plan(manifest, start, seen).names.includes("sign-in"));
 });
