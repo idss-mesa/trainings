@@ -353,9 +353,12 @@
     /* Decide one tutorial. Returns the name to take, or "" if it is left out. */
     var settle = function (name, point, quiet) {
       var why = "", instead = "";
-      if (isSkipped(record, point)) why = "skip";
-      else if (profile.portal === "yes" && point === "p1") why = "portal";
-      else if (profile.data === "yes" && point === "p2" && rules.foundations.indexOf(name) < 0) why = "data";
+      /* A tutorial the reader has finished is never left out for being
+         something they already know: they did it, so it stays and counts. */
+      var fresh = !isFinished(record, name);
+      if (fresh && isSkipped(record, point)) why = "skip";
+      else if (fresh && profile.portal === "yes" && point === "p1") why = "portal";
+      else if (fresh && profile.data === "yes" && point === "p2" && rules.foundations.indexOf(name) < 0) why = "data";
       else if (inR && has(rules.in_r, name)) {
         if (rules.in_r[name]) { why = "r"; instead = rules.in_r[name]; }
       } else if (inR && (manifest.tutorials[name].builds_on || []).indexOf("load-a-file") >= 0) why = "python-only";

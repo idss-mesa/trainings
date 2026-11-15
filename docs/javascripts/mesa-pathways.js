@@ -500,7 +500,7 @@
       if (isHere) stage.meter.appendChild(el("span", { class: "mesa-here", text: "You are here" }));
       var skipped = stage.point && P.isSkipped(record, stage.point);
       stage.meter.appendChild(document.createTextNode((got.total ? got.done + " of " + got.total + " done" : "Nothing you need here") +
-        (done ? ". Point finished." : skipped ? ". Skip-check passed." : "")));
+        (done ? ". Point finished" : "") + (skipped ? ". Skip-check passed" : "") + (done || skipped ? "." : "")));
       paintSkip(stage, m, store);
       if (stage.reflect) stage.reflect.sync(record, writable(store));
       stage.button.textContent = done ? "\u2713" : String(i + 1);
