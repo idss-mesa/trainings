@@ -694,8 +694,8 @@ Already at home here? If you can answer the 3 questions marked *skip-check*, you
 
     The path you copied stops at `/iplant/home/shared`, and the listing holds many projects that are not MESA's. Which did you click?
 
-    - Shared
     - Community
+    - Shared
     - User Shared
 
     ??? success "Answer"
@@ -708,9 +708,9 @@ Already at home here? If you can answer the 3 questions marked *skip-check*, you
 ??? question "Which of these tells you that a file will still be there after the app stops?"
     After [Save your work where it survives the session](https://idss-mesa.github.io/trainings/tutorials/save-your-work/) · *skip-check*.
 
-    - It is listed under My Files in the portal
     - It is listed in JupyterLab's file browser
     - The dot on the notebook's tab has gone
+    - It is listed under My Files in the portal
 
     ??? success "Answer"
         **It is listed under My Files in the portal.** The Data Browser reads the Data Store directly, not the running app.
@@ -724,9 +724,9 @@ Already at home here? If you can answer the 3 questions marked *skip-check*, you
 ??? question "Your analysis is listed under Canceled, not Completed. Which button ended it?"
     After [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/) · *skip-check*.
 
-    - Terminate
-    - Save & Exit
     - Relaunch
+    - Save & Exit
+    - Terminate
 
     ??? success "Answer"
         **Terminate.** Terminate ends the app at once without saving its outputs.
@@ -746,10 +746,10 @@ Already at home here? If you can answer the 3 questions marked *skip-check*, you
 
     Show the last row of `readings`. Which gauge and day is it?
 
-    - G05, 2026-07-31
     - G01, 2026-07-01
-    - G05, 2026-07-09
     - G03, 2026-07-31
+    - G05, 2026-07-09
+    - G05, 2026-07-31
 
     ??? success "Answer"
         **G05, 2026-07-31.** The file runs gauge by gauge, so it ends with G05 on the last day of July.
@@ -881,10 +881,10 @@ Already at home here? If you can answer the 3 questions marked *skip-check*, you
 ??? question "Which gauge is furthest north?"
     After [Map point data with sf in MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/).
 
-    - G03, Observatory
-    - G05, Quarry
     - G01, Boathouse
     - G02, Orchard
+    - G03, Observatory
+    - G05, Quarry
 
     ??? success "Answer"
         **G03, Observatory.** Observatory has the largest latitude, so it sits at the top of the map.
@@ -942,10 +942,10 @@ Already at home here? If you can answer the 1 questions marked *skip-check*, you
 ??? question "Convert G02 to millimetres, leave out the flagged readings, and drop the repeated row. Which gauge then has the largest July total?"
     After [Check an AI-suggested result against the data](https://idss-mesa.github.io/trainings/tutorials/check-a-suggested-result/) · *skip-check*.
 
-    - G03, 251.1 mm
-    - G05, 390.9 mm
     - G05, 210.9 mm
+    - G03, 251.1 mm
     - G03, 273.6 mm
+    - G05, 390.9 mm
 
     ??? success "Answer"
         **G03, 251.1 mm.** Observatory leads once the data is cleaned. G01 is still missing four days, so even this is not yet a fair comparison.
@@ -5874,7 +5874,9 @@ tutorial keeps its six parts.
    by a small change to what the tutorial taught. If the answer is on the page, it can
    be read off without doing the task.
 2. **Give a number**, or for an answer in two parts, a list of `options:` with the right
-   one repeated as `answer:`.
+   one repeated as `answer:`. List the options in a plain order, such as by name or by
+   size, not with the right one first. The site will not build if the right answer
+   sits in the same place in most self-checks.
 3. **Write `verify:` code** whose last line gives the answer from the practice data.
    `pandas` as `pd`, `duckdb`, and the tables `readings`, `august`, `gauges`, `sites`, and `obs`
    are already loaded. For an R tutorial use `r:` with one expression. The site will
@@ -6304,6 +6306,12 @@ explains.
   daily readings for August 2026, described on the
   [practice data](tutorials/practice-data.md) page. The four files published earlier
   are unchanged, byte for byte, and a test now holds their checksums.
+* **Update**: In the six self-checks with choices, the right answer was always listed
+  first. The choices are now in a plain order, and the site build refuses a set of
+  self-checks where the right answer mostly sits in one place.
+* **Update**: A route shortened or filled by your answers now runs point by point: a
+  tutorial added because you have time sits with its own point. The practice-data page
+  now says what you set out to do when you mark it done.
 * **Update**: Fixes for readers who answer "R" to "Where are you starting?". The R
   version of a tutorial now has its own stop on the pathway page, under the point it
   belongs to; its page names the pathway you are following and links to what comes

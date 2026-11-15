@@ -30,8 +30,8 @@ Already at home here? If you can answer the 3 questions marked *skip-check*, you
 
     The path you copied stops at `/iplant/home/shared`, and the listing holds many projects that are not MESA's. Which did you click?
 
-    - Shared
     - Community
+    - Shared
     - User Shared
 
     ??? success "Answer"
@@ -44,9 +44,9 @@ Already at home here? If you can answer the 3 questions marked *skip-check*, you
 ??? question "Which of these tells you that a file will still be there after the app stops?"
     After [Save your work where it survives the session](../tutorials/save-your-work.md) · *skip-check*.
 
-    - It is listed under My Files in the portal
     - It is listed in JupyterLab's file browser
     - The dot on the notebook's tab has gone
+    - It is listed under My Files in the portal
 
     ??? success "Answer"
         **It is listed under My Files in the portal.** The Data Browser reads the Data Store directly, not the running app.
@@ -60,9 +60,9 @@ Already at home here? If you can answer the 3 questions marked *skip-check*, you
 ??? question "Your analysis is listed under Canceled, not Completed. Which button ended it?"
     After [Stop an app and find your results](../tutorials/stop-app-find-results.md) · *skip-check*.
 
-    - Terminate
-    - Save & Exit
     - Relaunch
+    - Save & Exit
+    - Terminate
 
     ??? success "Answer"
         **Terminate.** Terminate ends the app at once without saving its outputs.
@@ -82,10 +82,10 @@ Already at home here? If you can answer the 3 questions marked *skip-check*, you
 
     Show the last row of `readings`. Which gauge and day is it?
 
-    - G05, 2026-07-31
     - G01, 2026-07-01
-    - G05, 2026-07-09
     - G03, 2026-07-31
+    - G05, 2026-07-09
+    - G05, 2026-07-31
 
     ??? success "Answer"
         **G05, 2026-07-31.** The file runs gauge by gauge, so it ends with G05 on the last day of July.
@@ -217,10 +217,10 @@ Already at home here? If you can answer the 3 questions marked *skip-check*, you
 ??? question "Which gauge is furthest north?"
     After [Map point data with sf in MESA RStudio Geospatial](../tutorials/map-points-in-rstudio.md).
 
-    - G03, Observatory
-    - G05, Quarry
     - G01, Boathouse
     - G02, Orchard
+    - G03, Observatory
+    - G05, Quarry
 
     ??? success "Answer"
         **G03, Observatory.** Observatory has the largest latitude, so it sits at the top of the map.
@@ -278,10 +278,10 @@ Already at home here? If you can answer the 1 questions marked *skip-check*, you
 ??? question "Convert G02 to millimetres, leave out the flagged readings, and drop the repeated row. Which gauge then has the largest July total?"
     After [Check an AI-suggested result against the data](../tutorials/check-a-suggested-result.md) · *skip-check*.
 
-    - G03, 251.1 mm
-    - G05, 390.9 mm
     - G05, 210.9 mm
+    - G03, 251.1 mm
     - G03, 273.6 mm
+    - G05, 390.9 mm
 
     ??? success "Answer"
         **G03, 251.1 mm.** Observatory leads once the data is cleaned. G01 is still missing four days, so even this is not yet a fair comparison.

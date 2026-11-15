@@ -7,6 +7,12 @@
   daily readings for August 2026, described on the
   [practice data](tutorials/practice-data.md) page. The four files published earlier
   are unchanged, byte for byte, and a test now holds their checksums.
+* **Update**: In the six self-checks with choices, the right answer was always listed
+  first. The choices are now in a plain order, and the site build refuses a set of
+  self-checks where the right answer mostly sits in one place.
+* **Update**: A route shortened or filled by your answers now runs point by point: a
+  tutorial added because you have time sits with its own point. The practice-data page
+  now says what you set out to do when you mark it done.
 * **Update**: Fixes for readers who answer "R" to "Where are you starting?". The R
   version of a tutorial now has its own stop on the pathway page, under the point it
   belongs to; its page names the pathway you are following and links to what comes
