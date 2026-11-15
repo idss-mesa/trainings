@@ -117,4 +117,4 @@ lines in step 2 with your username spelled exactly.
 - The same task in Python: [Load a file from your Data Store into a notebook](load-a-file.md).
 - Reference: [MESA RStudio Geospatial](https://idss-mesa.github.io/docs/apps/rstudio/).
 
-*Not yet validated by a second person in MESA RStudio Geospatial. Drafted 2026-11-13; the code was run there that day (R 4.6.2).*
+*Not yet validated by a second person in MESA RStudio Geospatial. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13; the code was run there that day (R 4.6.2).*

@@ -125,4 +125,4 @@ values, and compare against one of those.
 - To ask an assistant yourself:
   [Sign in and start an AI agent in a MESA app](start-an-ai-agent.md).
 
-*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-13; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*

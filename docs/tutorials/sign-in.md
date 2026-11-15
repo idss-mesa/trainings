@@ -67,4 +67,4 @@ lets visitors look at public data without an account, so it can seem to work. Cl
 - Reference: [MESA Portal overview, "Sign in"](https://idss-mesa.github.io/docs/portal/overview/#sign-in),
   which also lists what works without signing in.
 
-*Not yet validated on the live portal. Drafted 2026-11-11 from the MESA documentation.*
+*Not yet validated on the live portal. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-11 from the MESA documentation.*

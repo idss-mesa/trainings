@@ -106,4 +106,4 @@ right-click `untitled.md` and choose **Delete**.
 - [Share a folder with a collaborator](share-a-folder.md)
 - Reference: [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/).
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed in MESA JupyterLab that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed in MESA JupyterLab that day.*

@@ -6,6 +6,11 @@
   version of a tutorial now has its own stop on the pathway page, under the point it
   belongs to; its page names the pathway you are following and links to what comes
   next; and code in a self-check's explanation is shown as code.
+* **Creation**: Added [How AI was used](about/ai-disclosure.md), a statement of which
+  parts of this site were drafted with an AI assistant and what a person has checked.
+* **Update**: Every tutorial's last line now says it was drafted with AI assistance and
+  links to that page. The template, the contributing guide, the site footer, and
+  `AGENTS.md` (rule 17) require the same of new pages.
 * **Update**: The [learning pathways](pathways/index.md) are much shorter. Each now
   opens with its essentials, 10 to 25 minutes, and lists the rest under "If you have
   more time". [Get ready for a hands-on session](pathways/get-ready-for-a-session.md)

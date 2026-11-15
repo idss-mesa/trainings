@@ -140,4 +140,4 @@ in R's working folder. Either step 2 did not run, or R is somewhere else: run
 - Reference: [R Client](https://duckdb.org/docs/2.0/clients/r) in the DuckDB
   documentation, which also covers `dplyr` through `dbplyr`.
 
-*Not yet validated by a second person in MESA RStudio Geospatial. Drafted 2026-11-13; the code was run there that day (R 4.6.2, duckdb 2.0.0).*
+*Not yet validated by a second person in MESA RStudio Geospatial. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13; the code was run there that day (R 4.6.2, duckdb 2.0.0).*

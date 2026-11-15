@@ -108,4 +108,4 @@ the first cell again.
   and [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) for what the
   app contains.
 
-*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*

@@ -80,4 +80,4 @@ not MESA's.** You clicked **Shared**, which opens every CyVerse community projec
   ["Browse and find files"](https://idss-mesa.github.io/docs/portal/data/#browse-and-find-files)
   for search and the built-in file viewer.
 
-*Not yet validated by a second person. Drafted 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*
+*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*

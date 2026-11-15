@@ -102,4 +102,4 @@ definition in a cell above the one that failed, then repeat step 1.
 - Reference: [Notebooks](https://jupyterlab.readthedocs.io/en/stable/user/notebook.html)
   in the JupyterLab documentation.
 
-*Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the version cell was run with pandas 3.1.*
+*Not yet validated in MESA JupyterLab. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-12; the version cell was run with pandas 3.1.*

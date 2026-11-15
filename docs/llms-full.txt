@@ -147,6 +147,12 @@ feature, follow its **Reference** link to the
 The tutorials are licensed [CC BY 4.0](https://idss-mesa.github.io/trainings/about/license/): copy and adapt them, with
 credit. To fix one or write a new one, see [Contribute a tutorial](https://idss-mesa.github.io/trainings/contributing/).
 
+## How AI was used
+
+The pages on this site were drafted with an AI assistant and are drafts until a person
+has followed them. [How AI was used](https://idss-mesa.github.io/trainings/about/ai-disclosure/) says what that covers and
+how to tell, page by page.
+
 ## For AI agents
 
 This site is an [Open Knowledge Format (OKF) v0.2](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md)
@@ -1092,7 +1098,7 @@ lets visitors look at public data without an account, so it can seem to work. Cl
 - Reference: [MESA Portal overview, "Sign in"](https://idss-mesa.github.io/docs/portal/overview/#sign-in),
   which also lists what works without signing in.
 
-*Not yet validated on the live portal. Drafted 2026-11-11 from the MESA documentation.*
+*Not yet validated on the live portal. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-11 from the MESA documentation.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/find-community-data/
 
@@ -1178,7 +1184,7 @@ not MESA's.** You clicked **Shared**, which opens every CyVerse community projec
   ["Browse and find files"](https://idss-mesa.github.io/docs/portal/data/#browse-and-find-files)
   for search and the built-in file viewer.
 
-*Not yet validated by a second person. Drafted 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/
 
@@ -1293,7 +1299,7 @@ the form. CyVerse says it answers within one to two days. Then launch again.
   [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) for what the app
   contains.
 
-*Not yet validated by a second person. Drafted 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/save-your-work/
 
@@ -1390,7 +1396,7 @@ the app.
 - Reference: [Your Data Store inside the app](https://idss-mesa.github.io/docs/apps/agents/#your-data-store-inside-the-app)
   and [Managing data, "Data in the apps"](https://idss-mesa.github.io/docs/portal/data/#data-in-the-apps).
 
-*Not yet validated by a second person. Drafted 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/
 
@@ -1489,7 +1495,7 @@ start the app again with the same settings.
   and ["Find the results"](https://idss-mesa.github.io/docs/portal/analyses/#find-the-results),
   which also cover **Extend Time**, **Monitor**, and failed analyses.
 
-*Not yet validated by a second person. Drafted 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/practice-data/
 
@@ -1611,6 +1617,8 @@ portal's Data Browser; see
 The practice data is released under [CC BY 4.0](https://idss-mesa.github.io/trainings/about/license/), like the rest of
 this site.
 
+*This page was drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/).*
+
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/load-a-file/
 
 ---
@@ -1723,7 +1731,7 @@ the first cell again.
   and [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) for what the
   app contains.
 
-*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/read-the-data-dictionary/
 
@@ -1826,7 +1834,7 @@ loaded the files. Run the notebook's first cell again, then repeat the step.
 - [Check a column's range and missing values](https://idss-mesa.github.io/trainings/tutorials/check-range-and-missing/)
 - Reference: the [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/) page, which holds the dictionary.
 
-*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/check-range-and-missing/
 
@@ -1941,7 +1949,7 @@ plain `pd.read_csv("readings.csv")`.
 - Reference: [Working with missing data](https://pandas.pydata.org/docs/user_guide/missing_data.html)
   in the pandas user guide.
 
-*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/tally-a-quality-flag/
 
@@ -2065,7 +2073,7 @@ again.
 - Reference: [pandas.Series.value_counts](https://pandas.pydata.org/docs/reference/api/pandas.Series.value_counts.html)
   and [pandas.crosstab](https://pandas.pydata.org/docs/reference/api/pandas.crosstab.html).
 
-*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/count-records-per-day/
 
@@ -2198,7 +2206,7 @@ cell again to reload the file, then repeat the step.
 - Reference: [Group by: split-apply-combine](https://pandas.pydata.org/docs/user_guide/groupby.html)
   in the pandas user guide.
 
-*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/
 
@@ -2325,7 +2333,7 @@ before you join.
   [Count records per day to find incomplete days](https://idss-mesa.github.io/trainings/tutorials/count-records-per-day/).
 - Reference: [pandas.DataFrame.merge](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html).
 
-*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/leave-a-rerunnable-notebook/
 
@@ -2433,7 +2441,7 @@ definition in a cell above the one that failed, then repeat step 1.
 - Reference: [Notebooks](https://jupyterlab.readthedocs.io/en/stable/user/notebook.html)
   in the JupyterLab documentation.
 
-*Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the version cell was run with pandas 3.1.*
+*Not yet validated in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-12; the version cell was run with pandas 3.1.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/find-your-way-around/
 
@@ -2520,7 +2528,7 @@ away. Click the **☰** menu button to open it, or widen the browser window.
 - Reference: [MESA Portal overview, "Find your way around"](https://idss-mesa.github.io/docs/portal/overview/#find-your-way-around)
   and ["Dashboard"](https://idss-mesa.github.io/docs/portal/overview/#dashboard).
 
-*Not yet validated by a second person. Drafted 2026-11-12 from the MESA documentation and followed once on the live portal on 2026-11-13.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-12 from the MESA documentation and followed once on the live portal on 2026-11-13.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/share-a-folder/
 
@@ -2615,7 +2623,7 @@ appears only on folders you own. Check that the header says **Owner**. If you ar
   which also covers the other access levels and sharing several items at once. The
   dialog names them **Read & Write** and **Full Control**.
 
-*Not yet validated by a second person. Drafted 2026-11-12 from the MESA documentation and followed once on the live portal on 2026-11-13.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-12 from the MESA documentation and followed once on the live portal on 2026-11-13.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/add-metadata/
 
@@ -2705,7 +2713,7 @@ edit**, not **Read only**. Use a folder under **My Files**.
   which covers reserved attribute names and the full metadata page with its DataCite,
   Dublin Core, and EML views.
 
-*Not yet validated by a second person. Drafted 2026-11-12 from the MESA documentation and followed once on the live portal on 2026-11-13.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-12 from the MESA documentation and followed once on the live portal on 2026-11-13.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/start-an-ai-agent/
 
@@ -2811,7 +2819,7 @@ before you signed in, so its tools are still anonymous. Quit the agent, run
   for the other agents (`claude`, `codex`, `agy`), using your own account with an
   agent's vendor, and local models on a GPU.
 
-*Not yet validated on the live portal. Drafted 2026-11-12 from the MESA documentation.*
+*Not yet validated on the live portal. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-12 from the MESA documentation.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/keep-secrets-out-of-files/
 
@@ -2918,7 +2926,7 @@ service that issued it, because earlier copies of the file may still hold the ol
   documentation, which says where each MESA tool stores a password, and
   [getpass](https://docs.python.org/3/library/getpass.html).
 
-*Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the check in step 5 was run locally.*
+*Not yet validated in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-12; the check in step 5 was run locally.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/local-days-from-utc/
 
@@ -3054,7 +3062,7 @@ offset. Say what zone they are in first:
 - Reference: [Time zone handling](https://pandas.pydata.org/docs/user_guide/timeseries.html#time-zone-handling)
   in the pandas user guide.
 
-*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-13; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/work-with-a-long-table/
 
@@ -3203,7 +3211,7 @@ is right before you reshape.
 - Reference: [Reshaping and pivot tables](https://pandas.pydata.org/docs/user_guide/reshaping.html)
   in the pandas user guide.
 
-*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-13; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/query-parquet-with-duckdb/
 
@@ -3348,7 +3356,7 @@ is not in `mesa-practice`. Run step 2 again and look for the file in the file br
   and the [client overview](https://duckdb.org/docs/2.0/clients/overview) in the DuckDB
   documentation.
 
-*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-13; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/check-a-suggested-result/
 
@@ -3479,7 +3487,7 @@ values, and compare against one of those.
 - To ask an assistant yourself:
   [Sign in and start an AI agent in a MESA app](https://idss-mesa.github.io/trainings/tutorials/start-an-ai-agent/).
 
-*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-13; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/
 
@@ -3632,7 +3640,7 @@ the folder that is not `shared` is named after your username.
   for what the app contains, and
   [Simple Features for R](https://r-spatial.github.io/sf/articles/sf1.html).
 
-*Not yet validated by a second person in MESA RStudio Geospatial. Drafted 2026-11-13; the code was run there on 2026-11-13 (R 4.6.2, sf 1.1.3).*
+*Not yet validated by a second person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13; the code was run there on 2026-11-13 (R 4.6.2, sf 1.1.3).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/make-a-folder/
 
@@ -3716,7 +3724,7 @@ shows only **Home** and **Data Browser**, [sign in](https://idss-mesa.github.io/
 - [Add metadata to a file or folder](https://idss-mesa.github.io/trainings/tutorials/add-metadata/)
 - Reference: [Managing data, "Upload, create, move, and delete"](https://idss-mesa.github.io/docs/portal/data/#upload-create-move-and-delete).
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13 and followed once on the live portal that day.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/search-the-data-browser/
 
@@ -3806,7 +3814,7 @@ so: *in lakehouse*, not *in mesa*. Click **Community** to search from the top ag
 - [Find MESA's community data in the Data Browser](https://idss-mesa.github.io/trainings/tutorials/find-community-data/)
 - Reference: [Managing data, "Search"](https://idss-mesa.github.io/docs/portal/data/#search).
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13 and followed once on the live portal that day.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/launch-with-options/
 
@@ -3897,7 +3905,7 @@ are not available, or your CPU-hour quota is used up. Check **Resource Usage** o
 - Reference: [Starting applications, "Launch with Options"](https://idss-mesa.github.io/docs/portal/applications/#launch-with-options),
   which also covers GPU builds.
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13 and followed once on the live portal that day.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/monitor-and-extend/
 
@@ -3982,7 +3990,7 @@ and not while an app is still starting. Wait for the badge to read **Running**, 
 - The panel's **Resources** tab does not yet show live CPU or memory use.
 - Reference: [Managing analyses, "Work with a running app"](https://idss-mesa.github.io/docs/portal/analyses/#work-with-a-running-app).
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13 and followed once on the live portal that day.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/
 
@@ -4105,7 +4113,7 @@ lines in step 2 with your username spelled exactly.
 - The same task in Python: [Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/).
 - Reference: [MESA RStudio Geospatial](https://idss-mesa.github.io/docs/apps/rstudio/).
 
-*Not yet validated by a second person in MESA RStudio Geospatial. Drafted 2026-11-13; the code was run there that day (R 4.6.2).*
+*Not yet validated by a second person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13; the code was run there that day (R 4.6.2).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/r-tally-a-quality-flag/
 
@@ -4220,7 +4228,7 @@ of `NA` for each one. `which()` keeps only the rows where the comparison is true
 - [Query a Parquet file with DuckDB from R](https://idss-mesa.github.io/trainings/tutorials/r-query-parquet-with-duckdb/)
 - The same task in Python: [Tally a quality flag before you trust a number](https://idss-mesa.github.io/trainings/tutorials/tally-a-quality-flag/).
 
-*Not yet validated by a second person in MESA RStudio Geospatial. Drafted 2026-11-13; the code was run there that day (R 4.6.2).*
+*Not yet validated by a second person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13; the code was run there that day (R 4.6.2).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/r-query-parquet-with-duckdb/
 
@@ -4366,7 +4374,7 @@ in R's working folder. Either step 2 did not run, or R is somewhere else: run
 - Reference: [R Client](https://duckdb.org/docs/2.0/clients/r) in the DuckDB
   documentation, which also covers `dplyr` through `dbplyr`.
 
-*Not yet validated by a second person in MESA RStudio Geospatial. Drafted 2026-11-13; the code was run there that day (R 4.6.2, duckdb 2.0.0).*
+*Not yet validated by a second person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13; the code was run there that day (R 4.6.2, duckdb 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/cloud-shell-download/
 
@@ -4479,7 +4487,7 @@ makes it refuse to save an error page.
 - Reference: [MESA CLI (Cloud Shell)](https://idss-mesa.github.io/docs/apps/cli/), for
   what else the terminal contains.
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once in the app that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13 and followed once in the app that day.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/vscode-run-a-script/
 
@@ -4590,7 +4598,7 @@ folder above it.
 - Reference: [MESA VS Code](https://idss-mesa.github.io/docs/apps/vscode/), for the
   extensions and tools the app contains.
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once in the app that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13 and followed once in the app that day.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/desktop-open-a-file/
 
@@ -4683,7 +4691,7 @@ then open the image with the right-click menu as in step 5.
 - Reference: [MESA KASM Ubuntu Desktop](https://idss-mesa.github.io/docs/apps/kasm/),
   for what the desktop contains.
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once in the app that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13 and followed once in the app that day.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/write-a-readme/
 
@@ -4795,7 +4803,7 @@ right-click `untitled.md` and choose **Delete**.
 - [Share a folder with a collaborator](https://idss-mesa.github.io/trainings/tutorials/share-a-folder/)
 - Reference: [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/).
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed in MESA JupyterLab that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13 and followed in MESA JupyterLab that day.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/record-software-versions/
 
@@ -4920,7 +4928,7 @@ installed. Search for one name without the `==`, for example
 - [Write a README for a data folder](https://idss-mesa.github.io/trainings/tutorials/write-a-readme/), and mention these two files
   in it.
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed in MESA JupyterLab that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13 and followed in MESA JupyterLab that day.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/rename-a-folder/
 
@@ -5010,7 +5018,7 @@ few seconds and reload the page.
 - [Move folders into another folder](https://idss-mesa.github.io/trainings/tutorials/move-folders/)
 - Reference: [Managing data, "Upload, create, move, and delete"](https://idss-mesa.github.io/docs/portal/data/#upload-create-move-and-delete).
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13 and followed once on the live portal that day.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/move-folders/
 
@@ -5110,7 +5118,7 @@ example one just restored from the trash. Wait a minute and click **Move** again
 - [Move a folder to the trash and get it back](https://idss-mesa.github.io/trainings/tutorials/trash-and-restore/)
 - Reference: [Managing data, "Work on several items at once"](https://idss-mesa.github.io/docs/portal/data/#work-on-several-items-at-once).
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13 and followed once on the live portal that day.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/trash-and-restore/
 
@@ -5207,7 +5215,7 @@ wait and try again.
   toolbar: see [Move folders into another folder](https://idss-mesa.github.io/trainings/tutorials/move-folders/) for the toolbar.
 - Reference: [Managing data, "Upload, create, move, and delete"](https://idss-mesa.github.io/docs/portal/data/#upload-create-move-and-delete).
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13 and followed once on the live portal that day.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/browse-a-large-folder/
 
@@ -5290,7 +5298,7 @@ Set **Per page** to **100** to sort more items together, or
   than paging when you know part of the name.
 - Reference: [Managing data, "Browse and find files"](https://idss-mesa.github.io/docs/portal/data/#browse-and-find-files).
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13 and followed once on the live portal that day.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/read-shared-metadata/
 
@@ -5372,7 +5380,7 @@ runs to several pages. Click **Next**, or set **Per page** to **100**.
 - [Add metadata to a file or folder](https://idss-mesa.github.io/trainings/tutorials/add-metadata/) of your own.
 - Reference: [Managing data, "Describe data with metadata (AVUs)"](https://idss-mesa.github.io/docs/portal/data/#describe-data-with-metadata-avus).
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13 and followed once on the live portal that day.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/stop-sharing-a-folder/
 
@@ -5454,7 +5462,7 @@ both.
   or copied stays with them.
 - Reference: [Managing data, "Share data"](https://idss-mesa.github.io/docs/portal/data/#share-data).
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13 and followed once on the live portal that day.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/check-your-usage/
 
@@ -5540,7 +5548,7 @@ an app stops. Look again later.
 - [Launch an app with the cores, memory, and time you choose](https://idss-mesa.github.io/trainings/tutorials/launch-with-options/)
 - Reference: [The MESA Portal overview](https://idss-mesa.github.io/docs/portal/overview/).
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13 and followed once on the live portal that day.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/view-a-notebook/
 
@@ -5628,7 +5636,7 @@ Python script (`.py`) is one example.
 - [Look inside a CSV file from the portal](https://idss-mesa.github.io/trainings/tutorials/preview-a-table/)
 - Reference: [Managing data, "View files in the browser"](https://idss-mesa.github.io/docs/portal/data/#view-files-in-the-browser).
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13 and followed once on the live portal that day.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/preview-a-table/
 
@@ -5736,7 +5744,7 @@ files. For other tables, [load the file into a notebook](https://idss-mesa.githu
   5 in a notebook, where you can keep the result.
 - Reference: [Managing data, "View files in the browser"](https://idss-mesa.github.io/docs/portal/data/#view-files-in-the-browser).
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13 and followed once on the live portal that day.*
 
 ---8<--- https://idss-mesa.github.io/trainings/contributing/
 
@@ -5912,6 +5920,13 @@ finish on the live portal. To validate one:
 A maintainer then removes the draft notice, sets `status: stable`, and records the
 validation. Only a human maintainer adds the `verified:` key.
 
+## If you used AI
+
+Say so. Put the tool in `generated.by`, and keep the "Drafted with AI assistance" wording
+in the tutorial's last line; [How AI was used](https://idss-mesa.github.io/trainings/about/ai-disclosure/) explains why. You
+are responsible for what you submit: run every step and every code block yourself before
+opening the pull request.
+
 ## License of contributions
 
 By contributing you agree that your text and images are released under
@@ -6002,7 +6017,7 @@ sources:
 - <The tutorial that follows, linked>
 - Reference: <the MESA documentation page for the full picture, linked>
 
-*Not yet validated on the live portal. Drafted <YYYY-MM-DD> from <source>.*
+*Not yet validated on the live portal. Drafted with [AI assistance](../about/ai-disclosure.md) on <YYYY-MM-DD> from <source>.*
 ````
 
 ## Rules
@@ -6031,6 +6046,10 @@ sources:
     schedule.
 11. **Data is public, synthetic, or authorized,** with its attribution line when a
     tutorial uses a dataset.
+12. **Say when AI helped.** If an AI assistant drafted or revised any part of the
+    tutorial, its last line says so and links to [How AI was used](https://idss-mesa.github.io/trainings/about/ai-disclosure/),
+    and `generated.by` names the tool. Write "Drafted <YYYY-MM-DD>" with no mention of AI
+    only when a person wrote all of it.
 
 ## Front matter
 
@@ -6056,6 +6075,12 @@ with:
 
 ```markdown
 *Validated <date> by <who> on <portal, app, and image or version>.*
+```
+
+If AI helped write the tutorial, that statement stays after validation:
+
+```markdown
+*Drafted with [AI assistance](../about/ai-disclosure.md). Validated <date> by <who> on <portal, app, and image or version>.*
 ```
 
 A data tutorial, one that teaches a technique on the
@@ -6125,6 +6150,81 @@ authors and do not necessarily reflect the views of the NSF.
 
 [^cc-by]: https://idss-mesa.github.io/trainings/about/Creative Commons Attribution 4.0 International, <https://creativecommons.org/licenses/by/4.0/>.
 [^repo]: https://idss-mesa.github.io/trainings/about/idss-mesa/trainings repository, <https://github.com/idss-mesa/trainings>.
+
+---8<--- https://idss-mesa.github.io/trainings/about/ai-disclosure/
+
+---
+type: Reference
+title: "How AI was used to make this site"
+description: "Which parts of MESA Trainings were drafted with an AI assistant, what a person has and has not checked, and how to tell for any single page."
+tags: [about, ai-disclosure, provenance]
+status: draft
+generated: { by: "claude/mythos-5.2", at: "2026-11-14T00:00:00Z" }
+sources:
+  - id: repo
+    resource: "https://github.com/idss-mesa/trainings"
+    title: "idss-mesa/trainings repository (front matter, AGENTS.md, and docs/log.md)"
+    author: "team:idss-mesa"
+  - id: template
+    resource: "https://idss-mesa.github.io/trainings/template/"
+    title: "Tutorial template"
+    author: "team:idss-mesa"
+---
+
+# How AI was used to make this site
+
+Every page on this site was drafted with an AI assistant, working under the direction
+of the MESA training team[^repo]. This page says what that covers, what it does not tell
+you, and how to check any page for yourself.
+
+## What was drafted with AI
+
+| Part of the site | How AI was used |
+|---|---|
+| Tutorials | The text, steps, and code were drafted by an AI coding assistant from the MESA documentation |
+| Printed results in tutorials | Real output from running the code. Scripts compare them again each time the site is built |
+| Learning pathways and self-checks | Drafted with AI assistance |
+| Practice data | Synthetic files made by a script with a fixed seed. The page describing them was drafted with AI assistance |
+| Other pages, including this one | Drafted with AI assistance |
+
+## What a person has checked
+
+Being drafted with AI says nothing about whether a page is right. Two other signals do.
+
+- **The draft notice.** A tutorial marked *Draft: not yet validated* has not been
+  followed from start to finish by a second person. Today that is every tutorial.
+- **The last line.** Each tutorial ends by saying what was run or followed, where, and
+  when. If that line does not name a person, read it as "not yet checked by one".
+
+When a person validates a tutorial, the notice comes off and the last line names them.
+The statement that AI helped draft it stays[^template].
+
+## How to tell for one page
+
+1. Read the tutorial's last line.
+2. For the exact tool, open the page's Markdown twin (the page address plus
+   `index.md`) and read `generated.by` at the top. A tool name and version means an
+   AI assistant or other tool wrote that version of the page. `human:` followed by a
+   name means a person did.
+3. The [changelog](https://idss-mesa.github.io/trainings/log/) records what was checked on the live portal, by date.
+
+## What this means for you
+
+- Follow a draft with care. Screen names and steps come from documentation and may
+  differ from what you see.
+- If a step is wrong, [open an issue](https://github.com/idss-mesa/trainings/issues).
+  A correction from someone who has just followed the steps is the most useful
+  contribution this site can get.
+- If you reuse a tutorial under its [license](https://idss-mesa.github.io/trainings/about/license/), keep the statement that it
+  was drafted with AI assistance.
+
+## If you contribute
+
+Say when you used AI, in the page's last line and in `generated.by`. See
+[Contribute a tutorial](https://idss-mesa.github.io/trainings/contributing/).
+
+[^repo]: https://idss-mesa.github.io/trainings/about/idss-mesa/trainings repository, <https://github.com/idss-mesa/trainings>.
+[^template]: https://idss-mesa.github.io/trainings/about/Tutorial template, <https://idss-mesa.github.io/trainings/template/>.
 
 ---8<--- https://idss-mesa.github.io/trainings/about/ai-agents/
 
@@ -6198,6 +6298,11 @@ explains.
   version of a tutorial now has its own stop on the pathway page, under the point it
   belongs to; its page names the pathway you are following and links to what comes
   next; and code in a self-check's explanation is shown as code.
+* **Creation**: Added [How AI was used](about/ai-disclosure.md), a statement of which
+  parts of this site were drafted with an AI assistant and what a person has checked.
+* **Update**: Every tutorial's last line now says it was drafted with AI assistance and
+  links to that page. The template, the contributing guide, the site footer, and
+  `AGENTS.md` (rule 17) require the same of new pages.
 * **Update**: The [learning pathways](pathways/index.md) are much shorter. Each now
   opens with its essentials, 10 to 25 minutes, and lists the rest under "If you have
   more time". [Get ready for a hands-on session](pathways/get-ready-for-a-session.md)

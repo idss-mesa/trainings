@@ -77,4 +77,4 @@ Set **Per page** to **100** to sort more items together, or
   than paging when you know part of the name.
 - Reference: [Managing data, "Browse and find files"](https://idss-mesa.github.io/docs/portal/data/#browse-and-find-files).
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*

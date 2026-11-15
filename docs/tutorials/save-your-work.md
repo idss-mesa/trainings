@@ -91,4 +91,4 @@ the app.
 - Reference: [Your Data Store inside the app](https://idss-mesa.github.io/docs/apps/agents/#your-data-store-inside-the-app)
   and [Managing data, "Data in the apps"](https://idss-mesa.github.io/docs/portal/data/#data-in-the-apps).
 
-*Not yet validated by a second person. Drafted 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*
+*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*

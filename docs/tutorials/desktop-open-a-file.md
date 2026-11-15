@@ -87,4 +87,4 @@ then open the image with the right-click menu as in step 5.
 - Reference: [MESA KASM Ubuntu Desktop](https://idss-mesa.github.io/docs/apps/kasm/),
   for what the desktop contains.
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once in the app that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once in the app that day.*

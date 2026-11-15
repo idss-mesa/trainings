@@ -85,4 +85,4 @@ are not available, or your CPU-hour quota is used up. Check **Resource Usage** o
 - Reference: [Starting applications, "Launch with Options"](https://idss-mesa.github.io/docs/portal/applications/#launch-with-options),
   which also covers GPU builds.
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*

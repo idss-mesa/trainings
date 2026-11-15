@@ -107,4 +107,4 @@ makes it refuse to save an error page.
 - Reference: [MESA CLI (Cloud Shell)](https://idss-mesa.github.io/docs/apps/cli/), for
   what else the terminal contains.
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once in the app that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once in the app that day.*

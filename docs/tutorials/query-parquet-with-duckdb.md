@@ -139,4 +139,4 @@ is not in `mesa-practice`. Run step 2 again and look for the file in the file br
   and the [client overview](https://duckdb.org/docs/2.0/clients/overview) in the DuckDB
   documentation.
 
-*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-13; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*

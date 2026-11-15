@@ -109,4 +109,4 @@ plain `pd.read_csv("readings.csv")`.
 - Reference: [Working with missing data](https://pandas.pydata.org/docs/user_guide/missing_data.html)
   in the pandas user guide.
 
-*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
