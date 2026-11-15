@@ -50,9 +50,41 @@ body, .md-typeset { font-family: "Archivo", system-ui, sans-serif; }
 .md-header__title { font-weight: 800; letter-spacing: -0.015em; }
 .md-tabs { border-bottom: 2px solid var(--mesa-divider); }
 .md-tabs__link { opacity: 1; font-size: 0.7rem; }
+/* Small text never uses the bright accent, which fails contrast at this size:
+   the current tab and page are marked in the darker --mesa-accent-700, and
+   the current page also by weight, so colour is not the only sign. */
 .md-tabs__link:hover,
-.md-tabs__item--active .md-tabs__link { color: var(--mesa-accent); }
-.md-nav__link--active, .md-nav__link:hover { color: var(--mesa-accent-700); }
+.md-tabs__item--active .md-tabs__link { color: var(--mesa-accent-700); }
+.md-tabs__item--active .md-tabs__link { font-weight: 600; }
+.md-nav__link--active, .md-nav__link:hover,
+.md-nav__item .md-nav__link--active, .md-nav__item .md-nav__link--active code { color: var(--mesa-accent-700); }
+.md-nav__link--active { font-weight: 600; }
+.md-sidebar .md-nav__link.md-nav__link--active,
+.md-sidebar .md-nav__link.md-nav__link--active .md-ellipsis { color: var(--mesa-accent-700) !important; }
+
+/* The copy and select buttons on code blocks: at least 24 by 24 pixels. */
+.md-typeset .md-code__button { min-width: 24px; min-height: 24px; }
+
+/* The theme renders a colour-scheme switch even with one scheme: a hidden
+   input that still takes keyboard focus. There is nothing to switch. */
+.md-header__option[data-md-component="palette"] { display: none; }
+
+/* Code colours that hold 4.5:1 on the code ground: ink, the two dark accents,
+   and one neutral. */
+[data-md-color-scheme="default"] {
+  --md-code-hl-keyword-color: #7c1405;
+  --md-code-hl-special-color: #7c1405;
+  --md-code-hl-constant-color: #7c1405;
+  --md-code-hl-function-color: #ae1800;
+  --md-code-hl-string-color: #444141;
+  --md-code-hl-number-color: #201e1d;
+  --md-code-hl-name-color: #201e1d;
+  --md-code-hl-variable-color: #201e1d;
+  --md-code-hl-operator-color: #444141;
+  --md-code-hl-punctuation-color: #444141;
+  --md-code-hl-comment-color: #605d5d;
+  --md-code-hl-generic-color: #605d5d;
+}
 
 /* — type: Archivo 800 headings with the main site's tight tracking — */
 .md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4 {

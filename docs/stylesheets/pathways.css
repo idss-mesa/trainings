@@ -217,7 +217,7 @@
 
 /* — a tutorial page — */
 .md-typeset .mesa-where {
-  font-size: 0.7rem; color: var(--mesa-muted); margin: -0.6em 0 1em;
+  font-size: 0.7rem; color: var(--mesa-muted); margin: 0 0 0.8rem;
   padding-left: 0.6rem; border-left: var(--mesa-rail) solid var(--mesa-text);
 }
 .mesa-strip { margin: 2rem 0 0; padding: 0.9rem 0; border-top: 2px solid var(--mesa-text); border-bottom: 2px solid var(--mesa-text); }

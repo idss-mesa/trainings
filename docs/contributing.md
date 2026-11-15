@@ -1,10 +1,10 @@
 ---
 type: Guide
 title: "Contribute a tutorial"
-description: "How to report a problem with a MESA tutorial, fix one, write a new one, and validate one on the live portal."
-tags: [contributing, tutorials]
+description: "How to report a problem with a MESA tutorial, fix one, write a new one, add it to a learning pathway, write a self-check, and validate a tutorial on the live portal."
+tags: [contributing, tutorials, pathway, self-check]
 status: draft
-generated: { by: "claude-code/2.1.224", at: "2026-11-11T00:00:00Z" }
+generated: { by: "claude-code/2.1.321", at: "2026-11-14T00:00:00Z" }
 sources:
   - id: repo
     resource: "https://github.com/idss-mesa/trainings"
@@ -48,6 +48,90 @@ A screenshot helps. Leave passwords, tokens, and private data out of it.
     ```
 
 7. Commit the regenerated files with your change, and open a pull request. Changes reach the site only through a reviewed pull request.
+
+## Add a tutorial to a pathway
+
+A [learning pathway](pathways/index.md) is a short route through the tutorials towards
+one goal. The pathways are described in one file, `data/pathways.yml`, and the pages
+are written from it by a script. Never edit `docs/pathways/` or `docs/pathway.md` by
+hand.
+
+1. Give the tutorial its pathway tag, `p1` to `p5`, in its front matter, and a
+   `**Time:** N minutes.` line. The pathway pages read its title, point, and time from
+   the tutorial itself.
+2. In `data/pathways.yml`, find the pathway and the stage for the tutorial's point, and
+   add the file name, without `.md`, to that stage's `tutorials:` list:
+
+    ```yaml
+      - point: p2
+        tutorials:
+          - practice-data
+          - load-a-file
+          - your-new-tutorial
+    ```
+
+    A stage shows at most seven tutorials. Put anything beyond that under `more:`, which
+    readers open with "More in this area".
+3. Run `python scripts/gen_pathways.py` and commit what it writes. It stops with a
+   message if a name matches no tutorial, if a tutorial sits under the wrong point, or
+   if a list is too long.
+
+A tutorial that is in no pathway still appears under its point on
+[Every tutorial, by pathway point](pathway.md). To choose its place there, add it to a
+group under `by_point:` in the same file.
+
+A new pathway is a new entry under `pathways:` and one line in the `nav` list in
+`zensical.toml`. Name it for what the reader wants to do, never for a numbered session
+or a date.
+
+## Write a self-check
+
+A [self-check](pathways/self-checks.md) is one short question a reader tries after a
+tutorial. It lives under `checks:` in `data/pathways.yml`, not in the tutorial, so the
+tutorial keeps its six parts.
+
+```yaml
+  rows-without-repeats:
+    tutorial: count-records-per-day
+    ask: Remove exact repeats with `drop_duplicates()`. How many rows remain?
+    answer: 151
+    how: len(readings.drop_duplicates())
+    verify:
+      python: |
+        len(readings.drop_duplicates())
+    right: One row, G03 on 5 July, is written twice, so 152 becomes 151.
+    slips:
+      "152": That is the table as loaded. One row for G03 is written twice.
+    otherwise: Count the rows of `readings.drop_duplicates()`.
+```
+
+1. **Ask for something the tutorial does not print.** Choose a number the reader gets
+   by a small change to what the tutorial taught. If the answer is on the page, it can
+   be read off without doing the task.
+2. **Give a number**, or for an answer in two parts, a list of `options:` with the right
+   one repeated as `answer:`.
+3. **Write `verify:` code** whose last line gives the answer from the practice data.
+   `pandas` as `pd`, `duckdb`, and the tables `readings`, `gauges`, `sites`, and `obs`
+   are already loaded. For an R tutorial use `r:` with one expression. The site will
+   not build if the code and the answer disagree.
+4. **Name the likely slips.** For each wrong answer a careful person might give, write
+   one sentence under `slips:` that says what went wrong, and a general hint under
+   `otherwise:`. Write `right:` as the one sentence that explains the answer.
+5. **A question about a portal screen has no `verify:`.** It is shown as "not
+   machine-checked". Write one only for a tutorial that has been followed on the live
+   portal, and take the answer from that tutorial's own text.
+6. To let readers skip a point by answering its questions, list their names under that
+   point's `skip_check:`.
+7. Check it:
+
+    ```bash
+    pip install pandas==3.1.1 duckdb==2.0.0 pyyaml
+    python scripts/gen_pathways.py           # writes the self-checks page
+    python scripts/check_self_checks.py      # the answers agree with the data
+    ```
+
+Self-check answers are public and are for a reader's own use. Answer keys for training
+sessions do not belong in this repository.
 
 ## What belongs here
 

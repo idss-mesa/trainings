@@ -83,7 +83,7 @@ The form https://idss-mesa.github.io/trainings/<path>.md also returns the same M
 
 ## Contributing
 
-- [Contribute a tutorial](https://idss-mesa.github.io/trainings/contributing/): How to report a problem with a MESA tutorial, fix one, write a new one, and validate one on the live portal. (draft) Markdown twin: https://idss-mesa.github.io/trainings/contributing/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/contributing.md
+- [Contribute a tutorial](https://idss-mesa.github.io/trainings/contributing/): How to report a problem with a MESA tutorial, fix one, write a new one, add it to a learning pathway, write a self-check, and validate a tutorial on the live portal. (draft) Markdown twin: https://idss-mesa.github.io/trainings/contributing/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/contributing.md
 - [Tutorial template](https://idss-mesa.github.io/trainings/template/): The template every MESA tutorial follows: the front matter, the six fixed parts, the draft notice, and the validation line. (draft) Markdown twin: https://idss-mesa.github.io/trainings/template/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/template.md
 
 ## About
@@ -93,7 +93,7 @@ The form https://idss-mesa.github.io/trainings/<path>.md also returns the same M
 
 ## Meta
 
-- [Full corpus in one file](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with frontmatter, links made absolute; about 252 KB, roughly 65,000 tokens. Prefer it over fetching pages one at a time.
+- [Full corpus in one file](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with frontmatter, links made absolute; about 257 KB, roughly 66,000 tokens. Prefer it over fetching pages one at a time.
 - [Update log](https://idss-mesa.github.io/trainings/log/): dated history of changes to this bundle.
 - [For AI agents](https://idss-mesa.github.io/trainings/about/ai-agents/): endpoints, trust signals, and what to do if you cannot fetch this site.
 - [Sitemap](https://idss-mesa.github.io/trainings/sitemap.xml) and [robots.txt](https://idss-mesa.github.io/trainings/robots.txt): crawlers honour only the origin https://idss-mesa.github.io/robots.txt, which is equally permissive.

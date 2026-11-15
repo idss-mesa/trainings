@@ -6,6 +6,10 @@
 __pycache__/
 *.pyc
 
+# Development-only test tools (axe-core for the accessibility tests)
+node_modules/
+package-lock.json
+
 # Local cache / OS cruft
 .cache/
 .DS_Store

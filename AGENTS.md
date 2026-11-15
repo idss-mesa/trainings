@@ -43,6 +43,7 @@ python scripts/gen_llms_txt.py                  # regenerate docs/llms.txt + doc
 python -m unittest discover tests               # tests for gen_pathways.py (CI-enforced)
 node --test tests/progress.test.js              # tests for docs/javascripts/mesa-progress.js (CI-enforced)
 python tests/e2e/test_browser.py                # browser run of the pathways against site/ (CI-enforced; needs playwright)
+python tests/e2e/test_accessibility.py          # axe, reflow, target size, focus, motion, keyboard (CI-enforced; needs playwright and `npm install --no-save axe-core@4`)
 python scripts/check_tutorial_outputs.py        # run the tutorials' code and compare with the printed output (CI-enforced; needs pandas, duckdb)
 Rscript scripts/check_tutorial_outputs.R        # the same for R tutorials (CI runs it in the MESA RStudio image; needs sf, ggplot2, duckdb)
 python scripts/check_self_checks.py             # every self-check answer in data/pathways.yml against the practice data (CI-enforced; needs pandas, duckdb, pyyaml)
@@ -88,11 +89,30 @@ repository rather than changing them here.
 8. **Never add `verified:`.** Only a human maintainer does that, as
    `verified: { by: "human:<id>", at: <ISO 8601> }`.
 
-8a. **Reader progress stays in the reader's browser.** `docs/javascripts/` marks
-   what a reader has finished, in `localStorage` only. Never add a request,
-   analytics call, or third-party script that carries anything about a reader.
-   Every page must still read and navigate with JavaScript off, so content
-   goes in the Markdown and the script only draws on top of it.
+## Pathways and reader progress
+
+These rules are lettered so that the numbered rules keep their numbers.
+
+A. **Reader progress stays in the reader's browser.** `docs/javascripts/` marks
+   what a reader has finished, answered, and written, in `localStorage` only.
+   Never add a request, analytics call, or third-party script that carries
+   anything about a reader.
+B. **Every page reads and navigates with JavaScript off.** Content goes in the
+   Markdown; the scripts only draw on top of it. No control may appear that
+   cannot work.
+C. **Nothing is locked, ranked, or rewarded.** Pathways recommend an order and
+   never block a page. No points, streaks, timers, badges, or leaderboards.
+   "Done" is the reader's own word; "Checked" means a self-check was answered
+   correctly. Do not add wording that implies MESA verified anything.
+D. **Accessibility is tested, not assumed.** `tests/e2e/test_accessibility.py`
+   must pass: no axe violations (WCAG 2.2 AA) at desktop width and at 320
+   pixels, 24-pixel targets, visible focus, no motion, and a whole pathway by
+   keyboard. State is always shown in words as well as colour.
+E. **One light scheme.** Do not add a dark scheme. Small text never uses the
+   bright accent; use `--mesa-accent-700`.
+F. **How to add a tutorial to a pathway and how to write a self-check** are in
+   `docs/contributing.md`. Change `data/pathways.yml`, run
+   `scripts/gen_pathways.py`, and commit what it writes.
 
 ## Tutorial rules
 

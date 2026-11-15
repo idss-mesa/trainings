@@ -2,6 +2,14 @@
 
 ## 2026-11-14
 
+* **Update**: Accessibility pass. The pathway, tutorial, list, self-check and progress
+  pages now pass an automated check at desktop width and at 320 pixels, and a whole
+  pathway can be followed with the keyboard alone. The current tab and page are no
+  longer marked in the bright accent, which was too faint at that size; code colours
+  were darkened for the same reason; and the empty link before each line of a code
+  block is gone.
+* **Update**: [Contribute a tutorial](contributing.md) now explains how to add a
+  tutorial to a learning pathway and how to write a self-check.
 * **Creation**: Added fifteen [self-checks](pathways/self-checks.md), short questions
   whose answers come from doing a task, each with the likely slips explained. Twelve
   are confirmed against the practice data whenever the site is built; three are about

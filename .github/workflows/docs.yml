@@ -87,6 +87,10 @@ jobs:
       - run: zensical build --clean --strict
       - run: python scripts/postbuild_agent_surface.py site
       - run: python tests/e2e/test_browser.py
+      # Accessibility: axe (WCAG 2.2 AA) at desktop width and 320 pixels, reflow,
+      # target size, visible focus, no motion, and a whole pathway by keyboard.
+      - run: npm install --no-save axe-core@4
+      - run: python tests/e2e/test_accessibility.py
 
   deploy:
     needs: [okf-conformance, tutorial-outputs, tutorial-outputs-r, pathways-browser]
