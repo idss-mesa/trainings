@@ -107,6 +107,12 @@ data, as text, and asks whether its answer is supported. The answer is folded aw
 until you open it. You need no agent, no model, and no key. Start with
 [How to use the trace cards](trace-cards/how-to-use.md).
 
+## Bring your own data
+
+The same steps work on data of your own.
+[Bring your own data to MESA](bring-your-own-data.md) says what to bring, what to leave
+out, and how to check that it arrived.
+
 ## Working in R
 
 These use MESA RStudio Geospatial and the same practice data.
