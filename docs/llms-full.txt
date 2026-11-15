@@ -6294,6 +6294,10 @@ explains.
 
 ## 2026-11-15
 
+* **Update**: Fixes for readers who answer "R" to "Where are you starting?". The R
+  version of a tutorial now has its own stop on the pathway page, under the point it
+  belongs to; its page names the pathway you are following and links to what comes
+  next; and code in a self-check's explanation is shown as code.
 * **Creation**: Added [How AI was used](about/ai-disclosure.md), a statement of which
   parts of this site were drafted with an AI assistant and what a person has checked.
 * **Update**: Every tutorial's last line now says it was drafted with AI assistance and

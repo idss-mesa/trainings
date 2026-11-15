@@ -395,3 +395,17 @@ test("a schema 1 record, from before the answers existed, is brought forward unt
   assert.equal(P.parseImport(JSON.stringify(old)).ok, true, "an exported schema 1 file still imports");
   assert.equal(P.load(memory({ [P.KEY]: JSON.stringify({ schema: 3 }) })).status, "newer");
 });
+
+test("an R version on the reader's route belongs to the pathway being followed", () => {
+  const rec = P.setPathway(P.empty(), "get-ready-for-a-session");
+  rec.profile = { portal: "yes", language: "r", minutes: 30 };
+  const session = P.findPathway(manifest, "get-ready-for-a-session");
+  assert.deepEqual(P.openNames(session, rec, manifest), ["r-load-a-file", "r-tally-a-quality-flag"]);
+  assert.equal(P.pathwaysWith(manifest, "r-load-a-file", rec)[0].id, "get-ready-for-a-session");
+  assert.equal(P.nextAfter(P.openNames(session, rec, manifest), "r-load-a-file", rec), "r-tally-a-quality-flag");
+  /* "You are here" is the point whose tutorial the R version stands in for. */
+  assert.equal(P.currentStage(session, rec, manifest), 1);
+  /* Without the answers, the R tutorial is on Work in R only. */
+  const plain = P.setPathway(P.empty(), "get-ready-for-a-session");
+  assert.deepEqual(P.pathwaysWith(manifest, "r-load-a-file", plain).map((p) => p.id), ["work-in-r"]);
+});

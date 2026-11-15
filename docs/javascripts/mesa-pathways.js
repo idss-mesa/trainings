@@ -165,8 +165,8 @@
   var tries = {}; /* what the reader last did with each check on this visit: { kind, message, value, sure } */
 
   function answerLine(check) {
-    var parts = [el("strong", { text: check.answer + (check.unit ? " " + check.unit : "") }), ". " + check.right];
-    return parts;
+    var parts = [el("strong", { text: check.answer + (check.unit ? " " + check.unit : "") }), ". "];
+    return parts.concat(inline(check.right));
   }
 
   /* One self-check: the question, an answer, an optional "how sure", and feedback. */
@@ -401,6 +401,35 @@
     stage.skip.appendChild(fold);
   }
 
+  /* A route can hold a tutorial the pathway never lists: the R version of one
+     it does. Give each a stop of its own, straight after the one it stands in
+     for, and take it away again when the reader's answers change. */
+  function standIns(ctx, m, plan) {
+    var swaps = (m.tailoring && m.tailoring.in_r) || {};
+    ctx.stages.forEach(function (stage) {
+      stage.stops = stage.stops.filter(function (stop) {
+        if (!stop.standIn || plan.names.indexOf(stop.name) >= 0) return true;
+        stop.li.parentNode.removeChild(stop.li);
+        return false;
+      });
+    });
+    var shown = {};
+    ctx.stages.forEach(function (stage) { stage.stops.forEach(function (stop) { shown[stop.name] = true; }); });
+    ctx.stages.forEach(function (stage) {
+      stage.stops.slice().forEach(function (stop) {
+        var name = swaps[stop.name];
+        if (!name || shown[name] || !m.tutorials[name] || plan.names.indexOf(name) < 0) return;
+        var li = el("li", {}, [el("a", { href: tutorialUrl(name), text: m.tutorials[name].title })]);
+        stop.li.parentNode.insertBefore(li, stop.li.nextSibling);
+        var added = makeStop(li, name, m, true, false);
+        added.standIn = true;
+        added.fold = stop.fold;
+        stage.stops.splice(stage.stops.indexOf(stop) + 1, 0, added);
+        shown[name] = true;
+      });
+    });
+  }
+
   function paintPath(ctx, m, store) {
     var record = store.record;
     var chosen = P.findPathway(m, record.pathway);
@@ -410,6 +439,7 @@
        shortened by their answers. Elsewhere, every listed tutorial counts. */
     var plan = ctx.pathway ? P.plan(m, ctx.pathway, record) : null;
     var onRoute = function (stop) { return plan ? plan.names.indexOf(stop.name) >= 0 : stop.counted; };
+    if (plan) standIns(ctx, m, plan);
     var counted = [];
     var tallies = ctx.stages.map(function (stage) {
       var names = stage.stops.filter(onRoute).map(function (s) { return s.name; });
