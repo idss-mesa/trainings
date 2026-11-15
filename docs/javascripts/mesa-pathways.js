@@ -52,11 +52,29 @@
     try { return window.localStorage; } catch (e) { return { getItem: function () { throw e; } }; }
   }
 
+  /* The manifest is public and the same for everyone. A copy is kept for the
+     browser session so that later pages draw at once, without waiting for the
+     network and without the page jumping; a fresh copy is fetched alongside for
+     the next page. It holds nothing about the reader. */
+  var CACHE = "mesa-trainings.manifest";
+
+  function cached() {
+    try { var m = JSON.parse(window.sessionStorage.getItem(CACHE)); return m && m.schema && m.tutorials ? m : null; } catch (e) { return null; }
+  }
+
   function manifest() {
     if (!manifestRequest) {
-      manifestRequest = fetch(BASE + "assets/pathways.json", { credentials: "omit" })
-        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-        .catch(function () { manifestRequest = null; return null; });
+      var fresh = fetch(BASE + "assets/pathways.json", { credentials: "omit" })
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+        .then(function (text) {
+          var m = JSON.parse(text);
+          try { window.sessionStorage.setItem(CACHE, text); } catch (e) { /* drawing still works */ }
+          return m;
+        })
+        .catch(function () { return null; });
+      var kept = cached();
+      manifestRequest = kept ? { then: function (use) { use(kept); return this; } } : fresh;
+      if (!kept) fresh.then(function (m) { if (!m) manifestRequest = null; });
     }
     return manifestRequest;
   }
@@ -551,9 +569,10 @@
   function drawTutorial(article, m, name) {
     var facts = m.tutorials[name], title = article.querySelector("h1");
     if (!facts || !title) return null;
+    /* Everything goes in one strip at the end of the page, so nothing above
+       it moves when the strip is drawn. */
     var where = el("p", { class: "mesa-where" });
     var strip = el("aside", { class: "mesa-strip", "aria-label": "Your progress on this tutorial" });
-    title.parentNode.insertBefore(where, title.nextSibling);
     var tail = article.querySelector(".mesa-machine-readable");
     if (tail) article.insertBefore(strip, tail); else article.appendChild(strip);
 
@@ -565,6 +584,7 @@
       var finished = P.isFinished(record, name);
       while (where.firstChild) where.removeChild(where.firstChild);
       while (strip.firstChild) strip.removeChild(strip.firstChild);
+      strip.appendChild(where);
 
       if (route) {
         var names = P.core(route), at = names.indexOf(name);
@@ -857,7 +877,12 @@
   /* Progress changed in another tab of this browser. */
   window.addEventListener("storage", function (event) { if (!event.key || event.key === P.KEY) refresh(); });
 
+  /* Draw as soon as this file runs: it is loaded after the article, so with
+     the manifest already kept for the session the page is drawn before it is
+     first shown and nothing jumps. Then draw again on every in-site navigation
+     (the theme's document$), or at page load where that is absent. Drawing
+     twice is safe: an article is built once and only repainted after that. */
+  draw();
   if (window.document$ && typeof window.document$.subscribe === "function") window.document$.subscribe(draw);
   else if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", draw);
-  else draw();
 })();
