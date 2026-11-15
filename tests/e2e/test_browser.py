@@ -325,7 +325,27 @@ class Browser(unittest.TestCase):
         self.assertIn("r-load-a-file", off.locator(".mesa-note a").get_attribute("href"))
         self.assertTrue(page.locator(".mesa-stop.is-off a.mesa-stop__title >> nth=0").is_enabled())
         self.assertIn("Load a file from your Data Store in RStudio", page.inner_text(".mesa-continue"))
+        # The R version has a stop of its own on the path, under the point it belongs to.
+        swapped = page.locator(".mesa-stage >> nth=1").locator(".mesa-stop:not(.is-off)", has_text="Load a file from your Data Store in RStudio")
+        self.assertEqual(swapped.count(), 1)
+        self.assertIn("is-next", swapped.get_attribute("class"))
+        self.assertIn("0 of 1 done", page.locator(".mesa-stage >> nth=1").locator(".mesa-meter").inner_text())
+        self.assertEqual(page.locator(".mesa-stage >> nth=1").locator(".mesa-here").count(), 1)
         self.shot(page, "15-pathway-tailored")
+
+        # Its own page places it on the pathway being followed, and offers what comes next.
+        swapped.locator("a.mesa-stop__title").click()
+        self.arrive(page, "**/tutorials/r-load-a-file/", "Load a file from your Data Store in RStudio")
+        page.locator(".mesa-strip").wait_for()
+        self.assertIn("Get ready for a hands-on session · tutorial 1 of 1 on your route", page.inner_text(".mesa-where"))
+        page.get_by_role("button", name="Mark as done").click()
+        self.assertIn("That was the last one", page.inner_text(".mesa-strip__next"))
+        box = page.locator(".mesa-strip form input[type='text']")
+        box.fill("150")
+        box.press("Enter")
+        page.locator(".mesa-check__result code", has_text='na.strings = ""').wait_for()
+        self.assertNotIn("`", page.inner_text(".mesa-strip"))
+        page.get_by_role("button", name="Undo").click()
 
         # With an hour, the route fills with more, and never passes the hour.
         page.goto(self.base + "pathways/")

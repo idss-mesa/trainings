@@ -2,6 +2,10 @@
 
 ## 2026-11-15
 
+* **Update**: Fixes for readers who answer "R" to "Where are you starting?". The R
+  version of a tutorial now has its own stop on the pathway page, under the point it
+  belongs to; its page names the pathway you are following and links to what comes
+  next; and code in a self-check's explanation is shown as code.
 * **Update**: The [learning pathways](pathways/index.md) are much shorter. Each now
   opens with its essentials, 10 to 25 minutes, and lists the rest under "If you have
   more time". [Get ready for a hands-on session](pathways/get-ready-for-a-session.md)

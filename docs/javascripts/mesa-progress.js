@@ -513,19 +513,29 @@
 
   /* The index of the stage the reader is in: the first that still has a
      tutorial on their route to do. -1 when the route is finished. */
+  /* The tutorials a stage lists, with the R versions that stand in for them. A
+     reader's route can hold a stand-in the pathway itself never names. */
+  function stageNames(manifest, stage) {
+    var swaps = (manifest && manifest.tailoring && manifest.tailoring.in_r) || {};
+    var listed = stage.tutorials.concat(stage.more);
+    return listed.concat(listed.map(function (n) { return swaps[n]; }).filter(Boolean));
+  }
+
   function currentStage(pathway, record, manifest) {
     var names = manifest ? plan(manifest, pathway, record).names : core(pathway);
     for (var i = 0; i < pathway.stages.length; i++) {
-      var here = pathway.stages[i].tutorials.concat(pathway.stages[i].more);
+      var here = stageNames(manifest, pathway.stages[i]);
       if (here.some(function (n) { return names.indexOf(n) >= 0 && !isFinished(record, n); })) return i;
     }
     return -1;
   }
 
-  /* The pathways that hold a tutorial, the learner's chosen one first. */
+  /* The pathways that hold a tutorial, the learner's chosen one first. The
+     chosen pathway also holds whatever the reader's own route puts on it. */
   function pathwaysWith(manifest, name, record) {
     var holds = manifest.pathways.filter(function (p) {
-      return p.stages.some(function (s) { return s.tutorials.concat(s.more).indexOf(name) >= 0; });
+      if (p.stages.some(function (s) { return s.tutorials.concat(s.more).indexOf(name) >= 0; })) return true;
+      return p.id === record.pathway && plan(manifest, p, record).names.indexOf(name) >= 0;
     });
     return holds.sort(function (a, b) { return (b.id === record.pathway) - (a.id === record.pathway); });
   }
