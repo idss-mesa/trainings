@@ -76,4 +76,4 @@ runs to several pages. Click **Next**, or set **Per page** to **100**.
 - [Add metadata to a file or folder](add-metadata.md) of your own.
 - Reference: [Managing data, "Describe data with metadata (AVUs)"](https://idss-mesa.github.io/docs/portal/data/#describe-data-with-metadata-avus).
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*

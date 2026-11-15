@@ -130,4 +130,4 @@ offset. Say what zone they are in first:
 - Reference: [Time zone handling](https://pandas.pydata.org/docs/user_guide/timeseries.html#time-zone-handling)
   in the pandas user guide.
 
-*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-13; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*

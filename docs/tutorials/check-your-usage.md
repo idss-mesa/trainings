@@ -80,4 +80,4 @@ an app stops. Look again later.
 - [Launch an app with the cores, memory, and time you choose](launch-with-options.md)
 - Reference: [The MESA Portal overview](https://idss-mesa.github.io/docs/portal/overview/).
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*

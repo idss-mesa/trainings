@@ -141,6 +141,12 @@ feature, follow its **Reference** link to the
 The tutorials are licensed [CC BY 4.0](about/license.md): copy and adapt them, with
 credit. To fix one or write a new one, see [Contribute a tutorial](contributing.md).
 
+## How AI was used
+
+The pages on this site were drafted with an AI assistant and are drafts until a person
+has followed them. [How AI was used](about/ai-disclosure.md) says what that covers and
+how to tell, page by page.
+
 ## For AI agents
 
 This site is an [Open Knowledge Format (OKF) v0.2](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md)

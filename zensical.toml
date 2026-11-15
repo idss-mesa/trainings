@@ -6,7 +6,7 @@ site_url = "https://idss-mesa.github.io/trainings/"
 repo_url = "https://github.com/idss-mesa/trainings"
 repo_name = "idss-mesa/trainings"
 edit_uri = "edit/main/docs/"
-copyright = "Copyright &copy; 2026 The Regents of the University of New Mexico. Training content is licensed <a href=\"https://creativecommons.org/licenses/by/4.0/\">CC BY 4.0</a>; code is BSD 3-Clause. For AI agents: <a href=\"https://idss-mesa.github.io/trainings/llms.txt\">llms.txt</a> &middot; <a href=\"https://idss-mesa.github.io/trainings/llms-full.txt\">llms-full.txt</a> &middot; <a href=\"https://idss-mesa.github.io/trainings/about/ai-agents/\">agent guide</a>."
+copyright = "Copyright &copy; 2026 The Regents of the University of New Mexico. Training content is licensed <a href=\"https://creativecommons.org/licenses/by/4.0/\">CC BY 4.0</a>; code is BSD 3-Clause. Pages were drafted with AI assistance: <a href=\"https://idss-mesa.github.io/trainings/about/ai-disclosure/\">how AI was used</a>. For AI agents: <a href=\"https://idss-mesa.github.io/trainings/llms.txt\">llms.txt</a> &middot; <a href=\"https://idss-mesa.github.io/trainings/llms-full.txt\">llms-full.txt</a> &middot; <a href=\"https://idss-mesa.github.io/trainings/about/ai-agents/\">agent guide</a>."
 
 # TOML: bare keys attach to the most recent [table] header, so every
 # [project] key — extra_css and nav included — must stay above the first
@@ -89,6 +89,7 @@ nav = [
   { "About" = [
       "about/index.md",
       { "License" = "about/license.md" },
+      { "How AI was used" = "about/ai-disclosure.md" },
       { "For AI agents" = "about/ai-agents.md" },
       { "Changelog" = "log.md" },
   ] },

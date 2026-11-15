@@ -158,6 +158,14 @@ G. **How to add a tutorial to a pathway and how to write a self-check** are in
     tutorial that has been followed on the live portal. Self-check answers are
     public and for self-study; rule 13 still keeps session answer keys out.
 
+17. **Disclose AI use where readers can see it.** `generated.by` records the
+    tool for machines; readers need it in words. Every tutorial drafted or
+    revised with an AI assistant says so in its last line, linked to
+    `docs/about/ai-disclosure.md`, and keeps that statement after validation.
+    Other pages are covered by that page and the site footer. If you are an
+    agent, never remove or soften a disclosure, and never describe a check
+    as done by a person unless a person did it.
+
 ## Changes
 
 Work on a branch and open a pull request. Do not push to `main`.

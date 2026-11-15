@@ -102,4 +102,4 @@ files. For other tables, [load the file into a notebook](load-a-file.md).
   5 in a notebook, where you can keep the result.
 - Reference: [Managing data, "View files in the browser"](https://idss-mesa.github.io/docs/portal/data/#view-files-in-the-browser).
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*

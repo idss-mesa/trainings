@@ -170,6 +170,13 @@ finish on the live portal. To validate one:
 A maintainer then removes the draft notice, sets `status: stable`, and records the
 validation. Only a human maintainer adds the `verified:` key.
 
+## If you used AI
+
+Say so. Put the tool in `generated.by`, and keep the "Drafted with AI assistance" wording
+in the tutorial's last line; [How AI was used](about/ai-disclosure.md) explains why. You
+are responsible for what you submit: run every step and every code block yourself before
+opening the pull request.
+
 ## License of contributions
 
 By contributing you agree that your text and images are released under

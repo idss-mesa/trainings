@@ -109,4 +109,4 @@ of `NA` for each one. `which()` keeps only the rows where the comparison is true
 - [Query a Parquet file with DuckDB from R](r-query-parquet-with-duckdb.md)
 - The same task in Python: [Tally a quality flag before you trust a number](tally-a-quality-flag.md).
 
-*Not yet validated by a second person in MESA RStudio Geospatial. Drafted 2026-11-13; the code was run there that day (R 4.6.2).*
+*Not yet validated by a second person in MESA RStudio Geospatial. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13; the code was run there that day (R 4.6.2).*

@@ -78,4 +78,4 @@ shows only **Home** and **Data Browser**, [sign in](sign-in.md) first.
 - [Add metadata to a file or folder](add-metadata.md)
 - Reference: [Managing data, "Upload, create, move, and delete"](https://idss-mesa.github.io/docs/portal/data/#upload-create-move-and-delete).
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*

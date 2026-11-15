@@ -115,3 +115,5 @@ portal's Data Browser; see
 
 The practice data is released under [CC BY 4.0](../about/license.md), like the rest of
 this site.
+
+*This page was drafted with [AI assistance](../about/ai-disclosure.md).*

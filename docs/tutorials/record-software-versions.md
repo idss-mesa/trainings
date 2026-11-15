@@ -119,4 +119,4 @@ installed. Search for one name without the `==`, for example
 - [Write a README for a data folder](write-a-readme.md), and mention these two files
   in it.
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed in MESA JupyterLab that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed in MESA JupyterLab that day.*

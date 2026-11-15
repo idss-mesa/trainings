@@ -147,4 +147,4 @@ the folder that is not `shared` is named after your username.
   for what the app contains, and
   [Simple Features for R](https://r-spatial.github.io/sf/articles/sf1.html).
 
-*Not yet validated by a second person in MESA RStudio Geospatial. Drafted 2026-11-13; the code was run there on 2026-11-13 (R 4.6.2, sf 1.1.3).*
+*Not yet validated by a second person in MESA RStudio Geospatial. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13; the code was run there on 2026-11-13 (R 4.6.2, sf 1.1.3).*

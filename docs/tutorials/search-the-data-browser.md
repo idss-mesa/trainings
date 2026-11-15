@@ -84,4 +84,4 @@ so: *in lakehouse*, not *in mesa*. Click **Community** to search from the top ag
 - [Find MESA's community data in the Data Browser](find-community-data.md)
 - Reference: [Managing data, "Search"](https://idss-mesa.github.io/docs/portal/data/#search).
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*

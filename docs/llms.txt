@@ -89,11 +89,12 @@ The form https://idss-mesa.github.io/trainings/<path>.md also returns the same M
 ## About
 
 - [License](https://idss-mesa.github.io/trainings/about/license/): The licenses of MESA Trainings: CC BY 4.0 for the training content and BSD 3-Clause for code, with the attribution line to use. (draft) Markdown twin: https://idss-mesa.github.io/trainings/about/license/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/about/license.md
+- [How AI was used to make this site](https://idss-mesa.github.io/trainings/about/ai-disclosure/): Which parts of MESA Trainings were drafted with an AI assistant, what a person has and has not checked, and how to tell for any single page. (draft) Markdown twin: https://idss-mesa.github.io/trainings/about/ai-disclosure/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/about/ai-disclosure.md
 - [For AI agents](https://idss-mesa.github.io/trainings/about/ai-agents/): How agents should read MESA Trainings: llms.txt, per-page Markdown with OKF frontmatter, and the draft and trust signals on every tutorial. (draft) Markdown twin: https://idss-mesa.github.io/trainings/about/ai-agents/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/about/ai-agents.md
 
 ## Meta
 
-- [Full corpus in one file](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with frontmatter, links made absolute; about 259 KB, roughly 67,000 tokens. Prefer it over fetching pages one at a time.
+- [Full corpus in one file](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with frontmatter, links made absolute; about 268 KB, roughly 69,000 tokens. Prefer it over fetching pages one at a time.
 - [Update log](https://idss-mesa.github.io/trainings/log/): dated history of changes to this bundle.
 - [For AI agents](https://idss-mesa.github.io/trainings/about/ai-agents/): endpoints, trust signals, and what to do if you cannot fetch this site.
 - [Sitemap](https://idss-mesa.github.io/trainings/sitemap.xml) and [robots.txt](https://idss-mesa.github.io/trainings/robots.txt): crawlers honour only the origin https://idss-mesa.github.io/robots.txt, which is equally permissive.

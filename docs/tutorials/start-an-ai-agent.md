@@ -100,4 +100,4 @@ before you signed in, so its tools are still anonymous. Quit the agent, run
   for the other agents (`claude`, `codex`, `agy`), using your own account with an
   agent's vendor, and local models on a GPU.
 
-*Not yet validated on the live portal. Drafted 2026-11-12 from the MESA documentation.*
+*Not yet validated on the live portal. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-12 from the MESA documentation.*
