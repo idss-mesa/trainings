@@ -101,4 +101,4 @@ service that issued it, because earlier copies of the file may still hold the ol
   documentation, which says where each MESA tool stores a password, and
   [getpass](https://docs.python.org/3/library/getpass.html).
 
-*Not yet validated in MESA JupyterLab. Drafted 2026-11-12; the check in step 5 was run locally.*
+*Not yet validated in MESA JupyterLab. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-12; the check in step 5 was run locally.*

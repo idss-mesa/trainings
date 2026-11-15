@@ -97,4 +97,4 @@ loaded the files. Run the notebook's first cell again, then repeat the step.
 - [Check a column's range and missing values](check-range-and-missing.md)
 - Reference: the [practice data](practice-data.md) page, which holds the dictionary.
 
-*Not yet validated by a person in MESA JupyterLab. Drafted 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*

@@ -2,6 +2,11 @@
 
 ## 2026-11-15
 
+* **Creation**: Added [How AI was used](about/ai-disclosure.md), a statement of which
+  parts of this site were drafted with an AI assistant and what a person has checked.
+* **Update**: Every tutorial's last line now says it was drafted with AI assistance and
+  links to that page. The template, the contributing guide, the site footer, and
+  `AGENTS.md` (rule 17) require the same of new pages.
 * **Update**: The [learning pathways](pathways/index.md) are much shorter. Each now
   opens with its essentials, 10 to 25 minutes, and lists the rest under "If you have
   more time". [Get ready for a hands-on session](pathways/get-ready-for-a-session.md)

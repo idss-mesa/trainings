@@ -109,4 +109,4 @@ the form. CyVerse says it answers within one to two days. Then launch again.
   [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) for what the app
   contains.
 
-*Not yet validated by a second person. Drafted 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*
+*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*

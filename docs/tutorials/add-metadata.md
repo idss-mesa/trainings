@@ -84,4 +84,4 @@ edit**, not **Read only**. Use a folder under **My Files**.
   which covers reserved attribute names and the full metadata page with its DataCite,
   Dublin Core, and EML views.
 
-*Not yet validated by a second person. Drafted 2026-11-12 from the MESA documentation and followed once on the live portal on 2026-11-13.*
+*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-12 from the MESA documentation and followed once on the live portal on 2026-11-13.*

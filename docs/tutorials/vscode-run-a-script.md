@@ -105,4 +105,4 @@ folder above it.
 - Reference: [MESA VS Code](https://idss-mesa.github.io/docs/apps/vscode/), for the
   extensions and tools the app contains.
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once in the app that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once in the app that day.*

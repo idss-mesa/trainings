@@ -81,4 +81,4 @@ away. Click the **☰** menu button to open it, or widen the browser window.
 - Reference: [MESA Portal overview, "Find your way around"](https://idss-mesa.github.io/docs/portal/overview/#find-your-way-around)
   and ["Dashboard"](https://idss-mesa.github.io/docs/portal/overview/#dashboard).
 
-*Not yet validated by a second person. Drafted 2026-11-12 from the MESA documentation and followed once on the live portal on 2026-11-13.*
+*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-12 from the MESA documentation and followed once on the live portal on 2026-11-13.*

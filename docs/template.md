@@ -78,7 +78,7 @@ sources:
 - <The tutorial that follows, linked>
 - Reference: <the MESA documentation page for the full picture, linked>
 
-*Not yet validated on the live portal. Drafted <YYYY-MM-DD> from <source>.*
+*Not yet validated on the live portal. Drafted with [AI assistance](../about/ai-disclosure.md) on <YYYY-MM-DD> from <source>.*
 ````
 
 ## Rules
@@ -107,6 +107,10 @@ sources:
     schedule.
 11. **Data is public, synthetic, or authorized,** with its attribution line when a
     tutorial uses a dataset.
+12. **Say when AI helped.** If an AI assistant drafted or revised any part of the
+    tutorial, its last line says so and links to [How AI was used](about/ai-disclosure.md),
+    and `generated.by` names the tool. Write "Drafted <YYYY-MM-DD>" with no mention of AI
+    only when a person wrote all of it.
 
 ## Front matter
 
@@ -132,6 +136,12 @@ with:
 
 ```markdown
 *Validated <date> by <who> on <portal, app, and image or version>.*
+```
+
+If AI helped write the tutorial, that statement stays after validation:
+
+```markdown
+*Drafted with [AI assistance](../about/ai-disclosure.md). Validated <date> by <who> on <portal, app, and image or version>.*
 ```
 
 A data tutorial, one that teaches a technique on the

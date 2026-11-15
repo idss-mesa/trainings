@@ -93,4 +93,4 @@ start the app again with the same settings.
   and ["Find the results"](https://idss-mesa.github.io/docs/portal/analyses/#find-the-results),
   which also cover **Extend Time**, **Monitor**, and failed analyses.
 
-*Not yet validated by a second person. Drafted 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*
+*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*

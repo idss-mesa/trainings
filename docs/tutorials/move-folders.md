@@ -94,4 +94,4 @@ example one just restored from the trash. Wait a minute and click **Move** again
 - [Move a folder to the trash and get it back](trash-and-restore.md)
 - Reference: [Managing data, "Work on several items at once"](https://idss-mesa.github.io/docs/portal/data/#work-on-several-items-at-once).
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*

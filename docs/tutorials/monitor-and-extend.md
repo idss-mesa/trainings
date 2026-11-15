@@ -79,4 +79,4 @@ and not while an app is still starting. Wait for the badge to read **Running**, 
 - The panel's **Resources** tab does not yet show live CPU or memory use.
 - Reference: [Managing analyses, "Work with a running app"](https://idss-mesa.github.io/docs/portal/analyses/#work-with-a-running-app).
 
-*Not yet validated by a second person. Drafted 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*
