@@ -117,6 +117,38 @@ class Checks(unittest.TestCase):
         self.assertFalse(files["pathways/index.md"].startswith("---"))
         self.assertNotIn("*Two.*", files["pathway.md"])
 
+    def test_self_checks_are_validated_and_listed_with_their_answers(self):
+        self.data["points"]["p1"]["skip_check"] = ["how-many"]
+        self.data["checks"] = {"how-many": {
+            "tutorial": "x", "ask": "How many `rows`?", "answer": 3.0, "unit": "rows", "how": "len(t)",
+            "verify": {"python": "3"}, "right": "Three.", "slips": {"4": "One too many."}, "otherwise": "Count."}}
+        self.assertEqual(gp.check(self.data, self.tutorials), [])
+        files, _ = gp.build(self.data, self.tutorials)
+        page = files["pathways/self-checks.md"]
+        self.assertIn('??? question "How many rows?"', page)
+        self.assertIn("**3 rows.** Three.", page)
+        self.assertIn("If you answered *4*: One too many.", page)
+        self.assertIn("*skip-check*", page)
+        self.assertIn("[Self-checks](self-checks.md)", files["pathways/index.md"])
+        self.assertIn('"answer": "3"', files["assets/pathways.json"])
+
+    def test_unsound_self_checks_are_refused(self):
+        base = {"tutorial": "x", "ask": "Q?", "right": "R.", "otherwise": "O."}
+        cases = {
+            "the answer is not among the options": dict(base, answer="a", options=["b", "c"]),
+            "the answer must be a number": dict(base, answer="three"),
+            "a slip repeats the answer": dict(base, answer=3, slips={"3": "no"}),
+            "no tutorial named nope": dict(base, tutorial="nope", answer=3),
+            "`right` is missing": dict(base, answer=3, right=""),
+        }
+        for message, entry in cases.items():
+            with self.subTest(message):
+                self.data["checks"] = {"c": entry}
+                self.assertTrue(any(message in p for p in gp.check(self.data, self.tutorials)))
+        self.data["checks"] = {"c": dict(base, tutorial="z", answer=3)}
+        self.data["points"]["p1"]["skip_check"] = ["c"]
+        self.assertTrue(any("belongs to another point" in p for p in gp.check(self.data, self.tutorials)))
+
     def test_missing_from_nav(self):
         files, _ = gp.build(self.data, self.tutorials)
         nav = [{"Pathways": ["pathways/index.md", {"All": "pathway.md"}]}]

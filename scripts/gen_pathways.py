@@ -6,6 +6,8 @@ Reads the pathway data together with each tutorial's front matter and its
 
   docs/pathways/index.md      the section listing (OKF §8: no front matter)
   docs/pathways/<id>.md       one page per pathway
+  docs/pathways/self-checks.md  every self-check with its answer, readable
+                              without scripts
   docs/pathway.md             every tutorial under its pathway point
   docs/assets/pathways.json   the same facts for scripts in the browser
 
@@ -151,6 +153,34 @@ def check(data: dict, tutorials: dict[str, dict]) -> list[str]:
                 if slug in seen:
                     problems.append(f"{where}: {slug} is listed twice")
                 seen.add(slug)
+    checks = data.get("checks") or {}
+    for cid, c in checks.items():
+        where = f"check {cid}"
+        if not re.fullmatch(r"[a-z0-9][a-z0-9-]*", str(cid)):
+            problems.append(f"{where}: the name must be lower case with hyphens")
+        for key in ("tutorial", "ask", "answer", "right", "otherwise"):
+            if c.get(key) in (None, ""):
+                problems.append(f"{where}: `{key}` is missing")
+        if c.get("tutorial") not in tutorials:
+            problems.append(f"{where}: no tutorial named {c.get('tutorial')}")
+        if "options" in c:
+            if answer_text(c) not in [str(o) for o in c["options"]]:
+                problems.append(f"{where}: the answer is not among the options")
+        elif not isinstance(c.get("answer"), (int, float)) or isinstance(c.get("answer"), bool):
+            problems.append(f"{where}: without `options`, the answer must be a number")
+        for slip in (c.get("slips") or {}):
+            if str(slip) == answer_text(c):
+                problems.append(f"{where}: a slip repeats the answer")
+            if "options" in c and str(slip) not in [str(o) for o in c["options"]]:
+                problems.append(f"{where}: slip {slip!r} is not among the options")
+        if set(c.get("verify") or {}) - {"python", "r"}:
+            problems.append(f"{where}: `verify` takes `python` or `r`")
+    for key, point in points.items():
+        for cid in point.get("skip_check") or []:
+            if cid not in checks:
+                problems.append(f"point {key}: skip_check names no self-check: {cid}")
+            elif checks[cid].get("tutorial") in tutorials and tutorials[checks[cid]["tutorial"]]["point"] != key:
+                problems.append(f"point {key}: skip_check {cid} belongs to another point")
     placed = set()
     for point, groups in (data.get("by_point") or {}).items():
         for group in groups:
@@ -205,6 +235,71 @@ def ability(point: dict) -> str:
     if point["competency"] == point["title"]:
         return point["can_do"]
     return f"*{point['competency']}.* {point['can_do']}"
+
+
+def answer_text(c: dict) -> str:
+    """A self-check's answer as the reader would write it, without its unit."""
+    answer = c.get("answer")
+    if isinstance(answer, float) and answer.is_integer():
+        answer = int(answer)
+    return str(answer)
+
+
+def plain(text: str) -> str:
+    return " ".join(str(text).split())
+
+
+CHECKS_TITLE = "Self-checks"
+CHECKS_DESCRIPTION = ("Short questions for checking yourself after a tutorial, each with its answer, "
+                      "the likely slips, and how the answer is confirmed against the practice data.")
+
+
+def checks_page(data: dict, tutorials: dict[str, dict], source: tuple) -> str:
+    checks = data.get("checks") or {}
+    slugs = sorted({c["tutorial"] for c in checks.values()})
+    lines = front_matter("Reference", CHECKS_TITLE, CHECKS_DESCRIPTION,
+                         ["pathway", "self-check", "practice-data"], data["revised"],
+                         earliest_stale(slugs, tutorials), [source])
+    lines += [f"# {CHECKS_TITLE}", "", NOTE, "",
+              "A self-check is one short question to try after a tutorial. Its answer comes from "
+              "doing the task: most ask for a number the tutorial does not print, which you get "
+              "with a small change to what it taught. They are for your own use. Nothing records "
+              "or sends your answers unless you use the check on the tutorial's own page, and "
+              "then only [in your own browser](../progress.md).", "",
+              "Each answer is folded away. Try the question first.", ""]
+    for number, (key, point) in enumerate(data["points"].items(), 1):
+        mine = [(cid, c) for cid, c in checks.items() if tutorials[c["tutorial"]]["point"] == key]
+        if not mine:
+            continue
+        lines += [f"## {number}. {point['title']}", ""]
+        skip = point.get("skip_check") or []
+        if skip:
+            lines += [f"Already at home here? If you can answer the {len(skip)} questions marked "
+                      "*skip-check*, you can skip this point. If one goes wrong, its tutorial "
+                      "covers it.", ""]
+        for cid, c in mine:
+            title = plain(c["ask"]).replace("`", "").replace('"', "'")
+            answer = answer_text(c) + (f" {c['unit']}" if c.get("unit") else "")
+            lines += [f'??? question "{title}"',
+                      f"    After [{tutorials[c['tutorial']]['title']}](../tutorials/{c['tutorial']}.md)"
+                      + (" · *skip-check*" if cid in skip else "") + ".", ""]
+            if "`" in c["ask"]:
+                lines += [f"    {plain(c['ask'])}", ""]
+            if "options" in c:
+                lines += [f"    - {o}" for o in c["options"]] + [""]
+            lines += ['    ??? success "Answer"', f"        **{answer}.** {plain(c['right'])}", ""]
+            how = c.get("how") or ""
+            if how:
+                lines += ["        ```" + ("r" if "r" in (c.get("verify") or {}) else "python"),
+                          f"        {how}", "        ```", ""]
+            for slip, why in (c.get("slips") or {}).items():
+                lines += [f"        If you answered *{slip}*: {plain(why)}", ""]
+            lines += ["        " + ("Confirmed against the practice data each time this site is built."
+                                    if c.get("verify") else
+                                    "Not machine-checked: this is about a portal screen, which only a "
+                                    "person can confirm."), ""]
+    lines += ["## Next", "", "- [Choose a pathway](index.md)", "- [Your progress](../progress.md)"]
+    return "\n".join(lines) + "\n"
 
 
 def numbered(slugs: list[str], tutorials: dict[str, dict], prefix: str) -> list[str]:
@@ -305,6 +400,8 @@ def index_page(data: dict, tutorials: dict[str, dict]) -> str:
     lines = ["# Learning pathways", ""]
     lines += [f"* [{p['title']}]({p['id']}.md) - {describe(p, tutorials)}" for p in data["pathways"]]
     lines.append(f"* [{POINT_PAGE_TITLE}](../pathway.md) - {POINT_PAGE_DESCRIPTION}")
+    if data.get("checks"):
+        lines.append(f"* [{CHECKS_TITLE}](self-checks.md) - {CHECKS_DESCRIPTION}")
     for rel in data.get("also_list") or []:
         fm, _ = split_frontmatter((DOCS / rel).read_text(encoding="utf-8"))
         lines.append(f"* [{fm['title']}](../{rel}) - {fm['description']}")
@@ -324,8 +421,15 @@ def manifest(data: dict, tutorials: dict[str, dict], groups: dict) -> str:
     out = {
         "schema": data["schema"],
         "revised": data["revised"],
-        "points": {k: {"title": p["title"], "competency": p["competency"], "can_do": p["can_do"]}
+        "points": {k: {"title": p["title"], "competency": p["competency"], "can_do": p["can_do"],
+                       "reflection": p.get("reflection", ""), "skip_check": p.get("skip_check") or []}
                    for k, p in data["points"].items()},
+        "checks": {cid: {"tutorial": c["tutorial"], "ask": plain(c["ask"]), "answer": answer_text(c),
+                         "options": [str(o) for o in c.get("options", [])], "unit": c.get("unit", ""),
+                         "how": c.get("how", ""), "right": plain(c["right"]),
+                         "slips": {str(k): plain(v) for k, v in (c.get("slips") or {}).items()},
+                         "otherwise": plain(c["otherwise"]), "verify": c.get("verify") or {}}
+                   for cid, c in (data.get("checks") or {}).items()},
         "pathways": pathways,
         "by_point": groups,
         "tutorials": tutorials,
@@ -344,6 +448,8 @@ def build(data: dict, tutorials: dict[str, dict], repo_url: str = "") -> tuple[d
               "MESA Trainings pathway data")
     files = {f"pathways/{p['id']}.md": pathway_page(p, data, tutorials, source)
              for p in data["pathways"]}
+    if data.get("checks"):
+        files["pathways/self-checks.md"] = checks_page(data, tutorials, source)
     files["pathways/index.md"] = index_page(data, tutorials)
     files["pathway.md"] = point_page(data, tutorials, groups, source)
     files["assets/pathways.json"] = manifest(data, tutorials, groups)

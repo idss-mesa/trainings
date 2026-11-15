@@ -123,12 +123,13 @@
   }
 
   function continueBlock(m, record, pathway) {
-    var names = P.core(pathway), got = P.progress(names, record, m);
+    var got = P.route(pathway, record, m);
     if (!got.next) {
       return el("div", { class: "mesa-continue" }, [el("div", {}, [
         el("p", { class: "mesa-kicker", text: "Pathway finished" }),
         el("p", { class: "mesa-continue__title", text: pathway.title }),
-        el("p", { class: "mesa-muted", text: "All " + got.total + " tutorials are marked done." })
+        el("p", { class: "mesa-muted", text: got.done === got.total ? "All " + got.total + " tutorials are marked done."
+          : got.done + " of " + got.total + " tutorials are marked done; the rest you skipped by check." })
       ]), el("a", { class: "mesa-btn mesa-btn--plain", href: BASE + "pathways/", text: "Choose another pathway" })]);
     }
     var facts = m.tutorials[got.next];
@@ -138,6 +139,127 @@
       el("p", { class: "mesa-muted", text: P.minutes(facts.min, facts.max) })
     ]), el("a", { class: "mesa-btn", href: tutorialUrl(got.next), "data-mesa-pathway": pathway.id,
       text: got.done ? "Continue" : "Start" })]);
+  }
+
+  /* ---------- self-checks and reflections ---------- */
+
+  var SURE = [[1, "A guess"], [2, "Not sure"], [3, "Fairly sure"], [4, "Certain"]];
+  var tries = {}; /* what the reader last did with each check on this visit: { kind, message, value, sure } */
+
+  function answerLine(check) {
+    var parts = [el("strong", { text: check.answer + (check.unit ? " " + check.unit : "") }), ". " + check.right];
+    return parts;
+  }
+
+  /* One self-check: the question, an answer, an optional "how sure", and feedback. */
+  function checkForm(m, store, id) {
+    var check = m.checks[id], record = store.record;
+    var mine = tries[id] || (tries[id] = {});
+    var solved = P.isCorrect(record, id) || mine.kind === "right";
+    var ask = "mesa-ask-" + id;
+    var form = el("form", { class: "mesa-check" + (solved ? " is-right" : ""), novalidate: "novalidate" });
+    form.appendChild(el("p", { class: "mesa-check__ask", id: ask }, inline(check.ask)));
+    if (!Object.keys(check.verify).length) {
+      form.appendChild(el("p", { class: "mesa-note", text: "About a portal screen, so not machine-checked against the practice data." }));
+    }
+    var how = check.how ? el("pre", { class: "mesa-check__how" }, [el("code", { text: check.how })]) : null;
+
+    if (solved) {
+      var entry = record.checks[id];
+      form.appendChild(el("p", { class: "mesa-check__result is-right", tabindex: "-1", "data-key": "check-" + id },
+        [box("checked"), " Right: "].concat(answerLine(check))));
+      if (how) form.appendChild(how);
+      if (entry) form.appendChild(el("p", { class: "mesa-note", text: "Answered on " + day(entry.on) + ", in " + entry.tries + (entry.tries === 1 ? " try." : " tries.") }));
+      return form;
+    }
+
+    var read;
+    if (check.options.length) {
+      var group = el("div", { class: "mesa-check__options", role: "radiogroup", "aria-labelledby": ask });
+      check.options.forEach(function (option) {
+        var radio = el("input", { type: "radio", name: "mesa-answer-" + id, value: option });
+        radio.checked = mine.value === option;
+        group.appendChild(el("label", {}, [radio, el("span", { text: option })]));
+      });
+      form.appendChild(group);
+      read = function () { var on = group.querySelector("input:checked"); return on ? on.value : ""; };
+    } else {
+      var input = el("input", { type: "text", inputmode: "decimal", autocomplete: "off", class: "mesa-check__input",
+        "aria-labelledby": ask, value: mine.value || "", "data-key": "answer-" + id });
+      form.appendChild(el("div", { class: "mesa-check__number" }, [input, check.unit ? el("span", { text: check.unit }) : null]));
+      read = function () { return input.value; };
+    }
+
+    var sure = el("fieldset", { class: "mesa-check__sure" }, [el("legend", { text: "How sure are you? Optional." })]);
+    SURE.forEach(function (level) {
+      var radio = el("input", { type: "radio", name: "mesa-sure-" + id, value: String(level[0]) });
+      radio.checked = mine.sure === level[0];
+      sure.appendChild(el("label", {}, [radio, el("span", { text: level[1] })]));
+    });
+    form.appendChild(sure);
+    var readSure = function () { var on = sure.querySelector("input:checked"); return on ? Number(on.value) : 0; };
+
+    form.appendChild(el("div", { class: "mesa-check__actions" }, [
+      el("button", { type: "submit", class: "mesa-btn", "data-key": "check-" + id, text: "Check answer" }),
+      el("button", { type: "button", class: "mesa-btn mesa-btn--plain", "data-key": "show-" + id, text: "Show the answer",
+        onclick: function () {
+          tries[id] = { kind: "shown", value: read(), sure: readSure() };
+          refresh("show-" + id);
+          announce("The answer is " + check.answer + (check.unit ? " " + check.unit : "") + ". " + check.right);
+        } })
+    ]));
+
+    if (mine.kind === "wrong") {
+      form.appendChild(el("p", { class: "mesa-check__result is-wrong" }, [el("strong", { text: "Not yet. " })].concat(inline(mine.message), [" ",
+        el("a", { href: tutorialUrl(check.tutorial) + "#steps", text: "Back to the steps of " + m.tutorials[check.tutorial].title })])));
+    } else if (mine.kind === "empty") {
+      form.appendChild(el("p", { class: "mesa-check__result is-wrong", text: check.options.length ? "Choose an answer first." : "Type an answer first." }));
+    } else if (mine.kind === "shown") {
+      form.appendChild(el("p", { class: "mesa-check__result" }, ["The answer is "].concat(answerLine(check))));
+      if (how) form.appendChild(how);
+      form.appendChild(el("p", { class: "mesa-note", text: "Seeing the answer does not count as checked. You can still answer it yourself." }));
+    }
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      var value = read(), confidence = readSure(), result = P.grade(check, value);
+      if (result.empty) {
+        tries[id] = { kind: "empty", value: value, sure: confidence };
+        refresh(check.options.length ? "check-" + id : "answer-" + id);
+        announce(check.options.length ? "Choose an answer first." : "Type an answer first.");
+        return;
+      }
+      change(store, function (r) {
+        P.recordCheck(r, id, check, result.correct, confidence, P.today(), m.tutorials[check.tutorial].revised);
+        P.syncSkipped(m, r, P.today());
+      });
+      tries[id] = result.correct ? { kind: "right" } : { kind: "wrong", message: result.message, value: value, sure: confidence };
+      refresh(result.correct || check.options.length ? "check-" + id : "answer-" + id);
+      announce(result.correct ? "Right. " + check.right : "Not yet. " + result.message);
+    });
+    return form;
+  }
+
+  /* The optional prompt at the end of a point. Built once; never redrawn while typed in. */
+  function reflectionBox(m, point, small) {
+    var prompt = m.points[point].reflection;
+    if (!prompt) return null;
+    var id = "mesa-reflect-" + point + (small ? "-p" : "");
+    var area = el("textarea", { id: id, rows: "3", maxlength: "4000", class: "mesa-reflect__text" });
+    var status = el("p", { class: "mesa-note", text: "Optional. Kept in this browser only; you can save your notes as a file from Your progress." });
+    area.addEventListener("change", function () {
+      var store = P.load(storage());
+      if (change(store, function (r) { P.setReflection(r, point, area.value, P.today()); })) {
+        status.textContent = area.value.trim() ? "Saved in this browser." : "Cleared.";
+        announce(status.textContent);
+      }
+    });
+    var body = el("div", { class: "mesa-reflect" }, [el("label", { for: id, text: prompt }), area, status]);
+    body.sync = function (record, can) {
+      if (document.activeElement !== area) area.value = (record.points[point] || {}).reflection || "";
+      area.disabled = !can;
+    };
+    return body;
   }
 
   /* ---------- the path: stages with stops, used on four kinds of page ---------- */
@@ -172,10 +294,12 @@
     first.parentNode.insertBefore(path, first);
     sections.forEach(function (section, i) {
       var stage = { el: el("section", { class: "mesa-stage" }), mark: el("span", { class: "mesa-mark", "aria-hidden": "true" }),
-        meter: el("p", { class: "mesa-meter" }), stops: [], title: section.heading.textContent.replace(/[¶#]\s*$/, "").trim() };
+        meter: el("p", { class: "mesa-meter" }), stops: [], title: section.heading.textContent.replace(/[¶#]\s*$/, "").trim(),
+        point: section.point, skip: el("div", { class: "mesa-skip" }), skipOpen: false };
       stage.el.appendChild(stage.mark);
       stage.el.appendChild(section.heading);
       stage.el.appendChild(stage.meter);
+      stage.el.appendChild(stage.skip);
       var group = null; /* a titled group within a stage, folded behind its title */
       stage.groups = [];
       section.nodes.forEach(function (node) {
@@ -207,6 +331,10 @@
         }
         stage.el.appendChild(node);
       });
+      stage.reflect = stage.point ? reflectionBox(m, stage.point) : null;
+      if (stage.reflect) {
+        stage.el.appendChild(el("details", { class: "mesa-more mesa-reflect-fold" }, [el("summary", { text: "Reflect (optional)" }), stage.reflect]));
+      }
       path.appendChild(stage.el);
       stage.button = el("button", { type: "button", class: "mesa-map__stop", onclick: function () { ctx.shown = i; paintShown(ctx); } });
       map.appendChild(el("li", {}, [stage.button]));
@@ -226,11 +354,39 @@
     });
   }
 
+  /* "Check first": a few questions that let a reader skip a point. Missing one
+     points to the tutorials; it never closes anything off. */
+  function paintSkip(stage, m, store) {
+    var ids = stage.point ? m.points[stage.point].skip_check : [];
+    while (stage.skip.firstChild) stage.skip.removeChild(stage.skip.firstChild);
+    if (!ids.length) return;
+    var record = store.record, state = P.skipState(m, record, stage.point);
+    var fold = el("details", { class: "mesa-more mesa-skip__fold" }, [el("summary", { "data-key": "skip-" + stage.point,
+      text: state === "passed" ? "Skip-check passed" : "Check first: " + ids.length + (ids.length === 1 ? " question" : " questions") + ", and skip this point if you have it" })]);
+    fold.open = stage.skipOpen;
+    fold.addEventListener("toggle", function () { stage.skipOpen = fold.open; });
+    if (state === "passed") {
+      fold.appendChild(el("p", { class: "mesa-skip__said", text: "You already have this. Go on to the next point, or take the tutorials anyway." }));
+    } else if (state === "missed") {
+      var missed = ids.filter(function (id) { return record.checks[id] && !record.checks[id].correct; })
+        .map(function (id) { return m.checks[id].tutorial; });
+      var said = el("p", { class: "mesa-skip__said" }, ["Not yet. " + (missed.length === 1 ? "This tutorial covers it: " : "These tutorials cover it: ")]);
+      missed.filter(function (n, i) { return missed.indexOf(n) === i; }).forEach(function (name, i) {
+        if (i) said.appendChild(document.createTextNode(", "));
+        said.appendChild(el("a", { href: tutorialUrl(name), text: m.tutorials[name].title }));
+      });
+      said.appendChild(document.createTextNode("."));
+      fold.appendChild(said);
+    }
+    ids.forEach(function (id) { fold.appendChild(checkForm(m, store, id)); });
+    stage.skip.appendChild(fold);
+  }
+
   function paintPath(ctx, m, store) {
     var record = store.record;
     var chosen = P.findPathway(m, record.pathway);
     var route = ctx.pathway || chosen;
-    var next = route ? P.progress(P.core(route), record, m).next : "";
+    var next = route ? P.route(route, record, m).next : "";
     var counted = [];
     var tallies = ctx.stages.map(function (stage) {
       var names = stage.stops.filter(function (s) { return s.counted; }).map(function (s) { return s.name; });
@@ -242,7 +398,8 @@
        page that lists everything, the same, once the reader has begun. */
     var current = -1;
     tallies.forEach(function (got, i) {
-      if (current < 0 && got.done < got.total && (ctx.pathway || started)) current = i;
+      var passed = ctx.stages[i].point && P.isSkipped(record, ctx.stages[i].point);
+      if (current < 0 && got.done < got.total && !passed && (ctx.pathway || started)) current = i;
     });
     ctx.stages.forEach(function (stage, i) {
       var got = tallies[i];
@@ -275,7 +432,11 @@
       stage.mark.textContent = done ? "\u2713" : String(i + 1);
       while (stage.meter.firstChild) stage.meter.removeChild(stage.meter.firstChild);
       if (isHere) stage.meter.appendChild(el("span", { class: "mesa-here", text: "You are here" }));
-      stage.meter.appendChild(document.createTextNode(got.done + " of " + got.total + " done" + (done ? ". Point finished." : "")));
+      var skipped = stage.point && P.isSkipped(record, stage.point);
+      stage.meter.appendChild(document.createTextNode(got.done + " of " + got.total + " done" +
+        (done ? ". Point finished." : skipped ? ". Skip-check passed." : "")));
+      paintSkip(stage, m, store);
+      if (stage.reflect) stage.reflect.sync(record, writable(store));
       stage.button.textContent = done ? "\u2713" : String(i + 1);
       stage.button.className = "mesa-map__stop" + (done ? " is-done" : isHere ? " is-here" : "");
       stage.button.setAttribute("aria-label", "Point " + (i + 1) + ": " + stage.title + ", " + got.done + " of " + got.total + " done" + (isHere ? ", you are here" : ""));
@@ -311,6 +472,7 @@
   function drawPathway(article, m, id) {
     var pathway = P.findPathway(m, id), sections = sectionsOf(article);
     if (!pathway || !sections.length) return null;
+    sections.forEach(function (section, i) { section.point = pathway.stages[i] ? pathway.stages[i].point : ""; });
     var ctx = buildPath(article, sections, m, { pathway: pathway });
     return { paint: function (store) { paintPath(ctx, m, store); } };
   }
@@ -318,6 +480,7 @@
   function drawPoints(article, m) {
     var sections = sectionsOf(article);
     if (!sections.length) return null;
+    sections.forEach(function (section, i) { section.point = Object.keys(m.points)[i] || ""; });
     var ctx = buildPath(article, sections, m, {});
     return { paint: function (store) { paintPath(ctx, m, store); } };
   }
@@ -343,7 +506,7 @@
         nodes.push(stops);
       });
       list.parentNode.insertBefore(heading, list);
-      sections.push({ heading: heading, nodes: nodes });
+      sections.push({ heading: heading, nodes: nodes, point: key });
     });
     if (!list.children.length) list.parentNode.removeChild(list);
     var ctx = buildPath(article, sections, m, { descriptions: true });
@@ -373,7 +536,7 @@
       while (lead.firstChild) lead.removeChild(lead.firstChild);
       if (chosen) lead.appendChild(continueBlock(m, record, chosen));
       rows.forEach(function (row) {
-        var got = P.progress(P.core(row.pathway), record, m);
+        var got = P.route(row.pathway, record, m);
         while (row.meta.firstChild) row.meta.removeChild(row.meta.firstChild);
         row.li.classList.toggle("is-chosen", chosen === row.pathway);
         row.meta.appendChild(el("span", { text: (chosen === row.pathway ? "You are on this pathway. " : "") +
@@ -437,7 +600,7 @@
             onclick: function () {
               change(store, function (r) { if (route) P.setPathway(r, route.id); P.markDone(r, name, facts.revised, P.today()); });
               refresh("undo");
-              var after = route ? P.nextAfter(P.core(route), name, store.record) : "";
+              var after = route ? P.nextAfter(P.openNames(route, store.record), name, store.record) : "";
               announce("Marked as done." + (after ? " Next: " + m.tutorials[after].title + ", " + P.minutes(m.tutorials[after].min, m.tutorials[after].max) + "." : ""));
             } }));
         }
@@ -456,7 +619,14 @@
       }
       strip.appendChild(actions);
 
-      var after = route ? P.nextAfter(P.core(route), name, record) : "";
+      var mine = Object.keys(m.checks).filter(function (id) { return m.checks[id].tutorial === name; });
+      if (mine.length) {
+        strip.appendChild(el("p", { class: "mesa-kicker mesa-strip__label", text: "Check yourself" }));
+        strip.appendChild(el("p", { class: "mesa-muted", text: "One question whose answer comes from doing the task. A right answer marks this tutorial as checked." }));
+        mine.forEach(function (id) { strip.appendChild(checkForm(m, store, id)); });
+      }
+
+      var after = route ? P.nextAfter(P.openNames(route, record), name, record) : "";
       var next = el("p", { class: "mesa-strip__next" });
       if (after) {
         next.appendChild(document.createTextNode("Next on your pathway: "));
@@ -484,6 +654,8 @@
     var root = el("div", { class: "mesa-progress" });
     var before = article.querySelector("#how-your-progress-is-kept");
     if (before) article.insertBefore(root, before); else article.appendChild(root);
+    var reflections = {}; /* built once, so typing is never interrupted by a redraw */
+    Object.keys(m.points).forEach(function (key) { reflections[key] = reflectionBox(m, key, true); });
     var pending = null; /* an imported record waiting for "replace" or "merge" */
     var message = "";
 
@@ -498,6 +670,17 @@
       document.body.removeChild(link);
       window.setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
       say("Saved a copy of your progress to a file.", "export");
+    }
+
+    function exportNotes(store) {
+      var blob = new Blob([P.reflectionsMarkdown(store.record, m, P.today())], { type: "text/markdown" });
+      var url = URL.createObjectURL(blob);
+      var link = el("a", { href: url, download: "mesa-trainings-notes-" + P.today() + ".md" });
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+      say("Saved your reflections, levels and finished tutorials as a Markdown file.", "notes");
     }
 
     function importFile(store, file) {
@@ -533,7 +716,7 @@
       root.appendChild(el("h2", { text: "Your pathways" }));
       var routes = el("ul", { class: "mesa-routes" });
       m.pathways.forEach(function (pathway) {
-        var got = P.progress(P.core(pathway), record, m), mine = chosen === pathway;
+        var got = P.route(pathway, record, m), mine = chosen === pathway;
         routes.appendChild(el("li", { class: "mesa-route" + (mine ? " is-chosen" : "") }, [
           el("a", { href: pathwayUrl(pathway.id), text: pathway.title }),
           el("div", { class: "mesa-route__meta" }, [
@@ -572,7 +755,10 @@
           el("h3", { text: (i + 1) + ". " + point.title }),
           el("p", { text: point.can_do }),
           el("p", { class: "mesa-meter", text: got.done + " of " + got.total + " tutorials done" }),
-          bar(got.done, got.total), finished.length ? did : null, group]));
+          bar(got.done, got.total),
+          P.isSkipped(record, key) ? el("p", { class: "mesa-note", text: "You passed the skip-check for this point on " + day(record.points[key].skipped) + "." }) : null,
+          finished.length ? did : null, group, reflections[key]]));
+        if (reflections[key]) reflections[key].sync(record, can);
       });
 
       root.appendChild(el("h2", { text: "Your record" }));
@@ -581,6 +767,8 @@
       picker.addEventListener("change", function () { importFile(store, picker.files[0]); picker.value = ""; });
       tools.appendChild(el("button", { type: "button", class: "mesa-btn mesa-btn--plain", "data-key": "export", text: "Save a copy to a file",
         onclick: function () { exportFile(store); } }));
+      tools.appendChild(el("button", { type: "button", class: "mesa-btn mesa-btn--plain", "data-key": "notes", text: "Save my notes as Markdown",
+        onclick: function () { exportNotes(store); } }));
       if (can) {
         tools.appendChild(el("button", { type: "button", class: "mesa-btn mesa-btn--plain", "data-key": "import", text: "Bring back a saved copy",
           onclick: function () { picker.click(); } }));
@@ -633,6 +821,10 @@
     var store = P.load(storage());
     paintNav(store.record);
     if (view) view.paint(store, focus);
+    if (focus) {
+      var target = document.querySelector('article [data-key="' + focus + '"]');
+      if (target && document.activeElement !== target) target.focus();
+    }
   }
 
   function draw() {
