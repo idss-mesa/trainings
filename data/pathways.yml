@@ -61,6 +61,11 @@ points:
 times:
   practice-data: [5, 5]
 
+# What the reader set out to do, for a page that has no "**You will:**" line. It
+# completes the sentence "You set out to ...".
+outcomes:
+  practice-data: have the practice files in your Data Store, and know what each one holds.
+
 # What a tutorial builds on is read from the links in its "You need" line. List a
 # tutorial here only where one of those links names an app or an optional source,
 # not an earlier task; the list given replaces the links.
@@ -301,7 +306,7 @@ checks:
   last-row:
     tutorial: load-a-file
     ask: Show the last row of `readings`. Which gauge and day is it?
-    options: ["G05, 2026-07-31", "G01, 2026-07-01", "G05, 2026-07-09", "G03, 2026-07-31"]
+    options: ["G01, 2026-07-01", "G03, 2026-07-31", "G05, 2026-07-09", "G05, 2026-07-31"]
     answer: "G05, 2026-07-31"
     how: readings.tail(1)
     verify:
@@ -435,7 +440,7 @@ checks:
     ask: >-
       Convert G02 to millimetres, leave out the flagged readings, and drop the
       repeated row. Which gauge then has the largest July total?
-    options: ["G03, 251.1 mm", "G05, 390.9 mm", "G05, 210.9 mm", "G03, 273.6 mm"]
+    options: ["G05, 210.9 mm", "G03, 251.1 mm", "G03, 273.6 mm", "G05, 390.9 mm"]
     answer: "G03, 251.1 mm"
     verify:
       python: |
@@ -468,7 +473,7 @@ checks:
   northernmost-gauge:
     tutorial: map-points-in-rstudio
     ask: Which gauge is furthest north?
-    options: ["G03, Observatory", "G05, Quarry", "G01, Boathouse", "G02, Orchard"]
+    options: ["G01, Boathouse", "G02, Orchard", "G03, Observatory", "G05, Quarry"]
     answer: "G03, Observatory"
     verify:
       python: |
@@ -485,7 +490,7 @@ checks:
     ask: >-
       The path you copied stops at `/iplant/home/shared`, and the listing holds
       many projects that are not MESA's. Which did you click?
-    options: ["Shared", "Community", "User Shared"]
+    options: ["Community", "Shared", "User Shared"]
     answer: "Shared"
     right: Shared opens every CyVerse community project. Community is the MESA folder inside it.
     slips:
@@ -496,9 +501,9 @@ checks:
     tutorial: save-your-work
     ask: Which of these tells you that a file will still be there after the app stops?
     options:
-      - "It is listed under My Files in the portal"
       - "It is listed in JupyterLab's file browser"
       - "The dot on the notebook's tab has gone"
+      - "It is listed under My Files in the portal"
     answer: "It is listed under My Files in the portal"
     right: The Data Browser reads the Data Store directly, not the running app.
     slips:
@@ -509,7 +514,7 @@ checks:
   how-the-app-ended:
     tutorial: stop-app-find-results
     ask: Your analysis is listed under Canceled, not Completed. Which button ended it?
-    options: ["Terminate", "Save & Exit", "Relaunch"]
+    options: ["Relaunch", "Save & Exit", "Terminate"]
     answer: "Terminate"
     right: Terminate ends the app at once without saving its outputs.
     slips:
