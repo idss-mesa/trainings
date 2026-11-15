@@ -102,28 +102,38 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 
 ## 3. Query and connect
 
-You can ask questions across files and tables, and show that combining them did what you meant. 4 tutorials, 30 to 40 minutes in all.
+You can ask questions across files and tables, and show that combining them did what you meant. 8 tutorials, 60 to 80 minutes in all.
 
 1. [Query a Parquet file with DuckDB from a notebook](tutorials/query-parquet-with-duckdb.md) (10 minutes)
 2. [Reconcile row counts before and after a join](tutorials/reconcile-a-join.md) (5 to 10 minutes)
 3. [Keep tokens and passwords out of saved files](tutorials/keep-secrets-out-of-files.md) (5 to 10 minutes)
 4. [Query a Parquet file with DuckDB from R](tutorials/r-query-parquet-with-duckdb.md) (10 minutes)
 
+### Combine and clean
+
+1. [Join two tables and keep the unmatched rows visible](tutorials/join-and-keep-unmatched.md) (10 minutes)
+2. [Bring two units onto one scale before comparing](tutorials/convert-units-before-comparing.md) (10 minutes)
+3. [Find and remove a repeated row](tutorials/remove-a-repeated-row.md) (5 to 10 minutes)
+4. [Save a query so someone else can run it](tutorials/save-a-query.md) (5 to 10 minutes)
+
 ## 4. Explore and verify
 
-*Explore with AI and verify.* You can work with an AI assistant and test what it tells you against the data. 2 tutorials, 20 minutes in all.
+*Explore with AI and verify.* You can work with an AI assistant and test what it tells you against the data. 3 tutorials, 25 to 30 minutes in all.
 
 1. [Sign in and start an AI agent in a MESA app](tutorials/start-an-ai-agent.md) (10 minutes)
 2. [Check an AI-suggested result against the data](tutorials/check-a-suggested-result.md) (10 minutes)
+3. [Keep a log of AI-assisted steps](tutorials/keep-an-ai-log.md) (5 to 10 minutes)
 
 ## 5. Preserve and share
 
-You can leave work that someone else can find, understand, and run again. 4 tutorials, 25 to 30 minutes in all.
+You can leave work that someone else can find, understand, and run again. 6 tutorials, 40 to 50 minutes in all.
 
 1. [Write a README for a data folder](tutorials/write-a-readme.md) (10 minutes)
 2. [Add metadata to a file or folder](tutorials/add-metadata.md) (5 minutes)
 3. [Record the software versions a result depends on](tutorials/record-software-versions.md) (5 minutes)
 4. [Leave a notebook someone else can rerun](tutorials/leave-a-rerunnable-notebook.md) (5 to 10 minutes)
+5. [Say where your input data came from](tutorials/say-where-data-came-from.md) (5 to 10 minutes)
+6. [Hand your folder to a colleague and have them rerun it](tutorials/hand-over-and-rerun.md) (10 minutes)
 
 ## Looking for one thing?
 

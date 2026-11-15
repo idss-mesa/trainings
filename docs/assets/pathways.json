@@ -441,7 +441,10 @@
      "tutorials": [],
      "more": [
       "reconcile-a-join",
-      "query-parquet-with-duckdb"
+      "query-parquet-with-duckdb",
+      "convert-units-before-comparing",
+      "remove-a-repeated-row",
+      "join-and-keep-unmatched"
      ]
     }
    ]
@@ -506,7 +509,8 @@
       "check-a-suggested-result"
      ],
      "more": [
-      "start-an-ai-agent"
+      "start-an-ai-agent",
+      "keep-an-ai-log"
      ]
     }
    ]
@@ -528,7 +532,16 @@
      ],
      "more": [
       "add-metadata",
-      "record-software-versions"
+      "record-software-versions",
+      "say-where-data-came-from",
+      "hand-over-and-rerun"
+     ]
+    },
+    {
+     "point": "p3",
+     "tutorials": [],
+     "more": [
+      "save-a-query"
      ]
     },
     {
@@ -650,6 +663,15 @@
      "keep-secrets-out-of-files",
      "r-query-parquet-with-duckdb"
     ]
+   },
+   {
+    "title": "Combine and clean",
+    "tutorials": [
+     "join-and-keep-unmatched",
+     "convert-units-before-comparing",
+     "remove-a-repeated-row",
+     "save-a-query"
+    ]
    }
   ],
   "p4": [
@@ -657,7 +679,8 @@
     "title": "",
     "tutorials": [
      "start-an-ai-agent",
-     "check-a-suggested-result"
+     "check-a-suggested-result",
+     "keep-an-ai-log"
     ]
    }
   ],
@@ -668,7 +691,9 @@
      "write-a-readme",
      "add-metadata",
      "record-software-versions",
-     "leave-a-rerunnable-notebook"
+     "leave-a-rerunnable-notebook",
+     "say-where-data-came-from",
+     "hand-over-and-rerun"
     ]
    }
   ]
@@ -761,6 +786,21 @@
     "sign-in"
    ]
   },
+  "convert-units-before-comparing": {
+   "title": "Bring two units onto one scale before comparing",
+   "description": "Convert readings that were recorded in different units to one unit, using the table that says which unit each gauge reports in, and confirm that every row was converted.",
+   "outcome": "have a `value_mm` column that holds every reading in millimetres, and proof that no row was left unconverted.",
+   "point": "p3",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-15T00:00:00Z",
+   "stale_after": "2027-05-15T00:00:00Z",
+   "builds_on": [
+    "load-a-file",
+    "launch-jupyterlab"
+   ]
+  },
   "count-records-per-day": {
    "title": "Count records per day to find incomplete days",
    "description": "Count the rows for each gauge and day to find days that were recorded twice and days that were not recorded at all.",
@@ -816,6 +856,52 @@
    "stale_after": "2027-05-12T00:00:00Z",
    "builds_on": [
     "sign-in"
+   ]
+  },
+  "hand-over-and-rerun": {
+   "title": "Hand your folder to a colleague and have them rerun it",
+   "description": "Test whether your work can be repeated without you: share the folder, have a colleague copy it and run the notebook from a fresh start, and compare their result with the one you wrote down.",
+   "outcome": "know whether a colleague can rerun your notebook, without your help, and get your result.",
+   "point": "p5",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-15T00:00:00Z",
+   "stale_after": "2027-05-15T00:00:00Z",
+   "builds_on": [
+    "leave-a-rerunnable-notebook",
+    "sign-in"
+   ]
+  },
+  "join-and-keep-unmatched": {
+   "title": "Join two tables and keep the unmatched rows visible",
+   "description": "Join a table of gauges to a table of positions with DuckDB so that a gauge with no match stays in the result and is counted, instead of dropping out unseen.",
+   "outcome": "have a join in which a gauge with no position is still listed, and a count of how many gauges matched.",
+   "point": "p3",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-15T00:00:00Z",
+   "stale_after": "2027-05-15T00:00:00Z",
+   "builds_on": [
+    "load-a-file",
+    "launch-jupyterlab"
+   ]
+  },
+  "keep-an-ai-log": {
+   "title": "Keep a log of AI-assisted steps",
+   "description": "Keep a table in your notebook with one row for each step an AI assistant helped with: what you asked, what it answered, how you checked it, and what you decided.",
+   "outcome": "have an AI log in your notebook, with a first row filled in.",
+   "point": "p4",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-15T00:00:00Z",
+   "stale_after": "2027-05-15T00:00:00Z",
+   "builds_on": [
+    "load-a-file",
+    "launch-jupyterlab",
+    "check-a-suggested-result"
    ]
   },
   "keep-secrets-out-of-files": {
@@ -1107,6 +1193,21 @@
     "practice-data"
    ]
   },
+  "remove-a-repeated-row": {
+   "title": "Find and remove a repeated row",
+   "description": "Find rows that are written twice in a table, decide from what they contain whether one of them can go, remove it, and record what you removed.",
+   "outcome": "have a table with the repeated row removed, and a note of what you removed and why.",
+   "point": "p3",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-15T00:00:00Z",
+   "stale_after": "2027-05-15T00:00:00Z",
+   "builds_on": [
+    "load-a-file",
+    "launch-jupyterlab"
+   ]
+  },
   "rename-a-folder": {
    "title": "Rename a folder in your Data Store",
    "description": "Give a folder in your Data Store a clearer name from the MESA Portal's Data Browser, and confirm its path changed with it.",
@@ -1122,6 +1223,21 @@
     "make-a-folder"
    ]
   },
+  "save-a-query": {
+   "title": "Save a query so someone else can run it",
+   "description": "Put a SQL query in its own file beside the notebook, with a comment that says what it needs, and run it from that file so that a colleague runs exactly what you ran.",
+   "outcome": "have a file, `flagged_readings.sql`, beside your notebook, and a cell that runs the query from that file.",
+   "point": "p3",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-15T00:00:00Z",
+   "stale_after": "2027-05-15T00:00:00Z",
+   "builds_on": [
+    "load-a-file",
+    "launch-jupyterlab"
+   ]
+  },
   "save-your-work": {
    "title": "Save your work where it survives the session",
    "description": "Save a notebook inside your Data Store from MESA JupyterLab and confirm from the MESA Portal that it will outlive the app.",
@@ -1133,6 +1249,21 @@
    "revised": "2026-11-11T00:00:00Z",
    "stale_after": "2027-05-11T00:00:00Z",
    "builds_on": [
+    "launch-jupyterlab"
+   ]
+  },
+  "say-where-data-came-from": {
+   "title": "Say where your input data came from",
+   "description": "Record in a folder's README where its data came from, when you retrieved it, which version it is, and what its license allows, so that someone else can get the same data again.",
+   "outcome": "have a **Source** section in your README that says where the data came from, when you got it, which version it is, and what its license allows.",
+   "point": "p5",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-15T00:00:00Z",
+   "stale_after": "2027-05-15T00:00:00Z",
+   "builds_on": [
+    "write-a-readme",
     "launch-jupyterlab"
    ]
   },

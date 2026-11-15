@@ -81,6 +81,13 @@ nav = [
       { "Check your usage" = "tutorials/check-your-usage.md" },
       { "Read a notebook in the portal" = "tutorials/view-a-notebook.md" },
       { "Look inside a CSV file" = "tutorials/preview-a-table.md" },
+      { "Join and keep unmatched rows" = "tutorials/join-and-keep-unmatched.md" },
+      { "Convert units before comparing" = "tutorials/convert-units-before-comparing.md" },
+      { "Remove a repeated row" = "tutorials/remove-a-repeated-row.md" },
+      { "Save a query" = "tutorials/save-a-query.md" },
+      { "Keep an AI log" = "tutorials/keep-an-ai-log.md" },
+      { "Say where data came from" = "tutorials/say-where-data-came-from.md" },
+      { "Hand over and rerun" = "tutorials/hand-over-and-rerun.md" },
   ] },
   { "Contributing" = [
       { "Contribute a tutorial" = "contributing.md" },

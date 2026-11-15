@@ -75,6 +75,11 @@ notebook, so do the first one first.
 | Run SQL on a Parquet file | [Query a Parquet file with DuckDB from a notebook](https://idss-mesa.github.io/trainings/tutorials/query-parquet-with-duckdb/) | 10 min |
 | Put points on a map in R | [Map point data with sf in MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/) | 10 min |
 | Test a result I was handed | [Check an AI-suggested result against the data](https://idss-mesa.github.io/trainings/tutorials/check-a-suggested-result/) | 10 min |
+| See what a join left out | [Join two tables and keep the unmatched rows visible](https://idss-mesa.github.io/trainings/tutorials/join-and-keep-unmatched/) | 10 min |
+| Compare gauges that report in different units | [Bring two units onto one scale before comparing](https://idss-mesa.github.io/trainings/tutorials/convert-units-before-comparing/) | 10 min |
+| Deal with a row that is written twice | [Find and remove a repeated row](https://idss-mesa.github.io/trainings/tutorials/remove-a-repeated-row/) | 5–10 min |
+| Hand a query to someone else | [Save a query so someone else can run it](https://idss-mesa.github.io/trainings/tutorials/save-a-query/) | 5–10 min |
+| Keep track of what an AI assistant did | [Keep a log of AI-assisted steps](https://idss-mesa.github.io/trainings/tutorials/keep-an-ai-log/) | 5–10 min |
 
 ## More in the portal, sharing, and AI agents
 
@@ -87,6 +92,8 @@ notebook, so do the first one first.
 | Look through a folder with many items | [Browse a large folder as a sorted list](https://idss-mesa.github.io/trainings/tutorials/browse-a-large-folder/) | 5 min |
 | See what a colleague recorded about a folder | [Read the metadata on a folder shared with you](https://idss-mesa.github.io/trainings/tutorials/read-shared-metadata/) | 5–10 min |
 | Take back access I gave | [Stop sharing a folder](https://idss-mesa.github.io/trainings/tutorials/stop-sharing-a-folder/) | 5 min |
+| Say where my data came from | [Say where your input data came from](https://idss-mesa.github.io/trainings/tutorials/say-where-data-came-from/) | 5–10 min |
+| Find out if someone else can rerun my work | [Hand your folder to a colleague and have them rerun it](https://idss-mesa.github.io/trainings/tutorials/hand-over-and-rerun/) | 10 min |
 | Know how much computing time and space I have | [Check your CPU hours and storage](https://idss-mesa.github.io/trainings/tutorials/check-your-usage/) | 5 min |
 | Read a notebook without starting an app | [Read a notebook in the portal without starting an app](https://idss-mesa.github.io/trainings/tutorials/view-a-notebook/) | 5 min |
 | See what is in a table before I launch anything | [Look inside a CSV file from the portal](https://idss-mesa.github.io/trainings/tutorials/preview-a-table/) | 5–10 min |
@@ -346,6 +353,9 @@ If you have more time:
 
 - [Reconcile row counts before and after a join](https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/) (5 to 10 minutes)
 - [Query a Parquet file with DuckDB from a notebook](https://idss-mesa.github.io/trainings/tutorials/query-parquet-with-duckdb/) (10 minutes)
+- [Bring two units onto one scale before comparing](https://idss-mesa.github.io/trainings/tutorials/convert-units-before-comparing/) (10 minutes)
+- [Find and remove a repeated row](https://idss-mesa.github.io/trainings/tutorials/remove-a-repeated-row/) (5 to 10 minutes)
+- [Join two tables and keep the unmatched rows visible](https://idss-mesa.github.io/trainings/tutorials/join-and-keep-unmatched/) (10 minutes)
 
 ## Next
 
@@ -464,6 +474,7 @@ If you have more time:
 If you have more time:
 
 - [Sign in and start an AI agent in a MESA app](https://idss-mesa.github.io/trainings/tutorials/start-an-ai-agent/) (10 minutes)
+- [Keep a log of AI-assisted steps](https://idss-mesa.github.io/trainings/tutorials/keep-an-ai-log/) (5 to 10 minutes)
 
 ## Next
 
@@ -511,6 +522,16 @@ If you have more time:
 
 - [Add metadata to a file or folder](https://idss-mesa.github.io/trainings/tutorials/add-metadata/) (5 minutes)
 - [Record the software versions a result depends on](https://idss-mesa.github.io/trainings/tutorials/record-software-versions/) (5 minutes)
+- [Say where your input data came from](https://idss-mesa.github.io/trainings/tutorials/say-where-data-came-from/) (5 to 10 minutes)
+- [Hand your folder to a colleague and have them rerun it](https://idss-mesa.github.io/trainings/tutorials/hand-over-and-rerun/) (10 minutes)
+
+## Query and connect
+
+You can ask questions across files and tables, and show that combining them did what you meant.
+
+If you have more time:
+
+- [Save a query so someone else can run it](https://idss-mesa.github.io/trainings/tutorials/save-a-query/) (5 to 10 minutes)
 
 ## Orient and navigate
 
@@ -633,28 +654,38 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 
 ## 3. Query and connect
 
-You can ask questions across files and tables, and show that combining them did what you meant. 4 tutorials, 30 to 40 minutes in all.
+You can ask questions across files and tables, and show that combining them did what you meant. 8 tutorials, 60 to 80 minutes in all.
 
 1. [Query a Parquet file with DuckDB from a notebook](https://idss-mesa.github.io/trainings/tutorials/query-parquet-with-duckdb/) (10 minutes)
 2. [Reconcile row counts before and after a join](https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/) (5 to 10 minutes)
 3. [Keep tokens and passwords out of saved files](https://idss-mesa.github.io/trainings/tutorials/keep-secrets-out-of-files/) (5 to 10 minutes)
 4. [Query a Parquet file with DuckDB from R](https://idss-mesa.github.io/trainings/tutorials/r-query-parquet-with-duckdb/) (10 minutes)
 
+### Combine and clean
+
+1. [Join two tables and keep the unmatched rows visible](https://idss-mesa.github.io/trainings/tutorials/join-and-keep-unmatched/) (10 minutes)
+2. [Bring two units onto one scale before comparing](https://idss-mesa.github.io/trainings/tutorials/convert-units-before-comparing/) (10 minutes)
+3. [Find and remove a repeated row](https://idss-mesa.github.io/trainings/tutorials/remove-a-repeated-row/) (5 to 10 minutes)
+4. [Save a query so someone else can run it](https://idss-mesa.github.io/trainings/tutorials/save-a-query/) (5 to 10 minutes)
+
 ## 4. Explore and verify
 
-*Explore with AI and verify.* You can work with an AI assistant and test what it tells you against the data. 2 tutorials, 20 minutes in all.
+*Explore with AI and verify.* You can work with an AI assistant and test what it tells you against the data. 3 tutorials, 25 to 30 minutes in all.
 
 1. [Sign in and start an AI agent in a MESA app](https://idss-mesa.github.io/trainings/tutorials/start-an-ai-agent/) (10 minutes)
 2. [Check an AI-suggested result against the data](https://idss-mesa.github.io/trainings/tutorials/check-a-suggested-result/) (10 minutes)
+3. [Keep a log of AI-assisted steps](https://idss-mesa.github.io/trainings/tutorials/keep-an-ai-log/) (5 to 10 minutes)
 
 ## 5. Preserve and share
 
-You can leave work that someone else can find, understand, and run again. 4 tutorials, 25 to 30 minutes in all.
+You can leave work that someone else can find, understand, and run again. 6 tutorials, 40 to 50 minutes in all.
 
 1. [Write a README for a data folder](https://idss-mesa.github.io/trainings/tutorials/write-a-readme/) (10 minutes)
 2. [Add metadata to a file or folder](https://idss-mesa.github.io/trainings/tutorials/add-metadata/) (5 minutes)
 3. [Record the software versions a result depends on](https://idss-mesa.github.io/trainings/tutorials/record-software-versions/) (5 minutes)
 4. [Leave a notebook someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/leave-a-rerunnable-notebook/) (5 to 10 minutes)
+5. [Say where your input data came from](https://idss-mesa.github.io/trainings/tutorials/say-where-data-came-from/) (5 to 10 minutes)
+6. [Hand your folder to a colleague and have them rerun it](https://idss-mesa.github.io/trainings/tutorials/hand-over-and-rerun/) (10 minutes)
 
 ## Looking for one thing?
 
@@ -5751,6 +5782,892 @@ files. For other tables, [load the file into a notebook](https://idss-mesa.githu
 
 *Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13 and followed once on the live portal that day.*
 
+---8<--- https://idss-mesa.github.io/trainings/tutorials/join-and-keep-unmatched/
+
+---
+type: Guide
+title: "Join two tables and keep the unmatched rows visible"
+description: "Join a table of gauges to a table of positions with DuckDB so that a gauge with no match stays in the result and is counted, instead of dropping out unseen."
+tags: [byte, p3, join, duckdb, sql]
+status: draft
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-15T00:00:00Z" }
+stale_after: "2027-05-15T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: duckdb
+    resource: "https://duckdb.org/docs/stable/sql/query_syntax/from"
+    title: "FROM and JOIN clauses (DuckDB documentation)"
+    author: "team:duckdb"
+---
+
+# Join two tables and keep the unmatched rows visible
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run on 2026-11-15 with pandas 3.1.1 and DuckDB 2.0.0, the
+    versions in MESA JupyterLab, and produced the output shown. It was not run inside
+    MESA JupyterLab, and nobody has yet followed the steps there, so a menu or a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+An ordinary join keeps only the rows that find a match. The rest leave without a
+message, and every count after the join is quietly smaller. A left join keeps them
+where you can see them.
+
+**You will:** have a join in which a gauge with no position is still listed, and a
+count of how many gauges matched.
+
+**Time:** 10 minutes. **You need:** the notebook from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), open in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), with its first cell run.
+
+## Steps
+
+1. Make a table of positions that is incomplete on purpose: only the gauges west of
+   one line of longitude.
+
+    ```python
+    import duckdb
+
+    duckdb.sql("CREATE OR REPLACE VIEW west AS SELECT * FROM 'gauge_sites.csv' WHERE longitude < -104.73")
+    duckdb.sql("SELECT count(*) AS n FROM west")
+    ```
+
+    You should see: four positions, for five gauges.
+
+    ```text
+    ┌───────┐
+    │   n   │
+    │ int64 │
+    ├───────┤
+    │     4 │
+    └───────┘
+    ```
+
+2. Join the gauges to those positions in the ordinary way:
+
+    ```python
+    duckdb.sql("""
+        SELECT g.gauge_id, g.name, w.longitude, w.latitude
+        FROM 'gauges.csv' AS g
+        JOIN west AS w ON g.gauge_id = w.gauge_id
+        ORDER BY g.gauge_id
+    """)
+    ```
+
+    You should see: four rows and no warning. One gauge has gone, and nothing says so.
+
+    ```text
+    ┌──────────┬───────────┬───────────┬──────────┐
+    │ gauge_id │   name    │ longitude │ latitude │
+    │ varchar  │  varchar  │  double   │  double  │
+    ├──────────┼───────────┼───────────┼──────────┤
+    │ G01      │ Boathouse │ -104.7612 │  47.1034 │
+    │ G02      │ Orchard   │ -104.7391 │  47.1108 │
+    │ G04      │ Depot     │ -104.7533 │  47.1175 │
+    │ G05      │ Quarry    │ -104.7306 │  47.0962 │
+    └──────────┴───────────┴───────────┴──────────┘
+    ```
+
+3. Change `JOIN` to `LEFT JOIN`, which keeps every row of the table named first:
+
+    ```python
+    duckdb.sql("""
+        SELECT g.gauge_id, g.name, w.longitude, w.latitude
+        FROM 'gauges.csv' AS g
+        LEFT JOIN west AS w ON g.gauge_id = w.gauge_id
+        ORDER BY g.gauge_id
+    """)
+    ```
+
+    You should see: five rows. The gauge without a position is there, with `NULL`
+    where its position would be.
+
+    ```text
+    ┌──────────┬─────────────┬───────────┬──────────┐
+    │ gauge_id │    name     │ longitude │ latitude │
+    │ varchar  │   varchar   │  double   │  double  │
+    ├──────────┼─────────────┼───────────┼──────────┤
+    │ G01      │ Boathouse   │ -104.7612 │  47.1034 │
+    │ G02      │ Orchard     │ -104.7391 │  47.1108 │
+    │ G03      │ Observatory │      NULL │     NULL │
+    │ G04      │ Depot       │ -104.7533 │  47.1175 │
+    │ G05      │ Quarry      │ -104.7306 │  47.0962 │
+    └──────────┴─────────────┴───────────┴──────────┘
+    ```
+
+4. Count the matches, so the answer does not depend on reading every row.
+   `count(w.gauge_id)` counts only the rows where a position was found:
+
+    ```python
+    duckdb.sql("""
+        SELECT count(*) AS gauges,
+               count(w.gauge_id) AS matched,
+               count(*) - count(w.gauge_id) AS unmatched
+        FROM 'gauges.csv' AS g
+        LEFT JOIN west AS w ON g.gauge_id = w.gauge_id
+    """)
+    ```
+
+    You should see:
+
+    ```text
+    ┌────────┬─────────┬───────────┐
+    │ gauges │ matched │ unmatched │
+    │ int64  │  int64  │   int64   │
+    ├────────┼─────────┼───────────┤
+    │      5 │       4 │         1 │
+    └────────┴─────────┴───────────┘
+    ```
+
+5. Run the same count against the complete file, `'gauge_sites.csv'`, in place of
+   `west`:
+
+    ```python
+    duckdb.sql("""
+        SELECT count(*) AS gauges,
+               count(s.gauge_id) AS matched,
+               count(*) - count(s.gauge_id) AS unmatched
+        FROM 'gauges.csv' AS g
+        LEFT JOIN 'gauge_sites.csv' AS s ON g.gauge_id = s.gauge_id
+    """)
+    ```
+
+    You should see: every gauge matched.
+
+    ```text
+    ┌────────┬─────────┬───────────┐
+    │ gauges │ matched │ unmatched │
+    │ int64  │  int64  │   int64   │
+    ├────────┼─────────┼───────────┤
+    │      5 │       5 │         0 │
+    └────────┴─────────┴───────────┘
+    ```
+
+## Check it worked
+
+In each count, `matched` plus `unmatched` equals `gauges`. You can say which gauge had
+no position in step 3, and that the complete file leaves none out.
+
+## If it didn't
+
+**`Catalog Error: Table with name west does not exist!`** The kernel has restarted
+since step 1, and the view went with it. Run step 1 again, then repeat the step.
+
+## Next
+
+- [Reconcile row counts before and after a join](https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/), the same care
+  in pandas.
+- [Bring two units onto one scale before comparing](https://idss-mesa.github.io/trainings/tutorials/convert-units-before-comparing/)
+- Reference: [FROM and JOIN clauses](https://duckdb.org/docs/stable/sql/query_syntax/from)
+  in the DuckDB documentation, and
+  [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) for what the app
+  contains.
+
+*Not yet validated in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15; the code was run that day outside MESA (pandas 3.1.1, DuckDB 2.0.0).*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/convert-units-before-comparing/
+
+---
+type: Guide
+title: "Bring two units onto one scale before comparing"
+description: "Convert readings that were recorded in different units to one unit, using the table that says which unit each gauge reports in, and confirm that every row was converted."
+tags: [byte, p3, units, join, pandas]
+status: draft
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-15T00:00:00Z" }
+stale_after: "2027-05-15T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: pandas
+    resource: "https://pandas.pydata.org/docs/reference/api/pandas.Series.map.html"
+    title: "pandas.Series.map"
+    author: "team:pandas-dev"
+---
+
+# Bring two units onto one scale before comparing
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run on 2026-11-15 with pandas 3.1.1 and DuckDB 2.0.0, the
+    versions in MESA JupyterLab, and produced the output shown. It was not run inside
+    MESA JupyterLab, and nobody has yet followed the steps there, so a menu or a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+The practice gauges do not all report in the same unit, and the unit is written in a
+different file from the readings. Until the values share a unit, no comparison between
+gauges means anything.
+
+**You will:** have a `value_mm` column that holds every reading in millimetres, and
+proof that no row was left unconverted.
+
+**Time:** 10 minutes. **You need:** the notebook from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), open in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), with its first cell run so that `readings` and `gauges` exist.
+
+## Steps
+
+1. List the units in use:
+
+    ```python
+    gauges["unit"].value_counts()
+    ```
+
+    You should see: two units.
+
+    ```text
+    unit
+    mm    4
+    cm    1
+    Name: count, dtype: int64
+    ```
+
+2. Write down, as a small table of your own, how each unit becomes millimetres:
+
+    ```python
+    to_mm = {"mm": 1, "cm": 10}
+    ```
+
+    You should see: no output. A unit you have not listed here will show up in step 4.
+
+3. Give each reading its gauge's unit, then convert:
+
+    ```python
+    joined = readings.merge(gauges[["gauge_id", "unit"]], on="gauge_id", how="left", validate="many_to_one")
+    joined["value_mm"] = joined["value"] * joined["unit"].map(to_mm)
+    joined[joined["gauge_id"] == "G02"].head(3)
+    ```
+
+    You should see: the original `value` kept, and `value_mm` ten times larger for
+    this gauge.
+
+    ```text
+       gauge_id        date  value flag unit  value_mm
+    27      G02  2026-07-01   0.00  NaN   cm       0.0
+    28      G02  2026-07-02   0.00  NaN   cm       0.0
+    29      G02  2026-07-03   2.89  NaN   cm      28.9
+    ```
+
+4. Count the readings that were not converted:
+
+    ```python
+    int(joined["value_mm"].isna().sum())
+    ```
+
+    You should see: `0`. A reading with no gauge, or with a unit missing from `to_mm`,
+    would have an empty `value_mm` and be counted here.
+
+5. Compare the largest reading at each gauge, before and after:
+
+    ```python
+    joined.groupby("gauge_id")[["value", "value_mm"]].max()
+    ```
+
+    You should see: G02 no longer far below its neighbours.
+
+    ```text
+               value  value_mm
+    gauge_id
+    G01        24.90      24.9
+    G02         2.92      29.2
+    G03        32.50      32.5
+    G04        26.40      26.4
+    G05       180.00     180.0
+    ```
+
+## Check it worked
+
+`joined` has the same number of rows as `readings`, step 4 gave `0`, and for the four
+gauges that already reported in millimetres `value_mm` equals `value`.
+
+## If it didn't
+
+**Step 4 gives a number above 0.** Some gauge reports in a unit that `to_mm` does not
+list. Run `joined.loc[joined["value_mm"].isna(), "unit"].unique()` to see which, add
+it to `to_mm` in step 2, and run steps 3 and 4 again.
+
+## Next
+
+- The values now share a unit, but a total would still count one row twice. See
+  [Find and remove a repeated row](https://idss-mesa.github.io/trainings/tutorials/remove-a-repeated-row/).
+- [Read the data dictionary before the data](https://idss-mesa.github.io/trainings/tutorials/read-the-data-dictionary/), which is
+  where the two units were first noticed.
+- Reference: [pandas.Series.map](https://pandas.pydata.org/docs/reference/api/pandas.Series.map.html),
+  and [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) for what the
+  app contains.
+
+*Not yet validated in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15; the code was run that day outside MESA (pandas 3.1.1, DuckDB 2.0.0).*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/remove-a-repeated-row/
+
+---
+type: Guide
+title: "Find and remove a repeated row"
+description: "Find rows that are written twice in a table, decide from what they contain whether one of them can go, remove it, and record what you removed."
+tags: [byte, p3, duplicates, data-quality, pandas]
+status: draft
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-15T00:00:00Z" }
+stale_after: "2027-05-15T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: pandas
+    resource: "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.drop_duplicates.html"
+    title: "pandas.DataFrame.drop_duplicates"
+    author: "team:pandas-dev"
+---
+
+# Find and remove a repeated row
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run on 2026-11-15 with pandas 3.1.1 and DuckDB 2.0.0, the
+    versions in MESA JupyterLab, and produced the output shown. It was not run inside
+    MESA JupyterLab, and nobody has yet followed the steps there, so a menu or a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A row written twice adds its value to every total twice. Removing it is easy. The
+part that needs thought is deciding that the two rows really are one reading.
+
+**You will:** have a table with the repeated row removed, and a note of what you
+removed and why.
+
+**Time:** 5 to 10 minutes. **You need:** the notebook from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), open in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), with its first cell run so that `readings` exists.
+
+## Steps
+
+1. Show every row that has an exact copy, keeping both copies in view:
+
+    ```python
+    readings[readings.duplicated(keep=False)]
+    ```
+
+    You should see: one pair.
+
+    ```text
+       gauge_id        date  value flag
+    62      G03  2026-07-05   22.5  NaN
+    63      G03  2026-07-05   22.5  NaN
+    ```
+
+2. Decide what to keep. Read the pair: the gauge, the day, the value, and the flag are
+   all the same, and the [data dictionary](https://idss-mesa.github.io/trainings/tutorials/practice-data/#data-dictionary) says one
+   row is one reading from one gauge for one day.
+
+    You should see: no difference between the two rows. They carry the same
+    information, so one can go and nothing is lost.
+
+3. Remove the copy, into a new table:
+
+    ```python
+    deduped = readings.drop_duplicates()
+    len(readings) - len(deduped)
+    ```
+
+    You should see: `1`, the number of rows removed. `readings` itself is unchanged,
+    so the earlier cells of your notebook still give what they gave.
+
+4. Check for the harder case, two rows for the same gauge and day that *disagree*:
+
+    ```python
+    int(deduped.duplicated(subset=["gauge_id", "date"]).sum())
+    ```
+
+    You should see: `0`. Anything above zero would be two different readings for one
+    day. `drop_duplicates()` leaves those alone, and so should you until you know which
+    is right.
+
+5. See what the copy was doing to that gauge's total:
+
+    ```python
+    before = readings.loc[readings["gauge_id"] == "G03", "value"].sum()
+    after = deduped.loc[deduped["gauge_id"] == "G03", "value"].sum()
+    (float(before.round(1)), float(after.round(1)))
+    ```
+
+    You should see: the total fall by the value of the repeated row.
+
+    ```text
+    (273.6, 251.1)
+    ```
+
+6. In a Markdown cell, record what you removed: the gauge, the day, the value, and that
+   the two rows were identical.
+
+    You should see: your note in the notebook, so that a reader can tell the row was
+    removed on purpose.
+
+## Check it worked
+
+Run step 1 on the new table, `deduped[deduped.duplicated(keep=False)]`. It returns no
+rows, and your note says which row went.
+
+## If it didn't
+
+**Step 1 returns no rows.** The table was already cleaned earlier in the notebook, or
+`readings` was replaced by another table. Run the notebook's first cell again to
+reload the file, then repeat the step.
+
+## Next
+
+- [Count records per day to find incomplete days](https://idss-mesa.github.io/trainings/tutorials/count-records-per-day/), which
+  finds the same row another way, and the days with no row at all.
+- [Bring two units onto one scale before comparing](https://idss-mesa.github.io/trainings/tutorials/convert-units-before-comparing/)
+- Reference: [pandas.DataFrame.drop_duplicates](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.drop_duplicates.html),
+  and [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) for what the
+  app contains.
+
+*Not yet validated in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15; the code was run that day outside MESA (pandas 3.1.1, DuckDB 2.0.0).*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/save-a-query/
+
+---
+type: Guide
+title: "Save a query so someone else can run it"
+description: "Put a SQL query in its own file beside the notebook, with a comment that says what it needs, and run it from that file so that a colleague runs exactly what you ran."
+tags: [byte, p3, sql, duckdb, reproducibility]
+status: draft
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-15T00:00:00Z" }
+stale_after: "2027-05-15T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: duckdb
+    resource: "https://duckdb.org/docs/stable/clients/python/overview"
+    title: "Python API overview (DuckDB documentation)"
+    author: "team:duckdb"
+---
+
+# Save a query so someone else can run it
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run on 2026-11-15 with pandas 3.1.1 and DuckDB 2.0.0, the
+    versions in MESA JupyterLab, and produced the output shown. It was not run inside
+    MESA JupyterLab, and nobody has yet followed the steps there, so a menu or a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A query typed into a notebook cell is easy to change and hard to hand over. In a file
+of its own it has a name, it can be read without opening the notebook, and whoever
+runs it runs the same text you did.
+
+**You will:** have a file, `flagged_readings.sql`, beside your notebook, and a cell
+that runs the query from that file.
+
+**Time:** 5 to 10 minutes. **You need:** the notebook from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), open in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), with its first cell run.
+
+## Steps
+
+1. Write the query as text. Start it with comment lines, which begin with `--`, that
+   say what it returns and which file it reads:
+
+    ```python
+    query = """-- Readings the sensor marked suspect, oldest first.
+    -- Needs readings.csv in the folder this is run from.
+    SELECT gauge_id, date, value
+    FROM 'readings.csv'
+    WHERE flag = 'S'
+    ORDER BY date;
+    """
+    ```
+
+    You should see: no output.
+
+2. Save the text to a file beside the notebook:
+
+    ```python
+    from pathlib import Path
+
+    saved = Path("flagged_readings.sql").write_text(query)
+    ```
+
+    You should see: no output, and `flagged_readings.sql` in the file browser.
+
+3. Run the query from the file, not from the variable:
+
+    ```python
+    import duckdb
+
+    duckdb.sql(Path("flagged_readings.sql").read_text())
+    ```
+
+    You should see: the two flagged readings.
+
+    ```text
+    ┌──────────┬────────────┬────────┐
+    │ gauge_id │    date    │ value  │
+    │ varchar  │    date    │ double │
+    ├──────────┼────────────┼────────┤
+    │ G05      │ 2026-07-09 │  180.0 │
+    │ G03      │ 2026-07-18 │    0.0 │
+    └──────────┴────────────┴────────┘
+    ```
+
+4. Double-click `flagged_readings.sql` in the file browser.
+
+    You should see: the query in an editor tab, with your two comment lines at the
+    top. This is what a colleague reads first.
+
+5. From now on, change the query in the file, save it, and run the cell from step 3
+   again. Delete the cells from steps 1 and 2 once the file exists, so that the
+   notebook holds one copy of the query and not two.
+
+    You should see: the cell from step 3 still giving the same two rows.
+
+## Check it worked
+
+The folder holds `flagged_readings.sql`, and the one cell that reads it returns two
+rows. Someone with the folder can run that cell, or read the file, without asking you
+what the query was.
+
+## If it didn't
+
+**`IO Error: No files found that match the pattern "readings.csv"`.** The query names
+its data file without a folder, so it must be run from the folder that holds the
+file. Open the notebook from `mesa-practice`, where `readings.csv` is, and run the cell
+again.
+
+## Next
+
+- [Leave a notebook someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/leave-a-rerunnable-notebook/)
+- [Query a Parquet file with DuckDB from a notebook](https://idss-mesa.github.io/trainings/tutorials/query-parquet-with-duckdb/)
+- Reference: the [Python API overview](https://duckdb.org/docs/stable/clients/python/overview)
+  in the DuckDB documentation, and
+  [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) for what the app
+  contains.
+
+*Not yet validated in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15; the code was run that day outside MESA (pandas 3.1.1, DuckDB 2.0.0).*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/keep-an-ai-log/
+
+---
+type: Guide
+title: "Keep a log of AI-assisted steps"
+description: "Keep a table in your notebook with one row for each step an AI assistant helped with: what you asked, what it answered, how you checked it, and what you decided."
+tags: [byte, p4, ai-agents, verification, disclosure]
+status: draft
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-15T00:00:00Z" }
+stale_after: "2027-05-15T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: docs-agents
+    resource: "https://idss-mesa.github.io/docs/apps/agents/"
+    title: "AI agents in the MESA apps"
+    author: "team:idss-mesa"
+  - id: jupyterlab
+    resource: "https://jupyterlab.readthedocs.io/en/stable/user/notebook.html"
+    title: "Notebooks (JupyterLab documentation)"
+    author: "team:jupyterlab"
+---
+
+# Keep a log of AI-assisted steps
+
+!!! warning "Draft: not yet validated"
+    Nobody has yet followed this tutorial in MESA JupyterLab, so a key or a menu name
+    may differ there. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+An answer from an AI assistant that went into your work unrecorded cannot be checked
+later, by you or by anyone else. A log made as you go costs a minute a row, and it is
+what lets you say afterwards exactly what the assistant did.
+
+**You will:** have an AI log in your notebook, with a first row filled in.
+
+**Time:** 5 to 10 minutes. **You need:** `practice.ipynb` from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), open in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/). You do not need an AI assistant: the first
+row uses the answer tested in
+[Check an AI-suggested result against the data](https://idss-mesa.github.io/trainings/tutorials/check-a-suggested-result/).
+
+## Steps
+
+1. Click the last cell of the notebook, press ++esc++, then ++b++ to add a cell below
+   it, then ++m++ to make it a Markdown cell.
+
+    You should see: an empty cell at the end, with no `[ ]:` beside it.
+
+2. Type the heading and the top of the table:
+
+    ```markdown
+    ## AI log
+
+    | # | Date | Tool and model | What I asked | What it answered | How I checked | Verdict |
+    |---|---|---|---|---|---|---|
+    ```
+
+    You should see: after ++shift+enter++, the heading and one row of column titles.
+
+3. Double-click the cell to edit it again, and add one row under the table for the
+   example answer:
+
+    ```markdown
+    | 1 | 2026-11-15 | (example from a tutorial; no tool) | Which gauge was wettest in July? | Quarry (G05), 390.9 mm | Recomputed the totals without flagged readings | Rejected: 180 mm of it is one reading flagged as suspect |
+    ```
+
+    You should see: after ++shift+enter++, a table with one numbered row.
+
+4. Read the row against these four rules, which hold for every row you add later:
+
+    - **What I asked** is the prompt as you gave it, or its exact first sentence.
+    - **What it answered** is the claim you used or refused, with its numbers.
+    - **How I checked** names something you ran or read yourself. "Looked right" is
+      not a check.
+    - **Verdict** is one of *kept*, *changed*, or *rejected*, and why.
+
+    You should see: that the example row passes all four.
+
+5. Add a row each time an assistant helps, at the moment it happens, including the
+   answers you rejected. Under **Tool and model**, write the command you started and
+   the model it used, for example the agent's name and the model name it reports.
+
+    You should see: one row for each assisted step, in the order they happened.
+
+6. Choose **File → Save Notebook**.
+
+    You should see: the log saved in the notebook, so that it goes wherever the
+    notebook goes.
+
+## Check it worked
+
+The notebook ends with an **AI log** table, and no row has an empty **How I checked**
+or **Verdict**. For any number in the notebook that came from an assistant, you can
+point to its row.
+
+## If it didn't
+
+**The table shows as lines of text with `|` between the words.** The second line of
+the table, the one made of dashes, is missing or has a different number of columns
+from the first. Double-click the cell, make the two lines match, and press
+++shift+enter++.
+
+## Next
+
+- [Check an AI-suggested result against the data](https://idss-mesa.github.io/trainings/tutorials/check-a-suggested-result/), for
+  the check behind the example row.
+- [Sign in and start an AI agent in a MESA app](https://idss-mesa.github.io/trainings/tutorials/start-an-ai-agent/)
+- Reference: [AI agents in the MESA apps](https://idss-mesa.github.io/docs/apps/agents/),
+  for the agents each app includes and how each connects to a model.
+
+*Not yet validated in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15 from the MESA documentation and the JupyterLab documentation.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/say-where-data-came-from/
+
+---
+type: Guide
+title: "Say where your input data came from"
+description: "Record in a folder's README where its data came from, when you retrieved it, which version it is, and what its license allows, so that someone else can get the same data again."
+tags: [byte, p5, readme, provenance, license]
+status: draft
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-15T00:00:00Z" }
+stale_after: "2027-05-15T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: jupyterlab
+    resource: "https://jupyterlab.readthedocs.io/en/stable/user/file_editor.html"
+    title: "Text editor (JupyterLab documentation)"
+    author: "team:jupyterlab"
+---
+
+# Say where your input data came from
+
+!!! warning "Draft: not yet validated"
+    Nobody has yet followed this tutorial in MESA JupyterLab, so a menu name may differ
+    there. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A result can be repeated only by someone who can get the same data. A link alone is
+not enough: the page behind it changes, and it does not say whether the data may be
+reused. Four facts, written down on the day you fetch the data, settle it.
+
+**You will:** have a **Source** section in your README that says where the data came
+from, when you got it, which version it is, and what its license allows.
+
+**Time:** 5 to 10 minutes. **You need:** the `README.md` from
+[Write a README for a data folder](https://idss-mesa.github.io/trainings/tutorials/write-a-readme/), in a folder open in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/).
+
+## Steps
+
+1. In JupyterLab's file browser, double-click `README.md`.
+
+    You should see: the README's text in an editor tab, with a `## Source` heading and
+    one link under it.
+
+2. Replace what is under `## Source` with a list of facts. For the practice data:
+
+    ```markdown
+    ## Source
+
+    - From: https://idss-mesa.github.io/trainings/tutorials/practice-data/
+    - Made by: MESA Trainings. Synthetic data, written by a script.
+    - Retrieved: 2026-11-15, with the download cell on that page
+    - Version: the files as published on that date
+    - License: CC BY 4.0
+    - Changed since: nothing
+    ```
+
+    You should see: six lines, each starting with what it records.
+
+3. Correct **Retrieved** to the day you copied the files, not today's date, and say
+   how you got them: a download cell, a command, or an upload from your computer.
+
+    You should see: a date and a method that would let you fetch the files the same
+    way again.
+
+4. Look up **License** on the source's own page. Do not write it from memory. For
+   the practice data, the [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/) page states it near the
+   end.
+
+    You should see: the license as the source words it.
+
+5. Under **Changed since**, list anything you have done to the files after fetching
+   them: rows removed, columns renamed, units converted. If the files are as they
+   arrived, leave "nothing".
+
+    You should see: a line that lets a reader tell your copy from the original.
+
+6. Choose **File → Save Markdown File**.
+
+    You should see: *Saving completed* in the bar at the bottom.
+
+## Check it worked
+
+From the **Source** section alone, a reader can answer three questions: where to get
+the data again, whether they may reuse it, and whether your copy differs from the
+original.
+
+## If it didn't
+
+**The source's page states no license.** Write `License: not stated on the source
+page`, with the date you looked. Do not guess one. Without a license you may not
+have the right to pass the data on, so ask whoever publishes it before you share the
+folder.
+
+## Next
+
+- [Record the software versions a result depends on](https://idss-mesa.github.io/trainings/tutorials/record-software-versions/)
+- [Hand your folder to a colleague and have them rerun it](https://idss-mesa.github.io/trainings/tutorials/hand-over-and-rerun/)
+- Reference: [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/).
+
+*Not yet validated in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15 from the MESA documentation and the JupyterLab documentation.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/hand-over-and-rerun/
+
+---
+type: Guide
+title: "Hand your folder to a colleague and have them rerun it"
+description: "Test whether your work can be repeated without you: share the folder, have a colleague copy it and run the notebook from a fresh start, and compare their result with the one you wrote down."
+tags: [byte, p5, reproducibility, sharing, notebook]
+status: draft
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-15T00:00:00Z" }
+stale_after: "2027-05-15T00:00:00Z"
+sources:
+  - id: docs-data
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+---
+
+# Hand your folder to a colleague and have them rerun it
+
+!!! warning "Draft: not yet validated"
+    This tutorial was written from the MESA documentation and from tutorials whose steps
+    were followed on the live portal. Nobody has yet followed it from start to finish:
+    it needs two accounts. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+You cannot tell from the inside whether your folder holds everything. You know where
+the files are, what to run first, and what the answer should be. The test is to give
+the folder to someone who knows none of that, and to say nothing while they try.
+
+**You will:** know whether a colleague can rerun your notebook, without your help,
+and get your result.
+
+**Time:** 10 minutes for you, and 10 for your colleague. **You need:** a folder
+holding a notebook that passes
+[Leave a notebook someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/leave-a-rerunnable-notebook/); a colleague
+who can [sign in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/); and their CyVerse username.
+
+## Steps
+
+1. Choose one result your notebook produces and write it down outside the folder: a
+   row count, a total, or the last line a cell prints.
+
+    You should see: one number or one line, in a note or a message draft. For the
+    practice notebook, the count of rows in `readings` will do.
+
+2. Share the folder with your colleague, with **Read** access, as in
+   [Share a folder with a collaborator](https://idss-mesa.github.io/trainings/tutorials/share-a-folder/).
+
+    You should see: **Shared · 1** in the folder's header.
+
+3. Send your colleague three things and nothing more: your CyVerse username, the
+   folder's name, and the sentence "Run the notebook from a fresh start and tell me
+   what you get." Keep the result from step 1 to yourself.
+
+    You should see: a message with no instructions in it. Anything else they need
+    should already be in the folder.
+
+4. Your colleague opens **Data Browser**, clicks **User Shared**, opens the folder
+   named with your username, and then your folder. They download each file with the
+   download button on its card, and upload the files into a folder of their own
+   under **My Files**.
+
+    They should see: the same files in a folder where the header says **Owner**.
+
+5. Your colleague opens their copy in [MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), opens
+   the notebook, and chooses **Kernel → Restart Kernel and Run All Cells…**.
+
+    They should see: every code cell numbered in order, with no red error box.
+
+6. Your colleague tells you three things: whether it ran without an error, the result
+   they got, and every question they wanted to ask you on the way.
+
+    You should see: their result equal to the one you wrote down in step 1.
+
+7. Treat each question, and each difference, as something missing from the folder.
+   Add it to the README or the notebook, then ask them to run it once more.
+
+    You should see: a second run with no questions.
+
+## Check it worked
+
+Your colleague ran the notebook in their own copy, got the result you wrote down
+before you shared the folder, and did not need to ask you anything.
+
+## If it didn't
+
+**Your colleague cannot find your name under User Shared.** That list is refreshed
+every few minutes, so a folder shared a moment ago may not be there yet. It also
+shows 25 people to a page: they click **Next** until they reach your username. If it
+is still missing after ten minutes, open the share dialog and check that their
+username is under **Current Permissions**.
+
+## Next
+
+- [Say where your input data came from](https://idss-mesa.github.io/trainings/tutorials/say-where-data-came-from/), which answers
+  the question a colleague most often asks.
+- [Stop sharing a folder](https://idss-mesa.github.io/trainings/tutorials/stop-sharing-a-folder/), when the test is over.
+- Reference: [Managing data, "Share data"](https://idss-mesa.github.io/docs/portal/data/#share-data)
+  and ["Upload, create, move, and delete"](https://idss-mesa.github.io/docs/portal/data/#upload-create-move-and-delete).
+
+*Not yet validated on the live portal. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15 from the MESA documentation.*
+
 ---8<--- https://idss-mesa.github.io/trainings/contributing/
 
 ---
@@ -6301,6 +7218,17 @@ explains.
 
 ## 2026-11-15
 
+* **Creation**: Added seven tutorials for the thinner pathway points. Under point 3:
+  [Join two tables and keep the unmatched rows visible](tutorials/join-and-keep-unmatched.md),
+  [Bring two units onto one scale before comparing](tutorials/convert-units-before-comparing.md),
+  [Find and remove a repeated row](tutorials/remove-a-repeated-row.md), and
+  [Save a query so someone else can run it](tutorials/save-a-query.md). Under point 4:
+  [Keep a log of AI-assisted steps](tutorials/keep-an-ai-log.md). Under point 5:
+  [Say where your input data came from](tutorials/say-where-data-came-from.md) and
+  [Hand your folder to a colleague and have them rerun it](tutorials/hand-over-and-rerun.md).
+  All are drafts. The code in the four data tutorials was run outside MESA with the
+  versions MESA JupyterLab has; none has been followed in MESA. Each is in a
+  [learning pathway](pathways/index.md) under "If you have more time".
 * **Creation**: Added a fifth practice file,
   [`readings_august.csv`](assets/practice/readings_august.csv): the same five gauges'
   daily readings for August 2026, described on the
