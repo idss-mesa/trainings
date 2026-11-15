@@ -165,6 +165,12 @@ class Checks(unittest.TestCase):
             with self.subTest(message):
                 self.data["checks"] = {"c": entry}
                 self.assertTrue(any(message in p for p in gp.check(self.data, self.tutorials)))
+        # The right answer may not sit in the same place in most self-checks with choices.
+        first = {f"c{i}": dict(base, answer="a", options=["a", "b", "c"]) for i in range(4)}
+        self.data["checks"] = first
+        self.assertTrue(any("vary where it sits" in p for p in gp.check(self.data, self.tutorials)))
+        first["c0"]["options"], first["c1"]["options"] = ["b", "a", "c"], ["b", "c", "a"]
+        self.assertFalse(any("vary where it sits" in p for p in gp.check(self.data, self.tutorials)))
         self.data["checks"] = {"c": dict(base, tutorial="z", answer=3)}
         self.data["points"]["p1"]["skip_check"] = ["c"]
         self.assertTrue(any("belongs to another point" in p for p in gp.check(self.data, self.tutorials)))

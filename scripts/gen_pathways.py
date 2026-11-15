@@ -106,7 +106,7 @@ def load_tutorials(data: dict, folder: Path | None = None) -> dict[str, dict]:
         tutorials[slug] = {
             "title": str(fm.get("title", slug)),
             "description": str(fm.get("description", "")),
-            "outcome": parse_outcome(body),
+            "outcome": parse_outcome(body) or str((data.get("outcomes") or {}).get(slug, "")),
             "point": points[0],
             "min": int(time[0]),
             "max": int(time[1]),
@@ -193,6 +193,17 @@ def check(data: dict, tutorials: dict[str, dict]) -> list[str]:
                 problems.append(f"{where}: slip {slip!r} is not among the options")
         if set(c.get("verify") or {}) - {"python", "r"}:
             problems.append(f"{where}: `verify` takes `python` or `r`")
+    # Where the right answer sits among the choices must not give it away.
+    places: dict[int, list[str]] = {}
+    chosen = [(cid, c) for cid, c in checks.items() if "options" in c]
+    for cid, c in chosen:
+        listed = [str(o) for o in c["options"]]
+        if answer_text(c) in listed:
+            places.setdefault(listed.index(answer_text(c)) + 1, []).append(str(cid))
+    for place, names in sorted(places.items()):
+        if len(chosen) > 2 and len(names) > (len(chosen) + 1) // 2:
+            problems.append(f"checks: the right answer is choice {place} in {len(names)} of {len(chosen)} "
+                            f"self-checks with choices ({', '.join(names)}); vary where it sits")
     for key, point in points.items():
         for cid in point.get("skip_check") or []:
             if cid not in checks:
