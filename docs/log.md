@@ -2,6 +2,11 @@
 
 ## 2026-11-15
 
+* **Creation**: Added a fifth practice file,
+  [`readings_august.csv`](assets/practice/readings_august.csv): the same five gauges'
+  daily readings for August 2026, described on the
+  [practice data](tutorials/practice-data.md) page. The four files published earlier
+  are unchanged, byte for byte, and a test now holds their checksums.
 * **Update**: In the six self-checks with choices, the right answer was always listed
   first. The choices are now in a plain order, and the site build refuses a set of
   self-checks where the right answer mostly sits in one place.

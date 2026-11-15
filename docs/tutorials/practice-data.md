@@ -1,10 +1,10 @@
 ---
 type: Reference
 title: "Practice data: five invented rain gauges"
-description: "The synthetic rain-gauge practice dataset used by the data tutorials: what its four files contain, its data dictionary, and how to copy it into your Data Store."
+description: "The synthetic rain-gauge practice dataset used by the data tutorials: what its five files contain, its data dictionary, and how to copy it into your Data Store."
 tags: [practice-data, p2, data-dictionary, jupyterlab]
 status: draft
-generated: { by: "claude-code/2.1.321", at: "2026-11-13T00:00:00Z" }
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-15T00:00:00Z" }
 stale_after: "2027-05-12T00:00:00Z"
 sources:
   - id: docs-jupyterlab
@@ -20,17 +20,18 @@ sources:
 # Practice data: five invented rain gauges
 
 !!! warning "Draft: not yet validated"
-    The download below was run once in MESA JupyterLab, but nobody has yet followed
-    this page from start to finish.
+    The download below was run once in MESA JupyterLab with the first four files,
+    before `readings_august.csv` was added. Nobody has yet followed this page from
+    start to finish.
     [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
-The data tutorials on this site all use the same four small files, so you can practise
+The data tutorials on this site all use the same few small files, so you can practise
 a technique without first finding a dataset.
 
 **The data is synthetic.** It was generated for these tutorials by
 [`scripts/make_practice_data.py`](https://github.com/idss-mesa/trainings/blob/main/scripts/make_practice_data.py):
-five invented rain gauges, with daily readings for July 2026 and one week of hourly
-observations from one of them. It describes no
+five invented rain gauges, with daily readings for July and August 2026 and one week
+of hourly observations from one of them. It describes no
 real place and no real measurement. Like real data, it is not perfectly clean, and the
 tutorials show you how to find out where.
 
@@ -39,7 +40,8 @@ tutorials show you how to find out where.
 | File | Rows | One row is |
 | --- | --- | --- |
 | [`gauges.csv`](../assets/practice/gauges.csv) | 5 | one rain gauge |
-| [`readings.csv`](../assets/practice/readings.csv) | 152 | one reading from one gauge |
+| [`readings.csv`](../assets/practice/readings.csv) | 152 | one reading from one gauge, July 2026 |
+| [`readings_august.csv`](../assets/practice/readings_august.csv) | 151 | one reading from one gauge, August 2026 |
 | [`observations.csv`](../assets/practice/observations.csv) | 336 | one hourly measurement of one kind |
 | [`gauge_sites.csv`](../assets/practice/gauge_sites.csv) | 5 | the position of one rain gauge |
 
@@ -54,7 +56,10 @@ tutorials show you how to find out where.
 | `unit` | The unit this gauge reports in |
 | `elevation_m` | Elevation in metres |
 
-**readings.csv**
+**readings.csv** and **readings_august.csv**
+
+The two files have the same columns. The first holds July 2026 and the second August
+2026. The tutorials use `readings.csv` unless they say otherwise.
 
 | Column | Meaning |
 | --- | --- |
@@ -98,11 +103,11 @@ July. The observations cover 10 to 16 July 2026 in local time.
     from urllib.request import urlretrieve
 
     base = "https://idss-mesa.github.io/trainings/assets/practice/"
-    for name in ["gauges.csv", "readings.csv", "observations.csv", "gauge_sites.csv"]:
+    for name in ["gauges.csv", "readings.csv", "readings_august.csv", "observations.csv", "gauge_sites.csv"]:
         urlretrieve(base + name, name)
     ```
 
-The four files then appear in `mesa-practice`, beside the notebook. Because the folder is in
+The five files then appear in `mesa-practice`, beside the notebook. Because the folder is in
 your Data Store, they are still there the next time you start an app.
 
 You can also download the files from the links above and upload them with the

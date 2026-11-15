@@ -7,6 +7,10 @@ different unit, some readings are flagged, one row is repeated, some days are
 missing) so that the data tutorials have something to find. The seed is fixed,
 so every run writes identical files.
 
+A fifth file, readings_august.csv, holds the same gauges' daily readings for August
+2026. It has one new problem and no others: one gauge has no rows for a run of days
+that includes a storm, so its monthly total is not comparable with the others'.
+
 Usage: python scripts/make_practice_data.py
 """
 import csv
@@ -77,6 +81,42 @@ def main() -> None:
         w.writerows([g, lon, lat] for g, (lon, lat) in SITES.items())
     print(f"gauges.csv: {len(GAUGES)} rows; readings.csv: {len(rows)} rows; gauge_sites.csv: {len(SITES)} rows")
     write_observations(rows)
+    write_august()
+
+
+def write_august() -> None:
+    """Daily readings for August 2026: the same gauges and columns as readings.csv.
+
+    One new problem and no others. G03 has no rows for four days, and the month's
+    heaviest storm falls inside that gap. So the gauge with the largest monthly
+    total is not the gauge that was wettest on the days all five reported. There
+    are no flagged readings and no repeated rows; G02 still reports in cm.
+    """
+    rng = random.Random(8012026)             # separate stream: the other files are unchanged
+    days = [dt.date(2026, 8, 1) + dt.timedelta(days=n) for n in range(31)]
+    gap = {"G03": set(days[10:14])}          # 11 to 14 August: no rows at all
+    storm = {d: rng.choice([0, 0, 0, 0, 0, 1, 3, 5, 8, 12, 18, 26]) for d in days}
+    storm[days[11]] = 26                     # make sure a storm falls inside the gap
+    rows, total, shared = [], {}, {}
+    for gauge_id, _name, unit, _elev, factor in GAUGES:
+        for day in days:
+            if day in gap.get(gauge_id, ()):
+                continue
+            mm = 0.0
+            if storm[day]:
+                mm = max(0.0, round(storm[day] * factor + rng.uniform(-0.6, 0.6), 1))
+            rows.append([gauge_id, day.isoformat(), round(mm / 10, 2) if unit == "cm" else mm, ""])
+            total[gauge_id] = total.get(gauge_id, 0.0) + mm
+            if not any(day in g for g in gap.values()):
+                shared[gauge_id] = shared.get(gauge_id, 0.0) + mm
+    # The file exists to make this true. Stop rather than write one where it is not.
+    if max(total, key=total.get) == max(shared, key=shared.get):
+        raise SystemExit("readings_august.csv: the gap does not change which gauge is wettest")
+    with open(OUT / "readings_august.csv", "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["gauge_id", "date", "value", "flag"])
+        w.writerows(rows)
+    print(f"readings_august.csv: {len(rows)} rows")
 
 
 def write_observations(daily_rows) -> None:

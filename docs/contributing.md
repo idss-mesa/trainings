@@ -123,7 +123,7 @@ tutorial keeps its six parts.
    size, not with the right one first. The site will not build if the right answer
    sits in the same place in most self-checks.
 3. **Write `verify:` code** whose last line gives the answer from the practice data.
-   `pandas` as `pd`, `duckdb`, and the tables `readings`, `gauges`, `sites`, and `obs`
+   `pandas` as `pd`, `duckdb`, and the tables `readings`, `august`, `gauges`, `sites`, and `obs`
    are already loaded. For an R tutorial use `r:` with one expression. The site will
    not build if the code and the answer disagree.
 4. **Name the likely slips.** For each wrong answer a careful person might give, write

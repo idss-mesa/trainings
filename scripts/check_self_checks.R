@@ -27,6 +27,7 @@ for (id in names(checks)) {
   env <- new.env()
   assign("readings", read.csv("readings.csv", na.strings = ""), envir = env)
   assign("gauges", read.csv("gauges.csv"), envir = env)
+  assign("august", read.csv("readings_august.csv", na.strings = ""), envir = env)
   value <- tryCatch(eval(parse(text = code), envir = env),
                     error = function(err) paste("ERROR:", conditionMessage(err)))
   answer <- checks[[id]]$answer

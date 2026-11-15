@@ -27,7 +27,8 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 PRACTICE = ROOT / "docs" / "assets" / "practice"
 SETUP = ('readings = pd.read_csv("readings.csv")\ngauges = pd.read_csv("gauges.csv")\n'
-         'sites = pd.read_csv("gauge_sites.csv")\nobs = pd.read_csv("observations.csv")')
+         'sites = pd.read_csv("gauge_sites.csv")\nobs = pd.read_csv("observations.csv")\n'
+         'august = pd.read_csv("readings_august.csv")')
 
 
 def run(code: str, scope: dict):
