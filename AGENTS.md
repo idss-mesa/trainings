@@ -40,7 +40,7 @@ zensical build --clean --strict                 # static site -> site/
 python scripts/okf_validate.py docs             # OKF conformance (CI-enforced; 0 errors required)
 python scripts/gen_pathways.py                  # regenerate docs/pathways/, docs/pathway.md, docs/assets/pathways.json from data/pathways.yml (CI checks drift)
 python scripts/gen_llms_txt.py                  # regenerate docs/llms.txt + docs/llms-full.txt (CI checks drift); run after gen_pathways.py
-python -m unittest discover tests               # tests for gen_pathways.py (CI-enforced)
+python -m unittest discover tests               # tests for gen_pathways.py and the practice data (CI-enforced)
 node --test tests/progress.test.js              # tests for docs/javascripts/mesa-progress.js (CI-enforced)
 python tests/e2e/test_browser.py                # browser run of the pathways against site/ (CI-enforced; needs playwright)
 python tests/e2e/test_accessibility.py          # axe, reflow, target size, focus, motion, keyboard (CI-enforced; needs playwright and `npm install --no-save axe-core@4`)
@@ -150,7 +150,11 @@ G. **How to add a tutorial to a pathway and how to write a self-check** are in
     for a reader's goal, never for a session or a date. The draft notice says where the
     code was run; the tutorial stays a draft until someone follows it in MESA
     JupyterLab. The files come from `scripts/make_practice_data.py`; if you
-    change it, rerun it and update every output the tutorials show.
+    change it, rerun it and update every output the tutorials show. The four
+    files published first (`gauges.csv`, `readings.csv`, `observations.csv`,
+    `gauge_sites.csv`) must stay byte-for-byte identical;
+    `tests/test_practice_data.py` holds their checksums. Add to the practice
+    data in a new file, as `readings_august.csv` was.
 16. **Self-checks live in `data/pathways.yml`, not in tutorials.** Each asks for
     something its tutorial does not print, and carries `verify` code that CI
     runs against the practice data. A question about a portal screen has no

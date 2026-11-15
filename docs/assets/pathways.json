@@ -965,13 +965,13 @@
   },
   "practice-data": {
    "title": "Practice data: five invented rain gauges",
-   "description": "The synthetic rain-gauge practice dataset used by the data tutorials: what its four files contain, its data dictionary, and how to copy it into your Data Store.",
+   "description": "The synthetic rain-gauge practice dataset used by the data tutorials: what its five files contain, its data dictionary, and how to copy it into your Data Store.",
    "outcome": "",
    "point": "p2",
    "min": 5,
    "max": 5,
    "status": "draft",
-   "revised": "2026-11-13T00:00:00Z",
+   "revised": "2026-11-15T00:00:00Z",
    "stale_after": "2027-05-12T00:00:00Z",
    "builds_on": []
   },
