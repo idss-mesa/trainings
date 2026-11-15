@@ -76,6 +76,6 @@ Which of these is an agent?
 
 *Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-15. No person has yet reviewed this page.*
 
-[PLACEHOLDER: attribution line. The outline traces this explainer's ideas to corpus sections 1.1 to 1.3 (`claude/fellows-corpus.md`), adapted from the UNM CARC course or GPT 101, both CC BY 4.0. The line must name creator, link, revision, license, and what changed. The drafter did not have the corpus, so the line is not written and the text has not been compared with those sections.]
+*Adapted from [AI Automation and Agents](https://tyson-swetnam.github.io/AI-Automation-and-Agents/), Center for Advanced Research Computing, University of New Mexico, 2026 (developed at the Arizona Institute for Artificial Intelligence, University of Arizona), by Carlos Lizárraga-Celaya, Michelle Yung, Michele Cosi, and Tyson Swetnam: [Guest Lecture: Agentic AI Loops](https://tyson-swetnam.github.io/AI-Automation-and-Agents/guest-lectures/agentic-ai-loops/) and [Guest Lecture: Say What You Mean](https://tyson-swetnam.github.io/AI-Automation-and-Agents/guest-lectures/say-what-you-mean/). [Revision a65855c](https://github.com/tyson-swetnam/AI-Automation-and-Agents/tree/a65855c), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Changes: the ideas are restated and shortened in MESA's words, with MESA examples added; no text is copied.*
 
 [^docs-agents]: AI agents in the MESA apps, <https://idss-mesa.github.io/docs/apps/agents/>.
