@@ -1,6 +1,6 @@
 """Check that the output printed in each tutorial is what its code produces.
 
-For every tutorial under docs/tutorials/, runs each ```python block in page order
+For every tutorial under docs/tutorials/ and every trace card under docs/trace-cards/, runs each ```python block in page order
 against a copy of the practice data, and compares the value of the block's last
 expression with the ```text block that follows it. Blocks that need a person, a
 network, or a saved notebook are skipped.
@@ -22,10 +22,11 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
 TUTORIALS = ROOT / "docs" / "tutorials"
+TRACE_CARDS = ROOT / "docs" / "trace-cards"
 PRACTICE = ROOT / "docs" / "assets" / "practice"
 SKIP = ("urlretrieve", "getpass", "practice.ipynb", "token", "sys.version")
 SETUP = 'import pandas as pd\nreadings = pd.read_csv("readings.csv")\ngauges = pd.read_csv("gauges.csv")'
-BLOCK = re.compile(r"    ```python\n(.*?)    ```\n(.*?)(?=\n\d+\. |\n## )", re.S)
+BLOCK = re.compile(r"    ```python\n(.*?)    ```\n(.*?)(?=\n\d+\. |\n## |\n    ```python\n)", re.S)
 EXPECTED = re.compile(r"    ```text\n(.*?)    ```", re.S)
 
 
@@ -44,7 +45,7 @@ def main() -> int:
         for csv_file in PRACTICE.glob("*.csv"):
             shutil.copy(csv_file, work)
         os.chdir(work)
-        for page in sorted(TUTORIALS.glob("*.md")):
+        for page in sorted(TUTORIALS.glob("*.md")) + sorted(TRACE_CARDS.glob("*.md")):
             scope = {}
             exec(SETUP, scope)
             for match in BLOCK.finditer(page.read_text()):
@@ -66,7 +67,7 @@ def main() -> int:
                     failed += 1
                     print(f"MISMATCH in {page.name}: {code.splitlines()[-1]}\n--- produced\n{shown(value)}\n--- on the page\n{dedent(expected.group(1))}\n")
         os.chdir(ROOT)
-    print(f"Compared {compared} outputs in {TUTORIALS.relative_to(ROOT)}: {failed} mismatch(es).")
+    print(f"Compared {compared} outputs in {TUTORIALS.relative_to(ROOT)} and {TRACE_CARDS.relative_to(ROOT)}: {failed} mismatch(es).")
     return 1 if failed else 0
 
 

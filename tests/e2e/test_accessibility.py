@@ -29,7 +29,8 @@ KEY = "mesa-trainings"
 TAGS = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"]
 PAGES = ["pathways/", "pathways/get-ready-for-a-session/", "pathway/", "tutorials/",
          "tutorials/count-records-per-day/", "tutorials/load-a-file/", "tutorials/sign-in/",
-         "pathways/self-checks/", "progress/"]
+         "pathways/self-checks/", "progress/", "trace-cards/",
+         "trace-cards/card-7-g03-total/", "trace-cards/how-to-use/"]
 
 # A record with every state in it: done, checked, updated since, a missed and
 # a passed self-check, a level, a reflection, and a passed skip-check.
