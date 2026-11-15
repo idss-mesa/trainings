@@ -273,6 +273,29 @@ class Browser(unittest.TestCase):
         self.assertIn("- Passed the skip-check on", notes)
         self.shot(page, "11-progress-with-checks")
 
+        # "Clear everything" forgets an answer given on this visit too: without a
+        # reload in between, the self-check is asked again, not shown as right.
+        page.locator('.md-content a[href*="pathways/check-a-dataset/"]').first.click()
+        self.arrive(page, self.base + "pathways/check-a-dataset/", "Check a dataset")
+        page.locator('.mesa-stop a[href*="tutorials/load-a-file/"]').first.click()
+        self.arrive(page, self.base + "tutorials/load-a-file/", "Load a file")
+        check = page.locator(".mesa-strip .mesa-check")
+        check.get_by_label("G05, 2026-07-31").check()
+        check.get_by_role("button", name="Check answer").click()
+        page.locator(".mesa-strip .mesa-check.is-right").wait_for()
+        page.locator(".mesa-strip__next a", has_text="Your progress").click()
+        page.wait_for_url(self.base + "progress/")
+        page.get_by_role("button", name="Clear everything").click()
+        page.locator(".mesa-ask").get_by_role("button", name="Clear everything").click()
+        page.wait_for_function(f"localStorage.getItem('{KEY}') === null")
+        page.locator('.md-content a[href*="pathways/check-a-dataset/"]').first.click()
+        self.arrive(page, self.base + "pathways/check-a-dataset/", "Check a dataset")
+        page.locator('.mesa-stop a[href*="tutorials/load-a-file/"]').first.click()
+        self.arrive(page, self.base + "tutorials/load-a-file/", "Load a file")
+        page.locator(".mesa-strip .mesa-check").get_by_role("button", name="Check answer").wait_for()
+        self.assertEqual(page.locator(".mesa-strip .mesa-check.is-right").count(), 0)
+        self.assertNotIn("Right:", page.inner_text(".mesa-strip"))
+
         for request in requests:
             self.assertEqual(request.method, "GET", request.url)
             self.assertIsNone(request.post_data, request.url)

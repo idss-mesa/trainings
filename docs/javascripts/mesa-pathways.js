@@ -163,6 +163,7 @@
 
   var SURE = [[1, "A guess"], [2, "Not sure"], [3, "Fairly sure"], [4, "Certain"]];
   var tries = {}; /* what the reader last did with each check on this visit: { kind, message, value, sure } */
+  /* Emptied when the reader clears everything or replaces their progress, so no answer outlives the record. */
 
   function answerLine(check) {
     var parts = [el("strong", { text: check.answer + (check.unit ? " " + check.unit : "") }), ". "];
@@ -956,14 +957,14 @@
         root.appendChild(el("div", { class: "mesa-ask", role: "group", "aria-label": "Clear everything?" }, [
           el("p", { text: "Clear everything this browser holds about your progress? This cannot be undone unless you saved a copy." }),
           el("button", { type: "button", class: "mesa-btn", "data-key": "confirm-clear", text: "Clear everything",
-            onclick: function () { pending = null; P.clear(storage()); say("Cleared. This browser now holds nothing about your progress.", "export"); } }),
+            onclick: function () { pending = null; tries = {}; P.clear(storage()); say("Cleared. This browser now holds nothing about your progress.", "export"); } }),
           el("button", { type: "button", class: "mesa-btn mesa-btn--plain", text: "Keep it", onclick: function () { pending = null; refresh("clear"); } })]));
       } else if (pending) {
         var count = Object.keys(pending.tutorials).length;
         root.appendChild(el("div", { class: "mesa-ask", role: "group", "aria-label": "Replace or merge?" }, [
           el("p", { text: "The file holds " + count + " finished tutorials, and this browser already holds some progress. Replace what is here with the file, or merge the two?" }),
           el("button", { type: "button", class: "mesa-btn", "data-key": "replace", text: "Replace",
-            onclick: function () { P.save(storage(), pending); pending = null; say("Replaced your progress with the file.", "import"); } }),
+            onclick: function () { tries = {}; P.save(storage(), pending); pending = null; say("Replaced your progress with the file.", "import"); } }),
           el("button", { type: "button", class: "mesa-btn mesa-btn--plain", text: "Merge",
             onclick: function () { P.save(storage(), P.merge(store.record, pending)); pending = null; say("Merged the file into your progress. Nothing finished was removed.", "import"); } }),
           el("button", { type: "button", class: "mesa-btn mesa-btn--plain", text: "Cancel", onclick: function () { pending = null; refresh("import"); } })]));
