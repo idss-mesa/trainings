@@ -148,6 +148,9 @@ pathways:
         more:
           - reconcile-a-join
           - query-parquet-with-duckdb
+          - convert-units-before-comparing
+          - remove-a-repeated-row
+          - join-and-keep-unmatched
 
   - id: work-in-r
     title: Work in R
@@ -183,6 +186,7 @@ pathways:
           - check-a-suggested-result
         more:
           - start-an-ai-agent
+          - keep-an-ai-log
 
   - id: leave-work-others-can-rerun
     title: Leave work others can rerun
@@ -196,6 +200,11 @@ pathways:
         more:
           - add-metadata
           - record-software-versions
+          - say-where-data-came-from
+          - hand-over-and-rerun
+      - point: p3
+        more:
+          - save-a-query
       - point: p1
         more:
           - share-a-folder
@@ -263,16 +272,21 @@ by_point:
         - reconcile-a-join
         - keep-secrets-out-of-files
         - r-query-parquet-with-duckdb
+    - title: Combine and clean
+      tutorials: [join-and-keep-unmatched, convert-units-before-comparing, remove-a-repeated-row, save-a-query]
   p4:
     - tutorials:
         - start-an-ai-agent
         - check-a-suggested-result
+        - keep-an-ai-log
   p5:
     - tutorials:
         - write-a-readme
         - add-metadata
         - record-software-versions
         - leave-a-rerunnable-notebook
+        - say-where-data-came-from
+        - hand-over-and-rerun
 
 # Self-checks: short questions whose answer comes from doing the task.
 #

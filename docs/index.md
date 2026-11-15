@@ -69,6 +69,11 @@ notebook, so do the first one first.
 | Run SQL on a Parquet file | [Query a Parquet file with DuckDB from a notebook](tutorials/query-parquet-with-duckdb.md) | 10 min |
 | Put points on a map in R | [Map point data with sf in MESA RStudio Geospatial](tutorials/map-points-in-rstudio.md) | 10 min |
 | Test a result I was handed | [Check an AI-suggested result against the data](tutorials/check-a-suggested-result.md) | 10 min |
+| See what a join left out | [Join two tables and keep the unmatched rows visible](tutorials/join-and-keep-unmatched.md) | 10 min |
+| Compare gauges that report in different units | [Bring two units onto one scale before comparing](tutorials/convert-units-before-comparing.md) | 10 min |
+| Deal with a row that is written twice | [Find and remove a repeated row](tutorials/remove-a-repeated-row.md) | 5–10 min |
+| Hand a query to someone else | [Save a query so someone else can run it](tutorials/save-a-query.md) | 5–10 min |
+| Keep track of what an AI assistant did | [Keep a log of AI-assisted steps](tutorials/keep-an-ai-log.md) | 5–10 min |
 
 ## More in the portal, sharing, and AI agents
 
@@ -81,6 +86,8 @@ notebook, so do the first one first.
 | Look through a folder with many items | [Browse a large folder as a sorted list](tutorials/browse-a-large-folder.md) | 5 min |
 | See what a colleague recorded about a folder | [Read the metadata on a folder shared with you](tutorials/read-shared-metadata.md) | 5–10 min |
 | Take back access I gave | [Stop sharing a folder](tutorials/stop-sharing-a-folder.md) | 5 min |
+| Say where my data came from | [Say where your input data came from](tutorials/say-where-data-came-from.md) | 5–10 min |
+| Find out if someone else can rerun my work | [Hand your folder to a colleague and have them rerun it](tutorials/hand-over-and-rerun.md) | 10 min |
 | Know how much computing time and space I have | [Check your CPU hours and storage](tutorials/check-your-usage.md) | 5 min |
 | Read a notebook without starting an app | [Read a notebook in the portal without starting an app](tutorials/view-a-notebook.md) | 5 min |
 | See what is in a table before I launch anything | [Look inside a CSV file from the portal](tutorials/preview-a-table.md) | 5–10 min |

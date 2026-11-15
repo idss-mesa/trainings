@@ -2,6 +2,17 @@
 
 ## 2026-11-15
 
+* **Creation**: Added seven tutorials for the thinner pathway points. Under point 3:
+  [Join two tables and keep the unmatched rows visible](tutorials/join-and-keep-unmatched.md),
+  [Bring two units onto one scale before comparing](tutorials/convert-units-before-comparing.md),
+  [Find and remove a repeated row](tutorials/remove-a-repeated-row.md), and
+  [Save a query so someone else can run it](tutorials/save-a-query.md). Under point 4:
+  [Keep a log of AI-assisted steps](tutorials/keep-an-ai-log.md). Under point 5:
+  [Say where your input data came from](tutorials/say-where-data-came-from.md) and
+  [Hand your folder to a colleague and have them rerun it](tutorials/hand-over-and-rerun.md).
+  All are drafts. The code in the four data tutorials was run outside MESA with the
+  versions MESA JupyterLab has; none has been followed in MESA. Each is in a
+  [learning pathway](pathways/index.md) under "If you have more time".
 * **Creation**: Added a fifth practice file,
   [`readings_august.csv`](assets/practice/readings_august.csv): the same five gauges'
   daily readings for August 2026, described on the

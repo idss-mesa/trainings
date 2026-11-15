@@ -126,7 +126,7 @@ class Browser(unittest.TestCase):
         page.goto(self.base + "tutorials/")
         page.locator(".mesa-stage").first.wait_for()
         self.assertEqual(page.locator(".mesa-stage").count(), 5)
-        self.assertEqual(page.locator(".mesa-stop").count(), 44)
+        self.assertEqual(page.locator(".mesa-stop").count(), 51)
         visible = page.locator(".mesa-stage >> nth=0").locator(".mesa-stop:visible").count()
         self.assertLessEqual(visible, 7)
         self.shot(page, "04-all-tutorials")

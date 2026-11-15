@@ -50,6 +50,9 @@ If you have more time:
 
 - [Reconcile row counts before and after a join](../tutorials/reconcile-a-join.md) (5 to 10 minutes)
 - [Query a Parquet file with DuckDB from a notebook](../tutorials/query-parquet-with-duckdb.md) (10 minutes)
+- [Bring two units onto one scale before comparing](../tutorials/convert-units-before-comparing.md) (10 minutes)
+- [Find and remove a repeated row](../tutorials/remove-a-repeated-row.md) (5 to 10 minutes)
+- [Join two tables and keep the unmatched rows visible](../tutorials/join-and-keep-unmatched.md) (10 minutes)
 
 ## Next
 
