@@ -74,7 +74,7 @@ class Browser(unittest.TestCase):
         page.goto(self.base)
         page.get_by_role("link", name="New to MESA? Start here").click()
         self.arrive(page, "**/pathways/new-to-mesa/", "New to MESA")
-        self.assertIn("30 to 40 minutes in all", page.inner_text("article"))
+        self.assertIn("The essentials: 3 tutorials, 15 to 25 minutes in all", page.inner_text("article"))
         page.locator(".mesa-continue .mesa-btn").wait_for()
         self.assertIn("You have not started", page.inner_text(".mesa-story"))
         self.shot(page, "01-pathway-not-started")
@@ -95,7 +95,7 @@ class Browser(unittest.TestCase):
 
         # The next step is one click away, by in-site navigation, and the script runs again there.
         page.locator(".mesa-strip__next a").first.click()
-        self.arrive(page, "**/tutorials/find-your-way-around/", "Find your way around")
+        self.arrive(page, "**/tutorials/launch-jupyterlab/", "Launch MESA JupyterLab")
         page.get_by_role("button", name="Mark as done").click()
         page.get_by_role("button", name="Undo").wait_for()
         self.assertTrue(page.locator("a.md-nav__link .mesa-nav-tick").count() >= 2)
@@ -103,7 +103,7 @@ class Browser(unittest.TestCase):
         # Progress survives a reload and shows on the pathway, with what was accomplished.
         page.goto(self.base + "pathways/new-to-mesa/")
         page.locator(".mesa-story").wait_for()
-        self.assertIn("2 of 6 done", page.inner_text(".mesa-story"))
+        self.assertIn("2 of 3 done", page.inner_text(".mesa-story"))
         self.assertEqual(page.locator(".mesa-stop.is-done").count(), 2)
         self.assertEqual(page.locator(".mesa-stop.is-next").count(), 1)
         self.assertEqual(page.locator(".mesa-stop.is-done .mesa-did").count(), 2)
@@ -111,7 +111,7 @@ class Browser(unittest.TestCase):
         self.shot(page, "03-pathway-in-progress")
         page.reload()
         page.locator(".mesa-story").wait_for()
-        self.assertIn("2 of 6 done", page.inner_text(".mesa-story"))
+        self.assertIn("2 of 3 done", page.inner_text(".mesa-story"))
 
         # A tutorial revised after it was finished says so and keeps its tick.
         page.evaluate(f"""() => {{ const r = JSON.parse(localStorage.getItem('{KEY}'));
@@ -144,13 +144,13 @@ class Browser(unittest.TestCase):
         page.get_by_role("button", name="Clear everything").click()
         page.locator(".mesa-ask").get_by_role("button", name="Clear everything").click()
         page.wait_for_function(f"localStorage.getItem('{KEY}') === null")
-        self.assertIn("0 of 6 done", page.inner_text(".mesa-routes"))
+        self.assertIn("0 of 3 done", page.inner_text(".mesa-routes"))
         with page.expect_file_chooser() as chooser:
             page.get_by_role("button", name="Bring back a saved copy").click()
         chooser.value.set_files(str(saved))
         page.wait_for_function(f"localStorage.getItem('{KEY}') !== null")
         self.assertEqual(self.stored(page), before)
-        self.assertIn("2 of 6 done", page.inner_text(".mesa-routes"))
+        self.assertIn("2 of 3 done", page.inner_text(".mesa-routes"))
 
         # A file that is not a progress record changes nothing.
         bad = saved.with_name("bad.json")
@@ -221,9 +221,10 @@ class Browser(unittest.TestCase):
 
         # On a pathway the tutorial now reads "Checked", and the point offers a skip-check.
         page.goto(self.base + "pathways/check-a-dataset/")
-        page.locator(".mesa-stop.is-checked").wait_for()
-        self.assertEqual(page.locator(".mesa-stop.is-checked .mesa-state").inner_text(), "Checked")
+        page.locator(".mesa-story").wait_for()
         stage = page.locator(".mesa-stage >> nth=0")
+        stage.locator("details.mesa-more:not([class*='-fold']) > summary", has_text="If you have more time").click()
+        self.assertEqual(page.locator(".mesa-stop.is-checked .mesa-state").inner_text(), "Checked")
         stage.locator(".mesa-skip__fold > summary").click()
         forms = stage.locator(".mesa-skip .mesa-check")
         self.assertEqual(forms.count(), 3)
@@ -243,10 +244,11 @@ class Browser(unittest.TestCase):
         largest.get_by_role("button", name="Check answer").click()
         page.locator(".mesa-skip__said", has_text="You already have this").wait_for()
         self.assertIn("Skip-check passed", stage.locator(".mesa-meter").inner_text())
-        self.assertIn("you are at point 2 of 2, Query and connect", page.inner_text(".mesa-story"))
-        self.assertEqual(page.locator(".mesa-stage.is-here h2").inner_text().strip("¶ \n"), "Query and connect")
-        # Continue passes over the skipped point; skipping ticked nothing it did not check.
-        self.assertIn("Reconcile row counts", page.inner_text(".mesa-continue"))
+        # The skipped point leaves the route; the essentials it held are named, not hidden or ticked.
+        self.assertIn("Your answers leave nothing you need to do", page.inner_text(".mesa-story"))
+        self.assertIn("Shortened for you: 3 left out", page.inner_text(".mesa-tailored"))
+        self.assertEqual(stage.locator(".mesa-stop.is-off").count(), 3)
+        self.assertIn("Left out because you passed the skip-check", stage.locator(".mesa-stop.is-off >> nth=0").inner_text())
         record = json.loads(self.stored(page))
         self.assertIn("skipped", record["points"]["p2"])
         self.assertNotIn("practice-data", record["tutorials"])
@@ -277,6 +279,76 @@ class Browser(unittest.TestCase):
         self.assertEqual(errors, [])
         context.close()
 
+    def test_a_route_tailored_to_the_reader(self):
+        context = self.chromium.new_context(viewport={"width": 1280, "height": 900})
+        page = context.new_page()
+        errors = []
+        page.on("pageerror", lambda e: errors.append(str(e)))
+        page.goto(self.base + "pathways/")
+        start = page.locator(".mesa-start")
+        start.wait_for()
+        self.assertIn("Choose what brings you here", start.inner_text())
+
+        # A goal alone gives the essentials: four tutorials, 20 to 25 minutes.
+        start.get_by_label("Get ready for a hands-on session").check()
+        story = page.locator(".mesa-yours .mesa-story")
+        page.locator(".mesa-yours .mesa-story", has_text="4 tutorials, 20 to 25 minutes").wait_for()
+        self.assertEqual(page.locator(".mesa-yours__list > li").count(), 4)
+        self.shot(page, "13-starting-questions")
+
+        # Answering keeps keyboard focus where it was, and announces the new route.
+        used = start.locator("input[name='mesa-start-portal'][value='yes']")
+        used.focus()
+        page.keyboard.press("Space")
+        page.locator(".mesa-yours .mesa-story", has_text="2 tutorials, 10 minutes").wait_for()
+        self.assertTrue(used.evaluate("e => document.activeElement === e"))
+        page.wait_for_function("document.getElementById('mesa-live').textContent.includes('2 tutorials, 10 minutes')")
+        self.assertIn("Shortened for you: 2 left out", page.inner_text(".mesa-yours"))
+        self.assertIn("Practice data", page.inner_text(".mesa-continue"))
+
+        # Working in R swaps in the R tutorial and drops what R does not need.
+        start.locator("input[name='mesa-start-language'][value='r']").check()
+        page.locator(".mesa-yours .mesa-story", has_text="1 tutorial, 5 to 10 minutes").wait_for()
+        self.assertIn("Load a file from your Data Store in RStudio", page.inner_text(".mesa-yours__list"))
+        self.shot(page, "14-route-tailored")
+        record = json.loads(self.stored(page))
+        self.assertEqual(record["profile"], {"portal": "yes", "language": "r"})
+        self.assertEqual(record["schema"], 2)
+
+        # The pathway page shows the same route; what was left out is named and still open.
+        page.goto(self.base + "pathways/get-ready-for-a-session/")
+        page.locator(".mesa-story").wait_for()
+        self.assertIn("1 tutorial, 5 to 10 minutes", page.inner_text(".mesa-story"))
+        self.assertEqual(page.locator(".mesa-stop.is-off").count(), 4)
+        off = page.locator(".mesa-stop.is-off", has_text="Load a file from your Data Store into a notebook")
+        self.assertIn("your route uses the R version", off.inner_text())
+        self.assertIn("r-load-a-file", off.locator(".mesa-note a").get_attribute("href"))
+        self.assertTrue(page.locator(".mesa-stop.is-off a.mesa-stop__title >> nth=0").is_enabled())
+        self.assertIn("Load a file from your Data Store in RStudio", page.inner_text(".mesa-continue"))
+        self.shot(page, "15-pathway-tailored")
+
+        # With an hour, the route fills with more, and never passes the hour.
+        page.goto(self.base + "pathways/")
+        page.locator(".mesa-start").wait_for()
+        page.locator("input[name='mesa-start-language'][value='python']").check()
+        page.locator("input[name='mesa-start-portal'][value='no']").check()
+        page.locator("input[name='mesa-start-minutes'][value='60']").check()
+        page.wait_for_function("document.querySelectorAll('.mesa-yours__list > li').length > 4")
+        text = page.inner_text(".mesa-yours .mesa-story")
+        upper = int(text.split(" minutes")[0].split(" ")[-1])
+        self.assertLessEqual(upper, 60, text)
+
+        # Clearing the answers keeps what was finished.
+        page.evaluate(f"""() => {{ const r = JSON.parse(localStorage.getItem('{KEY}'));
+            r.tutorials['sign-in'] = {{ done: '2026-11-14', rev: 'r' }}; localStorage.setItem('{KEY}', JSON.stringify(r)); }}""")
+        page.reload()
+        page.get_by_role("button", name="Clear my answers").click()
+        page.locator(".mesa-yours .mesa-story", has_text="Choose what brings you here").wait_for()
+        record = json.loads(self.stored(page))
+        self.assertEqual([record["profile"], record["pathway"], list(record["tutorials"])], [{}, "", ["sign-in"]])
+        self.assertEqual(errors, [])
+        context.close()
+
     def test_phone_shows_one_point_at_a_time(self):
         context = self.chromium.new_context(viewport={"width": 375, "height": 812})
         page = context.new_page()
@@ -286,6 +358,7 @@ class Browser(unittest.TestCase):
         self.assertEqual(page.locator(".mesa-map__stop").count(), 5)
         page.locator(".mesa-map__stop >> nth=2").click()
         self.assertIn("Query and connect", page.inner_text(".mesa-stage:visible"))
+        self.assertIn("Nothing you need here", page.inner_text(".mesa-stage:visible .mesa-meter"))
         self.assertEqual(page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"), True)
         self.shot(page, "06-phone-pathway", full=False)
         context.close()
@@ -297,8 +370,9 @@ class Browser(unittest.TestCase):
         page.get_by_role("link", name="New to MESA? Start here").click()
         self.arrive(page, "**/pathways/new-to-mesa/", "New to MESA")
         article = page.locator("article")
-        self.assertIn("6 tutorials, 30 to 40 minutes in all", article.inner_text())
-        self.assertEqual(article.locator("ol > li > a").count(), 6)
+        self.assertIn("The essentials: 3 tutorials, 15 to 25 minutes in all", article.inner_text())
+        self.assertEqual(article.locator("ol > li > a").count(), 3)
+        self.assertEqual(article.locator("ul > li > a[href*='tutorials']").count(), 3)
         self.assertEqual(page.locator("[class*='mesa-btn'], .mesa-strip, .mesa-map, article button").count(), 0)
         self.shot(page, "07-pathway-javascript-off")
         article.locator("ol > li > a").first.click()

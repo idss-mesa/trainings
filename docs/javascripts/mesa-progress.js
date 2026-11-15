@@ -4,8 +4,9 @@
    here makes a network request. The page script (mesa-pathways.js) draws what
    this file computes; tests/progress.test.js runs this file under Node.
 
-   The record (schema 1):
+   The record (schema 2; schema 1 had no `profile`):
      { schema, started, pathway,
+       profile:   { portal?: "yes"|"no", language?: "python"|"r", data?: "yes"|"no", minutes?: 15|30|60 },
        tutorials: { <name>: { done: "YYYY-MM-DD", checked?: "YYYY-MM-DD", rev } },
        checks:    { <id>:   { correct, tries, sure?, on } },
        points:    { p1..p5: { level?, skipped?, reflection?, on? } } }
@@ -18,7 +19,8 @@
 })(typeof self !== "undefined" ? self : this, function () {
   "use strict";
 
-  var SCHEMA = 1;
+  var SCHEMA = 2;
+  var PROFILE = { portal: ["yes", "no"], language: ["python", "r"], data: ["yes", "no"], minutes: [15, 30, 60] };
   var KEY = "mesa-trainings";
   var LEVELS = ["exploring", "investigating", "extending"];
   var DATE = /^\d{4}-\d{2}-\d{2}$/;
@@ -27,10 +29,19 @@
   var MAX_TEXT = 4000;
 
   /* Changes of schema: MIGRATIONS[n] turns a schema-n record into schema n+1. */
-  var MIGRATIONS = {};
+  var MIGRATIONS = {
+    /* 1 -> 2: the answers to "Where are you starting?" joined the record. */
+    1: function (r) {
+      var out = {};
+      Object.keys(r).forEach(function (k) { out[k] = r[k]; });
+      out.schema = 2;
+      out.profile = {};
+      return out;
+    }
+  };
 
   function empty() {
-    return { schema: SCHEMA, started: "", pathway: "", tutorials: {}, checks: {}, points: {} };
+    return { schema: SCHEMA, started: "", pathway: "", profile: {}, tutorials: {}, checks: {}, points: {} };
   }
 
   function isObject(v) {
@@ -61,7 +72,18 @@
     if (raw.schema !== SCHEMA) {
       return { ok: false, errors: ["schema " + JSON.stringify(raw.schema) + " is not " + SCHEMA], record: null };
     }
-    only(raw, ["schema", "started", "pathway", "tutorials", "checks", "points"], "record");
+    only(raw, ["schema", "started", "pathway", "profile", "tutorials", "checks", "points"], "record");
+    if (raw.profile !== undefined) {
+      if (!isObject(raw.profile)) errors.push("profile: not a list of answers");
+      else {
+        only(raw.profile, Object.keys(PROFILE), "profile");
+        Object.keys(PROFILE).forEach(function (k) {
+          if (raw.profile[k] === undefined) return;
+          if (PROFILE[k].indexOf(raw.profile[k]) < 0) errors.push("profile." + k + ": not one of the answers");
+          else out.profile[k] = raw.profile[k];
+        });
+      }
+    }
     if (raw.started !== undefined && raw.started !== "") out.started = date(raw.started, "started");
     if (raw.pathway !== undefined && raw.pathway !== "") {
       if (typeof raw.pathway !== "string" || !NAME.test(raw.pathway)) errors.push("pathway: not a pathway name");
@@ -162,7 +184,7 @@
   }
 
   function isBlank(record) {
-    return !record.pathway && !Object.keys(record.tutorials).length &&
+    return !record.pathway && !Object.keys(record.profile).length && !Object.keys(record.tutorials).length &&
       !Object.keys(record.checks).length && !Object.keys(record.points).length;
   }
 
@@ -297,20 +319,108 @@
     return lines.join("\n").replace(/\n+$/, "") + "\n";
   }
 
-  /* The tutorials of a pathway still on the reader's route: all of them,
-     except those in a point whose skip-check was passed. */
-  function openNames(pathway, record) {
-    return pathway.stages.reduce(function (all, s) {
-      return isSkipped(record, s.point) ? all : all.concat(s.tutorials);
-    }, []);
+  /* --- a route tailored to the reader --- */
+
+  function setProfile(record, key, value) {
+    if (PROFILE[key] && PROFILE[key].indexOf(value) >= 0) record.profile[key] = value;
+    else delete record.profile[key];
+    return record;
   }
 
-  /* Progress on a pathway: counts over every tutorial, and the next step and
-     time left over the part of the route that was not skipped. */
+  var WHY = {
+    skip: "you passed the skip-check for this point",
+    portal: "you have used the portal before",
+    data: "you have checked a dataset before",
+    r: "your route uses the R version",
+    "r-unneeded": "it is not needed when you work in R",
+    "python-only": "there is no R version of it yet",
+    time: "it does not fit in the time you have"
+  };
+
+  /* The reader's own route through a pathway: its essentials, shortened by
+     their answers and by any skip-check they passed, then filled with "more"
+     while it fits the time they have. Returns
+       { names: [tutorial], left: [{ name, why, instead? }] }
+     where `left` lists every essential that was taken out, and why. With no
+     answers and no skip-check, `names` is simply the pathway's essentials. */
+  function plan(manifest, pathway, record) {
+    var profile = record.profile || {}, rules = manifest.tailoring || { foundations: [], in_r: {} };
+    var inR = profile.language === "r";
+    var names = [], left = [];
+    var drop = function (name, why, instead) { left.push(instead ? { name: name, why: why, instead: instead } : { name: name, why: why }); };
+    var has = function (o, k) { return Object.prototype.hasOwnProperty.call(o, k); };
+
+    /* Decide one tutorial. Returns the name to take, or "" if it is left out. */
+    var settle = function (name, point, quiet) {
+      var why = "", instead = "";
+      if (isSkipped(record, point)) why = "skip";
+      else if (profile.portal === "yes" && point === "p1") why = "portal";
+      else if (profile.data === "yes" && point === "p2" && rules.foundations.indexOf(name) < 0) why = "data";
+      else if (inR && has(rules.in_r, name)) {
+        if (rules.in_r[name]) { why = "r"; instead = rules.in_r[name]; }
+      } else if (inR && (manifest.tutorials[name].builds_on || []).indexOf("load-a-file") >= 0) why = "python-only";
+      if (!why) return name;
+      if (!quiet) drop(name, why, instead);
+      return instead;
+    };
+
+    pathway.stages.forEach(function (stage) {
+      stage.tutorials.forEach(function (name) {
+        var take = settle(name, stage.point, false);
+        if (take && names.indexOf(take) < 0) names.push(take);
+      });
+    });
+
+    /* In R, a step R does not need goes too, unless something kept still builds on it. */
+    if (inR) {
+      names = names.filter(function (name) {
+        if (!has(rules.in_r, name) || rules.in_r[name]) return true;
+        var needed = names.some(function (other) { return (manifest.tutorials[other].builds_on || []).indexOf(name) >= 0; });
+        if (!needed) drop(name, "r-unneeded");
+        return needed;
+      });
+    }
+
+    /* The time the reader has: trim from the end, then add "more" while it fits. */
+    if (profile.minutes) {
+      var spent = 0, kept = [];
+      names.forEach(function (name) {
+        var cost = manifest.tutorials[name].max;
+        if (!kept.length || spent + cost <= profile.minutes) { kept.push(name); spent += cost; }
+        else drop(name, "time");
+      });
+      var trimmed = kept.length < names.length;
+      names = kept;
+      if (!trimmed) {
+        pathway.stages.forEach(function (stage) {
+          stage.more.forEach(function (name) {
+            var take = settle(name, stage.point, true);
+            if (!take || names.indexOf(take) >= 0) return;
+            if (inR && has(rules.in_r, take) && !rules.in_r[take]) return;
+            var cost = manifest.tutorials[take].max;
+            if (spent + cost <= profile.minutes) { names.push(take); spent += cost; }
+          });
+        });
+      }
+    }
+    return { names: names, left: left };
+  }
+
+  function why(code) { return WHY[code] || ""; }
+
+  /* True when the reader's answers or skip-checks changed a pathway's route. */
+  function isTailored(record) {
+    return Object.keys(record.profile || {}).length > 0;
+  }
+
+  /* The tutorials on the reader's route through a pathway, in order. */
+  function openNames(pathway, record, manifest) {
+    return plan(manifest, pathway, record).names;
+  }
+
+  /* Progress on a pathway, over the reader's own route. */
   function route(pathway, record, manifest) {
-    var all = progress(core(pathway), record, manifest);
-    var open = progress(openNames(pathway, record), record, manifest);
-    return { done: all.done, total: all.total, minLeft: open.minLeft, maxLeft: open.maxLeft, next: open.next };
+    return progress(openNames(pathway, record, manifest), record, manifest);
   }
 
   /* Combine an imported record with the one already here. Nothing finished is
@@ -320,6 +430,7 @@
     var add = validate(incoming).record;
     if (!out.started || (add.started && add.started < out.started)) out.started = add.started || out.started;
     if (!out.pathway) out.pathway = add.pathway;
+    Object.keys(add.profile).forEach(function (k) { if (out.profile[k] === undefined) out.profile[k] = add.profile[k]; });
     Object.keys(add.tutorials).forEach(function (name) {
       var a = out.tutorials[name], b = add.tutorials[name];
       if (!a) { out.tutorials[name] = b; return; }
@@ -400,12 +511,13 @@
     return names.slice(at + 1).filter(open)[0] || names.filter(open)[0] || "";
   }
 
-  /* The index of the stage the learner is in: the first with something left,
-     passing over points whose skip-check was passed. */
-  function currentStage(pathway, record) {
+  /* The index of the stage the reader is in: the first that still has a
+     tutorial on their route to do. -1 when the route is finished. */
+  function currentStage(pathway, record, manifest) {
+    var names = manifest ? plan(manifest, pathway, record).names : core(pathway);
     for (var i = 0; i < pathway.stages.length; i++) {
-      if (isSkipped(record, pathway.stages[i].point)) continue;
-      if (pathway.stages[i].tutorials.some(function (n) { return !isFinished(record, n); })) return i;
+      var here = pathway.stages[i].tutorials.concat(pathway.stages[i].more);
+      if (here.some(function (n) { return names.indexOf(n) >= 0 && !isFinished(record, n); })) return i;
     }
     return -1;
   }
@@ -436,6 +548,7 @@
     pathwaysWith: pathwaysWith, pointNames: pointNames, minutes: minutes,
     grade: grade, recordCheck: recordCheck, isCorrect: isCorrect, skipState: skipState,
     syncSkipped: syncSkipped, isSkipped: isSkipped, setReflection: setReflection,
-    reflectionsMarkdown: reflectionsMarkdown, openNames: openNames, route: route
+    reflectionsMarkdown: reflectionsMarkdown, openNames: openNames, route: route,
+    PROFILE: PROFILE, setProfile: setProfile, plan: plan, why: why, isTailored: isTailored
   };
 });

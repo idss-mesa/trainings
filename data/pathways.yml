@@ -8,13 +8,14 @@
 # A tutorial is named by its file name without ".md". Its title, pathway point,
 # time, status, and dates are read from its own page and never repeated here.
 #
-# To add a tutorial to a pathway, add its name to one `tutorials:` list.
+# To add a tutorial to a pathway, add its name to one `more:` list, or to
+# `tutorials:` if a reader cannot do without it.
 # Pathways are named for a reader's goal, never for a numbered session or a date.
 
 schema: 1
 
 # Bump on a meaningful change to the pathways (AGENTS.md rule 7), not on typo fixes.
-revised: "2026-11-14"
+revised: "2026-11-15"
 
 # The five points. `competency` names what the point builds; `can_do` is the
 # sentence shown under the point's heading. `reflection` is the one optional
@@ -69,52 +70,62 @@ builds_on:
   preview-a-table: [sign-in]
   vscode-run-a-script: [sign-in]
 
-# Goal-based routes. A stage is one pathway point, in the order the reader meets
-# it; `more` holds tutorials shown after the stage under "More in this area".
-# At most seven tutorials in one `tutorials:` list. `after` names the pathway to
-# suggest to a reader who has not used the portal yet.
+# Goal-based routes. Each is short on purpose: `tutorials:` holds the
+# essentials, the few a reader must do, and `more:` holds what to take with
+# more time. A stage is one pathway point, in the order the reader meets it; a
+# stage may hold only `more:`. The essentials of a pathway may not add up to
+# more than `essentials_minutes`, and a stage shows at most seven of them.
+# `after` names the pathway to suggest to a reader new to the portal; `note`
+# is one sentence shown under the total.
+essentials_minutes: 25
+
 pathways:
   - id: new-to-mesa
     title: New to MESA
-    promise: Sign in, find data, run a notebook, and keep what you make.
+    promise: Sign in, start a notebook, and keep what you make.
     stages:
       - point: p1
         tutorials:
           - sign-in
-          - find-your-way-around
-          - find-community-data
           - launch-jupyterlab
           - save-your-work
+        more:
+          - find-your-way-around
+          - find-community-data
           - stop-app-find-results
 
   - id: get-ready-for-a-session
     title: Get ready for a hands-on session
-    promise: >-
-      Arrive able to sign in, run a notebook, check a dataset, and leave work
-      that reruns.
+    promise: Arrive signed in, with an app that starts and the practice data loaded.
+    note: >-
+      Do the first two at least two days before. A new CyVerse account has to
+      ask once for access to apps, and CyVerse says it answers within one to
+      two days.
     stages:
       - point: p1
         tutorials:
           - sign-in
-          - find-your-way-around
           - launch-jupyterlab
+        more:
+          - find-your-way-around
           - save-your-work
           - stop-app-find-results
       - point: p2
         tutorials:
           - practice-data
           - load-a-file
+        more:
           - read-the-data-dictionary
           - check-range-and-missing
           - tally-a-quality-flag
       - point: p3
-        tutorials:
+        more:
           - reconcile-a-join
       - point: p4
-        tutorials:
+        more:
           - check-a-suggested-result
       - point: p5
-        tutorials:
+        more:
           - leave-a-rerunnable-notebook
 
   - id: check-a-dataset
@@ -129,65 +140,82 @@ pathways:
           - read-the-data-dictionary
           - check-range-and-missing
           - tally-a-quality-flag
-          - count-records-per-day
         more:
+          - count-records-per-day
           - local-days-from-utc
           - work-with-a-long-table
       - point: p3
-        tutorials:
-          - reconcile-a-join
         more:
+          - reconcile-a-join
           - query-parquet-with-duckdb
 
   - id: work-in-r
     title: Work in R
-    promise: Do the data checks in MESA RStudio Geospatial.
+    promise: Load the practice data in MESA RStudio Geospatial and check its flags.
     after: new-to-mesa
     stages:
       - point: p2
         tutorials:
           - r-load-a-file
           - r-tally-a-quality-flag
+        more:
           - map-points-in-rstudio
       - point: p3
-        tutorials:
+        more:
           - r-query-parquet-with-duckdb
 
   - id: use-an-ai-agent
     title: Use an AI agent and check what it says
-    promise: Start an agent in a MESA app and test its answers against the data.
+    promise: Test what an AI assistant tells you against the data, then start an agent of your own.
     after: new-to-mesa
     stages:
       - point: p2
         tutorials:
           - practice-data
           - load-a-file
+        more:
           - tally-a-quality-flag
       - point: p3
-        tutorials:
+        more:
           - keep-secrets-out-of-files
       - point: p4
         tutorials:
-          - start-an-ai-agent
           - check-a-suggested-result
+        more:
+          - start-an-ai-agent
 
   - id: leave-work-others-can-rerun
     title: Leave work others can rerun
-    promise: Describe, record, and share work so that someone else can run it again.
+    promise: Describe your work and leave a notebook that someone else can run again.
     after: new-to-mesa
     stages:
       - point: p5
         tutorials:
           - write-a-readme
+          - leave-a-rerunnable-notebook
+        more:
           - add-metadata
           - record-software-versions
-          - leave-a-rerunnable-notebook
       - point: p1
-        tutorials:
-          - share-a-folder
         more:
+          - share-a-folder
           - read-shared-metadata
           - stop-sharing-a-folder
+
+# Tailoring: how a reader's answers to "Where are you starting?" shorten a
+# pathway. The answers stay in the reader's browser.
+#   foundations  point 2 tutorials kept even for a reader who has checked a
+#                dataset before, because later tutorials need what they set up
+#   in_r         for a reader working in R: the R tutorial that replaces a
+#                Python one, or nothing (~) where R does not need the step
+tailoring:
+  foundations: [practice-data, load-a-file, r-load-a-file]
+  in_r:
+    load-a-file: r-load-a-file
+    tally-a-quality-flag: r-tally-a-quality-flag
+    query-parquet-with-duckdb: r-query-parquet-with-duckdb
+    practice-data: ~
+    launch-jupyterlab: ~
 
 # Hand-written pages to list with the pathways in docs/pathways/index.md, as
 # paths under docs/.

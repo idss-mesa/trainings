@@ -89,6 +89,25 @@ class Checks(unittest.TestCase):
         self.data["pathways"][0]["stages"][0]["tutorials"] = names
         self.assertTrue(any("limit is 7" in p for p in gp.check(self.data, self.tutorials)))
 
+    def test_essentials_over_the_limit_are_refused(self):
+        self.data["essentials_minutes"] = 8
+        self.tutorials["w"] = tutorial()
+        self.data["pathways"][0]["stages"][0]["tutorials"] = ["x", "w"]
+        self.assertTrue(any("the limit is 8" in p for p in gp.check(self.data, self.tutorials)))
+
+    def test_a_stage_may_hold_only_more_but_a_pathway_needs_essentials(self):
+        self.data["pathways"][0]["stages"].append({"point": "p2", "more": ["z"]})
+        self.assertEqual(gp.check(self.data, self.tutorials), [])
+        self.assertIn("## Two\n\nYou can too.\n\nIf you have more time:", gp.build(self.data, self.tutorials)[0]["pathways/a.md"])
+        self.data["pathways"][0]["stages"] = [{"point": "p1", "more": ["x"]}]
+        self.assertTrue(any("no essentials" in p for p in gp.check(self.data, self.tutorials)))
+
+    def test_tailoring_names_are_checked(self):
+        self.data["tailoring"] = {"foundations": ["nope"], "in_r": {"x": "gone", "y": None}}
+        problems = gp.check(self.data, self.tutorials)
+        self.assertTrue(any("tailoring.foundations: no tutorial named nope" in p for p in problems))
+        self.assertTrue(any("tailoring.in_r: no tutorial named gone" in p for p in problems))
+
     def test_listed_twice(self):
         self.data["pathways"][0]["stages"][0]["tutorials"] = ["x", "x"]
         self.assertTrue(any("listed twice" in p for p in gp.check(self.data, self.tutorials)))
@@ -107,13 +126,14 @@ class Checks(unittest.TestCase):
     def test_pages(self):
         files, _ = gp.build(self.data, self.tutorials, "https://github.com/o/r")
         page = files["pathways/a.md"]
-        self.assertIn("**1 tutorial, 5 minutes in all.**", page)
+        self.assertIn("**The essentials: 1 tutorial, 5 minutes in all.**", page)
+        self.assertIn("If you have more time:", page)
         self.assertIn("1. [T](../tutorials/x.md) (5 minutes)", page)
         self.assertIn("- [T](../tutorials/y.md) (5 minutes)", page)
         self.assertIn("*Do one.* You can.", page)
         self.assertIn("status: draft", page)
         self.assertNotIn("verified", page)
-        self.assertIn("* [A](a.md) - Do A: a route of 1 tutorial", files["pathways/index.md"])
+        self.assertIn("* [A](a.md) - Do A: 1 tutorial to start with, 5 minutes in all", files["pathways/index.md"])
         self.assertFalse(files["pathways/index.md"].startswith("---"))
         self.assertNotIn("*Two.*", files["pathway.md"])
 
@@ -168,11 +188,18 @@ class TheRepository(unittest.TestCase):
     def test_every_tutorial_has_a_place(self):
         self.assertEqual(self.added, [])
 
-    def test_session_route_takes_one_to_two_hours(self):
+    def test_the_essentials_of_every_pathway_are_short(self):
+        limit = self.data["essentials_minutes"]
+        self.assertLessEqual(limit, 25)
+        for route in self.data["pathways"]:
+            with self.subTest(route["id"]):
+                low, high = gp.total(gp.core(route), self.tutorials)
+                self.assertGreater(low, 0)
+                self.assertLessEqual(high, limit)
+
+    def test_session_preparation_is_what_a_reader_must_arrive_with(self):
         route = next(p for p in self.data["pathways"] if p["id"] == "get-ready-for-a-session")
-        low, high = gp.total(gp.core(route), self.tutorials)
-        self.assertGreaterEqual(low, 60)
-        self.assertLessEqual(high, 120)
+        self.assertEqual(gp.core(route), ["sign-in", "launch-jupyterlab", "practice-data", "load-a-file"])
 
     def test_every_tutorial_is_a_draft(self):
         self.assertEqual({t["status"] for t in self.tutorials.values()}, {"draft"})

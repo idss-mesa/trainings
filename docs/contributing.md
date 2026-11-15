@@ -60,21 +60,31 @@ hand.
    `**Time:** N minutes.` line. The pathway pages read its title, point, and time from
    the tutorial itself.
 2. In `data/pathways.yml`, find the pathway and the stage for the tutorial's point, and
-   add the file name, without `.md`, to that stage's `tutorials:` list:
+   add the file name, without `.md`, to that stage's `more:` list:
 
     ```yaml
       - point: p2
         tutorials:
           - practice-data
           - load-a-file
+        more:
           - your-new-tutorial
     ```
 
-    A stage shows at most seven tutorials. Put anything beyond that under `more:`, which
-    readers open with "More in this area".
+    `tutorials:` holds the essentials, the few a reader cannot do without, and `more:`
+    holds what to take with more time. Pathways are kept short on purpose: the
+    essentials of a pathway may not add up to more than `essentials_minutes`, now 25.
+    Add to `tutorials:` only if a reader would be stuck without the tutorial, and expect
+    to move another one to `more:` to make room.
 3. Run `python scripts/gen_pathways.py` and commit what it writes. It stops with a
    message if a name matches no tutorial, if a tutorial sits under the wrong point, or
-   if a list is too long.
+   if the essentials run over the limit.
+
+Readers can shorten a pathway further by answering "Where are you starting?" on the
+[pathways page](pathways/index.md). Two lists under `tailoring:` in the same file
+drive that: `foundations`, the point 2 tutorials that later ones build on, and `in_r`,
+which names the R tutorial that replaces a Python one. A new R counterpart is one line
+there.
 
 A tutorial that is in no pathway still appears under its point on
 [Every tutorial, by pathway point](pathway.md). To choose its place there, add it to a

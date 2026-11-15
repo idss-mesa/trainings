@@ -144,10 +144,10 @@
     var got = P.route(pathway, record, m);
     if (!got.next) {
       return el("div", { class: "mesa-continue" }, [el("div", {}, [
-        el("p", { class: "mesa-kicker", text: "Pathway finished" }),
+        el("p", { class: "mesa-kicker", text: got.total ? "Pathway finished" : "Nothing to do" }),
         el("p", { class: "mesa-continue__title", text: pathway.title }),
-        el("p", { class: "mesa-muted", text: got.done === got.total ? "All " + got.total + " tutorials are marked done."
-          : got.done + " of " + got.total + " tutorials are marked done; the rest you skipped by check." })
+        el("p", { class: "mesa-muted", text: got.total ? "Everything on your route is marked done: " + got.total + (got.total === 1 ? " tutorial." : " tutorials.")
+          : "Your answers leave nothing you need to do here. There is more below if you have time." })
       ]), el("a", { class: "mesa-btn mesa-btn--plain", href: BASE + "pathways/", text: "Choose another pathway" })]);
     }
     var facts = m.tutorials[got.next];
@@ -340,8 +340,9 @@
           if (group && counted) { group.el.appendChild(node); group = null; return; }
           if (!counted) {
             var prev = stage.el.lastElementChild;
-            var more = el("details", { class: "mesa-more" }, [el("summary", { text: "More in this area (" + node.children.length + ")" })]);
-            if (prev && prev.tagName === "P" && /^More in this area/.test(prev.textContent)) stage.el.removeChild(prev);
+            var more = el("details", { class: "mesa-more" }, [el("summary", { text: "If you have more time (" + node.children.length + ")" })]);
+            if (prev && prev.tagName === "P" && /^If you have more time/.test(prev.textContent)) stage.el.removeChild(prev);
+            stage.stops.forEach(function (stop) { if (stop.li.parentNode === node) stop.fold = more; });
             more.appendChild(node);
             stage.el.appendChild(more);
             return;
@@ -405,20 +406,22 @@
     var chosen = P.findPathway(m, record.pathway);
     var route = ctx.pathway || chosen;
     var next = route ? P.route(route, record, m).next : "";
+    /* On a pathway page, what counts is the reader's own route: the essentials,
+       shortened by their answers. Elsewhere, every listed tutorial counts. */
+    var plan = ctx.pathway ? P.plan(m, ctx.pathway, record) : null;
+    var onRoute = function (stop) { return plan ? plan.names.indexOf(stop.name) >= 0 : stop.counted; };
     var counted = [];
     var tallies = ctx.stages.map(function (stage) {
-      var names = stage.stops.filter(function (s) { return s.counted; }).map(function (s) { return s.name; });
+      var names = stage.stops.filter(onRoute).map(function (s) { return s.name; });
       counted = counted.concat(names);
       return P.progress(names, record, m);
     });
     var started = counted.some(function (n) { return P.isFinished(record, n); });
-    /* "You are here": on a pathway, the first stage with something left; on a
-       page that lists everything, the same, once the reader has begun. */
+    /* "You are here": on a pathway, the first stage with something left on the
+       route; on a page that lists everything, the same, once the reader has begun. */
     var current = -1;
-    tallies.forEach(function (got, i) {
-      var passed = ctx.stages[i].point && P.isSkipped(record, ctx.stages[i].point);
-      if (current < 0 && got.done < got.total && !passed && (ctx.pathway || started)) current = i;
-    });
+    if (ctx.pathway) current = P.currentStage(ctx.pathway, record, m);
+    else tallies.forEach(function (got, i) { if (current < 0 && got.done < got.total && started) current = i; });
     ctx.stages.forEach(function (stage, i) {
       var got = tallies[i];
       stage.stops.forEach(function (stop) {
@@ -429,6 +432,21 @@
         stop.state.textContent = state === "next" && !ctx.pathway ? "Next on your pathway" : LABEL[state];
         stop.state.className = "mesa-state is-" + state;
         while (stop.extra.firstChild) stop.extra.removeChild(stop.extra.firstChild);
+        if (plan && stop.fold && onRoute(stop)) stop.fold.open = true; /* added because the reader has time */
+        var out = plan && stop.counted && !onRoute(stop) && !P.isFinished(record, stop.name)
+          ? plan.left.filter(function (l) { return l.name === stop.name; })[0] : null;
+        if (out) {
+          stop.li.className = "mesa-stop is-off";
+          stop.state.textContent = "Not on your route";
+          stop.state.className = "mesa-state is-off";
+          var because = el("p", { class: "mesa-note" }, ["Left out because " + P.why(out.why) + "."]);
+          if (out.instead) {
+            because.appendChild(document.createTextNode(" Take "));
+            because.appendChild(el("a", { href: tutorialUrl(out.instead), text: m.tutorials[out.instead].title }));
+            because.appendChild(document.createTextNode(" instead."));
+          }
+          stop.extra.appendChild(because);
+        }
         if (P.isFinished(record, stop.name)) {
           if (P.isUpdated(record, stop.name, m)) {
             stop.extra.appendChild(el("p", { class: "mesa-note", text: "Updated since you finished. Your tick is kept." }));
@@ -451,28 +469,57 @@
       while (stage.meter.firstChild) stage.meter.removeChild(stage.meter.firstChild);
       if (isHere) stage.meter.appendChild(el("span", { class: "mesa-here", text: "You are here" }));
       var skipped = stage.point && P.isSkipped(record, stage.point);
-      stage.meter.appendChild(document.createTextNode(got.done + " of " + got.total + " done" +
+      stage.meter.appendChild(document.createTextNode((got.total ? got.done + " of " + got.total + " done" : "Nothing you need here") +
         (done ? ". Point finished." : skipped ? ". Skip-check passed." : "")));
       paintSkip(stage, m, store);
       if (stage.reflect) stage.reflect.sync(record, writable(store));
       stage.button.textContent = done ? "\u2713" : String(i + 1);
       stage.button.className = "mesa-map__stop" + (done ? " is-done" : isHere ? " is-here" : "");
-      stage.button.setAttribute("aria-label", "Point " + (i + 1) + ": " + stage.title + ", " + got.done + " of " + got.total + " done" + (isHere ? ", you are here" : ""));
+      stage.button.setAttribute("aria-label", "Point " + (i + 1) + ": " + stage.title + ", " +
+        (got.total ? got.done + " of " + got.total + " done" : "nothing you need here") + (isHere ? ", you are here" : ""));
     });
     if (ctx.shown < 0) ctx.shown = current >= 0 ? current : 0;
     paintShown(ctx);
 
-    var all = P.progress(counted, record, m);
+    var all = ctx.pathway ? P.route(ctx.pathway, record, m) : P.progress(counted, record, m);
     while (ctx.head.firstChild) ctx.head.removeChild(ctx.head.firstChild);
     var story;
-    if (!all.done) story = "You have not started. " + all.total + " tutorials, " + P.minutes(all.minLeft, all.maxLeft) + " in all.";
-    else if (!all.next) story = "You have walked the whole path: all " + all.total + " tutorials are marked done.";
+    if (!all.total) story = "Your answers leave nothing you need to do on this pathway.";
+    else if (!all.done) story = "You have not started. " + all.total + (all.total === 1 ? " tutorial, " : " tutorials, ") + P.minutes(all.minLeft, all.maxLeft) + " in all.";
+    else if (!all.next) story = "You have walked the whole path: all " + all.total + (all.total === 1 ? " tutorial is" : " tutorials are") + " marked done.";
     else story = all.done + " of " + all.total + " done. About " + P.minutes(all.minLeft, all.maxLeft) + " to go" +
       (current >= 0 ? ", and you are at point " + (current + 1) + " of " + ctx.stages.length + ", " + ctx.stages[current].title.replace(/^\d+\.\s*/, "") : "") + ".";
     ctx.head.appendChild(el("p", { class: "mesa-story", text: story }));
     ctx.head.appendChild(bar(all.done, all.total));
+    if (plan && (plan.left.length || P.isTailored(record))) ctx.head.appendChild(tailoredNote(m, plan, record));
     if (route) ctx.head.appendChild(continueBlock(m, record, route));
     else ctx.head.appendChild(el("p", { class: "mesa-muted" }, ["Looking for a shorter route? ", el("a", { href: BASE + "pathways/", text: "Choose a pathway" }), "."]));
+  }
+
+  /* One line saying the route was shortened, with what was left out and why. */
+  function tailoredNote(m, plan, record) {
+    var note = el("div", { class: "mesa-tailored" });
+    /* A tutorial already finished is not "left out", whatever the answers say. */
+    plan = { left: plan.left.filter(function (l) { return !P.isFinished(record, l.name); }) };
+    if (!plan.left.length) {
+      note.appendChild(el("p", { class: "mesa-muted" }, ["This is your route, from your answers. ", el("a", { href: BASE + "pathways/", text: "Change your answers" }), "."]));
+      return note;
+    }
+    var fold = el("details", { class: "mesa-more" }, [el("summary", { text: "Shortened for you: " + plan.left.length + " left out" })]);
+    var list = el("ul", { class: "mesa-leftout" });
+    plan.left.forEach(function (l) {
+      var item = el("li", {}, [el("a", { href: tutorialUrl(l.name), text: m.tutorials[l.name].title }), ": " + P.why(l.why) + "."]);
+      if (l.instead) {
+        item.appendChild(document.createTextNode(" Instead: "));
+        item.appendChild(el("a", { href: tutorialUrl(l.instead), text: m.tutorials[l.instead].title }));
+        item.appendChild(document.createTextNode("."));
+      }
+      list.appendChild(item);
+    });
+    fold.appendChild(list);
+    fold.appendChild(el("p", { class: "mesa-muted" }, ["Nothing is locked: every tutorial is still below. ", el("a", { href: BASE + "pathways/", text: "Change your answers" }), "."]));
+    note.appendChild(fold);
+    return note;
   }
 
   /* The stages of a generated page: every h2 except the closing ones. */
@@ -531,13 +578,59 @@
     return { paint: function (store) { paintPath(ctx, m, store); } };
   }
 
-  /* The list of pathways: each with the reader's progress on it. */
+  var QUESTIONS = [
+    ["portal", "Have you used the MESA Portal before?", [["yes", "Yes"], ["no", "No"]]],
+    ["language", "Python or R?", [["python", "Python"], ["r", "R"]]],
+    ["data", "Have you checked a dataset in pandas or R before?", [["yes", "Yes"], ["no", "No"]]],
+    ["minutes", "How long do you have?", [[15, "15 minutes"], [30, "30 minutes"], [60, "An hour"]]]
+  ];
+
+  /* The list of pathways, led by "Where are you starting?": a goal and four
+     optional questions that shorten the route. The form is built once, so
+     answering never moves keyboard focus; only the result below it is redrawn. */
   function drawPathways(article, m) {
     var list = article.querySelector("ul");
     if (!list) return null;
-    var lead = el("div", { class: "mesa-head" });
-    list.parentNode.insertBefore(lead, list);
+    var start = el("section", { class: "mesa-start", "aria-labelledby": "mesa-start-title" }, [
+      el("h2", { id: "mesa-start-title", text: "Where are you starting?" }),
+      el("p", { class: "mesa-muted", text: "Say what you are here for, and answer what you like of the rest. Your route gets shorter; nothing is locked. Your answers stay in this browser." })
+    ]);
+    var inputs = [];
+    var ask = function (key, legend, options, current, set) {
+      var group = el("fieldset", { class: "mesa-start__q" }, [el("legend", { text: legend })]);
+      options.forEach(function (option) {
+        var radio = el("input", { type: "radio", name: "mesa-start-" + key, value: String(option[0]) });
+        radio.addEventListener("change", function () {
+          var store = P.load(storage());
+          if (change(store, function (r) { set(r, option[0]); })) { refresh(); tell(); }
+        });
+        inputs.push({ radio: radio, current: function (record) { return current(record) === option[0]; } });
+        group.appendChild(el("label", {}, [radio, el("span", { text: option[1] })]));
+      });
+      start.appendChild(group);
+    };
+    ask("goal", "What brings you here?", m.pathways.map(function (p) { return [p.id, p.title]; }),
+      function (r) { return r.pathway; }, function (r, v) { P.setPathway(r, v); });
+    QUESTIONS.forEach(function (q) {
+      ask(q[0], q[1], q[2], function (r) { return r.profile[q[0]]; }, function (r, v) { P.setProfile(r, q[0], v); });
+    });
+    var yours = el("div", { class: "mesa-yours" });
+    start.appendChild(yours);
+    list.parentNode.insertBefore(start, list);
+    list.parentNode.insertBefore(el("h2", { text: "All the pathways" }), list);
     list.classList.add("mesa-routes");
+
+    function summary(record) {
+      var chosen = P.findPathway(m, record.pathway);
+      if (!chosen) return "";
+      var names = P.plan(m, chosen, record).names, left = P.progress(names, record, m);
+      if (!names.length) return "Your route on " + chosen.title + ": nothing you need to do.";
+      return "Your route on " + chosen.title + ": " + names.length + (names.length === 1 ? " tutorial, " : " tutorials, ") +
+        P.minutes(names.reduce(function (s, n) { return s + m.tutorials[n].min; }, 0), names.reduce(function (s, n) { return s + m.tutorials[n].max; }, 0)) +
+        (left.done ? ", " + left.done + " done" : "") + ".";
+    }
+    function tell() { var text = summary(P.load(storage()).record); if (text) announce(text); }
+
     var rows = [];
     Array.prototype.forEach.call(list.children, function (li) {
       var link = li.querySelector("a");
@@ -550,15 +643,43 @@
       rows.push({ li: li, meta: meta, pathway: pathway });
     });
     return { paint: function (store) {
-      var record = store.record, chosen = P.findPathway(m, record.pathway);
-      while (lead.firstChild) lead.removeChild(lead.firstChild);
-      if (chosen) lead.appendChild(continueBlock(m, record, chosen));
+      var record = store.record, chosen = P.findPathway(m, record.pathway), can = writable(store);
+      inputs.forEach(function (i) { i.radio.checked = i.current(record); i.radio.disabled = !can; });
+      while (yours.firstChild) yours.removeChild(yours.firstChild);
+      if (!chosen) {
+        yours.appendChild(el("p", { class: "mesa-story", text: "Choose what brings you here, and your route appears." }));
+      } else {
+        var plan = P.plan(m, chosen, record);
+        yours.appendChild(el("p", { class: "mesa-story", text: summary(record) }));
+        if (plan.names.length) {
+          var steps = el("ol", { class: "mesa-yours__list" });
+          plan.names.forEach(function (name) {
+            var state = P.state(record, name);
+            steps.appendChild(el("li", {}, [box(state), " ", el("a", { href: tutorialUrl(name), "data-mesa-pathway": chosen.id, text: m.tutorials[name].title }),
+              el("span", { class: "mesa-muted", text: " · " + P.minutes(m.tutorials[name].min, m.tutorials[name].max) + " · " + LABEL[state] })]));
+          });
+          yours.appendChild(steps);
+        }
+        if (plan.left.length) yours.appendChild(tailoredNote(m, plan, record));
+        yours.appendChild(continueBlock(m, record, chosen));
+        yours.appendChild(el("p", {}, [el("a", { href: pathwayUrl(chosen.id), text: "See the whole pathway, with what to take if you have more time" })]));
+      }
+      if (can && (P.isTailored(record) || chosen)) {
+        yours.appendChild(el("button", { type: "button", class: "mesa-btn mesa-btn--plain mesa-btn--small", "data-key": "clear-answers", text: "Clear my answers",
+          onclick: function () {
+            change(store, function (r) { P.setPathway(r, ""); Object.keys(P.PROFILE).forEach(function (k) { P.setProfile(r, k, ""); }); });
+            refresh();
+            var first = start.querySelector("input");
+            if (first) first.focus();
+            announce("Answers cleared. Your finished tutorials are kept.");
+          } }));
+      }
       rows.forEach(function (row) {
         var got = P.route(row.pathway, record, m);
         while (row.meta.firstChild) row.meta.removeChild(row.meta.firstChild);
         row.li.classList.toggle("is-chosen", chosen === row.pathway);
         row.meta.appendChild(el("span", { text: (chosen === row.pathway ? "You are on this pathway. " : "") +
-          got.done + " of " + got.total + " done" + (got.next ? "" : ". Finished.") }));
+          (got.total ? got.done + " of " + got.total + " done" + (got.next ? "" : ". Finished.") : "Nothing you need here.") }));
         row.meta.appendChild(bar(got.done, got.total));
       });
     } };
@@ -587,10 +708,10 @@
       strip.appendChild(where);
 
       if (route) {
-        var names = P.core(route), at = names.indexOf(name);
+        var names = P.openNames(route, record, m), at = names.indexOf(name);
         where.appendChild(el("a", { href: pathwayUrl(route.id), text: route.title }));
-        where.appendChild(document.createTextNode(at >= 0 ? " · tutorial " + (at + 1) + " of " + names.length + " · " + point.title
-          : " · more in " + point.title));
+        where.appendChild(document.createTextNode(at >= 0 ? " · tutorial " + (at + 1) + " of " + names.length + " on your route · " + point.title
+          : " · extra, for when you have time · " + point.title));
       } else {
         where.appendChild(el("a", { href: BASE + "pathway/", text: point.title }));
         if (routes.length) {
@@ -620,7 +741,7 @@
             onclick: function () {
               change(store, function (r) { if (route) P.setPathway(r, route.id); P.markDone(r, name, facts.revised, P.today()); });
               refresh("undo");
-              var after = route ? P.nextAfter(P.openNames(route, store.record), name, store.record) : "";
+              var after = route ? P.nextAfter(P.openNames(route, store.record, m), name, store.record) : "";
               announce("Marked as done." + (after ? " Next: " + m.tutorials[after].title + ", " + P.minutes(m.tutorials[after].min, m.tutorials[after].max) + "." : ""));
             } }));
         }
@@ -646,7 +767,7 @@
         mine.forEach(function (id) { strip.appendChild(checkForm(m, store, id)); });
       }
 
-      var after = route ? P.nextAfter(P.openNames(route, record), name, record) : "";
+      var after = route ? P.nextAfter(P.openNames(route, record, m), name, record) : "";
       var next = el("p", { class: "mesa-strip__next" });
       if (after) {
         next.appendChild(document.createTextNode("Next on your pathway: "));
@@ -733,6 +854,10 @@
         el("p", { class: "mesa-muted", text: "Six short routes, each with its total time." })
       ]), el("a", { class: "mesa-btn", href: BASE + "pathways/", text: "Choose" })]));
 
+      if (P.isTailored(record)) {
+        root.appendChild(el("p", { class: "mesa-muted" }, ["Your pathways are shortened by your answers to “Where are you starting?”. ",
+          el("a", { href: BASE + "pathways/", text: "Change your answers" }), "."]));
+      }
       root.appendChild(el("h2", { text: "Your pathways" }));
       var routes = el("ul", { class: "mesa-routes" });
       m.pathways.forEach(function (pathway) {
@@ -741,7 +866,7 @@
           el("a", { href: pathwayUrl(pathway.id), text: pathway.title }),
           el("div", { class: "mesa-route__meta" }, [
             el("span", { text: (mine ? "You are on this pathway. " : "") + got.done + " of " + got.total + " done. " +
-              (got.next ? "About " + P.minutes(got.minLeft, got.maxLeft) + " to go." : "Finished.") }),
+              (got.next ? "About " + P.minutes(got.minLeft, got.maxLeft) + " to go." : got.total ? "Finished." : "Nothing you need here.") }),
             bar(got.done, got.total)]),
           can && !mine ? el("button", { type: "button", class: "mesa-btn mesa-btn--plain mesa-btn--small", "data-key": "follow-" + pathway.id,
             "aria-label": "Follow the pathway " + pathway.title, text: "Follow",

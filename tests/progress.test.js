@@ -76,21 +76,22 @@ test("a tutorial past its review date is stale", () => {
 test("progress, time left, and the next step follow the pathway's order", () => {
   const route = P.findPathway(manifest, "new-to-mesa");
   const names = P.core(route);
+  assert.deepEqual(names, ["sign-in", "launch-jupyterlab", "save-your-work"]);
   const rec = P.empty();
-  let got = P.progress(names, rec, manifest);
-  assert.deepEqual([got.done, got.total, got.next], [0, 6, "sign-in"]);
+  let got = P.route(route, rec, manifest);
+  assert.deepEqual([got.done, got.total, got.next], [0, 3, "sign-in"]);
   assert.deepEqual([got.minLeft, got.maxLeft], [route.min, route.max]);
   P.markDone(rec, "sign-in", "r", "2026-11-14");
-  P.markDone(rec, "find-community-data", "r", "2026-11-14");
-  got = P.progress(names, rec, manifest);
-  assert.deepEqual([got.done, got.next], [2, "find-your-way-around"]);
-  assert.equal(P.nextAfter(names, "find-community-data", rec), "launch-jupyterlab");
-  assert.equal(P.nextAfter(names, "stop-app-find-results", rec), "find-your-way-around");
-  assert.equal(P.currentStage(route, rec), 0);
+  P.markDone(rec, "save-your-work", "r", "2026-11-14");
+  got = P.route(route, rec, manifest);
+  assert.deepEqual([got.done, got.next], [2, "launch-jupyterlab"]);
+  assert.equal(P.nextAfter(names, "sign-in", rec), "launch-jupyterlab");
+  assert.equal(P.nextAfter(names, "save-your-work", rec), "launch-jupyterlab");
+  assert.equal(P.currentStage(route, rec, manifest), 0);
   names.forEach((n) => P.markDone(rec, n, "r", "2026-11-14"));
-  assert.equal(P.progress(names, rec, manifest).next, "");
+  assert.equal(P.route(route, rec, manifest).next, "");
   assert.equal(P.nextAfter(names, "sign-in", rec), "");
-  assert.equal(P.currentStage(route, rec), -1);
+  assert.equal(P.currentStage(route, rec, manifest), -1);
 });
 
 test("the chosen pathway comes first among those that hold a tutorial", () => {
@@ -158,8 +159,12 @@ test("import rejects anything that is not a progress record", () => {
   const bad = [
     "not json",
     "[]",
-    JSON.stringify({ schema: 2 }),
+    JSON.stringify({ schema: 3 }),
+    JSON.stringify({ schema: 0 }),
     JSON.stringify({ schema: 1, extra: 1 }),
+    JSON.stringify({ schema: 2, profile: { portal: "maybe" } }),
+    JSON.stringify({ schema: 2, profile: { minutes: 45 } }),
+    JSON.stringify({ schema: 2, profile: { name: "x" } }),
     JSON.stringify({ schema: 1, tutorials: { "Bad Name": { done: "2026-11-14", rev: "" } } }),
     JSON.stringify({ schema: 1, tutorials: { a: { done: "yesterday", rev: "" } } }),
     JSON.stringify({ schema: 1, tutorials: { a: { done: "2026-11-14", rev: "", score: 10 } } }),
@@ -265,11 +270,12 @@ test("a skip-check is passed only when every question is right, and it moves the
 
   const pathway = P.findPathway(manifest, "check-a-dataset");
   const got = P.route(pathway, rec, manifest);
-  assert.equal(got.total, 7);
-  assert.equal(got.done, 3, "only the three tutorials whose checks were answered count as done");
-  assert.equal(got.next, "reconcile-a-join", "the route passes over the skipped point");
-  assert.equal(P.currentStage(pathway, rec), 1);
+  assert.deepEqual([got.done, got.total, got.next], [0, 0, ""], "every essential of this pathway is in the skipped point");
+  assert.deepEqual(P.plan(manifest, pathway, rec).left.map((l) => l.why), ["skip", "skip", "skip", "skip", "skip"]);
+  assert.equal(P.currentStage(pathway, rec, manifest), -1);
   assert.equal(P.state(rec, "practice-data"), "todo", "skipping never ticks a tutorial");
+  const session = P.findPathway(manifest, "get-ready-for-a-session");
+  assert.deepEqual(P.openNames(session, rec, manifest), ["sign-in", "launch-jupyterlab"]);
 });
 
 test("reflections are kept, trimmed to the limit, and removed when emptied", () => {
@@ -294,4 +300,98 @@ test("reflections export as Markdown with the prompt, the level, and what was fi
   assert.match(text, /- Done: Load a file from your Data Store into a notebook\n/);
   assert.match(text, /## 1\. Orient and navigate[\s\S]*_Nothing written yet\._/);
   assert.ok(text.endsWith("\n") && !text.endsWith("\n\n"));
+});
+
+// --- shorter, tailored pathways ---
+
+function planFor(id, profile) {
+  const rec = P.empty();
+  Object.entries(profile).forEach(([k, v]) => P.setProfile(rec, k, v));
+  return P.plan(manifest, P.findPathway(manifest, id), rec);
+}
+
+test("the essentials of every pathway fit in 25 minutes", () => {
+  for (const pathway of manifest.pathways) {
+    assert.ok(pathway.max <= 25, pathway.id + " takes up to " + pathway.max);
+    assert.ok(P.core(pathway).length >= 1, pathway.id);
+    assert.deepEqual(planFor(pathway.id, {}), { names: P.core(pathway), left: [] }, pathway.id);
+  }
+});
+
+test("session preparation shrinks with what the reader already knows", () => {
+  const id = "get-ready-for-a-session";
+  assert.deepEqual(planFor(id, {}).names, ["sign-in", "launch-jupyterlab", "practice-data", "load-a-file"]);
+  const knows = planFor(id, { portal: "yes" });
+  assert.deepEqual(knows.names, ["practice-data", "load-a-file"]);
+  assert.deepEqual(knows.left, [{ name: "sign-in", why: "portal" }, { name: "launch-jupyterlab", why: "portal" }]);
+  const inR = planFor(id, { language: "r" });
+  assert.deepEqual(inR.names, ["sign-in", "r-load-a-file"]);
+  assert.deepEqual(inR.left.find((l) => l.name === "load-a-file"), { name: "load-a-file", why: "r", instead: "r-load-a-file" });
+  assert.deepEqual(inR.left.filter((l) => l.why === "r-unneeded").map((l) => l.name), ["launch-jupyterlab", "practice-data"]);
+  assert.deepEqual(planFor(id, { portal: "yes", language: "r" }).names, ["r-load-a-file"]);
+  assert.deepEqual(planFor(id, { portal: "no", language: "python", data: "no" }).names, P.core(P.findPathway(manifest, id)));
+});
+
+test("a reader who has checked data before keeps only what later tutorials build on", () => {
+  const got = planFor("check-a-dataset", { data: "yes" });
+  assert.deepEqual(got.names, ["practice-data", "load-a-file"]);
+  assert.deepEqual(got.left.map((l) => l.why), ["data", "data", "data"]);
+});
+
+test("in R, a step is kept when something on the route still needs it, and Python-only steps are named", () => {
+  assert.deepEqual(planFor("new-to-mesa", { language: "r" }).names, ["sign-in", "launch-jupyterlab", "save-your-work"]);
+  const got = planFor("check-a-dataset", { language: "r" });
+  assert.deepEqual(got.names, ["r-load-a-file", "r-tally-a-quality-flag"]);
+  assert.deepEqual(got.left.filter((l) => l.why === "python-only").map((l) => l.name), ["read-the-data-dictionary", "check-range-and-missing"]);
+});
+
+test("the time a reader has trims the route, or fills it with more", () => {
+  const short = planFor("get-ready-for-a-session", { minutes: 15 });
+  assert.deepEqual(short.names, ["sign-in", "launch-jupyterlab"]);
+  assert.deepEqual(short.left, [{ name: "practice-data", why: "time" }, { name: "load-a-file", why: "time" }]);
+  const long = planFor("get-ready-for-a-session", { minutes: 60 });
+  assert.deepEqual(long.names.slice(0, 4), ["sign-in", "launch-jupyterlab", "practice-data", "load-a-file"]);
+  assert.ok(long.names.length > 4 && long.left.length === 0);
+  const cost = long.names.reduce((sum, n) => sum + manifest.tutorials[n].max, 0);
+  assert.ok(cost <= 60, "fits the hour: " + cost);
+  assert.equal(new Set(long.names).size, long.names.length);
+  const rec = P.empty();
+  rec.profile.minutes = 1; // below any tutorial: the route still keeps its first step
+  assert.deepEqual(P.plan(manifest, P.findPathway(manifest, "get-ready-for-a-session"), rec).names, ["sign-in"]);
+  const rHour = planFor("work-in-r", { language: "r", minutes: 60 }).names;
+  assert.deepEqual(rHour, ["r-load-a-file", "r-tally-a-quality-flag", "map-points-in-rstudio", "r-query-parquet-with-duckdb"]);
+});
+
+test("every reason for leaving a tutorial out has words", () => {
+  for (const code of ["skip", "portal", "data", "r", "r-unneeded", "python-only", "time"]) assert.ok(P.why(code).length > 10, code);
+});
+
+test("answers are kept, changed, cleared, exported, and checked on import", () => {
+  const rec = P.empty();
+  P.setProfile(rec, "portal", "yes");
+  P.setProfile(rec, "minutes", 30);
+  P.setProfile(rec, "language", "cobol");
+  assert.deepEqual(rec.profile, { portal: "yes", minutes: 30 });
+  assert.equal(P.isTailored(rec), true);
+  assert.equal(P.isBlank(rec), false);
+  const back = P.parseImport(P.serialize(rec));
+  assert.equal(back.ok, true);
+  assert.deepEqual(back.record.profile, { portal: "yes", minutes: 30 });
+  P.setProfile(rec, "portal", "");
+  P.setProfile(rec, "minutes", 0);
+  assert.equal(P.isTailored(rec), false);
+});
+
+test("a schema 1 record, from before the answers existed, is brought forward untouched", () => {
+  const old = { schema: 1, started: "2026-11-01", pathway: "new-to-mesa",
+    tutorials: { "sign-in": { done: "2026-11-01", rev: "r" } }, checks: {}, points: { p1: { level: "exploring", on: "2026-11-01" } } };
+  const store = memory({ [P.KEY]: JSON.stringify(old) });
+  const got = P.load(store);
+  assert.equal(got.status, "ok");
+  assert.equal(got.record.schema, 2);
+  assert.deepEqual(got.record.profile, {});
+  assert.deepEqual(got.record.tutorials, old.tutorials);
+  assert.deepEqual(got.record.points, old.points);
+  assert.equal(P.parseImport(JSON.stringify(old)).ok, true, "an exported schema 1 file still imports");
+  assert.equal(P.load(memory({ [P.KEY]: JSON.stringify({ schema: 3 }) })).status, "newer");
 });
