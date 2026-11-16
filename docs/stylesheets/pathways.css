@@ -278,6 +278,9 @@
 .md-typeset .mesa-check__input, .md-typeset .mesa-reflect__text {
   font: inherit; color: var(--mesa-text); background: var(--mesa-bg);
   border: 2px solid var(--mesa-text); border-radius: 0; padding: 0.4rem 0.5rem;
+  /* Never under 16px: below that, Safari on a phone zooms the page in when the
+     field is tapped and leaves it zoomed. */
+  font-size: max(16px, 0.75rem);
 }
 .md-typeset .mesa-check__input { width: 9rem; max-width: 100%; min-height: 2.2rem; }
 .md-typeset .mesa-check__input:focus-visible, .md-typeset .mesa-reflect__text:focus-visible,
@@ -297,7 +300,7 @@
 .md-typeset .mesa-skip__said { margin: 0.4rem 0 0; font-weight: 600; font-size: 0.75rem; }
 .mesa-reflect { margin: 0.5rem 0 0; }
 .md-typeset .mesa-reflect > label { display: block; font-weight: 600; font-size: 0.75rem; margin: 0 0 0.3rem; }
-.md-typeset .mesa-reflect__text { display: block; width: 100%; resize: vertical; font-size: 0.75rem; }
+.md-typeset .mesa-reflect__text { display: block; width: 100%; resize: vertical; }
 .mesa-point > .mesa-reflect { margin-top: 0.9rem; }
 
 /* — ticks in the navigation — */
