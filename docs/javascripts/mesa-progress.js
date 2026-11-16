@@ -48,6 +48,13 @@
     return v !== null && typeof v === "object" && !Array.isArray(v);
   }
 
+  /* A real calendar day, written YYYY-MM-DD: "2026-13-45" is not one. */
+  function isDate(v) {
+    if (typeof v !== "string" || !DATE.test(v)) return false;
+    var d = new Date(Date.UTC(+v.slice(0, 4), +v.slice(5, 7) - 1, +v.slice(8, 10)));
+    return d.getUTCFullYear() === +v.slice(0, 4) && d.getUTCMonth() === +v.slice(5, 7) - 1 && d.getUTCDate() === +v.slice(8, 10);
+  }
+
   function today(now) {
     var d = now || new Date();
     var pad = function (n) { return (n < 10 ? "0" : "") + n; };
@@ -65,7 +72,7 @@
       });
     };
     var date = function (v, where) {
-      if (typeof v !== "string" || !DATE.test(v)) errors.push(where + ": not a date (YYYY-MM-DD)");
+      if (!isDate(v)) errors.push(where + ": not a date (YYYY-MM-DD)");
       return v;
     };
     if (!isObject(raw)) return { ok: false, errors: ["not a progress record"], record: null };
@@ -442,8 +449,33 @@
     return progress(openNames(pathway, record, manifest), record, manifest);
   }
 
+  /* Two notes on the same point, one here and one in a file. Neither is thrown
+     away: the file's goes below the one here. "how" says what happened:
+     "same" (nothing to add), "joined", or "kept" (the two together would be too
+     long, so the one here stays and the file's is left out). */
+  function joinNotes(mine, theirs) {
+    if (!theirs || mine === theirs || (mine && mine.indexOf(theirs) >= 0)) return { text: mine || "", how: "same" };
+    if (!mine) return { text: theirs, how: "joined" };
+    var both = mine + "\n\n" + theirs;
+    return both.length > MAX_TEXT ? { text: mine, how: "kept" } : { text: both, how: "joined" };
+  }
+
+  /* What a merge does to notes that are in both records, for the message:
+     { joined: [points], kept: [points] }. */
+  function noteClashes(here, incoming) {
+    var out = { joined: [], kept: [] };
+    Object.keys(incoming.points || {}).sort().forEach(function (p) {
+      var mine = ((here.points || {})[p] || {}).reflection;
+      if (!mine) return;
+      var how = joinNotes(mine, incoming.points[p].reflection).how;
+      if (how !== "same") out[how].push(p);
+    });
+    return out;
+  }
+
   /* Combine an imported record with the one already here. Nothing finished is
-     lost: an entry in either stays, and the earlier "done" date is kept. */
+     lost: an entry in either stays, and the earlier "done" date is kept. A note
+     in both is kept from both. */
   function merge(here, incoming) {
     var out = validate(here).record;
     var add = validate(incoming).record;
@@ -465,9 +497,11 @@
     });
     Object.keys(add.points).forEach(function (p) {
       var a = out.points[p] || {}, b = add.points[p];
-      ["level", "skipped", "reflection", "on"].forEach(function (k) {
+      var note = joinNotes(a.reflection, b.reflection).text;
+      ["level", "skipped", "on"].forEach(function (k) {
         if (a[k] === undefined && b[k] !== undefined) a[k] = b[k];
       });
+      if (note) a.reflection = note;
       out.points[p] = a;
     });
     return validate(out).record;
@@ -571,7 +605,7 @@
     SCHEMA: SCHEMA, KEY: KEY, LEVELS: LEVELS,
     empty: empty, today: today, validate: validate, migrate: migrate, load: load, save: save,
     serialize: serialize, clear: clear, isBlank: isBlank, markDone: markDone, unmark: unmark,
-    setPathway: setPathway, setLevel: setLevel, merge: merge, parseImport: parseImport,
+    setPathway: setPathway, setLevel: setLevel, merge: merge, noteClashes: noteClashes, parseImport: parseImport,
     state: state, isFinished: isFinished, isUpdated: isUpdated, isStale: isStale, core: core,
     findPathway: findPathway, progress: progress, nextAfter: nextAfter, currentStage: currentStage,
     pathwaysWith: pathwaysWith, pointNames: pointNames, minutes: minutes,

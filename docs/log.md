@@ -9,6 +9,19 @@
   listed under "If you have more time" in [New to MESA](pathways/new-to-mesa.md) and
   [Get ready for a hands-on session](pathways/get-ready-for-a-session.md), and the
   [launch tutorial](tutorials/launch-jupyterlab.md) now points to it.
+* **Update**: Four fixes to bringing back a saved copy on [Your progress](progress.md).
+  Merging no longer drops a note: when the browser and the file both hold a note on the
+  same point, the file's note is added below yours, and the message says so. If the two
+  together are too long to keep, yours stays and the message says the file's was left
+  out. When the stored record was made by a newer version of the site, "Save a copy to
+  a file" now saves that record as it is stored, not an empty one. The message counts
+  tutorials correctly ("1 finished tutorial") and counts only tutorials the site still
+  has. The "Replace or merge?" and "Clear everything?" questions now take focus
+  themselves, so pressing Enter straight away changes nothing. A file with a date that
+  is not a real day, such as 2026-13-45, is refused.
+* **Update**: "Clear everything" on [Your progress](progress.md) now also clears what
+  another open tab is showing. An answer given to a self-check on that visit used to stay
+  on screen in the other tab until it was reloaded, although nothing was stored.
 
 ## 2026-11-15
 

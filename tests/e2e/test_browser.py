@@ -161,6 +161,62 @@ class Browser(unittest.TestCase):
         page.locator(".mesa-said", has_text="Nothing was changed").wait_for()
         self.assertEqual(self.stored(page), before)
 
+        # With progress already here, the page asks before it changes anything.
+        # Focus goes to the question, not to "Replace", so Enter overwrites nothing.
+        one = saved.with_name("one.json")
+        one.write_text(json.dumps({"schema": 2, "started": "2026-11-01", "pathway": "", "profile": {},
+                                   "tutorials": {"practice-data": {"done": "2026-11-01", "rev": ""},
+                                                 "no-such-tutorial": {"done": "2026-11-01", "rev": ""}},
+                                   "checks": {}, "points": {"p2": {"reflection": "File note", "on": "2026-11-01"}}}),
+                       encoding="utf-8")
+        page.evaluate("""key => { const r = JSON.parse(localStorage.getItem(key));
+            r.points.p2 = { reflection: 'Here note', on: '2026-11-02' };
+            localStorage.setItem(key, JSON.stringify(r)); }""", KEY)
+        page.reload()
+        page.get_by_role("button", name="Bring back a saved copy").wait_for()
+        here = self.stored(page)
+        with page.expect_file_chooser() as chooser:
+            page.get_by_role("button", name="Bring back a saved copy").click()
+        chooser.value.set_files(str(one))
+        ask = page.locator(".mesa-ask")
+        ask.wait_for()
+        self.assertIn("The file holds 1 finished tutorial,", ask.inner_text())
+        self.assertTrue(page.evaluate("document.activeElement.classList.contains('mesa-ask')"))
+        self.assertEqual(page.evaluate("document.getElementById(document.activeElement.getAttribute('aria-labelledby')).textContent")[:14],
+                         "The file holds")
+        page.keyboard.press("Enter")
+        self.assertEqual(self.stored(page), here)
+        page.keyboard.press("Tab")
+        self.assertEqual(page.evaluate("document.activeElement.textContent"), "Replace")
+        ask.get_by_role("button", name="Merge").click()
+        page.locator(".mesa-said", has_text="the file’s note is now below yours").wait_for()
+        self.assertIn("Run and understand", page.inner_text(".mesa-said"))
+        merged = json.loads(self.stored(page))
+        self.assertEqual(merged["points"]["p2"]["reflection"], "Here note\n\nFile note")
+        self.assertEqual(len(merged["tutorials"]), 4)
+        self.assertEqual(merged["started"], "2026-11-01")
+        page.evaluate("([key, text]) => localStorage.setItem(key, text)", [KEY, before])
+        page.reload()
+        page.get_by_role("button", name="Bring back a saved copy").wait_for()
+
+        # "Clear everything" asks the same way: focus on the question, not the button.
+        page.get_by_role("button", name="Clear everything").click()
+        self.assertTrue(page.evaluate("document.activeElement.classList.contains('mesa-ask')"))
+        page.locator(".mesa-ask").get_by_role("button", name="Keep it").click()
+
+        # A record from a newer version is saved as it is stored, never as an empty one.
+        newer = '{"schema": 99, "later": true}'
+        page.evaluate("([key, text]) => localStorage.setItem(key, text)", [KEY, newer])
+        page.reload()
+        page.locator(".mesa-note", has_text="newer version").wait_for()
+        self.assertEqual(page.get_by_role("button", name="Save my notes as Markdown").count(), 0)
+        with page.expect_download() as download:
+            page.get_by_role("button", name="Save a copy to a file").click()
+        self.assertEqual(Path(download.value.path()).read_text(encoding="utf-8"), newer)
+        page.evaluate("([key, text]) => localStorage.setItem(key, text)", [KEY, before])
+        page.reload()
+        page.get_by_role("button", name="Bring back a saved copy").wait_for()
+
         # A level is the reader's own assessment, and it is kept.
         page.locator("input[name='mesa-level-p1'][value='exploring']").check()
         self.assertEqual(json.loads(self.stored(page))["points"]["p1"]["level"], "exploring")
@@ -295,6 +351,20 @@ class Browser(unittest.TestCase):
         page.locator(".mesa-strip .mesa-check").get_by_role("button", name="Check answer").wait_for()
         self.assertEqual(page.locator(".mesa-strip .mesa-check.is-right").count(), 0)
         self.assertNotIn("Right:", page.inner_text(".mesa-strip"))
+
+        # Clearing in another tab forgets this tab's answers too, without a reload.
+        strip = page.locator(".mesa-strip .mesa-check")
+        strip.locator("input[type='radio']").first.check()
+        strip.get_by_role("button", name="Check answer").click()
+        page.locator(".mesa-strip .mesa-check__result", has_text="Not yet").wait_for()
+        other = page.context.new_page()
+        other.goto(self.base + "progress/")
+        other.get_by_role("button", name="Clear everything").click()
+        other.locator(".mesa-ask").get_by_role("button", name="Clear everything").click()
+        other.wait_for_function(f"localStorage.getItem('{KEY}') === null")
+        page.wait_for_function("!document.querySelector('.mesa-strip').innerText.includes('Not yet')")
+        self.assertEqual(strip.locator("input[type='radio']:checked").count(), 0)
+        other.close()
 
         for request in requests:
             self.assertEqual(request.method, "GET", request.url)
