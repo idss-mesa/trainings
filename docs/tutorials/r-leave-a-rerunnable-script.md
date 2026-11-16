@@ -20,9 +20,9 @@ sources:
 # Leave an R script someone else can rerun
 
 !!! warning "Draft: not yet validated"
-    The script on this page was run from an empty workspace with R 4.6.0 on a laptop on
-    2026-11-16. Nobody has yet followed the steps in MESA RStudio Geospatial, so a menu
-    name may differ there. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    These steps were followed once inside MESA RStudio Geospatial on 2026-11-16
+    (R 4.6.2), by the AI assistant that drafted them. No person has yet followed them,
+    so a screen may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 What you type in the **Console** stays in R's memory. A script that uses a table you
 loaded by hand runs for you and fails for the next person, who starts with nothing
@@ -63,10 +63,10 @@ to it.
     folder works only for you; a bare file name works for anyone who has the file
     beside the script.
 
-3. Choose **File → Save As…**, and save it as `checks.R` in `mesa-practice`.
+3. Choose **File → Save As...**. The **Save File** window opens on R's working folder,
+   `mesa-practice`. Type `checks.R` as the file name and click **Save**.
 
-    You should see: the tab renamed **checks.R**, and the file in the **Files** tab at
-    the bottom right.
+    You should see: the tab renamed **checks.R**.
 
 4. In the **Console**, empty R's memory: run `rm(list = ls())`.
 
@@ -75,13 +75,14 @@ to it.
 
 5. In the **Console**, run `source("checks.R", echo = TRUE)`.
 
-    You should see: each line of the script, the flag counts (`S` 2, `<NA>` 150), and
-    a last line that names the version of R. No line begins `Error`.
+    You should see: the lines of the script, the flag counts (`S` 2, `<NA>` 150), and
+    a last line that names the version of R. No line begins `Error`. R shortens the
+    opening comment and the line after it to `[TRUNCATED]`; they still ran.
 
-6. Look at the `mesa-practice` folder in the **Files** tab.
+6. In the **Console**, run `list.files()`.
 
-    You should see: `checks.R`, `gauges.csv`, and `readings.csv`. The folder holds
-    everything the script needs, so the folder is what you share.
+    You should see: `checks.R`, `gauges.csv`, and `readings.csv` among the names. The
+    folder holds everything the script needs, so the folder is what you share.
 
 ## Check it worked
 
@@ -105,4 +106,4 @@ is not the folder that holds the script. Choose
   for giving a colleague access to the folder.
 - The same task in Python: [Leave a notebook someone else can rerun](leave-a-rerunnable-notebook.md).
 
-*Not yet validated in MESA RStudio Geospatial. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-16; the script was run that day with R 4.6.0 on a laptop.*
+*Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-16 and followed there once that day (R 4.6.2).*

@@ -2,6 +2,12 @@
 
 ## 2026-11-16
 
+* **Update**: The four R tutorials added today were followed in MESA RStudio Geospatial
+  (R 4.6.2), and every output matched. Three details changed in
+  [Leave an R script someone else can rerun](tutorials/r-leave-a-rerunnable-script.md):
+  the **Save File** window opens on R's working folder; `source()` shortens the start
+  of the script to `[TRUNCATED]`; and the folder is listed with `list.files()`, because
+  the **Files** tab does not follow R's working folder. All remain drafts.
 * **Creation**: Added four tutorials for readers who work in R, each the R version of
   a Python one: [Check a column's range and missing values in R](tutorials/r-check-range-and-missing.md),
   [Count records per day in R](tutorials/r-count-records-per-day.md),
