@@ -270,9 +270,11 @@
     return ids.some(function (id) { return record.checks[id] && !record.checks[id].correct; }) ? "missed" : "open";
   }
 
-  /* Note a passed skip-check on the point. It never ticks the tutorials. */
-  function syncSkipped(manifest, record, day) {
+  /* Note a passed skip-check on the point. It never ticks the tutorials. With
+     `only`, just that point is looked at: skipping is asked for one point at a time. */
+  function syncSkipped(manifest, record, day, only) {
     Object.keys(manifest.points).forEach(function (point) {
+      if (only && point !== only) return;
       var entry = record.points[point] || {};
       if (skipState(manifest, record, point) === "passed" && !entry.skipped) {
         entry.skipped = day;

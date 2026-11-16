@@ -171,7 +171,10 @@
   }
 
   /* One self-check: the question, an answer, an optional "how sure", and feedback. */
-  function checkForm(m, store, id) {
+  /* `skips` names the point, and is given only in that point's "Check first" fold: answering there is how a
+     reader asks to skip the point. The same question answered on its tutorial
+     marks the tutorial as checked and leaves the route alone. */
+  function checkForm(m, store, id, skips) {
     var check = m.checks[id], record = store.record;
     var mine = tries[id] || (tries[id] = {});
     var solved = P.isCorrect(record, id) || mine.kind === "right";
@@ -250,7 +253,7 @@
       }
       change(store, function (r) {
         P.recordCheck(r, id, check, result.correct, confidence, P.today(), m.tutorials[check.tutorial].revised);
-        P.syncSkipped(m, r, P.today());
+        if (skips) P.syncSkipped(m, r, P.today(), skips);
       });
       tries[id] = result.correct ? { kind: "right" } : { kind: "wrong", message: result.message, value: value, sure: confidence };
       refresh(result.correct || check.options.length ? "check-" + id : "answer-" + id);
@@ -381,11 +384,24 @@
     while (stage.skip.firstChild) stage.skip.removeChild(stage.skip.firstChild);
     if (!ids.length) return;
     var record = store.record, state = P.skipState(m, record, stage.point);
+    /* Every question right, but answered on the tutorials: the reader has not
+       asked to skip anything, so offer it and change nothing until they say. */
+    var offered = state === "passed" && !P.isSkipped(record, stage.point);
     var fold = el("details", { class: "mesa-more mesa-skip__fold" }, [el("summary", { "data-key": "skip-" + stage.point,
-      text: state === "passed" ? "Skip-check passed" : "Check first: " + ids.length + (ids.length === 1 ? " question" : " questions") + ", and skip this point if you have it" })]);
+      text: offered ? "You answered this point's " + (ids.length === 1 ? "question" : "questions") + ": skip the rest if you like"
+        : state === "passed" ? "Skip-check passed" : "Check first: " + ids.length + (ids.length === 1 ? " question" : " questions") + ", and skip this point if you have it" })]);
     fold.open = stage.skipOpen;
     fold.addEventListener("toggle", function () { stage.skipOpen = fold.open; });
-    if (state === "passed") {
+    if (offered) {
+      fold.appendChild(el("p", { class: "mesa-skip__said", text: "You got " + (ids.length === 1 ? "this point's skip-check question" : "all " + ids.length + " of this point's skip-check questions") +
+        " right on the tutorials. Nothing has been left out. If you already have the rest of this point, you can skip it." }));
+      fold.appendChild(el("button", { type: "button", class: "mesa-btn mesa-btn--plain", "data-key": "skip-rest-" + stage.point, text: "Skip the rest of this point",
+        onclick: function () {
+          change(store, function (r) { P.syncSkipped(m, r, P.today(), stage.point); });
+          refresh("skip-" + stage.point);
+          announce("Skipped. The rest of this point is left out of your route. Nothing is locked.");
+        } }));
+    } else if (state === "passed") {
       fold.appendChild(el("p", { class: "mesa-skip__said", text: "You already have this. Go on to the next point, or take the tutorials anyway." }));
     } else if (state === "missed") {
       var missed = ids.filter(function (id) { return record.checks[id] && !record.checks[id].correct; })
@@ -398,7 +414,7 @@
       said.appendChild(document.createTextNode("."));
       fold.appendChild(said);
     }
-    ids.forEach(function (id) { fold.appendChild(checkForm(m, store, id)); });
+    ids.forEach(function (id) { fold.appendChild(checkForm(m, store, id, stage.point)); });
     stage.skip.appendChild(fold);
   }
 
