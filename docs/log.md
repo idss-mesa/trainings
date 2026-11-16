@@ -35,6 +35,9 @@
   daily readings for August 2026, described on the
   [practice data](tutorials/practice-data.md) page. The four files published earlier
   are unchanged, byte for byte, and a test now holds their checksums.
+* **Update**: A pathway point whose tutorials are all done no longer offers "Skip the
+  rest of this point": there was nothing left to skip. It says the skip-check
+  questions were answered.
 * **Update**: Answering a self-check on its tutorial no longer shortens your route. On
   Use an AI agent with an hour, a right answer on "Check an AI-suggested result" also
   counted as passing that point's skip-check, so two tutorials dropped off and the
