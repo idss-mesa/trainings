@@ -37,7 +37,7 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 
 ## 1. Orient and navigate
 
-*Work in MESA.* You can get into MESA, find data, run an app, and keep what you make. 27 tutorials, 150 to 185 minutes in all.
+*Work in MESA.* You can get into MESA, find data, run an app, and keep what you make. 29 tutorials, 160 to 195 minutes in all.
 
 1. [Sign in to the MESA Portal with a CyVerse account](tutorials/sign-in.md) (5 minutes)
 2. [Find your way around the MESA Portal](tutorials/find-your-way-around.md) (5 minutes)
@@ -84,6 +84,8 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 1. [Share a folder with a collaborator](tutorials/share-a-folder.md) (5 minutes)
 2. [Read the metadata on a folder shared with you](tutorials/read-shared-metadata.md) (5 to 10 minutes)
 3. [Stop sharing a folder](tutorials/stop-sharing-a-folder.md) (5 minutes)
+4. [Share an analysis with a collaborator](tutorials/share-an-analysis.md) (5 minutes)
+5. [Find a MESA working group and how to join it](tutorials/find-a-working-group.md) (5 minutes)
 
 ## 2. Run and understand
 

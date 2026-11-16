@@ -290,7 +290,7 @@ by_point:
     - title: The other MESA apps
       tutorials: [cloud-shell-download, vscode-run-a-script, desktop-open-a-file]
     - title: Share
-      tutorials: [share-a-folder, read-shared-metadata, stop-sharing-a-folder]
+      tutorials: [share-a-folder, read-shared-metadata, stop-sharing-a-folder, share-an-analysis, find-a-working-group]
   p2:
     - tutorials:
         - practice-data
