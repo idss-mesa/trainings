@@ -47,6 +47,10 @@ If you have more time:
 
 - [Reconcile row counts before and after a join in R](../tutorials/r-reconcile-a-join.md) (5 to 10 minutes)
 - [Query a Parquet file with DuckDB from R](../tutorials/r-query-parquet-with-duckdb.md) (10 minutes)
+- [Join two tables in R and keep the unmatched rows visible](../tutorials/r-join-and-keep-unmatched.md) (10 minutes)
+- [Bring two units onto one scale in R](../tutorials/r-convert-units-before-comparing.md) (10 minutes)
+- [Find and remove a repeated row in R](../tutorials/r-remove-a-repeated-row.md) (5 to 10 minutes)
+- [Save a query from R so someone else can run it](../tutorials/r-save-a-query.md) (5 to 10 minutes)
 
 ## Preserve and share
 

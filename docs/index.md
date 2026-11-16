@@ -136,6 +136,10 @@ These use MESA RStudio Geospatial and the same practice data.
 | Find doubled and missing days in R | [Count records per day in R](tutorials/r-count-records-per-day.md) | 5–10 min |
 | Join two tables in R without losing rows | [Reconcile row counts before and after a join in R](tutorials/r-reconcile-a-join.md) | 5–10 min |
 | Hand over R work that runs | [Leave an R script someone else can rerun](tutorials/r-leave-a-rerunnable-script.md) | 5–10 min |
+| See which rows a join left out, in R | [Join two tables in R and keep the unmatched rows visible](tutorials/r-join-and-keep-unmatched.md) | 10 min |
+| Compare gauges that report in different units, in R | [Bring two units onto one scale in R](tutorials/r-convert-units-before-comparing.md) | 10 min |
+| Stop a row being counted twice, in R | [Find and remove a repeated row in R](tutorials/r-remove-a-repeated-row.md) | 5–10 min |
+| Hand over a query from R | [Save a query from R so someone else can run it](tutorials/r-save-a-query.md) | 5–10 min |
 | Put points on a map | [Map point data with sf in MESA RStudio Geospatial](tutorials/map-points-in-rstudio.md) | 10 min |
 
 ## The other MESA apps

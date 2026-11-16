@@ -74,6 +74,10 @@ builds_on:
   r-check-range-and-missing: [r-load-a-file]
   r-count-records-per-day: [r-load-a-file]
   r-reconcile-a-join: [r-load-a-file]
+  r-join-and-keep-unmatched: [r-load-a-file]
+  r-convert-units-before-comparing: [r-load-a-file]
+  r-remove-a-repeated-row: [r-load-a-file]
+  r-save-a-query: [r-load-a-file]
   r-leave-a-rerunnable-script: [r-load-a-file]
   desktop-open-a-file: [sign-in]
   preview-a-table: [sign-in]
@@ -181,6 +185,10 @@ pathways:
         more:
           - r-reconcile-a-join
           - r-query-parquet-with-duckdb
+          - r-join-and-keep-unmatched
+          - r-convert-units-before-comparing
+          - r-remove-a-repeated-row
+          - r-save-a-query
       - point: p5
         more:
           - r-leave-a-rerunnable-script
@@ -243,6 +251,10 @@ tailoring:
     check-range-and-missing: r-check-range-and-missing
     count-records-per-day: r-count-records-per-day
     reconcile-a-join: r-reconcile-a-join
+    join-and-keep-unmatched: r-join-and-keep-unmatched
+    convert-units-before-comparing: r-convert-units-before-comparing
+    remove-a-repeated-row: r-remove-a-repeated-row
+    save-a-query: r-save-a-query
     leave-a-rerunnable-notebook: r-leave-a-rerunnable-script
     query-parquet-with-duckdb: r-query-parquet-with-duckdb
     practice-data: ~
@@ -300,6 +312,8 @@ by_point:
         - r-reconcile-a-join
     - title: Combine and clean
       tutorials: [join-and-keep-unmatched, convert-units-before-comparing, remove-a-repeated-row, save-a-query]
+    - title: Combine and clean, in R
+      tutorials: [r-join-and-keep-unmatched, r-convert-units-before-comparing, r-remove-a-repeated-row, r-save-a-query]
   p4:
     - tutorials:
         - start-an-ai-agent

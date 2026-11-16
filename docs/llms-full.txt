@@ -142,6 +142,10 @@ These use MESA RStudio Geospatial and the same practice data.
 | Find doubled and missing days in R | [Count records per day in R](https://idss-mesa.github.io/trainings/tutorials/r-count-records-per-day/) | 5–10 min |
 | Join two tables in R without losing rows | [Reconcile row counts before and after a join in R](https://idss-mesa.github.io/trainings/tutorials/r-reconcile-a-join/) | 5–10 min |
 | Hand over R work that runs | [Leave an R script someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/r-leave-a-rerunnable-script/) | 5–10 min |
+| See which rows a join left out, in R | [Join two tables in R and keep the unmatched rows visible](https://idss-mesa.github.io/trainings/tutorials/r-join-and-keep-unmatched/) | 10 min |
+| Compare gauges that report in different units, in R | [Bring two units onto one scale in R](https://idss-mesa.github.io/trainings/tutorials/r-convert-units-before-comparing/) | 10 min |
+| Stop a row being counted twice, in R | [Find and remove a repeated row in R](https://idss-mesa.github.io/trainings/tutorials/r-remove-a-repeated-row/) | 5–10 min |
+| Hand over a query from R | [Save a query from R so someone else can run it](https://idss-mesa.github.io/trainings/tutorials/r-save-a-query/) | 5–10 min |
 | Put points on a map | [Map point data with sf in MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/) | 10 min |
 
 ## The other MESA apps
@@ -442,6 +446,10 @@ If you have more time:
 
 - [Reconcile row counts before and after a join in R](https://idss-mesa.github.io/trainings/tutorials/r-reconcile-a-join/) (5 to 10 minutes)
 - [Query a Parquet file with DuckDB from R](https://idss-mesa.github.io/trainings/tutorials/r-query-parquet-with-duckdb/) (10 minutes)
+- [Join two tables in R and keep the unmatched rows visible](https://idss-mesa.github.io/trainings/tutorials/r-join-and-keep-unmatched/) (10 minutes)
+- [Bring two units onto one scale in R](https://idss-mesa.github.io/trainings/tutorials/r-convert-units-before-comparing/) (10 minutes)
+- [Find and remove a repeated row in R](https://idss-mesa.github.io/trainings/tutorials/r-remove-a-repeated-row/) (5 to 10 minutes)
+- [Save a query from R so someone else can run it](https://idss-mesa.github.io/trainings/tutorials/r-save-a-query/) (5 to 10 minutes)
 
 ## Preserve and share
 
@@ -703,7 +711,7 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 
 ## 3. Query and connect
 
-You can ask questions across files and tables, and show that combining them did what you meant. 9 tutorials, 65 to 90 minutes in all.
+You can ask questions across files and tables, and show that combining them did what you meant. 13 tutorials, 95 to 130 minutes in all.
 
 1. [Query a Parquet file with DuckDB from a notebook](https://idss-mesa.github.io/trainings/tutorials/query-parquet-with-duckdb/) (10 minutes)
 2. [Reconcile row counts before and after a join](https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/) (5 to 10 minutes)
@@ -717,6 +725,13 @@ You can ask questions across files and tables, and show that combining them did 
 2. [Bring two units onto one scale before comparing](https://idss-mesa.github.io/trainings/tutorials/convert-units-before-comparing/) (10 minutes)
 3. [Find and remove a repeated row](https://idss-mesa.github.io/trainings/tutorials/remove-a-repeated-row/) (5 to 10 minutes)
 4. [Save a query so someone else can run it](https://idss-mesa.github.io/trainings/tutorials/save-a-query/) (5 to 10 minutes)
+
+### Combine and clean, in R
+
+1. [Join two tables in R and keep the unmatched rows visible](https://idss-mesa.github.io/trainings/tutorials/r-join-and-keep-unmatched/) (10 minutes)
+2. [Bring two units onto one scale in R](https://idss-mesa.github.io/trainings/tutorials/r-convert-units-before-comparing/) (10 minutes)
+3. [Find and remove a repeated row in R](https://idss-mesa.github.io/trainings/tutorials/r-remove-a-repeated-row/) (5 to 10 minutes)
+4. [Save a query from R so someone else can run it](https://idss-mesa.github.io/trainings/tutorials/r-save-a-query/) (5 to 10 minutes)
 
 ## 4. Explore and verify
 
@@ -5064,6 +5079,543 @@ is not the folder that holds the script. Choose
 
 *Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16 and followed there once that day (R 4.6.2).*
 
+---8<--- https://idss-mesa.github.io/trainings/tutorials/r-join-and-keep-unmatched/
+
+---
+type: Guide
+title: "Join two tables in R and keep the unmatched rows visible"
+description: "Join a table of gauges to an incomplete table of positions with merge() in R, keep the gauge that finds no match, and count how many matched."
+tags: [byte, p3, rstudio, r, join, data-quality]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-16T00:00:00Z" }
+stale_after: "2027-05-16T00:00:00Z"
+sources:
+  - id: docs-rstudio
+    resource: "https://idss-mesa.github.io/docs/apps/rstudio/"
+    title: "MESA RStudio Geospatial"
+    author: "team:idss-mesa"
+  - id: r
+    resource: "https://stat.ethz.ch/R-manual/R-devel/library/base/html/merge.html"
+    title: "Merge Two Data Frames: merge (R documentation)"
+    author: "team:r-core"
+---
+
+# Join two tables in R and keep the unmatched rows visible
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-16 (R 4.6.2),
+    by the AI assistant that drafted it, and produced the output shown. No person has
+    yet followed the steps, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+`merge()` keeps only the rows that find a match. The rest leave without a message, and
+every count after the join is quietly smaller. `all.x = TRUE` keeps them where you can
+see them.
+
+**You will:** have a join in which a gauge with no position is still listed, and a
+count of how many gauges matched.
+
+**Time:** 10 minutes. **You need:** the `readings` and `gauges` tables from
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/), in
+[MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/).
+
+## Steps
+
+1. In the **Console**, fetch the file of gauge positions into your practice folder:
+
+    ```r
+    download.file("https://idss-mesa.github.io/trainings/assets/practice/gauge_sites.csv", "gauge_sites.csv")
+    ```
+
+    You should see: a line that reads `downloaded 144 bytes`.
+
+2. Read it, and make a copy that is incomplete on purpose: only the gauges west of one
+   line of longitude.
+
+    ```r
+    sites <- read.csv("gauge_sites.csv")
+    west <- sites[sites$longitude < -104.73, ]
+    nrow(west)
+    ```
+
+    You should see: four positions, for five gauges.
+
+    ```text
+    [1] 4
+    ```
+
+3. Join the gauges to those positions in the ordinary way:
+
+    ```r
+    merge(gauges[c("gauge_id", "name")], west[c("gauge_id", "longitude", "latitude")], by = "gauge_id")
+    ```
+
+    You should see: four rows and no warning. One gauge has gone, and nothing says so.
+
+    ```text
+      gauge_id      name longitude latitude
+    1      G01 Boathouse -104.7612  47.1034
+    2      G02   Orchard -104.7391  47.1108
+    3      G04     Depot -104.7533  47.1175
+    4      G05    Quarry -104.7306  47.0962
+    ```
+
+4. Add `all.x = TRUE`, which keeps every row of the table named first:
+
+    ```r
+    kept <- merge(gauges[c("gauge_id", "name")], west[c("gauge_id", "longitude", "latitude")], by = "gauge_id", all.x = TRUE)
+    kept
+    ```
+
+    You should see: five rows. The gauge without a position is there, with `NA` where
+    its position would be.
+
+    ```text
+      gauge_id        name longitude latitude
+    1      G01   Boathouse -104.7612  47.1034
+    2      G02     Orchard -104.7391  47.1108
+    3      G03 Observatory        NA       NA
+    4      G04       Depot -104.7533  47.1175
+    5      G05      Quarry -104.7306  47.0962
+    ```
+
+5. Count the matches, so the answer does not depend on reading every row:
+
+    ```r
+    c(gauges = nrow(kept), matched = sum(!is.na(kept$longitude)), unmatched = sum(is.na(kept$longitude)))
+    ```
+
+    You should see:
+
+    ```text
+       gauges   matched unmatched
+            5         4         1
+    ```
+
+6. Run the same join and count against the complete table, `sites`:
+
+    ```r
+    full <- merge(gauges[c("gauge_id", "name")], sites[c("gauge_id", "longitude", "latitude")], by = "gauge_id", all.x = TRUE)
+    c(gauges = nrow(full), matched = sum(!is.na(full$longitude)), unmatched = sum(is.na(full$longitude)))
+    ```
+
+    You should see: every gauge matched.
+
+    ```text
+       gauges   matched unmatched
+            5         5         0
+    ```
+
+## Check it worked
+
+In each count, `matched` plus `unmatched` equals `gauges`. You can say which gauge had
+no position in step 4, and that the complete table leaves none out.
+
+## If it didn't
+
+**`cannot open file 'gauge_sites.csv': No such file or directory`.** Step 1 saved the
+file somewhere else, because R is not in your practice folder. Run `getwd()` to see
+where it is, go to the folder with `setwd()` as in
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/), and repeat step 1.
+
+**`object 'west' not found`.** R has restarted since step 2. Run step 2 again.
+
+## Next
+
+- [Reconcile row counts before and after a join in R](https://idss-mesa.github.io/trainings/tutorials/r-reconcile-a-join/)
+- [Bring two units onto one scale in R](https://idss-mesa.github.io/trainings/tutorials/r-convert-units-before-comparing/)
+- The same task in Python: [Join two tables and keep the unmatched rows visible](https://idss-mesa.github.io/trainings/tutorials/join-and-keep-unmatched/).
+
+*Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16; the code was run there that day (R 4.6.2).*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/r-convert-units-before-comparing/
+
+---
+type: Guide
+title: "Bring two units onto one scale in R"
+description: "Give each reading its gauge's unit in R, convert every value to millimetres with a lookup you write yourself, and confirm that no row was left unconverted."
+tags: [byte, p3, rstudio, r, units, data-quality]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-16T00:00:00Z" }
+stale_after: "2027-05-16T00:00:00Z"
+sources:
+  - id: docs-rstudio
+    resource: "https://idss-mesa.github.io/docs/apps/rstudio/"
+    title: "MESA RStudio Geospatial"
+    author: "team:idss-mesa"
+  - id: r
+    resource: "https://stat.ethz.ch/R-manual/R-devel/library/base/html/Extract.html"
+    title: "Extract or Replace Parts of an Object (R documentation)"
+    author: "team:r-core"
+---
+
+# Bring two units onto one scale in R
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-16 (R 4.6.2),
+    by the AI assistant that drafted it, and produced the output shown. No person has
+    yet followed the steps, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+The practice gauges do not all report in the same unit, and the unit is written in a
+different file from the readings. Until the values share a unit, no comparison between
+gauges means anything.
+
+**You will:** have a `value_mm` column that holds every reading in millimetres, and
+proof that no row was left unconverted.
+
+**Time:** 10 minutes. **You need:** the `readings` and `gauges` tables from
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/), in
+[MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/).
+
+## Steps
+
+1. List the units in use:
+
+    ```r
+    table(gauges$unit)
+    ```
+
+    You should see: two units.
+
+    ```text
+    cm mm
+     1  4
+    ```
+
+2. Write down, as a small lookup of your own, how each unit becomes millimetres:
+
+    ```r
+    to_mm <- c(mm = 1, cm = 10)
+    ```
+
+    You should see: no output. A unit you have not listed here will show up in step 4.
+
+3. Give each reading its gauge's unit, then convert:
+
+    ```r
+    joined <- merge(readings, gauges[c("gauge_id", "unit")], by = "gauge_id", all.x = TRUE)
+    joined$value_mm <- joined$value * unname(to_mm[joined$unit])
+    head(joined[joined$gauge_id == "G02", ], 3)
+    ```
+
+    You should see: the original `value` kept, and `value_mm` ten times larger for
+    this gauge. `to_mm[joined$unit]` looks up each row's unit by name.
+
+    ```text
+       gauge_id       date value flag unit value_mm
+    28      G02 2026-07-01  0.00 <NA>   cm      0.0
+    29      G02 2026-07-02  0.00 <NA>   cm      0.0
+    30      G02 2026-07-03  2.89 <NA>   cm     28.9
+    ```
+
+4. Count the readings that were not converted:
+
+    ```r
+    sum(is.na(joined$value_mm))
+    ```
+
+    You should see: `0`. A reading with no gauge, or with a unit missing from `to_mm`,
+    would have `NA` for `value_mm` and be counted here.
+
+    ```text
+    [1] 0
+    ```
+
+5. Compare the largest reading at each gauge, before and after:
+
+    ```r
+    aggregate(cbind(value, value_mm) ~ gauge_id, data = joined, FUN = max)
+    ```
+
+    You should see: G02 no longer far below its neighbours.
+
+    ```text
+      gauge_id  value value_mm
+    1      G01  24.90     24.9
+    2      G02   2.92     29.2
+    3      G03  32.50     32.5
+    4      G04  26.40     26.4
+    5      G05 180.00    180.0
+    ```
+
+## Check it worked
+
+`nrow(joined) == nrow(readings)` is `TRUE`, step 4 gave `0`, and for the four gauges
+that already reported in millimetres `value_mm` equals `value`.
+
+## If it didn't
+
+**Step 4 gives a number above 0.** Some gauge reports in a unit that `to_mm` does not
+list. Run `unique(joined$unit[is.na(joined$value_mm)])` to see which, add it to `to_mm`
+in step 2, and run steps 3 and 4 again.
+
+## Next
+
+- The values now share a unit, but a total would still count one row twice. See
+  [Find and remove a repeated row in R](https://idss-mesa.github.io/trainings/tutorials/r-remove-a-repeated-row/).
+- [Reconcile row counts before and after a join in R](https://idss-mesa.github.io/trainings/tutorials/r-reconcile-a-join/)
+- The same task in Python: [Bring two units onto one scale before comparing](https://idss-mesa.github.io/trainings/tutorials/convert-units-before-comparing/).
+
+*Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16; the code was run there that day (R 4.6.2).*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/r-remove-a-repeated-row/
+
+---
+type: Guide
+title: "Find and remove a repeated row in R"
+description: "Show the rows of an R data frame that have an exact copy, decide that they are one reading, remove the copy with unique(), and record what you removed."
+tags: [byte, p3, rstudio, r, duplicates, data-quality]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-16T00:00:00Z" }
+stale_after: "2027-05-16T00:00:00Z"
+sources:
+  - id: docs-rstudio
+    resource: "https://idss-mesa.github.io/docs/apps/rstudio/"
+    title: "MESA RStudio Geospatial"
+    author: "team:idss-mesa"
+  - id: r
+    resource: "https://stat.ethz.ch/R-manual/R-devel/library/base/html/duplicated.html"
+    title: "Determine Duplicate Elements: duplicated (R documentation)"
+    author: "team:r-core"
+---
+
+# Find and remove a repeated row in R
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-16 (R 4.6.2),
+    by the AI assistant that drafted it, and produced the output shown. No person has
+    yet followed the steps, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A row written twice adds its value to every total twice. Removing it is easy. The
+part that needs thought is deciding that the two rows really are one reading.
+
+**You will:** have a table with the repeated row removed, and a note of what you
+removed and why.
+
+**Time:** 5 to 10 minutes. **You need:** the `readings` and `gauges` tables from
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/), in
+[MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/).
+
+## Steps
+
+1. Show every row that has an exact copy, keeping both copies in view:
+
+    ```r
+    readings[duplicated(readings) | duplicated(readings, fromLast = TRUE), ]
+    ```
+
+    You should see: one pair. `duplicated()` alone marks only the second of a pair;
+    `fromLast = TRUE` marks the first.
+
+    ```text
+       gauge_id       date value flag
+    63      G03 2026-07-05  22.5 <NA>
+    64      G03 2026-07-05  22.5 <NA>
+    ```
+
+2. Decide what to keep. Read the pair: the gauge, the day, the value, and the flag are
+   all the same, and the [data dictionary](https://idss-mesa.github.io/trainings/tutorials/practice-data/#data-dictionary) says one
+   row is one reading from one gauge for one day.
+
+    You should see: no difference between the two rows. They carry the same
+    information, so one can go and nothing is lost.
+
+3. Remove the copy, into a new table:
+
+    ```r
+    deduped <- unique(readings)
+    nrow(readings) - nrow(deduped)
+    ```
+
+    You should see: the number of rows removed. `readings` itself is unchanged.
+
+    ```text
+    [1] 1
+    ```
+
+4. Check for the harder case, two rows for the same gauge and day that *disagree*:
+
+    ```r
+    sum(duplicated(deduped[c("gauge_id", "date")]))
+    ```
+
+    You should see: `0`. Anything above zero would be two different readings for one
+    day. `unique()` leaves those alone, and so should you until you know which is right.
+
+    ```text
+    [1] 0
+    ```
+
+5. See what the copy was doing to that gauge's total:
+
+    ```r
+    c(before = sum(readings$value[readings$gauge_id == "G03"]), after = sum(deduped$value[deduped$gauge_id == "G03"]))
+    ```
+
+    You should see: the total fall by the value of the repeated row.
+
+    ```text
+    before  after
+     273.6  251.1
+    ```
+
+6. In a script or a notes file, record what you removed: the gauge, the day, the
+   value, and that the two rows were identical.
+
+    You should see: your note where a reader can tell the row was removed on purpose.
+
+## Check it worked
+
+Run step 1 on the new table, with `deduped` in place of `readings`. It prints
+`<0 rows>`, and your note says which row went.
+
+## If it didn't
+
+**Step 1 prints `<0 rows>`.** The table was already cleaned, or `readings` was
+replaced by another table. Read the file again, as in
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/), then repeat the step.
+
+## Next
+
+- [Count records per day in R](https://idss-mesa.github.io/trainings/tutorials/r-count-records-per-day/), which finds the same row
+  another way, and the days with no row at all.
+- [Bring two units onto one scale in R](https://idss-mesa.github.io/trainings/tutorials/r-convert-units-before-comparing/)
+- The same task in Python: [Find and remove a repeated row](https://idss-mesa.github.io/trainings/tutorials/remove-a-repeated-row/).
+
+*Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16; the code was run there that day (R 4.6.2).*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/r-save-a-query/
+
+---
+type: Guide
+title: "Save a query from R so someone else can run it"
+description: "Write a SQL query to a file of its own from R, then run it from that file with the duckdb package in MESA RStudio Geospatial, so that a colleague runs the same text you did."
+tags: [byte, p3, rstudio, r, duckdb, sql]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-16T00:00:00Z" }
+stale_after: "2027-05-16T00:00:00Z"
+sources:
+  - id: docs-rstudio
+    resource: "https://idss-mesa.github.io/docs/apps/rstudio/"
+    title: "MESA RStudio Geospatial"
+    author: "team:idss-mesa"
+  - id: duckdb
+    resource: "https://duckdb.org/docs/stable/clients/r"
+    title: "DuckDB R client"
+    author: "org:duckdb"
+---
+
+# Save a query from R so someone else can run it
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-16 (R 4.6.2),
+    by the AI assistant that drafted it, and produced the output shown. No person has
+    yet followed the steps, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A query typed into the Console is easy to change and hard to hand over. In a file of
+its own it has a name, it can be read without opening R, and whoever runs it runs the
+same text you did.
+
+**You will:** have a file, `flagged_readings.sql`, in your practice folder, and one
+line of R that runs the query from that file.
+
+**Time:** 5 to 10 minutes. **You need:** the `mesa-practice` folder from
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/), in
+[MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/), with R's working folder still set
+to it.
+
+## Steps
+
+1. Write the query as lines of text. Start with comment lines, which begin with `--`,
+   that say what it returns and which file it reads:
+
+    ```r
+    query <- c(
+      "-- Readings the sensor marked suspect, oldest first.",
+      "-- Needs readings.csv in the folder this is run from.",
+      "SELECT gauge_id, date, value",
+      "FROM 'readings.csv'",
+      "WHERE flag = 'S'",
+      "ORDER BY date;"
+    )
+    ```
+
+    You should see: no output.
+
+2. Save the lines to a file in the working folder:
+
+    ```r
+    writeLines(query, "flagged_readings.sql")
+    ```
+
+    You should see: no output.
+
+3. Load DuckDB and open a connection:
+
+    ```r
+    library(duckdb)
+    con <- dbConnect(duckdb())
+    ```
+
+    You should see: `Loading required package: DBI`, and then, on first use, the
+    question `duckdb: create /home/rstudio/.duckdb? (Yes/no/cancel)`. Type `yes` and
+    press ++enter++ before you type anything else.
+
+4. Run the query from the file, not from the variable:
+
+    ```r
+    dbGetQuery(con, paste(readLines("flagged_readings.sql"), collapse = "\n"))
+    ```
+
+    You should see: the two flagged readings.
+
+    ```text
+      gauge_id       date value
+    1      G05 2026-07-09   180
+    2      G03 2026-07-18     0
+    ```
+
+5. In the **Console**, run `file.edit("flagged_readings.sql")`.
+
+    You should see: the query in an editor tab above the Console, with your two
+    comment lines at the top. This is what a colleague reads first. From now on, change
+    the query here, save it, and run step 4 again.
+
+6. Close the connection:
+
+    ```r
+    dbDisconnect(con, shutdown = TRUE)
+    ```
+
+    You should see: no output.
+
+## Check it worked
+
+`list.files()` names `flagged_readings.sql`, and the one line in step 4 returns two
+rows. Someone with the folder can run that line, or read the file, without asking you
+what the query was.
+
+## If it didn't
+
+**`IO Error: No files found that match the pattern "readings.csv"`.** The query names
+its data file without a folder, so it must be run from the folder that holds the
+file. Go to your practice folder with `setwd()`, as in
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/), and run step 4 again.
+
+**`Unrecognized response`, after step 3.** You typed the next command while DuckDB was
+still waiting for `yes`. Run step 3 again, answer `yes`, then go on.
+
+## Next
+
+- [Leave an R script someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/r-leave-a-rerunnable-script/)
+- [Query a Parquet file with DuckDB from R](https://idss-mesa.github.io/trainings/tutorials/r-query-parquet-with-duckdb/)
+- The same task in Python: [Save a query so someone else can run it](https://idss-mesa.github.io/trainings/tutorials/save-a-query/).
+
+*Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16; the code was run there that day (R 4.6.2).*
+
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/cloud-shell-download/
 
 ---
@@ -9366,6 +9918,14 @@ explains.
 
 ## 2026-11-16
 
+* **Creation**: Added R versions of the four "Combine and clean" tutorials:
+  [Join two tables in R and keep the unmatched rows visible](tutorials/r-join-and-keep-unmatched.md),
+  [Bring two units onto one scale in R](tutorials/r-convert-units-before-comparing.md),
+  [Find and remove a repeated row in R](tutorials/r-remove-a-repeated-row.md), and
+  [Save a query from R so someone else can run it](tutorials/r-save-a-query.md). The code
+  was run in MESA RStudio Geospatial (R 4.6.2) by the AI assistant that drafted it; no
+  person has yet followed the steps. A reader who answers "R" on the pathways page is
+  given these in place of the Python versions.
 * **Creation**: Added three tutorials for buttons the portal has now had repaired:
   [Upload a file from your computer to your Data Store](tutorials/upload-a-file.md),
   [Download a file from your Data Store to your computer](tutorials/download-a-file.md), and

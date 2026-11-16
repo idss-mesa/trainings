@@ -111,7 +111,7 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 
 ## 3. Query and connect
 
-You can ask questions across files and tables, and show that combining them did what you meant. 9 tutorials, 65 to 90 minutes in all.
+You can ask questions across files and tables, and show that combining them did what you meant. 13 tutorials, 95 to 130 minutes in all.
 
 1. [Query a Parquet file with DuckDB from a notebook](tutorials/query-parquet-with-duckdb.md) (10 minutes)
 2. [Reconcile row counts before and after a join](tutorials/reconcile-a-join.md) (5 to 10 minutes)
@@ -125,6 +125,13 @@ You can ask questions across files and tables, and show that combining them did 
 2. [Bring two units onto one scale before comparing](tutorials/convert-units-before-comparing.md) (10 minutes)
 3. [Find and remove a repeated row](tutorials/remove-a-repeated-row.md) (5 to 10 minutes)
 4. [Save a query so someone else can run it](tutorials/save-a-query.md) (5 to 10 minutes)
+
+### Combine and clean, in R
+
+1. [Join two tables in R and keep the unmatched rows visible](tutorials/r-join-and-keep-unmatched.md) (10 minutes)
+2. [Bring two units onto one scale in R](tutorials/r-convert-units-before-comparing.md) (10 minutes)
+3. [Find and remove a repeated row in R](tutorials/r-remove-a-repeated-row.md) (5 to 10 minutes)
+4. [Save a query from R so someone else can run it](tutorials/r-save-a-query.md) (5 to 10 minutes)
 
 ## 4. Explore and verify
 

@@ -477,7 +477,11 @@
      "tutorials": [],
      "more": [
       "r-reconcile-a-join",
-      "r-query-parquet-with-duckdb"
+      "r-query-parquet-with-duckdb",
+      "r-join-and-keep-unmatched",
+      "r-convert-units-before-comparing",
+      "r-remove-a-repeated-row",
+      "r-save-a-query"
      ]
     },
     {
@@ -580,6 +584,10 @@
    "check-range-and-missing": "r-check-range-and-missing",
    "count-records-per-day": "r-count-records-per-day",
    "reconcile-a-join": "r-reconcile-a-join",
+   "join-and-keep-unmatched": "r-join-and-keep-unmatched",
+   "convert-units-before-comparing": "r-convert-units-before-comparing",
+   "remove-a-repeated-row": "r-remove-a-repeated-row",
+   "save-a-query": "r-save-a-query",
    "leave-a-rerunnable-notebook": "r-leave-a-rerunnable-script",
    "query-parquet-with-duckdb": "r-query-parquet-with-duckdb",
    "practice-data": null,
@@ -699,6 +707,15 @@
      "convert-units-before-comparing",
      "remove-a-repeated-row",
      "save-a-query"
+    ]
+   },
+   {
+    "title": "Combine and clean, in R",
+    "tutorials": [
+     "r-join-and-keep-unmatched",
+     "r-convert-units-before-comparing",
+     "r-remove-a-repeated-row",
+     "r-save-a-query"
     ]
    }
   ],
@@ -1163,12 +1180,40 @@
     "r-load-a-file"
    ]
   },
+  "r-convert-units-before-comparing": {
+   "title": "Bring two units onto one scale in R",
+   "description": "Give each reading its gauge's unit in R, convert every value to millimetres with a lookup you write yourself, and confirm that no row was left unconverted.",
+   "outcome": "have a `value_mm` column that holds every reading in millimetres, and proof that no row was left unconverted.",
+   "point": "p3",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-16T00:00:00Z",
+   "stale_after": "2027-05-16T00:00:00Z",
+   "builds_on": [
+    "r-load-a-file"
+   ]
+  },
   "r-count-records-per-day": {
    "title": "Count records per day in R",
    "description": "Count the rows for each gauge and day in an R data frame to find days recorded twice and days with no record at all.",
    "outcome": "know, for each gauge, whether July has exactly one row per day.",
    "point": "p2",
    "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-16T00:00:00Z",
+   "stale_after": "2027-05-16T00:00:00Z",
+   "builds_on": [
+    "r-load-a-file"
+   ]
+  },
+  "r-join-and-keep-unmatched": {
+   "title": "Join two tables in R and keep the unmatched rows visible",
+   "description": "Join a table of gauges to an incomplete table of positions with merge() in R, keep the gauge that finds no match, and count how many matched.",
+   "outcome": "have a join in which a gauge with no position is still listed, and a count of how many gauges matched.",
+   "point": "p3",
+   "min": 10,
    "max": 10,
    "status": "draft",
    "revised": "2026-11-16T00:00:00Z",
@@ -1223,6 +1268,34 @@
    "title": "Reconcile row counts before and after a join in R",
    "description": "Join a data frame of readings to a data frame of gauges with merge() and confirm that the join neither added nor lost rows and left no reading without a match.",
    "outcome": "have each reading joined to its gauge's name and unit, with row counts that prove the join changed nothing else.",
+   "point": "p3",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-16T00:00:00Z",
+   "stale_after": "2027-05-16T00:00:00Z",
+   "builds_on": [
+    "r-load-a-file"
+   ]
+  },
+  "r-remove-a-repeated-row": {
+   "title": "Find and remove a repeated row in R",
+   "description": "Show the rows of an R data frame that have an exact copy, decide that they are one reading, remove the copy with unique(), and record what you removed.",
+   "outcome": "have a table with the repeated row removed, and a note of what you removed and why.",
+   "point": "p3",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-16T00:00:00Z",
+   "stale_after": "2027-05-16T00:00:00Z",
+   "builds_on": [
+    "r-load-a-file"
+   ]
+  },
+  "r-save-a-query": {
+   "title": "Save a query from R so someone else can run it",
+   "description": "Write a SQL query to a file of its own from R, then run it from that file with the duckdb package in MESA RStudio Geospatial, so that a colleague runs the same text you did.",
+   "outcome": "have a file, `flagged_readings.sql`, in your practice folder, and one line of R that runs the query from that file.",
    "point": "p3",
    "min": 5,
    "max": 10,
