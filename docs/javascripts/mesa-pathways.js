@@ -854,8 +854,24 @@
 
     function say(text, focus) { message = text; refresh(focus); announce(text); }
 
+    function plural(n, one, many) { return n === 1 ? "1 " + one : (n || "no") + " " + many; }
+
+    /* What a file holds, in words. Only tutorials this site still has are counted. */
+    function holds(record) {
+      var n = Object.keys(record.tutorials).filter(function (name) { return m.tutorials[name]; }).length;
+      var more = Object.keys(record.checks).length || Object.keys(record.points).length;
+      return plural(n, "finished tutorial", "finished tutorials") + (!n && more ? ", and some answers or notes" : "");
+    }
+
+    function pointList(keys) {
+      return keys.map(function (key) { return m.points[key] ? m.points[key].title : key; }).join("; ");
+    }
+
     function exportFile(store) {
-      var blob = new Blob([P.serialize(store.record) + "\n"], { type: "application/json" });
+      /* A record made by a newer version cannot be read here, so it is saved as it is stored. */
+      var text = null;
+      if (store.status === "newer") { try { text = storage().getItem(P.KEY); } catch (e) { text = null; } }
+      var blob = new Blob([text === null ? P.serialize(store.record) + "\n" : text], { type: "application/json" });
       var url = URL.createObjectURL(blob);
       var link = el("a", { href: url, download: "mesa-trainings-progress-" + P.today() + ".json" });
       document.body.appendChild(link);
@@ -883,9 +899,9 @@
         var got = P.parseImport(String(reader.result));
         if (!got.ok) { say("That file could not be used: " + got.errors[0] + ". Nothing was changed.", "import"); return; }
         if (P.isBlank(store.record)) {
-          P.save(storage(), got.record);
-          say("Brought back " + Object.keys(got.record.tutorials).length + " finished tutorials from the file.", "import");
-        } else { pending = got.record; message = ""; refresh("replace"); }
+          if (!P.save(storage(), got.record)) { say("This browser would not store the file. Nothing was changed.", "import"); return; }
+          say("Brought back " + holds(got.record) + " from the file.", "import");
+        } else { pending = got.record; message = ""; refresh("ask"); }
       };
       reader.onerror = function () { say("That file could not be read. Nothing was changed.", "import"); };
       reader.readAsText(file);
@@ -964,30 +980,41 @@
       picker.addEventListener("change", function () { importFile(store, picker.files[0]); picker.value = ""; });
       tools.appendChild(el("button", { type: "button", class: "mesa-btn mesa-btn--plain", "data-key": "export", text: "Save a copy to a file",
         onclick: function () { exportFile(store); } }));
-      tools.appendChild(el("button", { type: "button", class: "mesa-btn mesa-btn--plain", "data-key": "notes", text: "Save my notes as Markdown",
-        onclick: function () { exportNotes(store); } }));
+      if (store.status !== "newer") {
+        tools.appendChild(el("button", { type: "button", class: "mesa-btn mesa-btn--plain", "data-key": "notes", text: "Save my notes as Markdown",
+          onclick: function () { exportNotes(store); } }));
+      }
       if (can) {
         tools.appendChild(el("button", { type: "button", class: "mesa-btn mesa-btn--plain", "data-key": "import", text: "Bring back a saved copy",
           onclick: function () { picker.click(); } }));
         tools.appendChild(picker);
         tools.appendChild(el("button", { type: "button", class: "mesa-btn mesa-btn--plain", "data-key": "clear", text: "Clear everything",
-          onclick: function () { pending = "clear"; message = ""; refresh("confirm-clear"); } }));
+          onclick: function () { pending = "clear"; message = ""; refresh("ask"); } }));
       }
       root.appendChild(tools);
       if (pending === "clear") {
-        root.appendChild(el("div", { class: "mesa-ask", role: "group", "aria-label": "Clear everything?" }, [
-          el("p", { text: "Clear everything this browser holds about your progress? This cannot be undone unless you saved a copy." }),
+        root.appendChild(el("div", { class: "mesa-ask", role: "group", "aria-labelledby": "mesa-ask-text", tabindex: "-1", "data-key": "ask" }, [
+          el("p", { id: "mesa-ask-text", text: "Clear everything this browser holds about your progress? This cannot be undone unless you saved a copy." }),
           el("button", { type: "button", class: "mesa-btn", "data-key": "confirm-clear", text: "Clear everything",
             onclick: function () { pending = null; tries = {}; P.clear(storage()); say("Cleared. This browser now holds nothing about your progress.", "export"); } }),
           el("button", { type: "button", class: "mesa-btn mesa-btn--plain", text: "Keep it", onclick: function () { pending = null; refresh("clear"); } })]));
       } else if (pending) {
-        var count = Object.keys(pending.tutorials).length;
-        root.appendChild(el("div", { class: "mesa-ask", role: "group", "aria-label": "Replace or merge?" }, [
-          el("p", { text: "The file holds " + count + " finished tutorials, and this browser already holds some progress. Replace what is here with the file, or merge the two?" }),
+        root.appendChild(el("div", { class: "mesa-ask", role: "group", "aria-labelledby": "mesa-ask-text", tabindex: "-1", "data-key": "ask" }, [
+          el("p", { id: "mesa-ask-text", text: "The file holds " + holds(pending) + ", and this browser already holds some progress. Replace what is here with the file, or merge the two?" }),
           el("button", { type: "button", class: "mesa-btn", "data-key": "replace", text: "Replace",
-            onclick: function () { tries = {}; P.save(storage(), pending); pending = null; say("Replaced your progress with the file.", "import"); } }),
+            onclick: function () {
+              if (!P.save(storage(), pending)) { pending = null; say("This browser would not store the file. Nothing was changed.", "import"); return; }
+              tries = {}; pending = null; say("Replaced your progress with the file.", "import");
+            } }),
           el("button", { type: "button", class: "mesa-btn mesa-btn--plain", text: "Merge",
-            onclick: function () { P.save(storage(), P.merge(store.record, pending)); pending = null; say("Merged the file into your progress. Nothing finished was removed.", "import"); } }),
+            onclick: function () {
+              var notes = P.noteClashes(store.record, pending);
+              if (!P.save(storage(), P.merge(store.record, pending))) { pending = null; say("This browser would not store the file. Nothing was changed.", "import"); return; }
+              pending = null;
+              say("Merged the file into your progress. Nothing finished was removed." +
+                (notes.joined.length ? " Both held a note on " + pointList(notes.joined) + ": the file’s note is now below yours." : "") +
+                (notes.kept.length ? " Both held a note on " + pointList(notes.kept) + ", and the two together are too long to keep: your note stayed and the file’s was left out." : ""), "import");
+            } }),
           el("button", { type: "button", class: "mesa-btn mesa-btn--plain", text: "Cancel", onclick: function () { pending = null; refresh("import"); } })]));
       }
       if (message) root.appendChild(el("p", { class: "mesa-said", text: message }));
