@@ -65,8 +65,9 @@ access.
 
 ## Getting it into your Data Store
 
-- From your computer: use **Upload** in the portal's Data Browser. See
-  [Managing data, "Upload, create, move, and delete"](https://idss-mesa.github.io/docs/portal/data/#upload-create-move-and-delete)[^docs-data].
+- From your computer:
+  [Upload a file from your computer to your Data Store](tutorials/upload-a-file.md).
+  Reference: [Managing data, "Upload, create, move, and delete"](https://idss-mesa.github.io/docs/portal/data/#upload-create-move-and-delete)[^docs-data].
 - From the web:
   [Download a file from the web into your Data Store with MESA Cloud Shell](tutorials/cloud-shell-download.md).
 

@@ -37,7 +37,7 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 
 ## 1. Orient and navigate
 
-*Work in MESA.* You can get into MESA, find data, run an app, and keep what you make. 24 tutorials, 135 to 170 minutes in all.
+*Work in MESA.* You can get into MESA, find data, run an app, and keep what you make. 27 tutorials, 150 to 185 minutes in all.
 
 1. [Sign in to the MESA Portal with a CyVerse account](tutorials/sign-in.md) (5 minutes)
 2. [Find your way around the MESA Portal](tutorials/find-your-way-around.md) (5 minutes)
@@ -53,6 +53,12 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 2. [Rename a folder in your Data Store](tutorials/rename-a-folder.md) (5 minutes)
 3. [Move folders into another folder](tutorials/move-folders.md) (5 to 10 minutes)
 4. [Move a folder to the trash and get it back](tutorials/trash-and-restore.md) (10 minutes)
+
+### Files in and out
+
+1. [Upload a file from your computer to your Data Store](tutorials/upload-a-file.md) (5 minutes)
+2. [Download a file from your Data Store to your computer](tutorials/download-a-file.md) (5 minutes)
+3. [Start a new file in the Data Browser](tutorials/make-a-new-file.md) (5 minutes)
 
 ### Find and look
 

@@ -84,6 +84,9 @@ notebook, so do the first one first.
 | Give a folder a better name | [Rename a folder in your Data Store](tutorials/rename-a-folder.md) | 5 min |
 | Tidy folders away | [Move folders into another folder](tutorials/move-folders.md) | 5–10 min |
 | Undo a deletion | [Move a folder to the trash and get it back](tutorials/trash-and-restore.md) | 10 min |
+| Put a file from my computer into MESA | [Upload a file from your computer to your Data Store](tutorials/upload-a-file.md) | 5 min |
+| Take a file home | [Download a file from your Data Store to your computer](tutorials/download-a-file.md) | 5 min |
+| Start a note or a script | [Start a new file in the Data Browser](tutorials/make-a-new-file.md) | 5 min |
 | Look through a folder with many items | [Browse a large folder as a sorted list](tutorials/browse-a-large-folder.md) | 5 min |
 | See what a colleague recorded about a folder | [Read the metadata on a folder shared with you](tutorials/read-shared-metadata.md) | 5–10 min |
 | Take back access I gave | [Stop sharing a folder](tutorials/stop-sharing-a-folder.md) | 5 min |

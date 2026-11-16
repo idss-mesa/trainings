@@ -2,6 +2,13 @@
 
 ## 2026-11-16
 
+* **Creation**: Added three tutorials for buttons the portal has now had repaired:
+  [Upload a file from your computer to your Data Store](tutorials/upload-a-file.md),
+  [Download a file from your Data Store to your computer](tutorials/download-a-file.md), and
+  [Start a new file in the Data Browser](tutorials/make-a-new-file.md). Each was followed
+  once on the live portal by the AI assistant that drafted it; in the upload tutorial
+  the file was supplied by a script, because the test browser cannot open a file
+  chooser. No person has yet followed them.
 * **Update**: The four R tutorials added today were followed in MESA RStudio Geospatial
   (R 4.6.2), and every output matched. Three details changed in
   [Leave an R script someone else can rerun](tutorials/r-leave-a-rerunnable-script.md):

@@ -269,6 +269,8 @@ by_point:
         - stop-app-find-results
     - title: Organise folders
       tutorials: [make-a-folder, rename-a-folder, move-folders, trash-and-restore]
+    - title: Files in and out
+      tutorials: [upload-a-file, download-a-file, make-a-new-file]
     - title: Find and look
       tutorials: [search-the-data-browser, browse-a-large-folder, view-a-notebook, preview-a-table]
     - title: Run apps
