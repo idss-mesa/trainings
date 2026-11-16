@@ -537,6 +537,26 @@ class Browser(unittest.TestCase):
         self.assertEqual(errors, [])
         context.close()
 
+    def test_a_decimal_comma_and_undo_keep_a_self_check(self):
+        context = self.chromium.new_context(viewport={"width": 1280, "height": 900})
+        page = context.new_page()
+        page.goto(self.base + "tutorials/read-the-data-dictionary/")
+        check = page.locator(".mesa-strip .mesa-check")
+        check.locator(".mesa-check__input").fill("29,2")
+        check.get_by_role("button", name="Check answer").click()
+        page.locator(".mesa-strip .mesa-check.is-right").wait_for()
+        self.assertIn("Checked on", page.inner_text(".mesa-strip"))
+
+        # Undo, then "Mark as done": the self-check is still answered, so the
+        # tutorial is checked again, not only done.
+        page.locator(".mesa-strip").get_by_role("button", name="Undo").click()
+        page.locator(".mesa-strip").get_by_role("button", name="Mark as done").click()
+        page.locator(".mesa-strip").get_by_role("button", name="Undo").wait_for()
+        entry = json.loads(self.stored(page))["tutorials"]["read-the-data-dictionary"]
+        self.assertIn("checked", entry)
+        self.assertIn("Checked on", page.inner_text(".mesa-strip"))
+        context.close()
+
     def test_phone_shows_one_point_at_a_time(self):
         context = self.chromium.new_context(viewport={"width": 375, "height": 812})
         page = context.new_page()

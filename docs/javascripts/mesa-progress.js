@@ -197,12 +197,20 @@
 
   /* --- changes to the record (each returns the record it was given) --- */
 
-  function markDone(record, name, rev, day) {
+  /* With the manifest, a tutorial whose self-check is already answered correctly
+     is marked checked as well as done: the question cannot be asked again, so
+     "Undo" then "Mark as done" must not lose it. */
+  function markDone(record, name, rev, day, manifest) {
     if (!record.started) record.started = day;
     var was = record.tutorials[name];
     record.tutorials[name] = { done: was ? was.done : day, rev: rev || "" };
     if (was && was.checked) {
       record.tutorials[name] = { done: was.done, checked: was.checked, rev: rev || "" };
+    } else if (manifest) {
+      var answered = Object.keys(manifest.checks || {}).filter(function (id) {
+        return manifest.checks[id].tutorial === name && isCorrect(record, id);
+      })[0];
+      if (answered) record.tutorials[name].checked = record.checks[answered].on;
     }
     return record;
   }
@@ -227,8 +235,14 @@
 
   /* --- self-checks, skip-checks, and reflections --- */
 
+  /* The first number in what was typed. A comma before one or two final digits
+     is a decimal comma ("29,2" is 29.2); any other comma groups thousands
+     ("1,151" is 1151), unless the number starts "0," ("0,292" is 0.292).
+     A number may start with its decimal point (".5"). */
   function asNumber(text) {
-    var found = String(text).replace(/,/g, "").match(/-?\d+(?:\.\d+)?/);
+    var clean = String(text).replace(/(^|[^\d.,])0,(\d)/g, "$10.$2")
+      .replace(/(\d),(\d{1,2})(?![\d.,])/g, "$1.$2").replace(/,/g, "");
+    var found = clean.match(/-?(?:\d+(?:\.\d+)?|\.\d+)/);
     return found ? Number(found[0]) : NaN;
   }
 

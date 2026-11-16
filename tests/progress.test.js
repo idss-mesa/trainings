@@ -272,6 +272,34 @@ test("a number may be typed with a unit, spaces, or a thousands comma", () => {
   assert.equal(P.grade(check, "29.3").message, check.otherwise);
   assert.match(P.grade(check, "about thirty").message, /as a number/);
   assert.equal(P.grade({ options: [], answer: "1151", slips: {}, otherwise: "o", right: "r" }, "1,151").correct, true);
+  // A decimal comma, and a number that starts with its point, are read as typed.
+  for (const typed of ["29,2", "29,20", "29,2 mm", " 29,2"]) assert.equal(P.grade(check, typed).correct, true, typed);
+  assert.equal(P.grade(check, "2,92").message, check.slips["2.92"]);
+  assert.equal(P.grade(check, ".292").message, check.slips["0.292"]);
+  assert.equal(P.grade(check, "0,292").message, check.slips["0.292"]);
+  const whole = { options: [], answer: "80", slips: {}, otherwise: "o", right: "r" };
+  for (const typed of ["80", "80,0", "80.0", "80, of 152"]) assert.equal(P.grade(whole, typed).correct, true, typed);
+  for (const typed of ["1,080", "8,0", "80,5", ".80"]) assert.equal(P.grade(whole, typed).correct, false, typed);
+  assert.equal(P.grade({ options: [], answer: "12345", slips: {}, otherwise: "o", right: "r" }, "12,345").correct, true);
+});
+
+test("a tutorial undone and marked done again is still checked when its self-check is answered", () => {
+  const id = "g02-in-millimetres", name = manifest.checks[id].tutorial;
+  const rec = P.empty();
+  P.recordCheck(rec, id, manifest.checks[id], true, 0, "2026-11-10", "r");
+  assert.equal(P.state(rec, name), "checked");
+  P.unmark(rec, name);
+  assert.equal(P.state(rec, name), "todo");
+  P.markDone(rec, name, "r", "2026-11-14", manifest);
+  assert.deepEqual(rec.tutorials[name], { done: "2026-11-14", rev: "r", checked: "2026-11-10" });
+  assert.equal(P.validate(rec).ok, true);
+  // A tutorial whose self-check is unanswered or wrong is only done.
+  P.markDone(rec, "sign-in", "r", "2026-11-14", manifest);
+  assert.equal(P.state(rec, "sign-in"), "done");
+  const other = P.empty();
+  P.recordCheck(other, id, manifest.checks[id], false, 0, "2026-11-10", "r");
+  P.markDone(other, name, "r", "2026-11-14", manifest);
+  assert.equal(P.state(other, name), "done");
 });
 
 test("a correct self-check marks its tutorial checked and done; a wrong one marks nothing", () => {
