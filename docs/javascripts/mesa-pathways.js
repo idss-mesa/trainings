@@ -819,7 +819,7 @@
           actions.appendChild(el("button", { type: "button", class: "mesa-btn", "data-key": "mark",
             text: finished ? "Mark as done again" : "Mark as done",
             onclick: function () {
-              change(store, function (r) { if (route) P.setPathway(r, route.id); P.markDone(r, name, facts.revised, P.today()); });
+              change(store, function (r) { if (route) P.setPathway(r, route.id); P.markDone(r, name, facts.revised, P.today(), m); });
               refresh("undo");
               var after = route ? P.nextAfter(P.openNames(route, store.record, m), name, store.record) : "";
               announce("Marked as done." + (after ? " Next: " + m.tutorials[after].title + ", " + P.minutes(m.tutorials[after].min, m.tutorials[after].max) + "." : ""));

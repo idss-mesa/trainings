@@ -9978,6 +9978,11 @@ explains.
   well as when you leave the box; reloading with the cursor still in the box used to
   lose what had been typed. After "Clear everything" the line under an empty box no
   longer says "Saved in this browser."
+* **Update**: Two fixes to the self-checks. An answer typed with a decimal comma, such
+  as 29,2 for 29.2, is now read as that number and no longer marked wrong; so is one
+  that starts with its decimal point. A tutorial that was undone and marked done again
+  is checked again when its self-check is already answered correctly; it used to be
+  left as done only, with no way to answer the question a second time.
 
 ## 2026-11-15
 
