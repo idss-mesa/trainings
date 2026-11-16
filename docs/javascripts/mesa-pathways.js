@@ -854,9 +854,17 @@
         next.appendChild(el("a", { href: tutorialUrl(after), text: m.tutorials[after].title }));
         next.appendChild(document.createTextNode(" (" + P.minutes(m.tutorials[after].min, m.tutorials[after].max) + ")"));
       } else if (route) {
-        next.appendChild(document.createTextNode(finished ? "That was the last one: you have finished " : "This is the last one on "));
-        next.appendChild(el("a", { href: pathwayUrl(route.id), text: route.title }));
-        next.appendChild(document.createTextNode("."));
+        var onRoute = P.openNames(route, record, m);
+        if (onRoute.indexOf(name) >= 0) {
+          next.appendChild(document.createTextNode(finished ? "That was the last one: you have finished " : "This is the last one on "));
+          next.appendChild(el("a", { href: pathwayUrl(route.id), text: route.title }));
+          next.appendChild(document.createTextNode("."));
+        } else {
+          /* An extra, read after the route is done: it is not the last one of anything. */
+          next.appendChild(document.createTextNode(onRoute.length ? "You have finished " : "Your route leaves nothing you need to do on "));
+          next.appendChild(el("a", { href: pathwayUrl(route.id), text: route.title }));
+          next.appendChild(document.createTextNode(". This one is extra."));
+        }
       }
       next.appendChild(document.createTextNode(next.firstChild ? " " : ""));
       next.appendChild(el("a", { href: BASE + "progress/", text: "Your progress" }));
@@ -1063,9 +1071,11 @@
 
   function paintNav(record) {
     Array.prototype.forEach.call(document.querySelectorAll("a.md-nav__link[href]"), function (link) {
-      var name = tutorialOf(link);
-      if (!name) return;
-      var done = P.isFinished(record, name), mark = link.querySelector(".mesa-nav-tick");
+      /* A link to a section of the page ("On this page") is not a link to a tutorial. */
+      var name = link.hash ? "" : tutorialOf(link);
+      var mark = link.querySelector(".mesa-nav-tick");
+      if (!name) { if (mark) link.removeChild(mark); return; }
+      var done = P.isFinished(record, name);
       if (done && !mark) {
         link.appendChild(el("span", { class: "mesa-nav-tick" }, [el("span", { "aria-hidden": "true", text: "✓" }), el("span", { class: "mesa-vh", text: " (done)" })]));
       } else if (!done && mark) link.removeChild(mark);

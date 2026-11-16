@@ -99,6 +99,9 @@ class Browser(unittest.TestCase):
         page.get_by_role("button", name="Mark as done").click()
         page.get_by_role("button", name="Undo").wait_for()
         self.assertTrue(page.locator("a.md-nav__link .mesa-nav-tick").count() >= 2)
+        # The tick is on links to tutorials, never on the page's own section links.
+        self.assertTrue(page.locator("a.md-nav__link[href*='#']").count() >= 1)
+        self.assertEqual(page.locator("a.md-nav__link[href*='#'] .mesa-nav-tick").count(), 0)
 
         # Progress survives a reload and shows on the pathway, with what was accomplished.
         page.goto(self.base + "pathways/new-to-mesa/")
@@ -555,6 +558,24 @@ class Browser(unittest.TestCase):
         entry = json.loads(self.stored(page))["tutorials"]["read-the-data-dictionary"]
         self.assertIn("checked", entry)
         self.assertIn("Checked on", page.inner_text(".mesa-strip"))
+        context.close()
+
+    def test_an_extra_is_not_called_the_last_one(self):
+        context = self.chromium.new_context(viewport={"width": 1280, "height": 900})
+        page = context.new_page()
+        page.goto(self.base + "progress/")
+        done = {name: {"done": "2026-11-10", "rev": ""} for name in ("sign-in", "launch-jupyterlab", "save-your-work")}
+        record = {"schema": 2, "started": "2026-11-10", "pathway": "new-to-mesa", "profile": {},
+                  "tutorials": done, "checks": {}, "points": {}}
+        page.evaluate("([key, text]) => localStorage.setItem(key, text)", [KEY, json.dumps(record)])
+        page.goto(self.base + "tutorials/request-app-access/")
+        page.get_by_role("button", name="Mark as done").wait_for()
+        self.assertIn("extra, for when you have time", page.inner_text(".mesa-where"))
+        self.assertIn("You have finished New to MESA. This one is extra.", page.inner_text(".mesa-strip__next"))
+        page.get_by_role("button", name="Mark as done").click()
+        page.get_by_role("button", name="Undo").wait_for()
+        self.assertIn("You have finished New to MESA. This one is extra.", page.inner_text(".mesa-strip__next"))
+        self.assertNotIn("last one", page.inner_text(".mesa-strip__next"))
         context.close()
 
     def test_phone_shows_one_point_at_a_time(self):
