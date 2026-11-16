@@ -324,9 +324,24 @@ class Browser(unittest.TestCase):
         with page.expect_download() as download:
             page.get_by_role("button", name="Save my notes as Markdown").click()
         notes = Path(download.value.path()).read_text(encoding="utf-8")
-        self.assertIn("**What would you check first if this result looked wrong?**\n\nI would check the units first.", notes)
+        self.assertIn("**What would you check first if this result looked wrong?**\n\n> I would check the units first.", notes)
         self.assertIn("- Checked: Count records per day to find incomplete days", notes)
         self.assertIn("- Passed the skip-check on", notes)
+
+        # A note typed and then saved straight away is in the file: pressing the
+        # button is what stores the note, and the file is built after that.
+        page.locator("#mesa-reflect-p1-p").click()
+        page.keyboard.type("# Typed just before saving")
+        with page.expect_download() as download:
+            page.get_by_role("button", name="Save my notes as Markdown").click()
+        notes = Path(download.value.path()).read_text(encoding="utf-8")
+        self.assertIn("\n> # Typed just before saving\n", notes)
+        page.locator("#mesa-reflect-p3-p").click()
+        page.keyboard.type("Typed just before a copy")
+        with page.expect_download() as download:
+            page.get_by_role("button", name="Save a copy to a file").click()
+        copy = json.loads(Path(download.value.path()).read_text(encoding="utf-8"))
+        self.assertEqual(copy["points"]["p3"]["reflection"], "Typed just before a copy")
         self.shot(page, "11-progress-with-checks")
 
         # "Clear everything" forgets an answer given on this visit too: without a

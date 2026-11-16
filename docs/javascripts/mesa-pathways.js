@@ -867,7 +867,11 @@
       return keys.map(function (key) { return m.points[key] ? m.points[key].title : key; }).join("; ");
     }
 
-    function exportFile(store) {
+    /* Both files are built from the record as it is stored at that moment, not as
+       it was when the page was last drawn: pressing a button straight after typing
+       a note saves the note first, and the file must hold it. */
+    function exportFile() {
+      var store = P.load(storage());
       /* A record made by a newer version cannot be read here, so it is saved as it is stored. */
       var text = null;
       if (store.status === "newer") { try { text = storage().getItem(P.KEY); } catch (e) { text = null; } }
@@ -881,7 +885,8 @@
       say("Saved a copy of your progress to a file.", "export");
     }
 
-    function exportNotes(store) {
+    function exportNotes() {
+      var store = P.load(storage());
       var blob = new Blob([P.reflectionsMarkdown(store.record, m, P.today())], { type: "text/markdown" });
       var url = URL.createObjectURL(blob);
       var link = el("a", { href: url, download: "mesa-trainings-notes-" + P.today() + ".md" });
@@ -979,10 +984,10 @@
       var picker = el("input", { type: "file", accept: "application/json,.json", class: "mesa-vh", tabindex: "-1", "aria-hidden": "true" });
       picker.addEventListener("change", function () { importFile(store, picker.files[0]); picker.value = ""; });
       tools.appendChild(el("button", { type: "button", class: "mesa-btn mesa-btn--plain", "data-key": "export", text: "Save a copy to a file",
-        onclick: function () { exportFile(store); } }));
+        onclick: function () { exportFile(); } }));
       if (store.status !== "newer") {
         tools.appendChild(el("button", { type: "button", class: "mesa-btn mesa-btn--plain", "data-key": "notes", text: "Save my notes as Markdown",
-          onclick: function () { exportNotes(store); } }));
+          onclick: function () { exportNotes(); } }));
       }
       if (can) {
         tools.appendChild(el("button", { type: "button", class: "mesa-btn mesa-btn--plain", "data-key": "import", text: "Bring back a saved copy",

@@ -340,10 +340,22 @@ test("reflections export as Markdown with the prompt, the level, and what was fi
   const text = P.reflectionsMarkdown(rec, manifest, "2026-11-14");
   assert.match(text, /^# My MESA Trainings notes\n/);
   assert.match(text, /## 2\. Run and understand\n\n- Tutorials done: 1 of 13\n- My level: Exploring\n/);
-  assert.match(text, /\*\*What would you check first if this result looked wrong\?\*\*\n\nCheck the units first\.\n/);
+  assert.match(text, /\*\*What would you check first if this result looked wrong\?\*\*\n\n> Check the units first\.\n/);
   assert.match(text, /- Done: Load a file from your Data Store into a notebook\n/);
   assert.match(text, /## 1\. Orient and navigate[\s\S]*_Nothing written yet\._/);
   assert.ok(text.endsWith("\n") && !text.endsWith("\n\n"));
+});
+
+test("a note stays inside its block quote in the Markdown file", () => {
+  const rec = P.empty();
+  P.setReflection(rec, "p2", "  First line\r\nsecond line\n\n# My heading\n## 3. Query and connect\n---\n<script>x</script> and 3 < 5   \n\n\n", "2026-11-14");
+  const text = P.reflectionsMarkdown(rec, manifest, "2026-11-14");
+  assert.ok(text.includes([
+    "> First line  ", "> second line", ">", "> # My heading  ", "> ## 3. Query and connect  ", "> ---  ",
+    "> \\<script>x\\</script> and 3 < 5", ""].join("\n")), text);
+  // Only the file's own headings start a line: one title and five points.
+  assert.equal(text.split("\n").filter((line) => /^#/.test(line)).length, 6);
+  assert.ok(!/\r/.test(text));
 });
 
 // --- shorter, tailored pathways ---

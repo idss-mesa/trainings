@@ -9113,6 +9113,11 @@ explains.
 * **Update**: "Clear everything" on [Your progress](progress.md) now also clears what
   another open tab is showing. An answer given to a self-check on that visit used to stay
   on screen in the other tab until it was reloaded, although nothing was stored.
+* **Update**: Two fixes to the files saved from [Your progress](progress.md). A note
+  typed just before pressing "Save my notes as Markdown" or "Save a copy to a file" was
+  stored but left out of the file; both files now hold it. In the Markdown file each note
+  is now a block quote with its line breaks kept, so a line of a note that starts with
+  "#" can no longer become a heading of the file, and a tag in a note stays as text.
 
 ## 2026-11-15
 
