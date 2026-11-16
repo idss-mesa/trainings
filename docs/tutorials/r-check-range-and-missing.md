@@ -20,10 +20,9 @@ sources:
 # Check a column's range and missing values in R
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run with R 4.6.0 on a laptop on 2026-11-16 and produced
-    the output shown. The site build runs it again in the MESA RStudio Geospatial
-    image. Nobody has yet followed the steps in the app, so a screen may differ.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-16 (R 4.6.2)
+    and produced the output shown, one step at a time. Nobody else has yet followed
+    the steps, so a screen may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** know the range of `value` at each gauge and how many missing values each
 column of `readings` holds.
@@ -109,4 +108,4 @@ count them first, so you know how many you set aside.
   an `NA`. [Count records per day in R](r-count-records-per-day.md) covers that.
 - The same task in Python: [Check a column's range and missing values](check-range-and-missing.md).
 
-*Not yet validated in MESA RStudio Geospatial. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-16; the code was run that day with R 4.6.0 on a laptop.*
+*Not yet validated by a second person in MESA RStudio Geospatial. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-16; the code was run there that day (R 4.6.2).*

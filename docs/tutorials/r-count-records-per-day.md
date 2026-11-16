@@ -20,10 +20,9 @@ sources:
 # Count records per day in R
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run with R 4.6.0 on a laptop on 2026-11-16 and produced
-    the output shown. The site build runs it again in the MESA RStudio Geospatial
-    image. Nobody has yet followed the steps in the app, so a screen may differ.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-16 (R 4.6.2)
+    and produced the output shown, one step at a time. Nobody else has yet followed
+    the steps, so a screen may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 The data dictionary says one row is one reading for one gauge on one day. This
 tutorial tests that claim. A day counted twice inflates a total, and a missing day
@@ -120,4 +119,4 @@ like, so compare text with text: use `as.character(readings$date)`.
 - [Reconcile row counts before and after a join in R](r-reconcile-a-join.md)
 - The same task in Python: [Count records per day to find incomplete days](count-records-per-day.md).
 
-*Not yet validated in MESA RStudio Geospatial. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-16; the code was run that day with R 4.6.0 on a laptop.*
+*Not yet validated by a second person in MESA RStudio Geospatial. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-16; the code was run there that day (R 4.6.2).*

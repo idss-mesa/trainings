@@ -4588,10 +4588,9 @@ sources:
 # Check a column's range and missing values in R
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run with R 4.6.0 on a laptop on 2026-11-16 and produced
-    the output shown. The site build runs it again in the MESA RStudio Geospatial
-    image. Nobody has yet followed the steps in the app, so a screen may differ.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-16 (R 4.6.2)
+    and produced the output shown, one step at a time. Nobody else has yet followed
+    the steps, so a screen may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** know the range of `value` at each gauge and how many missing values each
 column of `readings` holds.
@@ -4677,7 +4676,7 @@ count them first, so you know how many you set aside.
   an `NA`. [Count records per day in R](https://idss-mesa.github.io/trainings/tutorials/r-count-records-per-day/) covers that.
 - The same task in Python: [Check a column's range and missing values](https://idss-mesa.github.io/trainings/tutorials/check-range-and-missing/).
 
-*Not yet validated in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16; the code was run that day with R 4.6.0 on a laptop.*
+*Not yet validated by a second person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16; the code was run there that day (R 4.6.2).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/r-count-records-per-day/
 
@@ -4703,10 +4702,9 @@ sources:
 # Count records per day in R
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run with R 4.6.0 on a laptop on 2026-11-16 and produced
-    the output shown. The site build runs it again in the MESA RStudio Geospatial
-    image. Nobody has yet followed the steps in the app, so a screen may differ.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-16 (R 4.6.2)
+    and produced the output shown, one step at a time. Nobody else has yet followed
+    the steps, so a screen may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 The data dictionary says one row is one reading for one gauge on one day. This
 tutorial tests that claim. A day counted twice inflates a total, and a missing day
@@ -4803,7 +4801,7 @@ like, so compare text with text: use `as.character(readings$date)`.
 - [Reconcile row counts before and after a join in R](https://idss-mesa.github.io/trainings/tutorials/r-reconcile-a-join/)
 - The same task in Python: [Count records per day to find incomplete days](https://idss-mesa.github.io/trainings/tutorials/count-records-per-day/).
 
-*Not yet validated in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16; the code was run that day with R 4.6.0 on a laptop.*
+*Not yet validated by a second person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16; the code was run there that day (R 4.6.2).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/r-reconcile-a-join/
 
@@ -4829,10 +4827,9 @@ sources:
 # Reconcile row counts before and after a join in R
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run with R 4.6.0 on a laptop on 2026-11-16 and produced
-    the output shown. The site build runs it again in the MESA RStudio Geospatial
-    image. Nobody has yet followed the steps in the app, so a screen may differ.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-16 (R 4.6.2)
+    and produced the output shown, one step at a time. Nobody else has yet followed
+    the steps, so a screen may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 A join can silently add rows, when a key repeats in the table you look things up in,
 or lose them, when a key has no match. Counting rows before and after catches both.
@@ -4944,7 +4941,7 @@ result by the key. Count and compare; do not rely on row positions.
   repeated in `joined`. See [Count records per day in R](https://idss-mesa.github.io/trainings/tutorials/r-count-records-per-day/).
 - The same task in Python: [Reconcile row counts before and after a join](https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/).
 
-*Not yet validated in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16; the code was run that day with R 4.6.0 on a laptop.*
+*Not yet validated by a second person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16; the code was run there that day (R 4.6.2).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/r-leave-a-rerunnable-script/
 
@@ -4970,9 +4967,9 @@ sources:
 # Leave an R script someone else can rerun
 
 !!! warning "Draft: not yet validated"
-    The script on this page was run from an empty workspace with R 4.6.0 on a laptop on
-    2026-11-16. Nobody has yet followed the steps in MESA RStudio Geospatial, so a menu
-    name may differ there. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    These steps were followed once inside MESA RStudio Geospatial on 2026-11-16
+    (R 4.6.2), by the AI assistant that drafted them. No person has yet followed them,
+    so a screen may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 What you type in the **Console** stays in R's memory. A script that uses a table you
 loaded by hand runs for you and fails for the next person, who starts with nothing
@@ -5013,10 +5010,10 @@ to it.
     folder works only for you; a bare file name works for anyone who has the file
     beside the script.
 
-3. Choose **File → Save As…**, and save it as `checks.R` in `mesa-practice`.
+3. Choose **File → Save As...**. The **Save File** window opens on R's working folder,
+   `mesa-practice`. Type `checks.R` as the file name and click **Save**.
 
-    You should see: the tab renamed **checks.R**, and the file in the **Files** tab at
-    the bottom right.
+    You should see: the tab renamed **checks.R**.
 
 4. In the **Console**, empty R's memory: run `rm(list = ls())`.
 
@@ -5025,13 +5022,14 @@ to it.
 
 5. In the **Console**, run `source("checks.R", echo = TRUE)`.
 
-    You should see: each line of the script, the flag counts (`S` 2, `<NA>` 150), and
-    a last line that names the version of R. No line begins `Error`.
+    You should see: the lines of the script, the flag counts (`S` 2, `<NA>` 150), and
+    a last line that names the version of R. No line begins `Error`. R shortens the
+    opening comment and the line after it to `[TRUNCATED]`; they still ran.
 
-6. Look at the `mesa-practice` folder in the **Files** tab.
+6. In the **Console**, run `list.files()`.
 
-    You should see: `checks.R`, `gauges.csv`, and `readings.csv`. The folder holds
-    everything the script needs, so the folder is what you share.
+    You should see: `checks.R`, `gauges.csv`, and `readings.csv` among the names. The
+    folder holds everything the script needs, so the folder is what you share.
 
 ## Check it worked
 
@@ -5055,7 +5053,7 @@ is not the folder that holds the script. Choose
   for giving a colleague access to the folder.
 - The same task in Python: [Leave a notebook someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/leave-a-rerunnable-notebook/).
 
-*Not yet validated in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16; the script was run that day with R 4.6.0 on a laptop.*
+*Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16 and followed there once that day (R 4.6.2).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/cloud-shell-download/
 
@@ -9084,6 +9082,12 @@ explains.
 
 ## 2026-11-16
 
+* **Update**: The four R tutorials added today were followed in MESA RStudio Geospatial
+  (R 4.6.2), and every output matched. Three details changed in
+  [Leave an R script someone else can rerun](tutorials/r-leave-a-rerunnable-script.md):
+  the **Save File** window opens on R's working folder; `source()` shortens the start
+  of the script to `[TRUNCATED]`; and the folder is listed with `list.files()`, because
+  the **Files** tab does not follow R's working folder. All remain drafts.
 * **Creation**: Added four tutorials for readers who work in R, each the R version of
   a Python one: [Check a column's range and missing values in R](tutorials/r-check-range-and-missing.md),
   [Count records per day in R](tutorials/r-count-records-per-day.md),
