@@ -135,6 +135,10 @@ These use MESA RStudio Geospatial and the same practice data.
 | Get a file into R | [Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/) | 5–10 min |
 | See what the provider doubted | [Tally a quality flag in R](https://idss-mesa.github.io/trainings/tutorials/r-tally-a-quality-flag/) | 5 min |
 | Run SQL on a Parquet file from R | [Query a Parquet file with DuckDB from R](https://idss-mesa.github.io/trainings/tutorials/r-query-parquet-with-duckdb/) | 10 min |
+| Find an impossible value or a gap in R | [Check a column's range and missing values in R](https://idss-mesa.github.io/trainings/tutorials/r-check-range-and-missing/) | 5 min |
+| Find doubled and missing days in R | [Count records per day in R](https://idss-mesa.github.io/trainings/tutorials/r-count-records-per-day/) | 5–10 min |
+| Join two tables in R without losing rows | [Reconcile row counts before and after a join in R](https://idss-mesa.github.io/trainings/tutorials/r-reconcile-a-join/) | 5–10 min |
+| Hand over R work that runs | [Leave an R script someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/r-leave-a-rerunnable-script/) | 5–10 min |
 | Put points on a map | [Map point data with sf in MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/) | 10 min |
 
 ## The other MESA apps
@@ -423,6 +427,8 @@ New to the portal? Take [New to MESA](https://idss-mesa.github.io/trainings/path
 
 If you have more time:
 
+- [Check a column's range and missing values in R](https://idss-mesa.github.io/trainings/tutorials/r-check-range-and-missing/) (5 minutes)
+- [Count records per day in R](https://idss-mesa.github.io/trainings/tutorials/r-count-records-per-day/) (5 to 10 minutes)
 - [Map point data with sf in MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/) (10 minutes)
 
 ## Query and connect
@@ -431,7 +437,16 @@ You can ask questions across files and tables, and show that combining them did 
 
 If you have more time:
 
+- [Reconcile row counts before and after a join in R](https://idss-mesa.github.io/trainings/tutorials/r-reconcile-a-join/) (5 to 10 minutes)
 - [Query a Parquet file with DuckDB from R](https://idss-mesa.github.io/trainings/tutorials/r-query-parquet-with-duckdb/) (10 minutes)
+
+## Preserve and share
+
+You can leave work that someone else can find, understand, and run again.
+
+If you have more time:
+
+- [Leave an R script someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/r-leave-a-rerunnable-script/) (5 to 10 minutes)
 
 ## Next
 
@@ -655,7 +670,7 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 
 ## 2. Run and understand
 
-*Understand data.* You can say what a dataset holds and where it is incomplete or doubtful, before you compute with it. 11 tutorials, 65 to 80 minutes in all.
+*Understand data.* You can say what a dataset holds and where it is incomplete or doubtful, before you compute with it. 13 tutorials, 75 to 95 minutes in all.
 
 1. [Practice data: five invented rain gauges](https://idss-mesa.github.io/trainings/tutorials/practice-data/) (5 minutes)
 2. [Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/) (5 minutes)
@@ -672,17 +687,20 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 ### In R, in MESA RStudio Geospatial
 
 1. [Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/) (5 to 10 minutes)
-2. [Tally a quality flag in R](https://idss-mesa.github.io/trainings/tutorials/r-tally-a-quality-flag/) (5 minutes)
-3. [Map point data with sf in MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/) (10 minutes)
+2. [Check a column's range and missing values in R](https://idss-mesa.github.io/trainings/tutorials/r-check-range-and-missing/) (5 minutes)
+3. [Tally a quality flag in R](https://idss-mesa.github.io/trainings/tutorials/r-tally-a-quality-flag/) (5 minutes)
+4. [Count records per day in R](https://idss-mesa.github.io/trainings/tutorials/r-count-records-per-day/) (5 to 10 minutes)
+5. [Map point data with sf in MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/) (10 minutes)
 
 ## 3. Query and connect
 
-You can ask questions across files and tables, and show that combining them did what you meant. 8 tutorials, 60 to 80 minutes in all.
+You can ask questions across files and tables, and show that combining them did what you meant. 9 tutorials, 65 to 90 minutes in all.
 
 1. [Query a Parquet file with DuckDB from a notebook](https://idss-mesa.github.io/trainings/tutorials/query-parquet-with-duckdb/) (10 minutes)
 2. [Reconcile row counts before and after a join](https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/) (5 to 10 minutes)
 3. [Keep tokens and passwords out of saved files](https://idss-mesa.github.io/trainings/tutorials/keep-secrets-out-of-files/) (5 to 10 minutes)
 4. [Query a Parquet file with DuckDB from R](https://idss-mesa.github.io/trainings/tutorials/r-query-parquet-with-duckdb/) (10 minutes)
+5. [Reconcile row counts before and after a join in R](https://idss-mesa.github.io/trainings/tutorials/r-reconcile-a-join/) (5 to 10 minutes)
 
 ### Combine and clean
 
@@ -701,7 +719,7 @@ You can ask questions across files and tables, and show that combining them did 
 
 ## 5. Preserve and share
 
-You can leave work that someone else can find, understand, and run again. 6 tutorials, 40 to 50 minutes in all.
+You can leave work that someone else can find, understand, and run again. 7 tutorials, 45 to 60 minutes in all.
 
 1. [Write a README for a data folder](https://idss-mesa.github.io/trainings/tutorials/write-a-readme/) (10 minutes)
 2. [Add metadata to a file or folder](https://idss-mesa.github.io/trainings/tutorials/add-metadata/) (5 minutes)
@@ -709,6 +727,7 @@ You can leave work that someone else can find, understand, and run again. 6 tuto
 4. [Leave a notebook someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/leave-a-rerunnable-notebook/) (5 to 10 minutes)
 5. [Say where your input data came from](https://idss-mesa.github.io/trainings/tutorials/say-where-data-came-from/) (5 to 10 minutes)
 6. [Hand your folder to a colleague and have them rerun it](https://idss-mesa.github.io/trainings/tutorials/hand-over-and-rerun/) (10 minutes)
+7. [Leave an R script someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/r-leave-a-rerunnable-script/) (5 to 10 minutes)
 
 ## Looking for one thing?
 
@@ -4544,6 +4563,499 @@ in R's working folder. Either step 2 did not run, or R is somewhere else: run
   documentation, which also covers `dplyr` through `dbplyr`.
 
 *Not yet validated by a second person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13; the code was run there that day (R 4.6.2, duckdb 2.0.0).*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/r-check-range-and-missing/
+
+---
+type: Guide
+title: "Check a column's range and missing values in R"
+description: "Find the smallest and largest value in a column and count the missing values in every column of an R data frame, so that an impossible value or a gap shows up before you compute with it."
+tags: [byte, p2, rstudio, r, data-quality, missing-values]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-16T00:00:00Z" }
+stale_after: "2027-05-16T00:00:00Z"
+sources:
+  - id: docs-rstudio
+    resource: "https://idss-mesa.github.io/docs/apps/rstudio/"
+    title: "MESA RStudio Geospatial"
+    author: "team:idss-mesa"
+  - id: r
+    resource: "https://stat.ethz.ch/R-manual/R-devel/library/base/html/NA.html"
+    title: "Not Available / Missing Values: NA and is.na (R documentation)"
+    author: "team:r-core"
+---
+
+# Check a column's range and missing values in R
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run with R 4.6.0 on a laptop on 2026-11-16 and produced
+    the output shown. The site build runs it again in the MESA RStudio Geospatial
+    image. Nobody has yet followed the steps in the app, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** know the range of `value` at each gauge and how many missing values each
+column of `readings` holds.
+
+**Time:** 5 minutes. **You need:** the `readings` and `gauges` tables from
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/), in
+[MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/).
+
+## Steps
+
+1. In the **Console**, run:
+
+    ```r
+    range(readings$value)
+    ```
+
+    You should see: the smallest value, then the largest.
+
+    ```text
+    [1]   0 180
+    ```
+
+2. Ask whether both ends are believable. Zero is a dry day. Decide whether 180 could
+   be one day's rain before you read on.
+
+    You should see: a reason to look closer. A range tells you that something is
+    unusual, not what it is.
+
+3. Split the range by gauge:
+
+    ```r
+    aggregate(value ~ gauge_id, data = readings, FUN = function(v) c(min = min(v), max = max(v)))
+    ```
+
+    You should see:
+
+    ```text
+      gauge_id value.min value.max
+    1      G01      0.00     24.90
+    2      G02      0.00      2.92
+    3      G03      0.00     32.50
+    4      G04      0.00     26.40
+    5      G05      0.00    180.00
+    ```
+
+4. Count the missing values in every column:
+
+    ```r
+    colSums(is.na(readings))
+    ```
+
+    You should see:
+
+    ```text
+    gauge_id     date    value     flag
+           0        0        0      150
+    ```
+
+5. Check the count against the [data dictionary](https://idss-mesa.github.io/trainings/tutorials/practice-data/#data-dictionary).
+
+    You should see: that a blank `flag` is expected, since it means the sensor raised
+    no concern, and that `value` is never missing.
+
+## Check it worked
+
+You can state two things: the largest `value` at each gauge, and that the only column
+with missing values is `flag`, with 150 of them.
+
+## If it didn't
+
+**The counts in step 4 are all zero.** `flag` was read as empty text, not as missing.
+Read the file again with `na.strings = ""`, as in
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/).
+
+**Step 1 prints `[1] NA NA`.** The column holds a missing value, and `range()` will not
+guess around it. `range(readings$value, na.rm = TRUE)` leaves the missing values out;
+count them first, so you know how many you set aside.
+
+## Next
+
+- [Tally a quality flag in R](https://idss-mesa.github.io/trainings/tutorials/r-tally-a-quality-flag/), which follows up the 180.
+- "No missing values" does not mean "no missing days": a day with no row at all is not
+  an `NA`. [Count records per day in R](https://idss-mesa.github.io/trainings/tutorials/r-count-records-per-day/) covers that.
+- The same task in Python: [Check a column's range and missing values](https://idss-mesa.github.io/trainings/tutorials/check-range-and-missing/).
+
+*Not yet validated in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16; the code was run that day with R 4.6.0 on a laptop.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/r-count-records-per-day/
+
+---
+type: Guide
+title: "Count records per day in R"
+description: "Count the rows for each gauge and day in an R data frame to find days recorded twice and days with no record at all."
+tags: [byte, p2, rstudio, r, data-quality, completeness]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-16T00:00:00Z" }
+stale_after: "2027-05-16T00:00:00Z"
+sources:
+  - id: docs-rstudio
+    resource: "https://idss-mesa.github.io/docs/apps/rstudio/"
+    title: "MESA RStudio Geospatial"
+    author: "team:idss-mesa"
+  - id: r
+    resource: "https://stat.ethz.ch/R-manual/R-devel/library/stats/html/aggregate.html"
+    title: "Compute Summary Statistics of Data Subsets: aggregate (R documentation)"
+    author: "team:r-core"
+---
+
+# Count records per day in R
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run with R 4.6.0 on a laptop on 2026-11-16 and produced
+    the output shown. The site build runs it again in the MESA RStudio Geospatial
+    image. Nobody has yet followed the steps in the app, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+The data dictionary says one row is one reading for one gauge on one day. This
+tutorial tests that claim. A day counted twice inflates a total, and a missing day
+shrinks it, and neither shows up as an `NA`.
+
+**You will:** know, for each gauge, whether July has exactly one row per day.
+
+**Time:** 5 to 10 minutes. **You need:** the `readings` and `gauges` tables from
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/), in
+[MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/).
+
+## Steps
+
+1. Work out what a complete table would hold: 5 gauges × 31 days in July.
+
+    You should see: 155. The table has 152 rows, so something is uneven.
+
+2. Count the rows for each gauge:
+
+    ```r
+    table(readings$gauge_id)
+    ```
+
+    You should see:
+
+    ```text
+    G01 G02 G03 G04 G05
+     27  31  32  31  31
+    ```
+
+3. Count the *distinct* days for each gauge:
+
+    ```r
+    tapply(readings$date, readings$gauge_id, function(d) length(unique(d)))
+    ```
+
+    You should see: G03 with 31 days, not 32, and G01 still with 27.
+
+    ```text
+    G01 G02 G03 G04 G05
+     27  31  31  31  31
+    ```
+
+4. Find any gauge and day with more than one row:
+
+    ```r
+    per_day <- aggregate(value ~ gauge_id + date, data = readings, FUN = length)
+    per_day[per_day$value != 1, ]
+    ```
+
+    You should see: one gauge and day, where the `value` column now holds the number
+    of rows.
+
+    ```text
+       gauge_id       date value
+    23      G03 2026-07-05     2
+    ```
+
+5. List the days on which G01 has no row:
+
+    ```r
+    july <- as.character(seq(as.Date("2026-07-01"), as.Date("2026-07-31"), by = "day"))
+    setdiff(july, readings$date[readings$gauge_id == "G01"])
+    ```
+
+    You should see: four consecutive days.
+
+    ```text
+    [1] "2026-07-22" "2026-07-23" "2026-07-24" "2026-07-25"
+    ```
+
+6. In a script or a notes file, note both findings and what each does to a monthly
+   total.
+
+    You should see: your note where a reader of your result can find it.
+
+## Check it worked
+
+The numbers reconcile: 155 expected rows, plus 1 repeated row, minus 4 missing days,
+is 152, the size of the table.
+
+## If it didn't
+
+**Step 4 prints `<0 rows>`.** You ran it on a table from which repeated rows had
+already been removed, for example with `unique()`. Read the file again, then repeat
+the step.
+
+**Step 5 lists all 31 days.** `date` is no longer text. `setdiff()` compares like with
+like, so compare text with text: use `as.character(readings$date)`.
+
+## Next
+
+- [Query a Parquet file with DuckDB from R](https://idss-mesa.github.io/trainings/tutorials/r-query-parquet-with-duckdb/)
+- [Reconcile row counts before and after a join in R](https://idss-mesa.github.io/trainings/tutorials/r-reconcile-a-join/)
+- The same task in Python: [Count records per day to find incomplete days](https://idss-mesa.github.io/trainings/tutorials/count-records-per-day/).
+
+*Not yet validated in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16; the code was run that day with R 4.6.0 on a laptop.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/r-reconcile-a-join/
+
+---
+type: Guide
+title: "Reconcile row counts before and after a join in R"
+description: "Join a data frame of readings to a data frame of gauges with merge() and confirm that the join neither added nor lost rows and left no reading without a match."
+tags: [byte, p3, rstudio, r, join, data-quality]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-16T00:00:00Z" }
+stale_after: "2027-05-16T00:00:00Z"
+sources:
+  - id: docs-rstudio
+    resource: "https://idss-mesa.github.io/docs/apps/rstudio/"
+    title: "MESA RStudio Geospatial"
+    author: "team:idss-mesa"
+  - id: r
+    resource: "https://stat.ethz.ch/R-manual/R-devel/library/base/html/merge.html"
+    title: "Merge Two Data Frames: merge (R documentation)"
+    author: "team:r-core"
+---
+
+# Reconcile row counts before and after a join in R
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run with R 4.6.0 on a laptop on 2026-11-16 and produced
+    the output shown. The site build runs it again in the MESA RStudio Geospatial
+    image. Nobody has yet followed the steps in the app, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A join can silently add rows, when a key repeats in the table you look things up in,
+or lose them, when a key has no match. Counting rows before and after catches both.
+
+**You will:** have each reading joined to its gauge's name and unit, with row counts
+that prove the join changed nothing else.
+
+**Time:** 5 to 10 minutes. **You need:** the `readings` and `gauges` tables from
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/), in
+[MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/).
+
+## Steps
+
+1. Record the size of the table you are starting from:
+
+    ```r
+    nrow(readings)
+    ```
+
+    You should see:
+
+    ```text
+    [1] 152
+    ```
+
+2. Confirm that the lookup table has one row for each key:
+
+    ```r
+    anyDuplicated(gauges$gauge_id)
+    ```
+
+    You should see: `0`, meaning no gauge appears twice. Any other number is the
+    position of the first repeat, and every reading of that gauge would be doubled by
+    the join.
+
+    ```text
+    [1] 0
+    ```
+
+3. Join:
+
+    ```r
+    joined <- merge(readings, gauges, by = "gauge_id", all.x = TRUE)
+    ```
+
+    You should see: no output and no error. `all.x = TRUE` keeps every reading, whether
+    or not it finds a gauge. Without it, `merge()` drops the readings that have no
+    match and says nothing.
+
+4. Compare the sizes:
+
+    ```r
+    c(nrow(readings), nrow(joined))
+    ```
+
+    You should see:
+
+    ```text
+    [1] 152 152
+    ```
+
+5. Count the readings that found no gauge:
+
+    ```r
+    sum(is.na(joined$name))
+    ```
+
+    You should see:
+
+    ```text
+    [1] 0
+    ```
+
+6. Look at the result:
+
+    ```r
+    head(joined, 3)
+    ```
+
+    You should see: the four original columns, then the gauge's columns.
+
+    ```text
+      gauge_id       date value flag      name unit elevation_m
+    1      G01 2026-07-01   0.0 <NA> Boathouse   mm         512
+    2      G01 2026-07-02   0.0 <NA> Boathouse   mm         512
+    3      G01 2026-07-03  24.9 <NA> Boathouse   mm         512
+    ```
+
+## Check it worked
+
+Three numbers agree: 152 rows before, 152 rows after, and 0 readings without a match.
+Each reading now carries its `unit`, which you need before values from different
+gauges can be compared.
+
+## If it didn't
+
+**The second number in step 4 is larger than the first.** The lookup table has a
+repeated `gauge_id`, and `merge()` multiplied rows without a warning. Find the repeats
+with `gauges[gauges$gauge_id %in% gauges$gauge_id[duplicated(gauges$gauge_id)], ]` and
+settle which row is right before you join.
+
+**The rows of `joined` are in a different order from `readings`.** `merge()` sorts its
+result by the key. Count and compare; do not rely on row positions.
+
+## Next
+
+- [Leave an R script someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/r-leave-a-rerunnable-script/)
+- A join carries problems along with it: rows repeated in `readings` are still
+  repeated in `joined`. See [Count records per day in R](https://idss-mesa.github.io/trainings/tutorials/r-count-records-per-day/).
+- The same task in Python: [Reconcile row counts before and after a join](https://idss-mesa.github.io/trainings/tutorials/reconcile-a-join/).
+
+*Not yet validated in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16; the code was run that day with R 4.6.0 on a laptop.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/r-leave-a-rerunnable-script/
+
+---
+type: Guide
+title: "Leave an R script someone else can rerun"
+description: "Put your checks in an R script that reads its own data, then run it from an empty workspace in MESA RStudio Geospatial to confirm it does not depend on anything you typed earlier."
+tags: [byte, p5, rstudio, r, reproducibility]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-16T00:00:00Z" }
+stale_after: "2027-05-16T00:00:00Z"
+sources:
+  - id: docs-rstudio
+    resource: "https://idss-mesa.github.io/docs/apps/rstudio/"
+    title: "MESA RStudio Geospatial"
+    author: "team:idss-mesa"
+  - id: r
+    resource: "https://stat.ethz.ch/R-manual/R-devel/library/base/html/source.html"
+    title: "Read R Code from a File: source (R documentation)"
+    author: "team:r-core"
+---
+
+# Leave an R script someone else can rerun
+
+!!! warning "Draft: not yet validated"
+    The script on this page was run from an empty workspace with R 4.6.0 on a laptop on
+    2026-11-16. Nobody has yet followed the steps in MESA RStudio Geospatial, so a menu
+    name may differ there. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+What you type in the **Console** stays in R's memory. A script that uses a table you
+loaded by hand runs for you and fails for the next person, who starts with nothing
+loaded.
+
+**You will:** have a script that runs from an empty workspace, top to bottom, without
+you.
+
+**Time:** 5 to 10 minutes. **You need:** the `mesa-practice` folder from
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/), in
+[MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/), with R's working folder still set
+to it.
+
+## Steps
+
+1. Choose **File → New File → R Script**.
+
+    You should see: an empty editor tab named **Untitled1**, above the **Console**.
+
+2. Type the script. It says what it needs, reads its own data, and names files without
+   a folder in front:
+
+    ```r
+    # Checks on the practice rain-gauge data.
+    # Needs gauges.csv and readings.csv in the same folder as this script.
+    # Both are at https://idss-mesa.github.io/trainings/tutorials/practice-data/
+
+    readings <- read.csv("readings.csv", na.strings = "")
+    gauges <- read.csv("gauges.csv")
+
+    stopifnot(nrow(readings) == 152, anyDuplicated(gauges$gauge_id) == 0)
+    print(table(readings$flag, useNA = "always"))
+
+    cat(R.version.string, "\n")
+    ```
+
+    You should see: the script in the editor. A path that starts at your own home
+    folder works only for you; a bare file name works for anyone who has the file
+    beside the script.
+
+3. Choose **File → Save As…**, and save it as `checks.R` in `mesa-practice`.
+
+    You should see: the tab renamed **checks.R**, and the file in the **Files** tab at
+    the bottom right.
+
+4. In the **Console**, empty R's memory: run `rm(list = ls())`.
+
+    You should see: the **Environment** tab at the top right now empty. This is what
+    the next person starts with.
+
+5. In the **Console**, run `source("checks.R", echo = TRUE)`.
+
+    You should see: each line of the script, the flag counts (`S` 2, `<NA>` 150), and
+    a last line that names the version of R. No line begins `Error`.
+
+6. Look at the `mesa-practice` folder in the **Files** tab.
+
+    You should see: `checks.R`, `gauges.csv`, and `readings.csv`. The folder holds
+    everything the script needs, so the folder is what you share.
+
+## Check it worked
+
+Step 5 ran to the version line from an empty **Environment**. `stopifnot()` stayed
+silent, which means the table still has 152 rows and no gauge is listed twice.
+
+## If it didn't
+
+**`Error: object '...' not found`.** The script uses something it never made, which
+was in memory only because you had typed it in the Console. Add the line that makes
+it above the line that failed, then repeat steps 4 and 5.
+
+**`cannot open file 'readings.csv': No such file or directory`.** R's working folder
+is not the folder that holds the script. Choose
+**Session → Set Working Directory → To Source File Location**, then repeat step 5.
+
+## Next
+
+- [Record the software versions a result depends on](https://idss-mesa.github.io/trainings/tutorials/record-software-versions/)
+- Reference: [Managing data, "Share data"](https://idss-mesa.github.io/docs/portal/data/#share-data),
+  for giving a colleague access to the folder.
+- The same task in Python: [Leave a notebook someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/leave-a-rerunnable-notebook/).
+
+*Not yet validated in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16; the script was run that day with R 4.6.0 on a laptop.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/cloud-shell-download/
 
@@ -8572,6 +9084,15 @@ explains.
 
 ## 2026-11-16
 
+* **Creation**: Added four tutorials for readers who work in R, each the R version of
+  a Python one: [Check a column's range and missing values in R](tutorials/r-check-range-and-missing.md),
+  [Count records per day in R](tutorials/r-count-records-per-day.md),
+  [Reconcile row counts before and after a join in R](tutorials/r-reconcile-a-join.md), and
+  [Leave an R script someone else can rerun](tutorials/r-leave-a-rerunnable-script.md).
+  The code was run with R 4.6.0 on a laptop, and the site build runs it in the MESA
+  RStudio Geospatial image; nobody has yet followed the steps in the app. A reader who
+  answers "R" on the pathways page is now given these in place of the Python versions,
+  and [Work in R](pathways/work-in-r.md) lists them under "If you have more time".
 * **Creation**: Added [Ask CyVerse for access to interactive apps](tutorials/request-app-access.md):
   the one-time request a new CyVerse account must send before it can start an app. The
   failed launch was seen on the live portal; the form itself was written from the

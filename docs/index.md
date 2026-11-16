@@ -129,6 +129,10 @@ These use MESA RStudio Geospatial and the same practice data.
 | Get a file into R | [Load a file from your Data Store in RStudio](tutorials/r-load-a-file.md) | 5–10 min |
 | See what the provider doubted | [Tally a quality flag in R](tutorials/r-tally-a-quality-flag.md) | 5 min |
 | Run SQL on a Parquet file from R | [Query a Parquet file with DuckDB from R](tutorials/r-query-parquet-with-duckdb.md) | 10 min |
+| Find an impossible value or a gap in R | [Check a column's range and missing values in R](tutorials/r-check-range-and-missing.md) | 5 min |
+| Find doubled and missing days in R | [Count records per day in R](tutorials/r-count-records-per-day.md) | 5–10 min |
+| Join two tables in R without losing rows | [Reconcile row counts before and after a join in R](tutorials/r-reconcile-a-join.md) | 5–10 min |
+| Hand over R work that runs | [Leave an R script someone else can rerun](tutorials/r-leave-a-rerunnable-script.md) | 5–10 min |
 | Put points on a map | [Map point data with sf in MESA RStudio Geospatial](tutorials/map-points-in-rstudio.md) | 10 min |
 
 ## The other MESA apps

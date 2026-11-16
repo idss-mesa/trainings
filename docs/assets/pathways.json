@@ -467,6 +467,8 @@
       "r-tally-a-quality-flag"
      ],
      "more": [
+      "r-check-range-and-missing",
+      "r-count-records-per-day",
       "map-points-in-rstudio"
      ]
     },
@@ -474,7 +476,15 @@
      "point": "p3",
      "tutorials": [],
      "more": [
+      "r-reconcile-a-join",
       "r-query-parquet-with-duckdb"
+     ]
+    },
+    {
+     "point": "p5",
+     "tutorials": [],
+     "more": [
+      "r-leave-a-rerunnable-script"
      ]
     }
    ]
@@ -567,6 +577,10 @@
   "in_r": {
    "load-a-file": "r-load-a-file",
    "tally-a-quality-flag": "r-tally-a-quality-flag",
+   "check-range-and-missing": "r-check-range-and-missing",
+   "count-records-per-day": "r-count-records-per-day",
+   "reconcile-a-join": "r-reconcile-a-join",
+   "leave-a-rerunnable-notebook": "r-leave-a-rerunnable-script",
    "query-parquet-with-duckdb": "r-query-parquet-with-duckdb",
    "practice-data": null,
    "launch-jupyterlab": null
@@ -652,7 +666,9 @@
     "title": "In R, in MESA RStudio Geospatial",
     "tutorials": [
      "r-load-a-file",
+     "r-check-range-and-missing",
      "r-tally-a-quality-flag",
+     "r-count-records-per-day",
      "map-points-in-rstudio"
     ]
    }
@@ -664,7 +680,8 @@
      "query-parquet-with-duckdb",
      "reconcile-a-join",
      "keep-secrets-out-of-files",
-     "r-query-parquet-with-duckdb"
+     "r-query-parquet-with-duckdb",
+     "r-reconcile-a-join"
     ]
    },
    {
@@ -696,7 +713,8 @@
      "record-software-versions",
      "leave-a-rerunnable-notebook",
      "say-where-data-came-from",
-     "hand-over-and-rerun"
+     "hand-over-and-rerun",
+     "r-leave-a-rerunnable-script"
     ]
    }
   ]
@@ -1093,6 +1111,48 @@
     "launch-jupyterlab"
    ]
   },
+  "r-check-range-and-missing": {
+   "title": "Check a column's range and missing values in R",
+   "description": "Find the smallest and largest value in a column and count the missing values in every column of an R data frame, so that an impossible value or a gap shows up before you compute with it.",
+   "outcome": "know the range of `value` at each gauge and how many missing values each column of `readings` holds.",
+   "point": "p2",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-16T00:00:00Z",
+   "stale_after": "2027-05-16T00:00:00Z",
+   "builds_on": [
+    "r-load-a-file"
+   ]
+  },
+  "r-count-records-per-day": {
+   "title": "Count records per day in R",
+   "description": "Count the rows for each gauge and day in an R data frame to find days recorded twice and days with no record at all.",
+   "outcome": "know, for each gauge, whether July has exactly one row per day.",
+   "point": "p2",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-16T00:00:00Z",
+   "stale_after": "2027-05-16T00:00:00Z",
+   "builds_on": [
+    "r-load-a-file"
+   ]
+  },
+  "r-leave-a-rerunnable-script": {
+   "title": "Leave an R script someone else can rerun",
+   "description": "Put your checks in an R script that reads its own data, then run it from an empty workspace in MESA RStudio Geospatial to confirm it does not depend on anything you typed earlier.",
+   "outcome": "have a script that runs from an empty workspace, top to bottom, without you.",
+   "point": "p5",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-16T00:00:00Z",
+   "stale_after": "2027-05-16T00:00:00Z",
+   "builds_on": [
+    "r-load-a-file"
+   ]
+  },
   "r-load-a-file": {
    "title": "Load a file from your Data Store in RStudio",
    "description": "Read a CSV file from your Data Store into an R data frame in MESA RStudio Geospatial, and confirm its size and column types.",
@@ -1117,6 +1177,20 @@
    "status": "draft",
    "revised": "2026-11-13T00:00:00Z",
    "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "r-load-a-file"
+   ]
+  },
+  "r-reconcile-a-join": {
+   "title": "Reconcile row counts before and after a join in R",
+   "description": "Join a data frame of readings to a data frame of gauges with merge() and confirm that the join neither added nor lost rows and left no reading without a match.",
+   "outcome": "have each reading joined to its gauge's name and unit, with row counts that prove the join changed nothing else.",
+   "point": "p3",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-16T00:00:00Z",
+   "stale_after": "2027-05-16T00:00:00Z",
    "builds_on": [
     "r-load-a-file"
    ]

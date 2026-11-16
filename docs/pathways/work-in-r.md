@@ -35,6 +35,8 @@ New to the portal? Take [New to MESA](new-to-mesa.md) first.
 
 If you have more time:
 
+- [Check a column's range and missing values in R](../tutorials/r-check-range-and-missing.md) (5 minutes)
+- [Count records per day in R](../tutorials/r-count-records-per-day.md) (5 to 10 minutes)
 - [Map point data with sf in MESA RStudio Geospatial](../tutorials/map-points-in-rstudio.md) (10 minutes)
 
 ## Query and connect
@@ -43,7 +45,16 @@ You can ask questions across files and tables, and show that combining them did 
 
 If you have more time:
 
+- [Reconcile row counts before and after a join in R](../tutorials/r-reconcile-a-join.md) (5 to 10 minutes)
 - [Query a Parquet file with DuckDB from R](../tutorials/r-query-parquet-with-duckdb.md) (10 minutes)
+
+## Preserve and share
+
+You can leave work that someone else can find, understand, and run again.
+
+If you have more time:
+
+- [Leave an R script someone else can rerun](../tutorials/r-leave-a-rerunnable-script.md) (5 to 10 minutes)
 
 ## Next
 

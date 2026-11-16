@@ -81,7 +81,7 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 
 ## 2. Run and understand
 
-*Understand data.* You can say what a dataset holds and where it is incomplete or doubtful, before you compute with it. 11 tutorials, 65 to 80 minutes in all.
+*Understand data.* You can say what a dataset holds and where it is incomplete or doubtful, before you compute with it. 13 tutorials, 75 to 95 minutes in all.
 
 1. [Practice data: five invented rain gauges](tutorials/practice-data.md) (5 minutes)
 2. [Load a file from your Data Store into a notebook](tutorials/load-a-file.md) (5 minutes)
@@ -98,17 +98,20 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 ### In R, in MESA RStudio Geospatial
 
 1. [Load a file from your Data Store in RStudio](tutorials/r-load-a-file.md) (5 to 10 minutes)
-2. [Tally a quality flag in R](tutorials/r-tally-a-quality-flag.md) (5 minutes)
-3. [Map point data with sf in MESA RStudio Geospatial](tutorials/map-points-in-rstudio.md) (10 minutes)
+2. [Check a column's range and missing values in R](tutorials/r-check-range-and-missing.md) (5 minutes)
+3. [Tally a quality flag in R](tutorials/r-tally-a-quality-flag.md) (5 minutes)
+4. [Count records per day in R](tutorials/r-count-records-per-day.md) (5 to 10 minutes)
+5. [Map point data with sf in MESA RStudio Geospatial](tutorials/map-points-in-rstudio.md) (10 minutes)
 
 ## 3. Query and connect
 
-You can ask questions across files and tables, and show that combining them did what you meant. 8 tutorials, 60 to 80 minutes in all.
+You can ask questions across files and tables, and show that combining them did what you meant. 9 tutorials, 65 to 90 minutes in all.
 
 1. [Query a Parquet file with DuckDB from a notebook](tutorials/query-parquet-with-duckdb.md) (10 minutes)
 2. [Reconcile row counts before and after a join](tutorials/reconcile-a-join.md) (5 to 10 minutes)
 3. [Keep tokens and passwords out of saved files](tutorials/keep-secrets-out-of-files.md) (5 to 10 minutes)
 4. [Query a Parquet file with DuckDB from R](tutorials/r-query-parquet-with-duckdb.md) (10 minutes)
+5. [Reconcile row counts before and after a join in R](tutorials/r-reconcile-a-join.md) (5 to 10 minutes)
 
 ### Combine and clean
 
@@ -127,7 +130,7 @@ You can ask questions across files and tables, and show that combining them did 
 
 ## 5. Preserve and share
 
-You can leave work that someone else can find, understand, and run again. 6 tutorials, 40 to 50 minutes in all.
+You can leave work that someone else can find, understand, and run again. 7 tutorials, 45 to 60 minutes in all.
 
 1. [Write a README for a data folder](tutorials/write-a-readme.md) (10 minutes)
 2. [Add metadata to a file or folder](tutorials/add-metadata.md) (5 minutes)
@@ -135,6 +138,7 @@ You can leave work that someone else can find, understand, and run again. 6 tuto
 4. [Leave a notebook someone else can rerun](tutorials/leave-a-rerunnable-notebook.md) (5 to 10 minutes)
 5. [Say where your input data came from](tutorials/say-where-data-came-from.md) (5 to 10 minutes)
 6. [Hand your folder to a colleague and have them rerun it](tutorials/hand-over-and-rerun.md) (10 minutes)
+7. [Leave an R script someone else can rerun](tutorials/r-leave-a-rerunnable-script.md) (5 to 10 minutes)
 
 ## Looking for one thing?
 
