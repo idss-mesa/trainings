@@ -460,7 +460,7 @@ test("a route runs point by point, with what time adds placed in its own point",
   rec.profile = { portal: "no", language: "python", data: "no", minutes: 30 };
   const session = P.findPathway(manifest, "get-ready-for-a-session");
   assert.deepEqual(P.openNames(session, rec, manifest),
-    ["sign-in", "launch-jupyterlab", "find-your-way-around", "practice-data", "load-a-file"]);
+    ["sign-in", "launch-jupyterlab", "request-app-access", "practice-data", "load-a-file"]);
 });
 
 test("a finished tutorial stays on the route when its point's skip-check is passed", () => {

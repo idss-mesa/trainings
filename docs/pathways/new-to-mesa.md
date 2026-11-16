@@ -4,7 +4,7 @@ title: "New to MESA"
 description: "Sign in, start a notebook, and keep what you make: 3 tutorials to start with, 15 to 25 minutes in all, and more for when you have time."
 tags: [pathway, new-to-mesa]
 status: draft
-generated: { by: "gen-pathways/1", at: "2026-11-15T00:00:00Z" }
+generated: { by: "gen-pathways/1", at: "2026-11-16T00:00:00Z" }
 stale_after: "2027-05-11T00:00:00Z"
 sources:
   - id: pathways
@@ -34,6 +34,7 @@ Sign in, start a notebook, and keep what you make.
 
 If you have more time:
 
+- [Ask CyVerse for access to interactive apps](../tutorials/request-app-access.md) (5 minutes)
 - [Find your way around the MESA Portal](../tutorials/find-your-way-around.md) (5 minutes)
 - [Find MESA's community data in the Data Browser](../tutorials/find-community-data.md) (5 minutes)
 - [Stop an app and find your results](../tutorials/stop-app-find-results.md) (5 minutes)

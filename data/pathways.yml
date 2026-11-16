@@ -15,7 +15,7 @@
 schema: 1
 
 # Bump on a meaningful change to the pathways (AGENTS.md rule 7), not on typo fixes.
-revised: "2026-11-15"
+revised: "2026-11-16"
 
 # The five points. `competency` names what the point builds; `can_do` is the
 # sentence shown under the point's heading. `reflection` is the one optional
@@ -95,6 +95,7 @@ pathways:
           - launch-jupyterlab
           - save-your-work
         more:
+          - request-app-access
           - find-your-way-around
           - find-community-data
           - stop-app-find-results
@@ -105,13 +106,15 @@ pathways:
     note: >-
       Do the first two at least two days before. A new CyVerse account has to
       ask once for access to apps, and CyVerse says it answers within one to
-      two days.
+      two days. "Ask CyVerse for access to interactive apps", under the first
+      point, shows how.
     stages:
       - point: p1
         tutorials:
           - sign-in
           - launch-jupyterlab
         more:
+          - request-app-access
           - find-your-way-around
           - save-your-work
           - stop-app-find-results
@@ -246,6 +249,7 @@ by_point:
         - sign-in
         - find-your-way-around
         - find-community-data
+        - request-app-access
         - launch-jupyterlab
         - save-your-work
         - stop-app-find-results

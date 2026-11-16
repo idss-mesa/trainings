@@ -2,6 +2,13 @@
 
 ## 2026-11-16
 
+* **Creation**: Added [Ask CyVerse for access to interactive apps](tutorials/request-app-access.md):
+  the one-time request a new CyVerse account must send before it can start an app. The
+  failed launch was seen on the live portal; the form itself was written from the
+  Discovery Environment's public source code and has not been sent by the writer. It is
+  listed under "If you have more time" in [New to MESA](pathways/new-to-mesa.md) and
+  [Get ready for a hands-on session](pathways/get-ready-for-a-session.md), and the
+  [launch tutorial](tutorials/launch-jupyterlab.md) now points to it.
 * **Update**: Four fixes to bringing back a saved copy on [Your progress](progress.md).
   Merging no longer drops a note: when the browser and the file both hold a note on the
   same point, the file's note is added below yours, and the message says so. If the two

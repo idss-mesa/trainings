@@ -39,6 +39,7 @@ nav = [
       "tutorials/index.md",
       { "Sign in to the MESA Portal" = "tutorials/sign-in.md" },
       { "Find MESA's community data" = "tutorials/find-community-data.md" },
+      { "Ask for access to apps" = "tutorials/request-app-access.md" },
       { "Launch MESA JupyterLab" = "tutorials/launch-jupyterlab.md" },
       { "Save your work" = "tutorials/save-your-work.md" },
       { "Stop an app and find your results" = "tutorials/stop-app-find-results.md" },

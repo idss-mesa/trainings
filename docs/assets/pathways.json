@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "revised": "2026-11-15",
+ "revised": "2026-11-16",
  "points": {
   "p1": {
    "title": "Orient and navigate",
@@ -349,6 +349,7 @@
       "save-your-work"
      ],
      "more": [
+      "request-app-access",
       "find-your-way-around",
       "find-community-data",
       "stop-app-find-results"
@@ -361,7 +362,7 @@
    "title": "Get ready for a hands-on session",
    "promise": "Arrive signed in, with an app that starts and the practice data loaded.",
    "after": "",
-   "note": "Do the first two at least two days before. A new CyVerse account has to ask once for access to apps, and CyVerse says it answers within one to two days.",
+   "note": "Do the first two at least two days before. A new CyVerse account has to ask once for access to apps, and CyVerse says it answers within one to two days. \"Ask CyVerse for access to interactive apps\", under the first point, shows how.",
    "min": 20,
    "max": 25,
    "stages": [
@@ -372,6 +373,7 @@
       "launch-jupyterlab"
      ],
      "more": [
+      "request-app-access",
       "find-your-way-around",
       "save-your-work",
       "stop-app-find-results"
@@ -578,6 +580,7 @@
      "sign-in",
      "find-your-way-around",
      "find-community-data",
+     "request-app-access",
      "launch-jupyterlab",
      "save-your-work",
      "stop-app-find-results"
@@ -1221,6 +1224,20 @@
    "builds_on": [
     "sign-in",
     "make-a-folder"
+   ]
+  },
+  "request-app-access": {
+   "title": "Ask CyVerse for access to interactive apps",
+   "description": "Send the one-time request that lets a new CyVerse account start MESA JupyterLab and the other interactive apps, and know when it has been granted.",
+   "outcome": "have asked CyVerse, once, to let your account start interactive apps, and know how to tell when it has said yes.",
+   "point": "p1",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-16T00:00:00Z",
+   "stale_after": "2027-05-16T00:00:00Z",
+   "builds_on": [
+    "sign-in"
    ]
   },
   "save-a-query": {

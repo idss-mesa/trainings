@@ -4,7 +4,7 @@ title: "Get ready for a hands-on session"
 description: "Arrive signed in, with an app that starts and the practice data loaded: 4 tutorials to start with, 20 to 25 minutes in all, and more for when you have time."
 tags: [pathway, get-ready-for-a-session]
 status: draft
-generated: { by: "gen-pathways/1", at: "2026-11-15T00:00:00Z" }
+generated: { by: "gen-pathways/1", at: "2026-11-16T00:00:00Z" }
 stale_after: "2027-05-11T00:00:00Z"
 sources:
   - id: pathways
@@ -21,7 +21,7 @@ Arrive signed in, with an app that starts and the practice data loaded.
 
 **The essentials: 4 tutorials, 20 to 25 minutes in all.** Take them in order, or start wherever your question is. Nothing is locked. Each point also lists what to take if you have more time.
 
-Do the first two at least two days before. A new CyVerse account has to ask once for access to apps, and CyVerse says it answers within one to two days.
+Do the first two at least two days before. A new CyVerse account has to ask once for access to apps, and CyVerse says it answers within one to two days. "Ask CyVerse for access to interactive apps", under the first point, shows how.
 
 !!! warning "These tutorials are drafts"
     Each tutorial says at the top how far it has been checked.
@@ -35,6 +35,7 @@ Do the first two at least two days before. A new CyVerse account has to ask once
 
 If you have more time:
 
+- [Ask CyVerse for access to interactive apps](../tutorials/request-app-access.md) (5 minutes)
 - [Find your way around the MESA Portal](../tutorials/find-your-way-around.md) (5 minutes)
 - [Save your work where it survives the session](../tutorials/save-your-work.md) (5 to 10 minutes)
 - [Stop an app and find your results](../tutorials/stop-app-find-results.md) (5 minutes)
