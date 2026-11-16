@@ -416,6 +416,16 @@ class Browser(unittest.TestCase):
         self.assertIn("1 of 5 done", page.inner_text(".mesa-head"))
         self.assertIn("1 of 1 done. Point finished. Skip-check passed.", stage.inner_text())
         self.assertNotIn("p1", json.loads(self.stored(page))["points"])
+
+        # With every tutorial on the point done there is nothing to skip, so no offer.
+        page.evaluate(f"""() => {{ const r = JSON.parse(localStorage.getItem('{KEY}')); delete r.points.p4;
+            ['start-an-ai-agent', 'keep-an-ai-log'].forEach((n) => {{ r.tutorials[n] = {{ done: '2026-11-16', rev: 'r' }}; }});
+            localStorage.setItem('{KEY}', JSON.stringify(r)); }}""")
+        page.reload()
+        stage = page.locator(".mesa-stage", has_text="Explore and verify")
+        stage.locator(".mesa-skip__fold > summary", has_text="You answered this point's skip-check question").wait_for()
+        self.assertIn("3 of 3 done. Point finished.", stage.inner_text())
+        self.assertEqual(stage.get_by_role("button", name="Skip the rest of this point").count(), 0)
         self.assertEqual(errors, [])
         context.close()
 

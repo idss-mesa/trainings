@@ -379,16 +379,19 @@
 
   /* "Check first": a few questions that let a reader skip a point. Missing one
      points to the tutorials; it never closes anything off. */
-  function paintSkip(stage, m, store) {
+  function paintSkip(stage, m, store, left) {
     var ids = stage.point ? m.points[stage.point].skip_check : [];
     while (stage.skip.firstChild) stage.skip.removeChild(stage.skip.firstChild);
     if (!ids.length) return;
     var record = store.record, state = P.skipState(m, record, stage.point);
     /* Every question right, but answered on the tutorials: the reader has not
        asked to skip anything, so offer it and change nothing until they say. */
-    var offered = state === "passed" && !P.isSkipped(record, stage.point);
+    var answered = state === "passed" && !P.isSkipped(record, stage.point);
+    /* With nothing left to do on the point there is nothing to skip, so no offer. */
+    var offered = answered && left > 0;
     var fold = el("details", { class: "mesa-more mesa-skip__fold" }, [el("summary", { "data-key": "skip-" + stage.point,
       text: offered ? "You answered this point's " + (ids.length === 1 ? "question" : "questions") + ": skip the rest if you like"
+        : answered ? "You answered this point's skip-check " + (ids.length === 1 ? "question" : "questions")
         : state === "passed" ? "Skip-check passed" : "Check first: " + ids.length + (ids.length === 1 ? " question" : " questions") + ", and skip this point if you have it" })]);
     fold.open = stage.skipOpen;
     fold.addEventListener("toggle", function () { stage.skipOpen = fold.open; });
@@ -401,6 +404,8 @@
           refresh("skip-" + stage.point);
           announce("Skipped. The rest of this point is left out of your route. Nothing is locked.");
         } }));
+    } else if (answered) {
+      fold.appendChild(el("p", { class: "mesa-skip__said", text: "You got " + (ids.length === 1 ? "it" : "them all") + " right on the tutorials." }));
     } else if (state === "passed") {
       fold.appendChild(el("p", { class: "mesa-skip__said", text: "You already have this. Go on to the next point, or take the tutorials anyway." }));
     } else if (state === "missed") {
@@ -518,7 +523,7 @@
       var skipped = stage.point && P.isSkipped(record, stage.point);
       stage.meter.appendChild(document.createTextNode((got.total ? got.done + " of " + got.total + " done" : "Nothing you need here") +
         (done ? ". Point finished" : "") + (skipped ? ". Skip-check passed" : "") + (done || skipped ? "." : "")));
-      paintSkip(stage, m, store);
+      paintSkip(stage, m, store, got.total - got.done);
       if (stage.reflect) stage.reflect.sync(record, writable(store));
       stage.button.textContent = done ? "\u2713" : String(i + 1);
       stage.button.className = "mesa-map__stop" + (done ? " is-done" : isHere ? " is-here" : "");
