@@ -80,6 +80,10 @@
   that starts with its decimal point. A tutorial that was undone and marked done again
   is checked again when its self-check is already answered correctly; it used to be
   left as done only, with no way to answer the question a second time.
+* **Update**: Two fixes to marking a tutorial done. The done tick no longer appears on
+  the links to a tutorial's own sections under "On this page"; it stays on the link to
+  the tutorial. An extra tutorial opened after its pathway is finished no longer says it
+  is "the last one"; it says the pathway is finished and that this one is extra.
 
 ## 2026-11-15
 
