@@ -37,6 +37,7 @@
 .md-typeset .mesa-stop__title:focus-visible,
 .md-typeset .mesa-did > summary:focus-visible,
 .md-typeset .mesa-more > summary:focus-visible,
+.md-typeset .mesa-ask:focus-visible,
 .md-typeset .mesa-levels input:focus-visible {
   outline: 2px solid var(--mesa-accent); outline-offset: 2px;
 }

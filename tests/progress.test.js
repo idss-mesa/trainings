@@ -195,6 +195,47 @@ test("merge keeps everything finished in either record", () => {
   assert.equal(got.points.p1.level, "exploring");
 });
 
+test("merge keeps a note from both records, the file's below the one here", () => {
+  const here = P.empty();
+  here.points.p2 = { reflection: "Here note", on: "2026-11-12" };
+  here.points.p3 = { reflection: "Same in both", on: "2026-11-12" };
+  const file = P.empty();
+  file.points.p1 = { reflection: "Only in the file", on: "2026-11-10" };
+  file.points.p2 = { reflection: "File note", on: "2026-11-16" };
+  file.points.p3 = { reflection: "Same in both", on: "2026-11-16" };
+  assert.deepEqual(P.noteClashes(here, file), { joined: ["p2"], kept: [] });
+  const got = P.merge(here, file);
+  assert.equal(got.points.p1.reflection, "Only in the file");
+  assert.equal(got.points.p2.reflection, "Here note\n\nFile note");
+  assert.equal(got.points.p3.reflection, "Same in both");
+  // Merging the same file again adds nothing.
+  assert.deepEqual(P.noteClashes(got, file), { joined: [], kept: [] });
+  assert.deepEqual(P.merge(got, file), got);
+});
+
+test("merge keeps the note here when the two together would be too long", () => {
+  const here = P.empty();
+  here.points.p2 = { reflection: "a".repeat(3000), on: "2026-11-12" };
+  const file = P.empty();
+  file.points.p2 = { reflection: "b".repeat(3000), on: "2026-11-16" };
+  file.tutorials.c = { done: "2026-11-09", rev: "1" };
+  assert.deepEqual(P.noteClashes(here, file), { joined: [], kept: ["p2"] });
+  const got = P.merge(here, file);
+  assert.equal(got.points.p2.reflection, "a".repeat(3000));
+  assert.deepEqual(Object.keys(got.tutorials), ["c"]);
+});
+
+test("a date that is not a real day is refused", () => {
+  for (const day of ["2026-13-45", "2026-02-30", "0000-00-00", "2026-00-10"]) {
+    const rec = P.empty();
+    rec.tutorials.a = { done: day, rev: "1" };
+    assert.equal(P.parseImport(JSON.stringify(rec)).ok, false, day);
+  }
+  const rec = P.empty();
+  rec.tutorials.a = { done: "2028-02-29", rev: "1" };
+  assert.equal(P.parseImport(JSON.stringify(rec)).ok, true);
+});
+
 test("clear removes the record", () => {
   const store = memory();
   P.save(store, P.markDone(P.empty(), "sign-in", "r", "2026-11-14"));
