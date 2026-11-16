@@ -469,3 +469,19 @@ test("in R, a passed skip-check leaves nothing to do on that point", () => {
   const got = P.route(pathway, rec, manifest);
   assert.deepEqual([got.done, got.total], [1, 1]);
 });
+
+test("a skip-check can be noted for one point and leave the others alone", () => {
+  const rec = P.empty();
+  ["p1", "p4"].forEach((point) => manifest.points[point].skip_check.forEach((id) =>
+    P.recordCheck(rec, id, manifest.checks[id], true, 0, "2026-11-16", "r")));
+  // Right answers alone skip nothing: the page asks for it, one point at a time.
+  assert.deepEqual([P.isSkipped(rec, "p1"), P.isSkipped(rec, "p4")], [false, false]);
+  const pathway = P.findPathway(manifest, "use-an-ai-agent");
+  P.setProfile(rec, "minutes", 60);
+  const whole = P.plan(manifest, pathway, rec).names;
+  assert.ok(whole.includes("start-an-ai-agent"), "nothing is left out until the reader skips");
+  P.syncSkipped(manifest, rec, "2026-11-16", "p4");
+  assert.deepEqual([P.isSkipped(rec, "p1"), P.isSkipped(rec, "p4")], [false, true]);
+  const names = P.plan(manifest, pathway, rec).names;
+  assert.ok(names.includes("check-a-suggested-result") && !names.includes("start-an-ai-agent"));
+});

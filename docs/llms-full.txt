@@ -8491,6 +8491,12 @@ explains.
   daily readings for August 2026, described on the
   [practice data](tutorials/practice-data.md) page. The four files published earlier
   are unchanged, byte for byte, and a test now holds their checksums.
+* **Update**: Answering a self-check on its tutorial no longer shortens your route. On
+  Use an AI agent with an hour, a right answer on "Check an AI-suggested result" also
+  counted as passing that point's skip-check, so two tutorials dropped off and the
+  pathway read as finished early. Now only the "Check first" questions on a pathway
+  page skip a point. If you got them all right on the tutorials, the pathway page says
+  so and offers "Skip the rest of this point"; nothing is left out until you choose it.
 * **Update**: The answer boxes on the self-checks and the notes box under each point
   now use text of at least 16 pixels. They were at 15 on a phone, and below 16 Safari
   on an iPhone zooms the page in when a box is tapped and leaves it zoomed.
