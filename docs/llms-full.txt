@@ -9413,6 +9413,11 @@ explains.
   stored but left out of the file; both files now hold it. In the Markdown file each note
   is now a block quote with its line breaks kept, so a line of a note that starts with
   "#" can no longer become a heading of the file, and a tag in a note stays as text.
+* **Update**: Two fixes to the note boxes at the end of each point. A note is now
+  stored a moment after you stop typing and when the page is hidden, closed or left, as
+  well as when you leave the box; reloading with the cursor still in the box used to
+  lose what had been typed. After "Clear everything" the line under an empty box no
+  longer says "Saved in this browser."
 
 ## 2026-11-15
 

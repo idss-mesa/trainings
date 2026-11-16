@@ -262,23 +262,51 @@
     return form;
   }
 
-  /* The optional prompt at the end of a point. Built once; never redrawn while typed in. */
+  /* Notes that may hold text not yet stored: one "store it now" function per box. */
+  var notes = [];
+  function flushNotes() {
+    notes.forEach(function (flush) { flush(); });
+    notes = notes.filter(function (flush) { return document.contains(flush.area); });
+  }
+
+  /* The optional prompt at the end of a point. Built once; never redrawn while typed in.
+     A note is stored when the reader leaves the box, a moment after they stop
+     typing, and when the page is hidden, closed or left: text typed is not lost
+     to a reload or a closed tab. */
+  var NOTE_HINT = "Optional. Kept in this browser only; you can save your notes as a file from Your progress.";
   function reflectionBox(m, point, small) {
     var prompt = m.points[point].reflection;
     if (!prompt) return null;
     var id = "mesa-reflect-" + point + (small ? "-p" : "");
     var area = el("textarea", { id: id, rows: "3", maxlength: "4000", class: "mesa-reflect__text" });
-    var status = el("p", { class: "mesa-note", text: "Optional. Kept in this browser only; you can save your notes as a file from Your progress." });
-    area.addEventListener("change", function () {
+    var status = el("p", { class: "mesa-note", text: NOTE_HINT });
+    var dirty = false, timer = null;
+    function keep(aloud) {
+      if (timer) { window.clearTimeout(timer); timer = null; }
+      if (!dirty) return;
+      dirty = false;
       var store = P.load(storage());
       if (change(store, function (r) { P.setReflection(r, point, area.value, P.today()); })) {
         status.textContent = area.value.trim() ? "Saved in this browser." : "Cleared.";
-        announce(status.textContent);
+        if (aloud) announce(status.textContent);
       }
+    }
+    keep.area = area;
+    notes.push(keep);
+    area.addEventListener("input", function () {
+      dirty = true;
+      if (timer) window.clearTimeout(timer);
+      timer = window.setTimeout(function () { keep(false); }, 1000);
     });
+    area.addEventListener("change", function () { dirty = true; keep(true); });
     var body = el("div", { class: "mesa-reflect" }, [el("label", { for: id, text: prompt }), area, status]);
     body.sync = function (record, can) {
-      if (document.activeElement !== area) area.value = (record.points[point] || {}).reflection || "";
+      var held = (record.points[point] || {}).reflection || "";
+      if (document.activeElement !== area && !dirty) {
+        area.value = held;
+        /* Nothing is held any more (everything was cleared): do not go on saying "Saved". */
+        if (!held && status.textContent === "Saved in this browser.") status.textContent = NOTE_HINT;
+      }
       area.disabled = !can;
     };
     return body;
@@ -1057,6 +1085,7 @@
   }
 
   function draw() {
+    flushNotes(); /* a page left by the back button may hold a note not yet stored */
     manifest().then(function (m) {
       var article = document.querySelector("article.md-content__inner");
       if (!m || !article) return;
@@ -1090,6 +1119,10 @@
     if (!event.key || event.newValue === null) tries = {};
     refresh();
   });
+
+  /* A page being hidden or closed stores any note still being typed. */
+  window.addEventListener("pagehide", flushNotes);
+  document.addEventListener("visibilitychange", function () { if (document.visibilityState === "hidden") flushNotes(); });
 
   /* Draw as soon as this file runs: it is loaded after the article, so with
      the manifest already kept for the session the page is drawn before it is
