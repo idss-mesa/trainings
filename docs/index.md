@@ -90,6 +90,8 @@ notebook, so do the first one first.
 | Look through a folder with many items | [Browse a large folder as a sorted list](tutorials/browse-a-large-folder.md) | 5 min |
 | See what a colleague recorded about a folder | [Read the metadata on a folder shared with you](tutorials/read-shared-metadata.md) | 5–10 min |
 | Take back access I gave | [Stop sharing a folder](tutorials/stop-sharing-a-folder.md) | 5 min |
+| Let a colleague see an analysis | [Share an analysis with a collaborator](tutorials/share-an-analysis.md) | 5 min |
+| Find people working on my topic | [Find a MESA working group and how to join it](tutorials/find-a-working-group.md) | 5 min |
 | Say where my data came from | [Say where your input data came from](tutorials/say-where-data-came-from.md) | 5–10 min |
 | Find out if someone else can rerun my work | [Hand your folder to a colleague and have them rerun it](tutorials/hand-over-and-rerun.md) | 10 min |
 | Know how much computing time and space I have | [Check your CPU hours and storage](tutorials/check-your-usage.md) | 5 min |

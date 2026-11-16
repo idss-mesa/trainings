@@ -655,7 +655,9 @@
     "tutorials": [
      "share-a-folder",
      "read-shared-metadata",
-     "stop-sharing-a-folder"
+     "stop-sharing-a-folder",
+     "share-an-analysis",
+     "find-a-working-group"
     ]
    }
   ],
@@ -889,6 +891,20 @@
    "builds_on": [
     "sign-in",
     "practice-data"
+   ]
+  },
+  "find-a-working-group": {
+   "title": "Find a MESA working group and how to join it",
+   "description": "Search the Working Groups page of the MESA Portal, open a group's page, and read what the group is for and who may join, before you ask to join.",
+   "outcome": "know which MESA working groups exist, what one of them is for, and what it asks of people who want to join.",
+   "point": "p1",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-16T00:00:00Z",
+   "stale_after": "2027-05-16T00:00:00Z",
+   "builds_on": [
+    "sign-in"
    ]
   },
   "find-community-data": {
@@ -1496,6 +1512,21 @@
    "builds_on": [
     "sign-in",
     "practice-data"
+   ]
+  },
+  "share-an-analysis": {
+   "title": "Share an analysis with a collaborator",
+   "description": "Give another CyVerse user read access to one of your analyses from the Analyses page of the MESA Portal, and confirm they are listed.",
+   "outcome": "have one of your analyses shared with a collaborator, who can see it but not change it.",
+   "point": "p1",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-16T00:00:00Z",
+   "stale_after": "2027-05-16T00:00:00Z",
+   "builds_on": [
+    "sign-in",
+    "stop-app-find-results"
    ]
   },
   "sign-in": {

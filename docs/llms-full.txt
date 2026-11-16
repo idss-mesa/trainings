@@ -96,6 +96,8 @@ notebook, so do the first one first.
 | Look through a folder with many items | [Browse a large folder as a sorted list](https://idss-mesa.github.io/trainings/tutorials/browse-a-large-folder/) | 5 min |
 | See what a colleague recorded about a folder | [Read the metadata on a folder shared with you](https://idss-mesa.github.io/trainings/tutorials/read-shared-metadata/) | 5–10 min |
 | Take back access I gave | [Stop sharing a folder](https://idss-mesa.github.io/trainings/tutorials/stop-sharing-a-folder/) | 5 min |
+| Let a colleague see an analysis | [Share an analysis with a collaborator](https://idss-mesa.github.io/trainings/tutorials/share-an-analysis/) | 5 min |
+| Find people working on my topic | [Find a MESA working group and how to join it](https://idss-mesa.github.io/trainings/tutorials/find-a-working-group/) | 5 min |
 | Say where my data came from | [Say where your input data came from](https://idss-mesa.github.io/trainings/tutorials/say-where-data-came-from/) | 5–10 min |
 | Find out if someone else can rerun my work | [Hand your folder to a colleague and have them rerun it](https://idss-mesa.github.io/trainings/tutorials/hand-over-and-rerun/) | 10 min |
 | Know how much computing time and space I have | [Check your CPU hours and storage](https://idss-mesa.github.io/trainings/tutorials/check-your-usage/) | 5 min |
@@ -637,7 +639,7 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 
 ## 1. Orient and navigate
 
-*Work in MESA.* You can get into MESA, find data, run an app, and keep what you make. 27 tutorials, 150 to 185 minutes in all.
+*Work in MESA.* You can get into MESA, find data, run an app, and keep what you make. 29 tutorials, 160 to 195 minutes in all.
 
 1. [Sign in to the MESA Portal with a CyVerse account](https://idss-mesa.github.io/trainings/tutorials/sign-in/) (5 minutes)
 2. [Find your way around the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/find-your-way-around/) (5 minutes)
@@ -684,6 +686,8 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 1. [Share a folder with a collaborator](https://idss-mesa.github.io/trainings/tutorials/share-a-folder/) (5 minutes)
 2. [Read the metadata on a folder shared with you](https://idss-mesa.github.io/trainings/tutorials/read-shared-metadata/) (5 to 10 minutes)
 3. [Stop sharing a folder](https://idss-mesa.github.io/trainings/tutorials/stop-sharing-a-folder/) (5 minutes)
+4. [Share an analysis with a collaborator](https://idss-mesa.github.io/trainings/tutorials/share-an-analysis/) (5 minutes)
+5. [Find a MESA working group and how to join it](https://idss-mesa.github.io/trainings/tutorials/find-a-working-group/) (5 minutes)
 
 ## 2. Run and understand
 
@@ -6978,6 +6982,180 @@ both.
 
 *Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13 and followed once on the live portal that day.*
 
+---8<--- https://idss-mesa.github.io/trainings/tutorials/share-an-analysis/
+
+---
+type: Guide
+title: "Share an analysis with a collaborator"
+description: "Give another CyVerse user read access to one of your analyses from the Analyses page of the MESA Portal, and confirm they are listed."
+tags: [byte, p1, portal, analyses, sharing]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-16T00:00:00Z" }
+stale_after: "2027-05-16T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/analyses/"
+    title: "Managing analyses in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Share an analysis with a collaborator
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once on the live portal on 2026-11-16, by the AI
+    assistant that drafted them. The collaborator's side was not checked. No person has yet followed them, so a screen may
+    differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** have one of your analyses shared with a collaborator, who can see it but
+not change it.
+
+**Time:** 5 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/), an
+analysis of your own, such as one from
+[Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/), and your collaborator's
+CyVerse username.
+
+## Steps
+
+1. In the sidebar, click **Analyses**. If the analysis has finished, click the
+   **Completed Analyses** heading to unfold the list.
+
+    You should see: a card for the analysis, with **Share** among its buttons.
+
+2. Click **Share**.
+
+    You should see: a window headed **Share** and the analysis's name, with **Share
+    with User** and **Current Permissions**, which lists only you, marked **own**.
+
+    ![Sharing a running analysis with another CyVerse user](https://idss-mesa.github.io/docs/assets/portal/analyses-share.webp)
+
+3. Under **Share with User**, type your collaborator's complete CyVerse username.
+
+    You should see: the username offered on a line under the box.
+
+4. Click that line.
+
+    You should see: the line go, and the username stay in the box.
+
+5. Leave the access level at **Read Only**, then click **Share**.
+
+    You should see: the box empty again. The new name may not be listed yet.
+
+6. Click **Close**, then click **Share** on the same card again.
+
+    You should see: your collaborator under **Current Permissions**, marked **read**.
+
+## Check it worked
+
+**Current Permissions** lists two names: yours with **own** and your collaborator's
+with **read**. Sharing the analysis does not share your files: what you saved under
+`~/data-store` stays private until you
+[share that folder](https://idss-mesa.github.io/trainings/tutorials/share-a-folder/).
+
+## If it didn't
+
+**No line appears under the box.** The portal offers only usernames that exist. Check
+the spelling with your collaborator; it needs the whole username.
+
+**There is no Share button on the card.** **Share** is offered on running and
+completed analyses. A failed or canceled one has none.
+
+**You shared with the wrong person.** Open the window again and click the red **×**
+beside their name. This was not tried when the tutorial was written.
+
+## Next
+
+- [Share a folder with a collaborator](https://idss-mesa.github.io/trainings/tutorials/share-a-folder/)
+- [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/)
+- Reference: [Managing analyses](https://idss-mesa.github.io/docs/portal/analyses/).
+
+*Not yet validated by a person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16 and followed once on the live portal that day, from the sharing side only.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/find-a-working-group/
+
+---
+type: Guide
+title: "Find a MESA working group and how to join it"
+description: "Search the Working Groups page of the MESA Portal, open a group's page, and read what the group is for and who may join, before you ask to join."
+tags: [byte, p1, portal, working-groups, community]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-16T00:00:00Z" }
+stale_after: "2027-05-16T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/overview/"
+    title: "The MESA Portal overview"
+    author: "team:idss-mesa"
+---
+
+# Find a MESA working group and how to join it
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once on the live portal on 2026-11-16, by the AI
+    assistant that drafted them. **Request to Join** was not clicked. No person has yet followed them, so a screen may
+    differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** know which MESA working groups exist, what one of them is for, and what
+it asks of people who want to join.
+
+**Time:** 5 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/).
+
+## Steps
+
+1. In the sidebar, click **Working Groups**.
+
+    You should see: a card for each group, with its name, a short description, its
+    number of members, and a few tags. The header counts the groups.
+
+2. In the search box, type a word from your field, for example `synthesis`.
+
+    You should see: only the cards whose name, description, or tags hold that word.
+    On the day this was written, `synthesis` left two of seven.
+
+3. Clear the search box.
+
+    You should see: every card again.
+
+4. On a card that interests you, click **View details**.
+
+    You should see: the group's own page, with its name in the header and a
+    **Request to Join** button.
+
+5. Read **About This Working Group**.
+
+    You should see: what the group studies, who leads it, and often the Data Store
+    folder where it keeps shared data, such as a folder under `/iplant/home/shared/`.
+
+6. Scroll to **Requirements to Join** and read it.
+
+    You should see: who the group is for, and how requests are decided. Do not click
+    **Request to Join** unless you fit and mean to take part: the request goes to the
+    group's owners.
+
+## Check it worked
+
+You can name one group, say in a sentence what it is for, and say whether its
+requirements fit you. Your **Home** page lists the groups you belong to under **My
+Working Groups**; until you have joined one it reads *You're not in any working groups
+yet*.
+
+## If it didn't
+
+**The search leaves no cards.** No group uses that word. Try a broader one, or clear
+the box and read the tags on the cards.
+
+**A group's page has no Request to Join button.** You may already be a member, or have
+a request waiting. Look for the group under **My Working Groups** on **Home**. This
+case was not seen when the tutorial was written.
+
+## Next
+
+- [Find MESA's community data in the Data Browser](https://idss-mesa.github.io/trainings/tutorials/find-community-data/), where
+  groups' shared folders are.
+- [Find your way around the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/find-your-way-around/)
+- Reference: [The MESA Portal overview](https://idss-mesa.github.io/docs/portal/overview/).
+
+*Not yet validated by a person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16 and followed once on the live portal that day, without asking to join a group.*
+
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/check-your-usage/
 
 ---
@@ -9918,6 +10096,12 @@ explains.
 
 ## 2026-11-16
 
+* **Creation**: Added two portal tutorials:
+  [Share an analysis with a collaborator](tutorials/share-an-analysis.md) and
+  [Find a MESA working group and how to join it](tutorials/find-a-working-group.md). Each
+  was followed once on the live portal by the AI assistant that drafted it. The
+  collaborator's side of the share was not checked, and no request to join a group was
+  sent. No person has yet followed them.
 * **Creation**: Added R versions of the four "Combine and clean" tutorials:
   [Join two tables in R and keep the unmatched rows visible](tutorials/r-join-and-keep-unmatched.md),
   [Bring two units onto one scale in R](tutorials/r-convert-units-before-comparing.md),

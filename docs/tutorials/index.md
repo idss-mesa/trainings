@@ -53,6 +53,8 @@
 * [Browse a large folder as a sorted list](browse-a-large-folder.md) - Switch the MESA Portal's Data Browser to a list, page through a folder with many items, and sort what is on the page.
 * [Read the metadata on a folder shared with you](read-shared-metadata.md) - Open the metadata on a folder another CyVerse user has shared with you, in the MESA Portal's quick panel and on its full metadata page.
 * [Stop sharing a folder](stop-sharing-a-folder.md) - Take away a collaborator's access to a folder in your Data Store from the MESA Portal's share dialog, and confirm the folder is private again.
+* [Share an analysis with a collaborator](share-an-analysis.md) - Give another CyVerse user read access to one of your analyses from the Analyses page of the MESA Portal, and confirm they are listed.
+* [Find a MESA working group and how to join it](find-a-working-group.md) - Search the Working Groups page of the MESA Portal, open a group's page, and read what the group is for and who may join, before you ask to join.
 * [Check your CPU hours and storage](check-your-usage.md) - Find how many CPU hours and how much Data Store space your CyVerse plan allows, and how much you have used, in the MESA Portal.
 * [Read a notebook in the portal without starting an app](view-a-notebook.md) - Open a saved Jupyter notebook in the MESA Portal's Notebook Viewer to read its code and saved output, without launching JupyterLab.
 * [Look inside a CSV file from the portal](preview-a-table.md) - Open a CSV file in the MESA Portal's Data Viewer and read its columns, row count, and value ranges, then run one SQL query, without launching an app.

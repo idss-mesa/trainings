@@ -2,6 +2,12 @@
 
 ## 2026-11-16
 
+* **Creation**: Added two portal tutorials:
+  [Share an analysis with a collaborator](tutorials/share-an-analysis.md) and
+  [Find a MESA working group and how to join it](tutorials/find-a-working-group.md). Each
+  was followed once on the live portal by the AI assistant that drafted it. The
+  collaborator's side of the share was not checked, and no request to join a group was
+  sent. No person has yet followed them.
 * **Creation**: Added R versions of the four "Combine and clean" tutorials:
   [Join two tables in R and keep the unmatched rows visible](tutorials/r-join-and-keep-unmatched.md),
   [Bring two units onto one scale in R](tutorials/r-convert-units-before-comparing.md),
