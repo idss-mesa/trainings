@@ -35,6 +35,9 @@
   daily readings for August 2026, described on the
   [practice data](tutorials/practice-data.md) page. The four files published earlier
   are unchanged, byte for byte, and a test now holds their checksums.
+* **Update**: The answer boxes on the self-checks and the notes box under each point
+  now use text of at least 16 pixels. They were at 15 on a phone, and below 16 Safari
+  on an iPhone zooms the page in when a box is tapped and leaves it zoomed.
 * **Update**: In the six self-checks with choices, the right answer was always listed
   first. The choices are now in a plain order, and the site build refuses a set of
   self-checks where the right answer mostly sits in one place.

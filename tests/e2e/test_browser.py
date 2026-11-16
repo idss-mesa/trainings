@@ -406,6 +406,14 @@ class Browser(unittest.TestCase):
         self.assertIn("Nothing you need here", page.inner_text(".mesa-stage:visible .mesa-meter"))
         self.assertEqual(page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"), True)
         self.shot(page, "06-phone-pathway", full=False)
+        # A field under 16px makes Safari on a phone zoom in when it is tapped.
+        size = "[...document.querySelectorAll('%s')].map(e => parseFloat(getComputedStyle(e).fontSize))"
+        notes = page.evaluate(size % ".mesa-reflect__text")
+        self.assertTrue(notes, "no notes box on the pathway page")
+        self.assertGreaterEqual(min(notes), 16)
+        page.goto(self.base + "tutorials/check-range-and-missing/")
+        page.locator(".mesa-check__input").first.wait_for()
+        self.assertGreaterEqual(min(page.evaluate(size % ".mesa-check__input")), 16)
         context.close()
 
     def test_everything_reads_with_javascript_off(self):
