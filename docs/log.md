@@ -2,6 +2,14 @@
 
 ## 2026-11-16
 
+* **Creation**: Added R versions of the four "Combine and clean" tutorials:
+  [Join two tables in R and keep the unmatched rows visible](tutorials/r-join-and-keep-unmatched.md),
+  [Bring two units onto one scale in R](tutorials/r-convert-units-before-comparing.md),
+  [Find and remove a repeated row in R](tutorials/r-remove-a-repeated-row.md), and
+  [Save a query from R so someone else can run it](tutorials/r-save-a-query.md). The code
+  was run in MESA RStudio Geospatial (R 4.6.2) by the AI assistant that drafted it; no
+  person has yet followed the steps. A reader who answers "R" on the pathways page is
+  given these in place of the Python versions.
 * **Creation**: Added three tutorials for buttons the portal has now had repaired:
   [Upload a file from your computer to your Data Store](tutorials/upload-a-file.md),
   [Download a file from your Data Store to your computer](tutorials/download-a-file.md), and
