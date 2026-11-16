@@ -610,6 +610,14 @@
     ]
    },
    {
+    "title": "Files in and out",
+    "tutorials": [
+     "upload-a-file",
+     "download-a-file",
+     "make-a-new-file"
+    ]
+   },
+   {
     "title": "Find and look",
     "tutorials": [
      "search-the-data-browser",
@@ -851,6 +859,21 @@
     "sign-in"
    ]
   },
+  "download-a-file": {
+   "title": "Download a file from your Data Store to your computer",
+   "description": "Save a copy of a file from the MESA Portal Data Browser to your own computer with the card's Download button, and confirm the copy is complete.",
+   "outcome": "have a copy of one Data Store file on your own computer, and know it is whole.",
+   "point": "p1",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-16T00:00:00Z",
+   "stale_after": "2027-05-16T00:00:00Z",
+   "builds_on": [
+    "sign-in",
+    "practice-data"
+   ]
+  },
   "find-community-data": {
    "title": "Find MESA's community data in the Data Browser",
    "description": "Open the MESA community folder in the portal's Data Browser, confirm where you are from the folder header, and copy a folder's path.",
@@ -1025,6 +1048,21 @@
    "stale_after": "2027-05-13T00:00:00Z",
    "builds_on": [
     "sign-in"
+   ]
+  },
+  "make-a-new-file": {
+   "title": "Start a new file in the Data Browser",
+   "description": "Create a new file from a template, such as a Markdown note, in a folder of your Data Store with the New File button in the MESA Portal Data Browser.",
+   "outcome": "have a new file in your Data Store, started from a template, ready to open in a MESA app.",
+   "point": "p1",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-16T00:00:00Z",
+   "stale_after": "2027-05-16T00:00:00Z",
+   "builds_on": [
+    "sign-in",
+    "make-a-folder"
    ]
   },
   "map-points-in-rstudio": {
@@ -1468,6 +1506,21 @@
    "status": "draft",
    "revised": "2026-11-13T00:00:00Z",
    "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "sign-in",
+    "make-a-folder"
+   ]
+  },
+  "upload-a-file": {
+   "title": "Upload a file from your computer to your Data Store",
+   "description": "Copy a file from your own computer into a folder of your CyVerse Data Store with the Upload button in the MESA Portal Data Browser, and confirm it arrived whole.",
+   "outcome": "have a file from your computer in your Data Store, where MESA apps can read it.",
+   "point": "p1",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-16T00:00:00Z",
+   "stale_after": "2027-05-16T00:00:00Z",
    "builds_on": [
     "sign-in",
     "make-a-folder"

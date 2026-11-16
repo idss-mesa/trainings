@@ -90,6 +90,9 @@ notebook, so do the first one first.
 | Give a folder a better name | [Rename a folder in your Data Store](https://idss-mesa.github.io/trainings/tutorials/rename-a-folder/) | 5 min |
 | Tidy folders away | [Move folders into another folder](https://idss-mesa.github.io/trainings/tutorials/move-folders/) | 5–10 min |
 | Undo a deletion | [Move a folder to the trash and get it back](https://idss-mesa.github.io/trainings/tutorials/trash-and-restore/) | 10 min |
+| Put a file from my computer into MESA | [Upload a file from your computer to your Data Store](https://idss-mesa.github.io/trainings/tutorials/upload-a-file/) | 5 min |
+| Take a file home | [Download a file from your Data Store to your computer](https://idss-mesa.github.io/trainings/tutorials/download-a-file/) | 5 min |
+| Start a note or a script | [Start a new file in the Data Browser](https://idss-mesa.github.io/trainings/tutorials/make-a-new-file/) | 5 min |
 | Look through a folder with many items | [Browse a large folder as a sorted list](https://idss-mesa.github.io/trainings/tutorials/browse-a-large-folder/) | 5 min |
 | See what a colleague recorded about a folder | [Read the metadata on a folder shared with you](https://idss-mesa.github.io/trainings/tutorials/read-shared-metadata/) | 5–10 min |
 | Take back access I gave | [Stop sharing a folder](https://idss-mesa.github.io/trainings/tutorials/stop-sharing-a-folder/) | 5 min |
@@ -626,7 +629,7 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 
 ## 1. Orient and navigate
 
-*Work in MESA.* You can get into MESA, find data, run an app, and keep what you make. 24 tutorials, 135 to 170 minutes in all.
+*Work in MESA.* You can get into MESA, find data, run an app, and keep what you make. 27 tutorials, 150 to 185 minutes in all.
 
 1. [Sign in to the MESA Portal with a CyVerse account](https://idss-mesa.github.io/trainings/tutorials/sign-in/) (5 minutes)
 2. [Find your way around the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/find-your-way-around/) (5 minutes)
@@ -642,6 +645,12 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 2. [Rename a folder in your Data Store](https://idss-mesa.github.io/trainings/tutorials/rename-a-folder/) (5 minutes)
 3. [Move folders into another folder](https://idss-mesa.github.io/trainings/tutorials/move-folders/) (5 to 10 minutes)
 4. [Move a folder to the trash and get it back](https://idss-mesa.github.io/trainings/tutorials/trash-and-restore/) (10 minutes)
+
+### Files in and out
+
+1. [Upload a file from your computer to your Data Store](https://idss-mesa.github.io/trainings/tutorials/upload-a-file/) (5 minutes)
+2. [Download a file from your Data Store to your computer](https://idss-mesa.github.io/trainings/tutorials/download-a-file/) (5 minutes)
+3. [Start a new file in the Data Browser](https://idss-mesa.github.io/trainings/tutorials/make-a-new-file/) (5 minutes)
 
 ### Find and look
 
@@ -5896,6 +5905,280 @@ wait and try again.
 
 *Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-13 and followed once on the live portal that day.*
 
+---8<--- https://idss-mesa.github.io/trainings/tutorials/upload-a-file/
+
+---
+type: Guide
+title: "Upload a file from your computer to your Data Store"
+description: "Copy a file from your own computer into a folder of your CyVerse Data Store with the Upload button in the MESA Portal Data Browser, and confirm it arrived whole."
+tags: [byte, p1, portal, data-browser, upload]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-16T00:00:00Z" }
+stale_after: "2027-05-16T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Upload a file from your computer to your Data Store
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once on the live portal on 2026-11-16, by the AI
+    assistant that drafted them. In step 3 the file was handed to the page by a
+    script, because the test browser cannot open a file chooser; dragging a file onto
+    the listing was not tried. No person has yet followed them.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** have a file from your computer in your Data Store, where MESA apps can
+read it.
+
+**Time:** 5 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/), and
+a folder of your own, such as `mesa-practice` from
+[Make a folder in your Data Store](https://idss-mesa.github.io/trainings/tutorials/make-a-folder/). Have a small file ready on your
+computer. [Bring your own data to MESA](https://idss-mesa.github.io/trainings/bring-your-own-data/) says what to leave
+out.
+
+## Steps
+
+1. In the sidebar, click **Data Browser**, then **My Files**, and open the folder the
+   file should go into.
+
+    You should see: the folder's name in the dark header band, and **Upload**,
+    **New File**, and **New Folder** above the listing.
+
+2. Click **Upload**.
+
+    You should see: an **Upload Files** window with a **Choose Files** button.
+
+    ![The Upload Files dialog with two files selected](https://idss-mesa.github.io/docs/assets/portal/data-upload.webp)
+
+3. Click **Choose Files** and pick the file on your computer. Note its size there.
+
+    You should see: the file's name and size listed in the window, for example
+    *gauges-copy.csv (135 B)*.
+
+4. Click **Upload**.
+
+    You should see: the window close, and an **Uploads** panel at the bottom right
+    with the file's name and a progress bar.
+
+5. Wait for the green tick in the **Uploads** panel.
+
+    You should see: the listing refresh by itself within about ten seconds, with a new
+    card for the file.
+
+6. Read the size on the new card.
+
+    You should see: the size the file has on your computer.
+
+## Check it worked
+
+The file's card is in the folder, and its size matches the original. Inside a MESA app
+the file is at `~/data-store/home/<your username>/` followed by the folder and file
+name.
+
+## If it didn't
+
+**There is no Upload button.** You are in a folder you cannot write to, such as
+**Community**, or you are signed out. Click **My Files** and look again.
+
+**The tick is green but there is no card.** Wait a few seconds and reload the page.
+
+**The Uploads panel shows an error.** Read its message, then try once more. If it fails
+again, [tell us](https://github.com/idss-mesa/trainings/issues) what the message says,
+without any private file name.
+
+## Next
+
+- [Download a file from your Data Store to your computer](https://idss-mesa.github.io/trainings/tutorials/download-a-file/)
+- [Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/)
+- Reference: [Managing data, "Upload, create, move, and delete"](https://idss-mesa.github.io/docs/portal/data/#upload-create-move-and-delete).
+
+*Not yet validated by a person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16 and followed once on the live portal that day, with the file supplied by a script.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/download-a-file/
+
+---
+type: Guide
+title: "Download a file from your Data Store to your computer"
+description: "Save a copy of a file from the MESA Portal Data Browser to your own computer with the card's Download button, and confirm the copy is complete."
+tags: [byte, p1, portal, data-browser, download]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-16T00:00:00Z" }
+stale_after: "2027-05-16T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Download a file from your Data Store to your computer
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once on the live portal on 2026-11-16, by the AI
+    assistant that drafted them. No person has yet followed them, so a screen may
+    differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** have a copy of one Data Store file on your own computer, and know it is
+whole.
+
+**Time:** 5 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/), and
+a file in your Data Store, such as `gauges.csv` from the
+[practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/).
+
+## Steps
+
+1. In the sidebar, click **Data Browser**, then **My Files**, and open the folder that
+   holds the file.
+
+    You should see: a card for each file, with its name, its size, and a row of small
+    buttons at the right.
+
+2. On the file's card, hold the pointer over the button with the downward arrow.
+
+    You should see: the label **Download**.
+
+3. Note the size on the card, then click **Download**.
+
+    You should see: the message *Downloading gauges.csv...* at the top right. The page
+    itself does not change.
+
+4. Look at your browser's downloads list.
+
+    You should see: the file, under the name it has in the Data Store. Your browser
+    saves it where it saves every download, usually a folder named **Downloads**.
+
+5. Compare the size of the saved file with the size on the card.
+
+    You should see: the same size. For `gauges.csv`:
+
+    ```text
+    135 B
+    ```
+
+## Check it worked
+
+The saved file opens on your computer, and its size matches the card. `gauges.csv`
+begins with the line `gauge_id,name,unit,elevation_m`.
+
+## If it didn't
+
+**A red message reads "Could not download …".** The portal could not fetch the file.
+Reload the page, check that you are still signed in, and try again.
+
+**The message appears but no file arrives.** Your browser may have asked whether this
+site may download files, or blocked it. Look for a prompt or an icon in the address
+bar, and allow it.
+
+**The file is large and nothing seems to happen.** The portal reads the whole file
+before your browser saves it, so a large file takes a while with no progress bar. Wait,
+and do not click again.
+
+## Next
+
+- [Upload a file from your computer to your Data Store](https://idss-mesa.github.io/trainings/tutorials/upload-a-file/)
+- [Look inside a CSV file from the portal](https://idss-mesa.github.io/trainings/tutorials/preview-a-table/), to read a file without
+  downloading it.
+- Reference: [Managing data](https://idss-mesa.github.io/docs/portal/data/).
+
+*Not yet validated by a person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16 and followed once on the live portal that day.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/make-a-new-file/
+
+---
+type: Guide
+title: "Start a new file in the Data Browser"
+description: "Create a new file from a template, such as a Markdown note, in a folder of your Data Store with the New File button in the MESA Portal Data Browser."
+tags: [byte, p1, portal, data-browser, files]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-16T00:00:00Z" }
+stale_after: "2027-05-16T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Start a new file in the Data Browser
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once on the live portal on 2026-11-16, by the AI
+    assistant that drafted them. No person has yet followed them, so a screen may
+    differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** have a new file in your Data Store, started from a template, ready to
+open in a MESA app.
+
+**Time:** 5 minutes. **You need:** to be [signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/), and
+a folder of your own, such as `mesa-practice` from
+[Make a folder in your Data Store](https://idss-mesa.github.io/trainings/tutorials/make-a-folder/).
+
+## Steps
+
+1. In the sidebar, click **Data Browser**, then **My Files**, and open the folder the
+   file should go into.
+
+    You should see: **Upload**, **New File**, and **New Folder** above the listing.
+
+2. Click **New File**.
+
+    You should see: a **Create New File** window with a **Filename** box, a row of
+    endings under **Extension** (`.md`, `.txt`, `.py`, `.json`, `.csv`, `.r`, and
+    **Custom**), and a **Template preview**.
+
+3. Type a name without an ending, for example `notes`. Use lower-case letters,
+   numbers, and hyphens.
+
+    You should see: the name in the box.
+
+4. Under **Extension**, click the kind of file you want. `.md`, a Markdown note, is
+   already chosen.
+
+    You should see: the **Template preview** show what the file will start with. For
+    `.md` that is one line:
+
+    ```text
+    # Untitled
+    ```
+
+5. Click **Create**.
+
+    You should see: the button read **Creating…**. This can take ten seconds; do not
+    click again.
+
+6. Wait for the listing to refresh.
+
+    You should see: a card named `notes.md`, 12.0 B in size.
+
+## Check it worked
+
+The folder lists `notes.md`. The portal made the file; it does not edit it. To write
+in it, open it in a MESA app, where it is at
+`~/data-store/home/<your username>/` followed by the folder name and `notes.md`.
+
+## If it didn't
+
+**There is no New File button.** You are in a folder you cannot write to, such as
+**Community**, or you are signed out. Click **My Files** and look again.
+
+**The new file does not appear.** Wait a few seconds and reload the page.
+
+**You need an ending that is not listed.** Click **Custom** and type the ending, for
+example `.yaml`. A custom ending starts as an empty file.
+
+## Next
+
+- [Write a README for a data folder](https://idss-mesa.github.io/trainings/tutorials/write-a-readme/)
+- [Launch MESA JupyterLab with your Data Store mounted](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), to open
+  and edit the file.
+- Reference: [Managing data, "Upload, create, move, and delete"](https://idss-mesa.github.io/docs/portal/data/#upload-create-move-and-delete).
+
+*Not yet validated by a person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16 and followed once on the live portal that day.*
+
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/browse-a-large-folder/
 
 ---
@@ -8844,8 +9127,9 @@ access.
 
 ## Getting it into your Data Store
 
-- From your computer: use **Upload** in the portal's Data Browser. See
-  [Managing data, "Upload, create, move, and delete"](https://idss-mesa.github.io/docs/portal/data/#upload-create-move-and-delete)[^docs-data].
+- From your computer:
+  [Upload a file from your computer to your Data Store](https://idss-mesa.github.io/trainings/tutorials/upload-a-file/).
+  Reference: [Managing data, "Upload, create, move, and delete"](https://idss-mesa.github.io/docs/portal/data/#upload-create-move-and-delete)[^docs-data].
 - From the web:
   [Download a file from the web into your Data Store with MESA Cloud Shell](https://idss-mesa.github.io/trainings/tutorials/cloud-shell-download/).
 
@@ -9082,6 +9366,13 @@ explains.
 
 ## 2026-11-16
 
+* **Creation**: Added three tutorials for buttons the portal has now had repaired:
+  [Upload a file from your computer to your Data Store](tutorials/upload-a-file.md),
+  [Download a file from your Data Store to your computer](tutorials/download-a-file.md), and
+  [Start a new file in the Data Browser](tutorials/make-a-new-file.md). Each was followed
+  once on the live portal by the AI assistant that drafted it; in the upload tutorial
+  the file was supplied by a script, because the test browser cannot open a file
+  chooser. No person has yet followed them.
 * **Update**: The four R tutorials added today were followed in MESA RStudio Geospatial
   (R 4.6.2), and every output matched. Three details changed in
   [Leave an R script someone else can rerun](tutorials/r-leave-a-rerunnable-script.md):
