@@ -89,7 +89,7 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 
 ## 2. Run and understand
 
-*Understand data.* You can say what a dataset holds and where it is incomplete or doubtful, before you compute with it. 13 tutorials, 75 to 95 minutes in all.
+*Understand data.* You can say what a dataset holds and where it is incomplete or doubtful, before you compute with it. 16 tutorials, 95 to 120 minutes in all.
 
 1. [Practice data: five invented rain gauges](tutorials/practice-data.md) (5 minutes)
 2. [Load a file from your Data Store into a notebook](tutorials/load-a-file.md) (5 minutes)
@@ -106,10 +106,16 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 ### In R, in MESA RStudio Geospatial
 
 1. [Load a file from your Data Store in RStudio](tutorials/r-load-a-file.md) (5 to 10 minutes)
-2. [Check a column's range and missing values in R](tutorials/r-check-range-and-missing.md) (5 minutes)
-3. [Tally a quality flag in R](tutorials/r-tally-a-quality-flag.md) (5 minutes)
-4. [Count records per day in R](tutorials/r-count-records-per-day.md) (5 to 10 minutes)
-5. [Map point data with sf in MESA RStudio Geospatial](tutorials/map-points-in-rstudio.md) (10 minutes)
+2. [Read the data dictionary before the data, in R](tutorials/r-read-the-data-dictionary.md) (5 minutes)
+3. [Check a column's range and missing values in R](tutorials/r-check-range-and-missing.md) (5 minutes)
+4. [Tally a quality flag in R](tutorials/r-tally-a-quality-flag.md) (5 minutes)
+5. [Count records per day in R](tutorials/r-count-records-per-day.md) (5 to 10 minutes)
+6. [Map point data with sf in MESA RStudio Geospatial](tutorials/map-points-in-rstudio.md) (10 minutes)
+
+### More kinds of table, in R
+
+1. [Turn UTC timestamps into local days in R](tutorials/r-local-days-from-utc.md) (10 minutes)
+2. [Work with a long table in R](tutorials/r-work-with-a-long-table.md) (5 to 10 minutes)
 
 ## 3. Query and connect
 

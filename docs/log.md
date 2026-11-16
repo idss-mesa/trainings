@@ -2,6 +2,13 @@
 
 ## 2026-11-16
 
+* **Creation**: Added the last three R versions of the data tutorials at point 2:
+  [Read the data dictionary before the data, in R](tutorials/r-read-the-data-dictionary.md),
+  [Turn UTC timestamps into local days in R](tutorials/r-local-days-from-utc.md), and
+  [Work with a long table in R](tutorials/r-work-with-a-long-table.md). The code was run
+  in MESA RStudio Geospatial (R 4.6.2) by the AI assistant that drafted it; no person
+  has yet followed the steps. Every Python data tutorial at points 2 and 3 now has an
+  R version.
 * **Creation**: Added two portal tutorials:
   [Share an analysis with a collaborator](tutorials/share-an-analysis.md) and
   [Find a MESA working group and how to join it](tutorials/find-a-working-group.md). Each

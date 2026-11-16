@@ -142,6 +142,9 @@ These use MESA RStudio Geospatial and the same practice data.
 | Compare gauges that report in different units, in R | [Bring two units onto one scale in R](tutorials/r-convert-units-before-comparing.md) | 10 min |
 | Stop a row being counted twice, in R | [Find and remove a repeated row in R](tutorials/r-remove-a-repeated-row.md) | 5–10 min |
 | Hand over a query from R | [Save a query from R so someone else can run it](tutorials/r-save-a-query.md) | 5–10 min |
+| Know what a column means before using it, in R | [Read the data dictionary before the data, in R](tutorials/r-read-the-data-dictionary.md) | 5 min |
+| Put evening rain on the right day, in R | [Turn UTC timestamps into local days in R](tutorials/r-local-days-from-utc.md) | 10 min |
+| Handle one row per kind of measurement, in R | [Work with a long table in R](tutorials/r-work-with-a-long-table.md) | 5–10 min |
 | Put points on a map | [Map point data with sf in MESA RStudio Geospatial](tutorials/map-points-in-rstudio.md) | 10 min |
 
 ## The other MESA apps

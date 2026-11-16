@@ -35,6 +35,7 @@ New to the portal? Take [New to MESA](new-to-mesa.md) first.
 
 If you have more time:
 
+- [Read the data dictionary before the data, in R](../tutorials/r-read-the-data-dictionary.md) (5 minutes)
 - [Check a column's range and missing values in R](../tutorials/r-check-range-and-missing.md) (5 minutes)
 - [Count records per day in R](../tutorials/r-count-records-per-day.md) (5 to 10 minutes)
 - [Map point data with sf in MESA RStudio Geospatial](../tutorials/map-points-in-rstudio.md) (10 minutes)
