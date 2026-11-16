@@ -328,6 +328,20 @@ class Browser(unittest.TestCase):
         self.assertIn("- Checked: Count records per day to find incomplete days", notes)
         self.assertIn("- Passed the skip-check on", notes)
 
+        # A note is stored a moment after typing stops, without leaving the box,
+        # and a reload with the cursor still in the box does not lose what was typed.
+        note = page.locator("#mesa-reflect-p4-p")
+        note.click()
+        page.keyboard.type("Stored while typing")
+        page.wait_for_function(f"(JSON.parse(localStorage.getItem('{KEY}')).points.p4 || {{}}).reflection === 'Stored while typing'")
+        self.assertTrue(page.evaluate("document.activeElement.id === 'mesa-reflect-p4-p'"))
+        self.assertIn("Saved in this browser.", page.inner_text(".mesa-point >> nth=3"))
+        page.keyboard.type(", then reloaded")
+        page.reload()
+        page.get_by_role("button", name="Save my notes as Markdown").wait_for()
+        self.assertEqual(json.loads(self.stored(page))["points"]["p4"]["reflection"], "Stored while typing, then reloaded")
+        self.assertEqual(page.locator("#mesa-reflect-p4-p").input_value(), "Stored while typing, then reloaded")
+
         # A note typed and then saved straight away is in the file: pressing the
         # button is what stores the note, and the file is built after that.
         page.locator("#mesa-reflect-p1-p").click()
@@ -342,7 +356,16 @@ class Browser(unittest.TestCase):
             page.get_by_role("button", name="Save a copy to a file").click()
         copy = json.loads(Path(download.value.path()).read_text(encoding="utf-8"))
         self.assertEqual(copy["points"]["p3"]["reflection"], "Typed just before a copy")
+        self.assertIn("Saved in this browser.", page.inner_text(".mesa-point >> nth=2"))
         self.shot(page, "11-progress-with-checks")
+
+        # After "Clear everything" a note box is empty and no longer says "Saved".
+        page.get_by_role("button", name="Clear everything").click()
+        page.locator(".mesa-ask").get_by_role("button", name="Clear everything").click()
+        page.wait_for_function(f"localStorage.getItem('{KEY}') === null")
+        self.assertEqual(page.locator("#mesa-reflect-p3-p").input_value(), "")
+        self.assertNotIn("Saved in this browser.", page.inner_text(".mesa-progress"))
+        self.assertIn("Optional. Kept in this browser only", page.inner_text(".mesa-point >> nth=2"))
 
         # "Clear everything" forgets an answer given on this visit too: without a
         # reload in between, the self-check is asked again, not shown as right.
