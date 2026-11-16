@@ -43,6 +43,7 @@ browser and a free [CyVerse account](https://user.cyverse.org).
 |---|---|---|
 | Get into the portal | [Sign in to the MESA Portal with a CyVerse account](tutorials/sign-in.md) | 5 min |
 | See the data MESA shares | [Find MESA's community data in the Data Browser](tutorials/find-community-data.md) | 5 min |
+| Be allowed to start apps on a new account | [Ask CyVerse for access to interactive apps](tutorials/request-app-access.md) | 5 min |
 | Start working in a notebook | [Launch MESA JupyterLab with your Data Store mounted](tutorials/launch-jupyterlab.md) | 5–10 min |
 | Not lose my work | [Save your work where it survives the session](tutorials/save-your-work.md) | 5–10 min |
 | Finish for the day | [Stop an app and find your results](tutorials/stop-app-find-results.md) | 5 min |

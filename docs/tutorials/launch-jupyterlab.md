@@ -95,8 +95,9 @@ analysis.
 
 **The window reads Launch Failed, with `ERR_PERMISSION_NEEDED`.** A new CyVerse account
 must ask once for access to interactive apps. Ignore the advice to stop a running
-analysis. Click **Open in Discovery Environment**, then **Request Access**, and send
-the form. CyVerse says it answers within one to two days. Then launch again.
+analysis, and follow
+[Ask CyVerse for access to interactive apps](request-app-access.md). CyVerse says it
+answers within one to two days. Then launch again.
 
 ## Next
 

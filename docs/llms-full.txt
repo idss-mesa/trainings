@@ -49,6 +49,7 @@ browser and a free [CyVerse account](https://user.cyverse.org).
 |---|---|---|
 | Get into the portal | [Sign in to the MESA Portal with a CyVerse account](https://idss-mesa.github.io/trainings/tutorials/sign-in/) | 5 min |
 | See the data MESA shares | [Find MESA's community data in the Data Browser](https://idss-mesa.github.io/trainings/tutorials/find-community-data/) | 5 min |
+| Be allowed to start apps on a new account | [Ask CyVerse for access to interactive apps](https://idss-mesa.github.io/trainings/tutorials/request-app-access/) | 5 min |
 | Start working in a notebook | [Launch MESA JupyterLab with your Data Store mounted](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/) | 5–10 min |
 | Not lose my work | [Save your work where it survives the session](https://idss-mesa.github.io/trainings/tutorials/save-your-work/) | 5–10 min |
 | Finish for the day | [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/) | 5 min |
@@ -194,7 +195,7 @@ title: "New to MESA"
 description: "Sign in, start a notebook, and keep what you make: 3 tutorials to start with, 15 to 25 minutes in all, and more for when you have time."
 tags: [pathway, new-to-mesa]
 status: draft
-generated: { by: "gen-pathways/1", at: "2026-11-15T00:00:00Z" }
+generated: { by: "gen-pathways/1", at: "2026-11-16T00:00:00Z" }
 stale_after: "2027-05-11T00:00:00Z"
 sources:
   - id: pathways
@@ -224,6 +225,7 @@ Sign in, start a notebook, and keep what you make.
 
 If you have more time:
 
+- [Ask CyVerse for access to interactive apps](https://idss-mesa.github.io/trainings/tutorials/request-app-access/) (5 minutes)
 - [Find your way around the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/find-your-way-around/) (5 minutes)
 - [Find MESA's community data in the Data Browser](https://idss-mesa.github.io/trainings/tutorials/find-community-data/) (5 minutes)
 - [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/) (5 minutes)
@@ -241,7 +243,7 @@ title: "Get ready for a hands-on session"
 description: "Arrive signed in, with an app that starts and the practice data loaded: 4 tutorials to start with, 20 to 25 minutes in all, and more for when you have time."
 tags: [pathway, get-ready-for-a-session]
 status: draft
-generated: { by: "gen-pathways/1", at: "2026-11-15T00:00:00Z" }
+generated: { by: "gen-pathways/1", at: "2026-11-16T00:00:00Z" }
 stale_after: "2027-05-11T00:00:00Z"
 sources:
   - id: pathways
@@ -258,7 +260,7 @@ Arrive signed in, with an app that starts and the practice data loaded.
 
 **The essentials: 4 tutorials, 20 to 25 minutes in all.** Take them in order, or start wherever your question is. Nothing is locked. Each point also lists what to take if you have more time.
 
-Do the first two at least two days before. A new CyVerse account has to ask once for access to apps, and CyVerse says it answers within one to two days.
+Do the first two at least two days before. A new CyVerse account has to ask once for access to apps, and CyVerse says it answers within one to two days. "Ask CyVerse for access to interactive apps", under the first point, shows how.
 
 !!! warning "These tutorials are drafts"
     Each tutorial says at the top how far it has been checked.
@@ -272,6 +274,7 @@ Do the first two at least two days before. A new CyVerse account has to ask once
 
 If you have more time:
 
+- [Ask CyVerse for access to interactive apps](https://idss-mesa.github.io/trainings/tutorials/request-app-access/) (5 minutes)
 - [Find your way around the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/find-your-way-around/) (5 minutes)
 - [Save your work where it survives the session](https://idss-mesa.github.io/trainings/tutorials/save-your-work/) (5 to 10 minutes)
 - [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/) (5 minutes)
@@ -326,7 +329,7 @@ title: "Check a dataset before you trust it"
 description: "Find out what a dataset holds and where it is incomplete or doubtful: 5 tutorials to start with, 25 minutes in all, and more for when you have time."
 tags: [pathway, check-a-dataset]
 status: draft
-generated: { by: "gen-pathways/1", at: "2026-11-15T00:00:00Z" }
+generated: { by: "gen-pathways/1", at: "2026-11-16T00:00:00Z" }
 stale_after: "2027-05-12T00:00:00Z"
 sources:
   - id: pathways
@@ -389,7 +392,7 @@ title: "Work in R"
 description: "Load the practice data in MESA RStudio Geospatial and check its flags: 2 tutorials to start with, 10 to 15 minutes in all, and more for when you have time."
 tags: [pathway, work-in-r]
 status: draft
-generated: { by: "gen-pathways/1", at: "2026-11-15T00:00:00Z" }
+generated: { by: "gen-pathways/1", at: "2026-11-16T00:00:00Z" }
 stale_after: "2027-05-13T00:00:00Z"
 sources:
   - id: pathways
@@ -443,7 +446,7 @@ title: "Use an AI agent and check what it says"
 description: "Test what an AI assistant tells you against the data, then start an agent of your own: 3 tutorials to start with, 20 minutes in all, and more for when you have time."
 tags: [pathway, use-an-ai-agent]
 status: draft
-generated: { by: "gen-pathways/1", at: "2026-11-15T00:00:00Z" }
+generated: { by: "gen-pathways/1", at: "2026-11-16T00:00:00Z" }
 stale_after: "2027-05-12T00:00:00Z"
 sources:
   - id: pathways
@@ -508,7 +511,7 @@ title: "Leave work others can rerun"
 description: "Describe your work and leave a notebook that someone else can run again: 2 tutorials to start with, 15 to 20 minutes in all, and more for when you have time."
 tags: [pathway, leave-work-others-can-rerun]
 status: draft
-generated: { by: "gen-pathways/1", at: "2026-11-15T00:00:00Z" }
+generated: { by: "gen-pathways/1", at: "2026-11-16T00:00:00Z" }
 stale_after: "2027-05-12T00:00:00Z"
 sources:
   - id: pathways
@@ -575,7 +578,7 @@ title: "Every tutorial, by pathway point"
 description: "Every MESA tutorial under the five points of the learning pathway, from finding your way around to sharing work others can rerun, with the time each takes."
 tags: [pathway, tutorials, getting-started]
 status: draft
-generated: { by: "gen-pathways/1", at: "2026-11-15T00:00:00Z" }
+generated: { by: "gen-pathways/1", at: "2026-11-16T00:00:00Z" }
 stale_after: "2027-05-11T00:00:00Z"
 sources:
   - id: pathways
@@ -608,14 +611,15 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 
 ## 1. Orient and navigate
 
-*Work in MESA.* You can get into MESA, find data, run an app, and keep what you make. 23 tutorials, 130 to 165 minutes in all.
+*Work in MESA.* You can get into MESA, find data, run an app, and keep what you make. 24 tutorials, 135 to 170 minutes in all.
 
 1. [Sign in to the MESA Portal with a CyVerse account](https://idss-mesa.github.io/trainings/tutorials/sign-in/) (5 minutes)
 2. [Find your way around the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/find-your-way-around/) (5 minutes)
 3. [Find MESA's community data in the Data Browser](https://idss-mesa.github.io/trainings/tutorials/find-community-data/) (5 minutes)
-4. [Launch MESA JupyterLab with your Data Store mounted](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/) (5 to 10 minutes)
-5. [Save your work where it survives the session](https://idss-mesa.github.io/trainings/tutorials/save-your-work/) (5 to 10 minutes)
-6. [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/) (5 minutes)
+4. [Ask CyVerse for access to interactive apps](https://idss-mesa.github.io/trainings/tutorials/request-app-access/) (5 minutes)
+5. [Launch MESA JupyterLab with your Data Store mounted](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/) (5 to 10 minutes)
+6. [Save your work where it survives the session](https://idss-mesa.github.io/trainings/tutorials/save-your-work/) (5 to 10 minutes)
+7. [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/) (5 minutes)
 
 ### Organise folders
 
@@ -718,7 +722,7 @@ title: "Self-checks"
 description: "Short questions for checking yourself after a tutorial, each with its answer, the likely slips, and how the answer is confirmed against the practice data."
 tags: [pathway, self-check, practice-data]
 status: draft
-generated: { by: "gen-pathways/1", at: "2026-11-15T00:00:00Z" }
+generated: { by: "gen-pathways/1", at: "2026-11-16T00:00:00Z" }
 stale_after: "2027-05-11T00:00:00Z"
 sources:
   - id: pathways
@@ -1236,6 +1240,115 @@ not MESA's.** You clicked **Shared**, which opens every CyVerse community projec
 
 *Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*
 
+---8<--- https://idss-mesa.github.io/trainings/tutorials/request-app-access/
+
+---
+type: Guide
+title: "Ask CyVerse for access to interactive apps"
+description: "Send the one-time request that lets a new CyVerse account start MESA JupyterLab and the other interactive apps, and know when it has been granted."
+tags: [byte, p1, portal, account, applications]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-16T00:00:00Z" }
+stale_after: "2027-05-16T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/applications/"
+    title: "Starting applications in the MESA Portal"
+    author: "team:idss-mesa"
+  - id: de-source
+    resource: "https://github.com/cyverse-de/sonora/blob/main/public/static/locales/en/vice.json"
+    title: "CyVerse Discovery Environment: wording of the access request"
+    author: "org:cyverse"
+---
+
+# Ask CyVerse for access to interactive apps
+
+!!! warning "Draft: not yet validated"
+    Steps 1 and 2 were seen on the live portal on 2026-11-13, on a newly created
+    account. Steps 3 to 6 were written from the public source code of the CyVerse
+    Discovery Environment: the writer has not sent the form, so its wording or layout
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+**You will:** have asked CyVerse, once, to let your account start interactive apps, and
+know how to tell when it has said yes.
+
+**Time:** 5 minutes, then a wait of one to two days. **You need:** to be
+[signed in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/). Do this at least two days before you need
+an app.
+
+## Steps
+
+1. In the portal's sidebar, click **Applications**. On the **MESA JupyterLab** card,
+   click **Instant Launch**.
+
+    You should see: a **Launching Application** window that reads **Launch Failed**,
+    with `ERR_PERMISSION_NEEDED`. If the app starts instead, your account already has
+    access: [stop the app](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/) and skip the rest.
+
+2. Click **Open in Discovery Environment**. If CyVerse asks you to sign in, use the
+   same account.
+
+    You should see: the app's launch page in the CyVerse Discovery Environment, with a
+    notice that begins *Please submit this one-time form* and a **Request Access**
+    button.
+
+3. Click **Request Access**.
+
+    You should see: a window titled **Request access to VICE apps**, with one box,
+    **Briefly describe your science use-case**. VICE is CyVerse's name for interactive
+    apps.
+
+4. In the box, say in a sentence or two what you will use the apps for: your
+   institution, your project, and that you work through MESA.
+
+    You should see: your text in the box. Write nothing private. People at CyVerse
+    read it.
+
+5. Click **Submit**.
+
+    You should see: the window close and the message *Your request is submitted. You
+    will be notified when there is an update.*
+
+6. Wait. CyVerse says it answers within one to two days, and longer if it needs to
+   know more about your work. Then repeat step 1.
+
+    You should see: the app start.
+
+## Check it worked
+
+Until CyVerse answers, the Discovery Environment shows this when you open an
+interactive app there:
+
+```text
+VICE Access Request Pending Review
+```
+
+Once access is granted, **Instant Launch** in the portal starts the app. Continue with
+[Launch MESA JupyterLab with your Data Store mounted](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/).
+
+## If it didn't
+
+**The window says to stop a running analysis.** On a new account nothing is running.
+Ignore that advice and go on to step 2.
+
+**Submit does nothing, and the box reads "Must be at least … characters".** Your
+description is too short. Add a sentence.
+
+**You see "Unable to submit your request. Please try again."** Click **Submit** again.
+If it fails a second time, wait an hour.
+
+**Two working days have passed and the app still fails.** Tell CyVerse support and, if
+you are preparing for a session, the person who runs it. Do not send the form again:
+it is sent once per account.
+
+## Next
+
+- [Launch MESA JupyterLab with your Data Store mounted](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/)
+- [Check your CPU hours and storage](https://idss-mesa.github.io/trainings/tutorials/check-your-usage/)
+- Reference: [Starting applications](https://idss-mesa.github.io/docs/portal/applications/).
+
+*Not yet validated by a second person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16; the failed launch was seen on the live portal on 2026-11-13, and the request form was not sent.*
+
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/
 
 ---
@@ -1335,8 +1448,9 @@ analysis.
 
 **The window reads Launch Failed, with `ERR_PERMISSION_NEEDED`.** A new CyVerse account
 must ask once for access to interactive apps. Ignore the advice to stop a running
-analysis. Click **Open in Discovery Environment**, then **Request Access**, and send
-the form. CyVerse says it answers within one to two days. Then launch again.
+analysis, and follow
+[Ask CyVerse for access to interactive apps](https://idss-mesa.github.io/trainings/tutorials/request-app-access/). CyVerse says it
+answers within one to two days. Then launch again.
 
 ## Next
 
@@ -8455,6 +8569,16 @@ explains.
 ---8<--- https://idss-mesa.github.io/trainings/log/
 
 # Directory Update Log
+
+## 2026-11-16
+
+* **Creation**: Added [Ask CyVerse for access to interactive apps](tutorials/request-app-access.md):
+  the one-time request a new CyVerse account must send before it can start an app. The
+  failed launch was seen on the live portal; the form itself was written from the
+  Discovery Environment's public source code and has not been sent by the writer. It is
+  listed under "If you have more time" in [New to MESA](pathways/new-to-mesa.md) and
+  [Get ready for a hands-on session](pathways/get-ready-for-a-session.md), and the
+  [launch tutorial](tutorials/launch-jupyterlab.md) now points to it.
 
 ## 2026-11-15
 

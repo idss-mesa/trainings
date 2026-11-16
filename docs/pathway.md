@@ -4,7 +4,7 @@ title: "Every tutorial, by pathway point"
 description: "Every MESA tutorial under the five points of the learning pathway, from finding your way around to sharing work others can rerun, with the time each takes."
 tags: [pathway, tutorials, getting-started]
 status: draft
-generated: { by: "gen-pathways/1", at: "2026-11-15T00:00:00Z" }
+generated: { by: "gen-pathways/1", at: "2026-11-16T00:00:00Z" }
 stale_after: "2027-05-11T00:00:00Z"
 sources:
   - id: pathways
@@ -37,14 +37,15 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 
 ## 1. Orient and navigate
 
-*Work in MESA.* You can get into MESA, find data, run an app, and keep what you make. 23 tutorials, 130 to 165 minutes in all.
+*Work in MESA.* You can get into MESA, find data, run an app, and keep what you make. 24 tutorials, 135 to 170 minutes in all.
 
 1. [Sign in to the MESA Portal with a CyVerse account](tutorials/sign-in.md) (5 minutes)
 2. [Find your way around the MESA Portal](tutorials/find-your-way-around.md) (5 minutes)
 3. [Find MESA's community data in the Data Browser](tutorials/find-community-data.md) (5 minutes)
-4. [Launch MESA JupyterLab with your Data Store mounted](tutorials/launch-jupyterlab.md) (5 to 10 minutes)
-5. [Save your work where it survives the session](tutorials/save-your-work.md) (5 to 10 minutes)
-6. [Stop an app and find your results](tutorials/stop-app-find-results.md) (5 minutes)
+4. [Ask CyVerse for access to interactive apps](tutorials/request-app-access.md) (5 minutes)
+5. [Launch MESA JupyterLab with your Data Store mounted](tutorials/launch-jupyterlab.md) (5 to 10 minutes)
+6. [Save your work where it survives the session](tutorials/save-your-work.md) (5 to 10 minutes)
+7. [Stop an app and find your results](tutorials/stop-app-find-results.md) (5 minutes)
 
 ### Organise folders
 

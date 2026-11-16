@@ -4,7 +4,7 @@ title: "Leave work others can rerun"
 description: "Describe your work and leave a notebook that someone else can run again: 2 tutorials to start with, 15 to 20 minutes in all, and more for when you have time."
 tags: [pathway, leave-work-others-can-rerun]
 status: draft
-generated: { by: "gen-pathways/1", at: "2026-11-15T00:00:00Z" }
+generated: { by: "gen-pathways/1", at: "2026-11-16T00:00:00Z" }
 stale_after: "2027-05-12T00:00:00Z"
 sources:
   - id: pathways

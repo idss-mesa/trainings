@@ -4,7 +4,7 @@ title: "Use an AI agent and check what it says"
 description: "Test what an AI assistant tells you against the data, then start an agent of your own: 3 tutorials to start with, 20 minutes in all, and more for when you have time."
 tags: [pathway, use-an-ai-agent]
 status: draft
-generated: { by: "gen-pathways/1", at: "2026-11-15T00:00:00Z" }
+generated: { by: "gen-pathways/1", at: "2026-11-16T00:00:00Z" }
 stale_after: "2027-05-12T00:00:00Z"
 sources:
   - id: pathways
