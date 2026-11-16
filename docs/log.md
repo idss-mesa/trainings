@@ -2,6 +2,15 @@
 
 ## 2026-11-16
 
+* **Creation**: Added four tutorials for readers who work in R, each the R version of
+  a Python one: [Check a column's range and missing values in R](tutorials/r-check-range-and-missing.md),
+  [Count records per day in R](tutorials/r-count-records-per-day.md),
+  [Reconcile row counts before and after a join in R](tutorials/r-reconcile-a-join.md), and
+  [Leave an R script someone else can rerun](tutorials/r-leave-a-rerunnable-script.md).
+  The code was run with R 4.6.0 on a laptop, and the site build runs it in the MESA
+  RStudio Geospatial image; nobody has yet followed the steps in the app. A reader who
+  answers "R" on the pathways page is now given these in place of the Python versions,
+  and [Work in R](pathways/work-in-r.md) lists them under "If you have more time".
 * **Creation**: Added [Ask CyVerse for access to interactive apps](tutorials/request-app-access.md):
   the one-time request a new CyVerse account must send before it can start an app. The
   failed launch was seen on the live portal; the form itself was written from the
