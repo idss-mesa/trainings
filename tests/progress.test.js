@@ -367,7 +367,7 @@ test("reflections export as Markdown with the prompt, the level, and what was fi
   P.markDone(rec, "load-a-file", "r", "2026-11-14");
   const text = P.reflectionsMarkdown(rec, manifest, "2026-11-14");
   assert.match(text, /^# My MESA Trainings notes\n/);
-  assert.match(text, /## 2\. Run and understand\n\n- Tutorials done: 1 of 13\n- My level: Exploring\n/);
+  assert.match(text, /## 2\. Run and understand\n\n- Tutorials done: 1 of 16\n- My level: Exploring\n/);
   assert.match(text, /\*\*What would you check first if this result looked wrong\?\*\*\n\n> Check the units first\.\n/);
   assert.match(text, /- Done: Load a file from your Data Store into a notebook\n/);
   assert.match(text, /## 1\. Orient and navigate[\s\S]*_Nothing written yet\._/);
@@ -425,8 +425,8 @@ test("a reader who has checked data before keeps only what later tutorials build
 test("in R, a step is kept when something on the route still needs it, and Python-only steps are named", () => {
   assert.deepEqual(planFor("new-to-mesa", { language: "r" }).names, ["sign-in", "launch-jupyterlab", "save-your-work"]);
   const got = planFor("check-a-dataset", { language: "r" });
-  assert.deepEqual(got.names, ["r-load-a-file", "r-check-range-and-missing", "r-tally-a-quality-flag"]);
-  assert.deepEqual(got.left.filter((l) => l.why === "python-only").map((l) => l.name), ["read-the-data-dictionary"]);
+  assert.deepEqual(got.names, ["r-load-a-file", "r-read-the-data-dictionary", "r-check-range-and-missing", "r-tally-a-quality-flag"]);
+  assert.deepEqual(got.left.filter((l) => l.why === "python-only").map((l) => l.name), []); // every step of this route now has an R version
 });
 
 test("the time a reader has trims the route, or fills it with more", () => {
@@ -444,8 +444,8 @@ test("the time a reader has trims the route, or fills it with more", () => {
   rec.profile.minutes = 1; // below any tutorial: the route still keeps its first step
   assert.deepEqual(P.plan(manifest, P.findPathway(manifest, "get-ready-for-a-session"), rec).names, ["sign-in"]);
   const rHour = planFor("work-in-r", { language: "r", minutes: 60 }).names;
-  assert.deepEqual(rHour, ["r-load-a-file", "r-tally-a-quality-flag", "r-check-range-and-missing", "r-count-records-per-day", "map-points-in-rstudio",
-    "r-reconcile-a-join", "r-query-parquet-with-duckdb"]);
+  assert.deepEqual(rHour, ["r-load-a-file", "r-tally-a-quality-flag", "r-read-the-data-dictionary", "r-check-range-and-missing", "r-count-records-per-day",
+    "map-points-in-rstudio", "r-reconcile-a-join"]);
 });
 
 test("every reason for leaving a tutorial out has words", () => {
@@ -486,9 +486,9 @@ test("an R version on the reader's route belongs to the pathway being followed",
   const rec = P.setPathway(P.empty(), "get-ready-for-a-session");
   rec.profile = { portal: "yes", language: "r", minutes: 30 };
   const session = P.findPathway(manifest, "get-ready-for-a-session");
-  assert.deepEqual(P.openNames(session, rec, manifest), ["r-load-a-file", "r-check-range-and-missing", "r-tally-a-quality-flag", "r-reconcile-a-join"]);
+  assert.deepEqual(P.openNames(session, rec, manifest), ["r-load-a-file", "r-read-the-data-dictionary", "r-check-range-and-missing", "r-tally-a-quality-flag"]);
   assert.equal(P.pathwaysWith(manifest, "r-load-a-file", rec)[0].id, "get-ready-for-a-session");
-  assert.equal(P.nextAfter(P.openNames(session, rec, manifest), "r-load-a-file", rec), "r-check-range-and-missing");
+  assert.equal(P.nextAfter(P.openNames(session, rec, manifest), "r-load-a-file", rec), "r-read-the-data-dictionary");
   /* "You are here" is the point whose tutorial the R version stands in for. */
   assert.equal(P.currentStage(session, rec, manifest), 1);
   /* Without the answers, the R tutorial is on Work in R only. */

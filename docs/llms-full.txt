@@ -148,6 +148,9 @@ These use MESA RStudio Geospatial and the same practice data.
 | Compare gauges that report in different units, in R | [Bring two units onto one scale in R](https://idss-mesa.github.io/trainings/tutorials/r-convert-units-before-comparing/) | 10 min |
 | Stop a row being counted twice, in R | [Find and remove a repeated row in R](https://idss-mesa.github.io/trainings/tutorials/r-remove-a-repeated-row/) | 5–10 min |
 | Hand over a query from R | [Save a query from R so someone else can run it](https://idss-mesa.github.io/trainings/tutorials/r-save-a-query/) | 5–10 min |
+| Know what a column means before using it, in R | [Read the data dictionary before the data, in R](https://idss-mesa.github.io/trainings/tutorials/r-read-the-data-dictionary/) | 5 min |
+| Put evening rain on the right day, in R | [Turn UTC timestamps into local days in R](https://idss-mesa.github.io/trainings/tutorials/r-local-days-from-utc/) | 10 min |
+| Handle one row per kind of measurement, in R | [Work with a long table in R](https://idss-mesa.github.io/trainings/tutorials/r-work-with-a-long-table/) | 5–10 min |
 | Put points on a map | [Map point data with sf in MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/) | 10 min |
 
 ## The other MESA apps
@@ -436,6 +439,7 @@ New to the portal? Take [New to MESA](https://idss-mesa.github.io/trainings/path
 
 If you have more time:
 
+- [Read the data dictionary before the data, in R](https://idss-mesa.github.io/trainings/tutorials/r-read-the-data-dictionary/) (5 minutes)
 - [Check a column's range and missing values in R](https://idss-mesa.github.io/trainings/tutorials/r-check-range-and-missing/) (5 minutes)
 - [Count records per day in R](https://idss-mesa.github.io/trainings/tutorials/r-count-records-per-day/) (5 to 10 minutes)
 - [Map point data with sf in MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/) (10 minutes)
@@ -691,7 +695,7 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 
 ## 2. Run and understand
 
-*Understand data.* You can say what a dataset holds and where it is incomplete or doubtful, before you compute with it. 13 tutorials, 75 to 95 minutes in all.
+*Understand data.* You can say what a dataset holds and where it is incomplete or doubtful, before you compute with it. 16 tutorials, 95 to 120 minutes in all.
 
 1. [Practice data: five invented rain gauges](https://idss-mesa.github.io/trainings/tutorials/practice-data/) (5 minutes)
 2. [Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/) (5 minutes)
@@ -708,10 +712,16 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 ### In R, in MESA RStudio Geospatial
 
 1. [Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/) (5 to 10 minutes)
-2. [Check a column's range and missing values in R](https://idss-mesa.github.io/trainings/tutorials/r-check-range-and-missing/) (5 minutes)
-3. [Tally a quality flag in R](https://idss-mesa.github.io/trainings/tutorials/r-tally-a-quality-flag/) (5 minutes)
-4. [Count records per day in R](https://idss-mesa.github.io/trainings/tutorials/r-count-records-per-day/) (5 to 10 minutes)
-5. [Map point data with sf in MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/) (10 minutes)
+2. [Read the data dictionary before the data, in R](https://idss-mesa.github.io/trainings/tutorials/r-read-the-data-dictionary/) (5 minutes)
+3. [Check a column's range and missing values in R](https://idss-mesa.github.io/trainings/tutorials/r-check-range-and-missing/) (5 minutes)
+4. [Tally a quality flag in R](https://idss-mesa.github.io/trainings/tutorials/r-tally-a-quality-flag/) (5 minutes)
+5. [Count records per day in R](https://idss-mesa.github.io/trainings/tutorials/r-count-records-per-day/) (5 to 10 minutes)
+6. [Map point data with sf in MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/) (10 minutes)
+
+### More kinds of table, in R
+
+1. [Turn UTC timestamps into local days in R](https://idss-mesa.github.io/trainings/tutorials/r-local-days-from-utc/) (10 minutes)
+2. [Work with a long table in R](https://idss-mesa.github.io/trainings/tutorials/r-work-with-a-long-table/) (5 to 10 minutes)
 
 ## 3. Query and connect
 
@@ -5620,6 +5630,427 @@ still waiting for `yes`. Run step 3 again, answer `yes`, then go on.
 
 *Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16; the code was run there that day (R 4.6.2).*
 
+---8<--- https://idss-mesa.github.io/trainings/tutorials/r-read-the-data-dictionary/
+
+---
+type: Guide
+title: "Read the data dictionary before the data, in R"
+description: "Use the practice data's dictionary to say what one row of the readings table is, then confirm in R which gauge reports in a different unit."
+tags: [byte, p2, rstudio, r, data-dictionary]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-16T00:00:00Z" }
+stale_after: "2027-05-16T00:00:00Z"
+sources:
+  - id: docs-rstudio
+    resource: "https://idss-mesa.github.io/docs/apps/rstudio/"
+    title: "MESA RStudio Geospatial"
+    author: "team:idss-mesa"
+  - id: r
+    resource: "https://stat.ethz.ch/R-manual/R-devel/library/base/html/tapply.html"
+    title: "Apply a Function Over a Ragged Array: tapply (R documentation)"
+    author: "team:r-core"
+---
+
+# Read the data dictionary before the data, in R
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-16 (R 4.6.2),
+    by the AI assistant that drafted it, and produced the output shown. No person has
+    yet followed the steps, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A *data dictionary* is the table that says what each column means. Five minutes with it
+saves you from a number that looks right and is not.
+
+**You will:** be able to say what one row of `readings.csv` is, and why its `value`
+column cannot simply be added up across gauges.
+
+**Time:** 5 minutes. **You need:** the `readings` and `gauges` tables from
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/), in
+[MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/).
+
+## Steps
+
+1. Open the [data dictionary](https://idss-mesa.github.io/trainings/tutorials/practice-data/#data-dictionary) for the practice data
+   and read the four rows for `readings.csv`.
+
+    You should see: that one row is one reading, from one gauge, for one day.
+
+2. Read the meaning of `value` again, slowly.
+
+    You should see: "in the gauge's own unit". The column does not promise one unit.
+
+3. Find where the unit is recorded. Read the four rows for `gauges.csv`.
+
+    You should see: a `unit` column, one value for each gauge.
+
+4. In the **Console**, run:
+
+    ```r
+    gauges[c("gauge_id", "name", "unit")]
+    ```
+
+    You should see:
+
+    ```text
+      gauge_id        name unit
+    1      G01   Boathouse   mm
+    2      G02     Orchard   cm
+    3      G03 Observatory   mm
+    4      G04       Depot   mm
+    5      G05      Quarry   mm
+    ```
+
+5. Compare the largest reading at each gauge:
+
+    ```r
+    tapply(readings$value, readings$gauge_id, max)
+    ```
+
+    You should see: G02's largest reading far below its neighbours'. The dictionary
+    has already told you why: G02 reports in centimetres, the others in millimetres.
+
+    ```text
+       G01    G02    G03    G04    G05
+     24.90   2.92  32.50  26.40 180.00
+    ```
+
+6. In a script or a notes file, write one sentence of your own that says what `value`
+   holds and what must happen before values from different gauges are compared.
+
+    You should see: your sentence where a reader of your result can find it.
+
+## Check it worked
+
+Without looking at this page, you can name the gauge that reports in a different unit
+and the file that told you so.
+
+## If it didn't
+
+**`object 'gauges' not found`.** R has restarted since you loaded the files. Read them
+again, as in [Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/), then
+repeat the step.
+
+## Next
+
+- [Check a column's range and missing values in R](https://idss-mesa.github.io/trainings/tutorials/r-check-range-and-missing/)
+- [Bring two units onto one scale in R](https://idss-mesa.github.io/trainings/tutorials/r-convert-units-before-comparing/), which
+  does the conversion the dictionary calls for.
+- The same task in Python: [Read the data dictionary before the data](https://idss-mesa.github.io/trainings/tutorials/read-the-data-dictionary/).
+
+*Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16; the code was run there that day (R 4.6.2).*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/r-local-days-from-utc/
+
+---
+type: Guide
+title: "Turn UTC timestamps into local days in R"
+description: "Read UTC timestamps as times in R, total hourly rain by UTC date and by local date, and confirm that only the local days match the gauge's daily record."
+tags: [byte, p2, rstudio, r, time-zones]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-16T00:00:00Z" }
+stale_after: "2027-05-16T00:00:00Z"
+sources:
+  - id: docs-rstudio
+    resource: "https://idss-mesa.github.io/docs/apps/rstudio/"
+    title: "MESA RStudio Geospatial"
+    author: "team:idss-mesa"
+  - id: r
+    resource: "https://stat.ethz.ch/R-manual/R-devel/library/base/html/as.POSIXlt.html"
+    title: "Date-time Conversion Functions: as.POSIXct (R documentation)"
+    author: "team:r-core"
+---
+
+# Turn UTC timestamps into local days in R
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-16 (R 4.6.2),
+    by the AI assistant that drafted it, and produced the output shown. No person has
+    yet followed the steps, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+Instruments usually record time in UTC. A "day" of UTC is not a day where the
+instrument stands: on the invented campus, which keeps US Mountain Time, the UTC date
+changes at six in the evening in July. Evening rain lands on the wrong day unless you
+convert first.
+
+**You will:** have daily rain totals by local day that match the gauge's daily record.
+
+**Time:** 10 minutes. **You need:** the `readings` and `gauges` tables from
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/), in
+[MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/).
+
+## Steps
+
+1. In the **Console**, fetch the hourly observations into your practice folder:
+
+    ```r
+    download.file("https://idss-mesa.github.io/trainings/assets/practice/observations.csv", "observations.csv")
+    ```
+
+    You should see: a line that reads `downloaded 13 KB`.
+
+2. Read the file and check its size:
+
+    ```r
+    obs <- read.csv("observations.csv")
+    dim(obs)
+    ```
+
+    You should see:
+
+    ```text
+    [1] 336   4
+    ```
+
+3. Keep the rain rows and turn the text timestamps into real times. Say that they are
+   UTC; the trailing `Z` in the file means so, but R does not read it:
+
+    ```r
+    rain <- obs[obs$measurement == "rain_mm", ]
+    rain$time_utc <- as.POSIXct(rain$timestamp_utc, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
+    attr(rain$time_utc, "tzone")
+    ```
+
+    You should see:
+
+    ```text
+    [1] "UTC"
+    ```
+
+4. Total the rain by UTC date:
+
+    ```r
+    rain$day_utc <- format(rain$time_utc, "%Y-%m-%d")
+    aggregate(value ~ day_utc, data = rain, FUN = sum)
+    ```
+
+    You should see: eight dates for a seven-day week, the first sign of trouble.
+
+    ```text
+         day_utc value
+    1 2026-07-10   0.0
+    2 2026-07-11  32.4
+    3 2026-07-12   7.4
+    4 2026-07-13  17.6
+    5 2026-07-14   4.4
+    6 2026-07-15  22.1
+    7 2026-07-16   1.7
+    8 2026-07-17   0.0
+    ```
+
+5. Write each time as a date in the local zone, and total again:
+
+    ```r
+    rain$day_local <- format(rain$time_utc, "%Y-%m-%d", tz = "America/Denver")
+    aggregate(value ~ day_local, data = rain, FUN = sum)
+    ```
+
+    You should see: seven dates, and different totals.
+
+    ```text
+       day_local value
+    1 2026-07-10  32.4
+    2 2026-07-11   0.0
+    3 2026-07-12  23.0
+    4 2026-07-13   6.4
+    5 2026-07-14  22.1
+    6 2026-07-15   1.7
+    7 2026-07-16   0.0
+    ```
+
+6. Compare with the same gauge's daily record:
+
+    ```r
+    week <- readings$date >= "2026-07-10" & readings$date <= "2026-07-16"
+    readings[readings$gauge_id == "G03" & week, c("date", "value")]
+    ```
+
+    You should see: the seven totals from step 5, not those from step 4.
+
+    ```text
+             date value
+    69 2026-07-10  32.4
+    70 2026-07-11   0.0
+    71 2026-07-12  23.0
+    72 2026-07-13   6.4
+    73 2026-07-14  22.1
+    74 2026-07-15   1.7
+    75 2026-07-16   0.0
+    ```
+
+## Check it worked
+
+Your local-day totals equal the daily values in `readings.csv` for G03, day for day.
+`sum(rain$value)` is 85.6 either way; only the days it falls on change.
+
+## If it didn't
+
+**The totals in step 4 already look like local days, or are off by hours.** You left
+out `tz = "UTC"` in step 3. R then takes the times to be in the app's own zone, which
+in MESA RStudio Geospatial is not UTC, and gives no warning. Run step 3 again as
+written.
+
+**Every `time_utc` is `NA`.** The `format` does not match the text. It must describe
+the timestamp exactly, including the `T` between date and time and the `Z` at the end.
+
+## Next
+
+- [Work with a long table in R](https://idss-mesa.github.io/trainings/tutorials/r-work-with-a-long-table/), which uses the same file.
+- [Count records per day in R](https://idss-mesa.github.io/trainings/tutorials/r-count-records-per-day/)
+- The same task in Python: [Turn UTC timestamps into local days](https://idss-mesa.github.io/trainings/tutorials/local-days-from-utc/).
+
+*Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16; the code was run there that day (R 4.6.2).*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/r-work-with-a-long-table/
+
+---
+type: Guide
+title: "Work with a long table in R"
+description: "Summarise a long table, with one row per time and per kind of measurement, by measurement in R, and reshape it to one column for each kind with reshape()."
+tags: [byte, p2, rstudio, r, reshape, long-format]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-16T00:00:00Z" }
+stale_after: "2027-05-16T00:00:00Z"
+sources:
+  - id: docs-rstudio
+    resource: "https://idss-mesa.github.io/docs/apps/rstudio/"
+    title: "MESA RStudio Geospatial"
+    author: "team:idss-mesa"
+  - id: r
+    resource: "https://stat.ethz.ch/R-manual/R-devel/library/stats/html/reshape.html"
+    title: "Reshape Grouped Data: reshape (R documentation)"
+    author: "team:r-core"
+---
+
+# Work with a long table in R
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-16 (R 4.6.2),
+    by the AI assistant that drafted it, and produced the output shown. No person has
+    yet followed the steps, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+Many archives store data *long*: one row per time and per kind of measurement, with
+the number in a single `value` column. It is a tidy way to store data and an easy way
+to average rainfall with temperature by accident.
+
+**You will:** have the hourly observations summarised by measurement and reshaped to
+one column for each.
+
+**Time:** 5 to 10 minutes. **You need:** the `readings` and `gauges` tables from
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/), in
+[MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/).
+
+## Steps
+
+1. In the **Console**, fetch the hourly observations into your practice folder:
+
+    ```r
+    download.file("https://idss-mesa.github.io/trainings/assets/practice/observations.csv", "observations.csv")
+    ```
+
+    You should see: a line that reads `downloaded 13 KB`.
+
+2. Read the file and check its size:
+
+    ```r
+    obs <- read.csv("observations.csv")
+    dim(obs)
+    ```
+
+    You should see:
+
+    ```text
+    [1] 336   4
+    ```
+
+3. Look at the first rows:
+
+    ```r
+    head(obs, 5)
+    ```
+
+    You should see: each timestamp twice, once for each kind of measurement.
+
+    ```text
+      gauge_id        timestamp_utc measurement value
+    1      G03 2026-07-10T06:00:00Z     rain_mm   0.0
+    2      G03 2026-07-10T06:00:00Z  air_temp_c  13.8
+    3      G03 2026-07-10T07:00:00Z     rain_mm   0.0
+    4      G03 2026-07-10T07:00:00Z  air_temp_c  12.3
+    5      G03 2026-07-10T08:00:00Z     rain_mm   0.0
+    ```
+
+4. Count the rows for each kind:
+
+    ```r
+    table(obs$measurement)
+    ```
+
+    You should see:
+
+    ```text
+    air_temp_c    rain_mm
+           168        168
+    ```
+
+5. Summarise each kind on its own:
+
+    ```r
+    aggregate(value ~ measurement, data = obs, FUN = function(v) round(c(min = min(v), max = max(v), mean = mean(v)), 2))
+    ```
+
+    You should see: two rows with nothing in common. `mean(obs$value)` would have
+    returned 9.27, a number that is neither millimetres nor degrees.
+
+    ```text
+      measurement value.min value.max value.mean
+    1  air_temp_c     10.20     25.40      18.03
+    2     rain_mm      0.00     15.80       0.51
+    ```
+
+6. Reshape to one column per measurement, and check the size:
+
+    ```r
+    wide <- reshape(obs[c("timestamp_utc", "measurement", "value")], idvar = "timestamp_utc", timevar = "measurement", direction = "wide")
+    head(wide, 3)
+    dim(wide)
+    ```
+
+    You should see: one row for each hour, with the timestamp and a column for each
+    kind of measurement.
+
+    ```text
+             timestamp_utc value.rain_mm value.air_temp_c
+    1 2026-07-10T06:00:00Z             0             13.8
+    3 2026-07-10T07:00:00Z             0             12.3
+    5 2026-07-10T08:00:00Z             0             10.7
+    [1] 168   3
+    ```
+
+## Check it worked
+
+The counts reconcile: 168 hours × 2 measurements is 336, the number of rows you
+started with, and `wide` has no empty cells (`sum(is.na(wide))` is 0).
+
+## If it didn't
+
+**`Warning message: ... multiple rows match for measurement=...: first taken`.** Some
+timestamp has two rows for the same measurement. R kept the first and dropped the
+other, and only warned. Find them with
+`obs[duplicated(obs[c("timestamp_utc", "measurement")]) | duplicated(obs[c("timestamp_utc", "measurement")], fromLast = TRUE), ]`
+and settle which is right before you reshape.
+
+## Next
+
+- [Turn UTC timestamps into local days in R](https://idss-mesa.github.io/trainings/tutorials/r-local-days-from-utc/), which uses the
+  same file.
+- [Query a Parquet file with DuckDB from R](https://idss-mesa.github.io/trainings/tutorials/r-query-parquet-with-duckdb/)
+- The same task in Python: [Work with a long table, one row per kind of measurement](https://idss-mesa.github.io/trainings/tutorials/work-with-a-long-table/).
+
+*Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-16; the code was run there that day (R 4.6.2).*
+
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/cloud-shell-download/
 
 ---
@@ -10096,6 +10527,13 @@ explains.
 
 ## 2026-11-16
 
+* **Creation**: Added the last three R versions of the data tutorials at point 2:
+  [Read the data dictionary before the data, in R](tutorials/r-read-the-data-dictionary.md),
+  [Turn UTC timestamps into local days in R](tutorials/r-local-days-from-utc.md), and
+  [Work with a long table in R](tutorials/r-work-with-a-long-table.md). The code was run
+  in MESA RStudio Geospatial (R 4.6.2) by the AI assistant that drafted it; no person
+  has yet followed the steps. Every Python data tutorial at points 2 and 3 now has an
+  R version.
 * **Creation**: Added two portal tutorials:
   [Share an analysis with a collaborator](tutorials/share-an-analysis.md) and
   [Find a MESA working group and how to join it](tutorials/find-a-working-group.md). Each

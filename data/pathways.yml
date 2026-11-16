@@ -74,6 +74,9 @@ builds_on:
   r-check-range-and-missing: [r-load-a-file]
   r-count-records-per-day: [r-load-a-file]
   r-reconcile-a-join: [r-load-a-file]
+  r-read-the-data-dictionary: [r-load-a-file]
+  r-local-days-from-utc: [r-load-a-file]
+  r-work-with-a-long-table: [r-load-a-file]
   r-join-and-keep-unmatched: [r-load-a-file]
   r-convert-units-before-comparing: [r-load-a-file]
   r-remove-a-repeated-row: [r-load-a-file]
@@ -178,6 +181,7 @@ pathways:
           - r-load-a-file
           - r-tally-a-quality-flag
         more:
+          - r-read-the-data-dictionary
           - r-check-range-and-missing
           - r-count-records-per-day
           - map-points-in-rstudio
@@ -249,6 +253,9 @@ tailoring:
     load-a-file: r-load-a-file
     tally-a-quality-flag: r-tally-a-quality-flag
     check-range-and-missing: r-check-range-and-missing
+    read-the-data-dictionary: r-read-the-data-dictionary
+    local-days-from-utc: r-local-days-from-utc
+    work-with-a-long-table: r-work-with-a-long-table
     count-records-per-day: r-count-records-per-day
     reconcile-a-join: r-reconcile-a-join
     join-and-keep-unmatched: r-join-and-keep-unmatched
@@ -302,7 +309,9 @@ by_point:
     - title: More kinds of table
       tutorials: [local-days-from-utc, work-with-a-long-table]
     - title: In R, in MESA RStudio Geospatial
-      tutorials: [r-load-a-file, r-check-range-and-missing, r-tally-a-quality-flag, r-count-records-per-day, map-points-in-rstudio]
+      tutorials: [r-load-a-file, r-read-the-data-dictionary, r-check-range-and-missing, r-tally-a-quality-flag, r-count-records-per-day, map-points-in-rstudio]
+    - title: More kinds of table, in R
+      tutorials: [r-local-days-from-utc, r-work-with-a-long-table]
   p3:
     - tutorials:
         - query-parquet-with-duckdb

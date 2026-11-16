@@ -467,6 +467,7 @@
       "r-tally-a-quality-flag"
      ],
      "more": [
+      "r-read-the-data-dictionary",
       "r-check-range-and-missing",
       "r-count-records-per-day",
       "map-points-in-rstudio"
@@ -582,6 +583,9 @@
    "load-a-file": "r-load-a-file",
    "tally-a-quality-flag": "r-tally-a-quality-flag",
    "check-range-and-missing": "r-check-range-and-missing",
+   "read-the-data-dictionary": "r-read-the-data-dictionary",
+   "local-days-from-utc": "r-local-days-from-utc",
+   "work-with-a-long-table": "r-work-with-a-long-table",
    "count-records-per-day": "r-count-records-per-day",
    "reconcile-a-join": "r-reconcile-a-join",
    "join-and-keep-unmatched": "r-join-and-keep-unmatched",
@@ -684,10 +688,18 @@
     "title": "In R, in MESA RStudio Geospatial",
     "tutorials": [
      "r-load-a-file",
+     "r-read-the-data-dictionary",
      "r-check-range-and-missing",
      "r-tally-a-quality-flag",
      "r-count-records-per-day",
      "map-points-in-rstudio"
+    ]
+   },
+   {
+    "title": "More kinds of table, in R",
+    "tutorials": [
+     "r-local-days-from-utc",
+     "r-work-with-a-long-table"
     ]
    }
   ],
@@ -1266,6 +1278,20 @@
     "sign-in"
    ]
   },
+  "r-local-days-from-utc": {
+   "title": "Turn UTC timestamps into local days in R",
+   "description": "Read UTC timestamps as times in R, total hourly rain by UTC date and by local date, and confirm that only the local days match the gauge's daily record.",
+   "outcome": "have daily rain totals by local day that match the gauge's daily record.",
+   "point": "p2",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-16T00:00:00Z",
+   "stale_after": "2027-05-16T00:00:00Z",
+   "builds_on": [
+    "r-load-a-file"
+   ]
+  },
   "r-query-parquet-with-duckdb": {
    "title": "Query a Parquet file with DuckDB from R",
    "description": "Run SQL against a Parquet file from R with the duckdb package in MESA RStudio Geospatial, and get each result back as an ordinary data frame.",
@@ -1276,6 +1302,20 @@
    "status": "draft",
    "revised": "2026-11-13T00:00:00Z",
    "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "r-load-a-file"
+   ]
+  },
+  "r-read-the-data-dictionary": {
+   "title": "Read the data dictionary before the data, in R",
+   "description": "Use the practice data's dictionary to say what one row of the readings table is, then confirm in R which gauge reports in a different unit.",
+   "outcome": "be able to say what one row of `readings.csv` is, and why its `value` column cannot simply be added up across gauges.",
+   "point": "p2",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-16T00:00:00Z",
+   "stale_after": "2027-05-16T00:00:00Z",
    "builds_on": [
     "r-load-a-file"
    ]
@@ -1332,6 +1372,20 @@
    "status": "draft",
    "revised": "2026-11-13T00:00:00Z",
    "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "r-load-a-file"
+   ]
+  },
+  "r-work-with-a-long-table": {
+   "title": "Work with a long table in R",
+   "description": "Summarise a long table, with one row per time and per kind of measurement, by measurement in R, and reshape it to one column for each kind with reshape().",
+   "outcome": "have the hourly observations summarised by measurement and reshaped to one column for each.",
+   "point": "p2",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-16T00:00:00Z",
+   "stale_after": "2027-05-16T00:00:00Z",
    "builds_on": [
     "r-load-a-file"
    ]
