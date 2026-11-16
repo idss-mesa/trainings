@@ -352,6 +352,20 @@ class Browser(unittest.TestCase):
         self.assertEqual(page.locator(".mesa-strip .mesa-check.is-right").count(), 0)
         self.assertNotIn("Right:", page.inner_text(".mesa-strip"))
 
+        # Clearing in another tab forgets this tab's answers too, without a reload.
+        strip = page.locator(".mesa-strip .mesa-check")
+        strip.locator("input[type='radio']").first.check()
+        strip.get_by_role("button", name="Check answer").click()
+        page.locator(".mesa-strip .mesa-check__result", has_text="Not yet").wait_for()
+        other = page.context.new_page()
+        other.goto(self.base + "progress/")
+        other.get_by_role("button", name="Clear everything").click()
+        other.locator(".mesa-ask").get_by_role("button", name="Clear everything").click()
+        other.wait_for_function(f"localStorage.getItem('{KEY}') === null")
+        page.wait_for_function("!document.querySelector('.mesa-strip').innerText.includes('Not yet')")
+        self.assertEqual(strip.locator("input[type='radio']:checked").count(), 0)
+        other.close()
+
         for request in requests:
             self.assertEqual(request.method, "GET", request.url)
             self.assertIsNone(request.post_data, request.url)

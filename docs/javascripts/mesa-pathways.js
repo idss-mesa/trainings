@@ -860,7 +860,7 @@
     function holds(record) {
       var n = Object.keys(record.tutorials).filter(function (name) { return m.tutorials[name]; }).length;
       var more = Object.keys(record.checks).length || Object.keys(record.points).length;
-      return plural(n, "finished tutorial", "finished tutorials") + (!n && more ? ", and some answers or notes" : "");
+      return plural(n, "finished tutorial", "finished tutorials") + (!n && more ? " but some answers or notes" : "");
     }
 
     function pointList(keys) {
@@ -1078,8 +1078,13 @@
     change(store, function (r) { P.setPathway(r, link.getAttribute("data-mesa-pathway")); });
   });
 
-  /* Progress changed in another tab of this browser. */
-  window.addEventListener("storage", function (event) { if (!event.key || event.key === P.KEY) refresh(); });
+  /* Progress changed in another tab of this browser. When the other tab cleared
+     everything, the answers given on this visit are forgotten here as well. */
+  window.addEventListener("storage", function (event) {
+    if (event.key && event.key !== P.KEY) return;
+    if (!event.key || event.newValue === null) tries = {};
+    refresh();
+  });
 
   /* Draw as soon as this file runs: it is loaded after the article, so with
      the manifest already kept for the session the page is drawn before it is
