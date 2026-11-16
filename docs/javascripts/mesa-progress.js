@@ -304,6 +304,19 @@
     return record;
   }
 
+  /* A note as a Markdown block quote. The reader's own Markdown still works, but
+     it stays inside the note: a line starting with "#" cannot become a heading of
+     the file, and a tag cannot become HTML. Line breaks are kept (two spaces at
+     the end of a line is a break in Markdown). */
+  function quoteNote(text) {
+    var lines = String(text).replace(/\r\n?/g, "\n").replace(/^\s+/, "").replace(/\s+$/, "").split("\n");
+    return lines.map(function (line, i) {
+      var clean = line.replace(/\s+$/, "").replace(/<(?=[A-Za-z\/!?])/g, "\\<");
+      var next = lines[i + 1];
+      return clean ? "> " + clean + (next && next.trim() ? "  " : "") : ">";
+    }).join("\n");
+  }
+
   /* The reader's reflections, levels, and finished tutorials as Markdown. */
   function reflectionsMarkdown(record, manifest, day) {
     var lines = ["# My MESA Trainings notes", "", "Saved on " + day + " from my own browser. Levels are my own assessment.", ""];
@@ -318,7 +331,7 @@
       lines.push("");
       if (facts.reflection) {
         lines.push("**" + facts.reflection + "**", "");
-        lines.push(entry.reflection ? entry.reflection.trim() : "_Nothing written yet._", "");
+        lines.push(entry.reflection ? quoteNote(entry.reflection) : "_Nothing written yet._", "");
       }
       finished.forEach(function (n) {
         lines.push("- " + (state(record, n) === "checked" ? "Checked" : "Done") + ": " + manifest.tutorials[n].title);
