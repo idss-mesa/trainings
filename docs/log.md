@@ -12,6 +12,9 @@
   has. The "Replace or merge?" and "Clear everything?" questions now take focus
   themselves, so pressing Enter straight away changes nothing. A file with a date that
   is not a real day, such as 2026-13-45, is refused.
+* **Update**: "Clear everything" on [Your progress](progress.md) now also clears what
+  another open tab is showing. An answer given to a self-check on that visit used to stay
+  on screen in the other tab until it was reloaded, although nothing was stored.
 
 ## 2026-11-15
 
