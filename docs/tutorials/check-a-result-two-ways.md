@@ -58,7 +58,8 @@ and `gauges` exist.
     ```
 
     You should see: `0`, not `150`. The two routes disagree, so at least one of them
-    is not doing what you meant.
+    is not doing what you meant. In a notebook, DuckDB draws each result as a table;
+    the text below holds the same rows.
 
     ```text
     ┌───────┐
