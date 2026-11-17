@@ -173,6 +173,9 @@ One first task in each of the apps besides JupyterLab and RStudio.
 | Fetch a file from the web into my Data Store | [Download a file from the web into your Data Store with MESA Cloud Shell](https://idss-mesa.github.io/trainings/tutorials/cloud-shell-download/) | 5–10 min |
 | Write and run a script | [Write and run a Python script in MESA VS Code](https://idss-mesa.github.io/trainings/tutorials/vscode-run-a-script/) | 10 min |
 | Use a program that needs a desktop | [Open a file from your Data Store in a desktop program](https://idss-mesa.github.io/trainings/tutorials/desktop-open-a-file/) | 10 min |
+| Leave a long command running | [Keep a command running in MESA Cloud Shell after you close the tab](https://idss-mesa.github.io/trainings/tutorials/cloud-shell-keep-running/) | 10 min |
+| Find every file that mentions a value | [Find a value in every file of a folder with MESA VS Code](https://idss-mesa.github.io/trainings/tutorials/vscode-find-in-folder/) | 5 min |
+| Run a command beside a desktop program | [Open a terminal in a Data Store folder on the MESA desktop](https://idss-mesa.github.io/trainings/tutorials/desktop-open-a-terminal/) | 5–10 min |
 
 ## How a tutorial is laid out
 
@@ -679,7 +682,7 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 
 ## 1. Orient and navigate
 
-*Work in MESA.* You can get into MESA, find data, run an app, and keep what you make. 29 tutorials, 160 to 195 minutes in all.
+*Work in MESA.* You can get into MESA, find data, run an app, and keep what you make. 32 tutorials, 180 to 220 minutes in all.
 
 1. [Sign in to the MESA Portal with a CyVerse account](https://idss-mesa.github.io/trainings/tutorials/sign-in/) (5 minutes)
 2. [Find your way around the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/find-your-way-around/) (5 minutes)
@@ -718,8 +721,11 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 ### The other MESA apps
 
 1. [Download a file from the web into your Data Store with MESA Cloud Shell](https://idss-mesa.github.io/trainings/tutorials/cloud-shell-download/) (5 to 10 minutes)
-2. [Write and run a Python script in MESA VS Code](https://idss-mesa.github.io/trainings/tutorials/vscode-run-a-script/) (10 minutes)
-3. [Open a file from your Data Store in a desktop program](https://idss-mesa.github.io/trainings/tutorials/desktop-open-a-file/) (10 minutes)
+2. [Keep a command running in MESA Cloud Shell after you close the tab](https://idss-mesa.github.io/trainings/tutorials/cloud-shell-keep-running/) (10 minutes)
+3. [Write and run a Python script in MESA VS Code](https://idss-mesa.github.io/trainings/tutorials/vscode-run-a-script/) (10 minutes)
+4. [Find a value in every file of a folder with MESA VS Code](https://idss-mesa.github.io/trainings/tutorials/vscode-find-in-folder/) (5 minutes)
+5. [Open a file from your Data Store in a desktop program](https://idss-mesa.github.io/trainings/tutorials/desktop-open-a-file/) (10 minutes)
+6. [Open a terminal in a Data Store folder on the MESA desktop](https://idss-mesa.github.io/trainings/tutorials/desktop-open-a-terminal/) (5 to 10 minutes)
 
 ### Share
 
@@ -10006,6 +10012,332 @@ the copy. Your colleague corrects the path.
 
 *Not yet validated by a person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-17 from the MESA documentation; step 5 was run in MESA RStudio Geospatial that day (R 4.6.2).*
 
+---8<--- https://idss-mesa.github.io/trainings/tutorials/cloud-shell-keep-running/
+
+---
+type: Guide
+title: "Keep a command running in MESA Cloud Shell after you close the tab"
+description: "Start a slow command in MESA Cloud Shell, open a second terminal window beside it, close the browser tab, and come back from the Analyses page to find the command still running."
+tags: [byte, p1, cloud-shell, terminal, tmux]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-17T00:00:00Z" }
+stale_after: "2027-05-17T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/apps/cli/"
+    title: "MESA CLI (Cloud Shell)"
+    author: "team:idss-mesa"
+  - id: tmux
+    resource: "https://github.com/tmux/tmux/wiki/Getting-Started"
+    title: "Getting Started (tmux wiki)"
+    author: "team:tmux"
+---
+
+# Keep a command running in MESA Cloud Shell after you close the tab
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once in the app on 2026-11-17, by the AI assistant that
+    drafted them, with a longer loop and by leaving the page, not closing the tab. No
+    person has yet followed them, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A download or a conversion can take longer than you want to watch. The Cloud Shell
+terminal runs inside a program called `tmux`, which keeps your session going on the
+server whether or not a browser tab is showing it.
+
+**You will:** have left a running command, closed the tab, and come back to find it
+further along.
+
+**Time:** 10 minutes. **You need:** MESA Cloud Shell running, as in
+[Download a file from the web into your Data Store with MESA Cloud Shell](https://idss-mesa.github.io/trainings/tutorials/cloud-shell-download/).
+
+## Steps
+
+1. Click in the terminal and start a command that takes five minutes. This one counts
+   to 60, one step every five seconds:
+
+    ```bash
+    for i in $(seq 1 60); do echo "step $i"; sleep 5; done
+    ```
+
+    You should see: `step 1`, then a new line every five seconds.
+
+2. Press ++ctrl+b++, let go, then press ++c++.
+
+    You should see: an empty terminal with a new prompt, which begins `(geospatial)`.
+    The counter is out of sight, in the first window. This is a second window of the
+    same session.
+
+3. List the windows:
+
+    ```bash
+    tmux list-windows
+    ```
+
+    You should see: two lines, numbered `0` and `1`, with `(active)` at the end of
+    the one you are in.
+
+    ```text
+    0: bash- (1 panes) [160x63] [layout bbfd,160x63,0,0,0] @0
+    1: bash* (1 panes) [160x63] [layout bbfe,160x63,0,0,1] @1 (active)
+    ```
+
+    The numbers in square brackets depend on the size of your browser window.
+
+4. Close the browser tab that holds the terminal. Wait a minute.
+
+    You should see: the portal's tab, if you still have it open. Nothing in the app
+    has been stopped.
+
+5. In the portal, click **Analyses**, and on the **MESA Cloud Shell** card click
+   **Open App**.
+
+    You should see: the terminal again, on the window you left: the `tmux
+    list-windows` lines are still there.
+
+6. Press ++ctrl+b++, let go, then press ++0++.
+
+    You should see: the counter, a dozen or more steps further on than when you left
+    it. It ran while no tab was open.
+
+7. Press ++ctrl+b++, then ++1++, to go back to the second window. Type `exit` and
+   press ++enter++.
+
+    You should see: the first window again. The second one is closed; the counter
+    stops by itself at `step 60`.
+
+## Check it worked
+
+The counter in window `0` shows a higher step after step 6 than it did before you
+closed the tab, with no step missing in between.
+
+## If it didn't
+
+**A `c` or a `0` appears at the prompt and nothing else happens.** `tmux` did not
+take the two keys as one command. Delete the character, press ++ctrl+b++, release
+both keys, then press the second key by itself.
+
+**There is no MESA Cloud Shell card with Open App.** The app has stopped: it reached
+its time limit, or someone stopped it. A stopped app takes its session with it. Start
+the app again, and see
+[Check on a running app and give it more time](https://idss-mesa.github.io/trainings/tutorials/monitor-and-extend/).
+
+## Next
+
+- `tmux` keeps a command running only while the app runs. For work that takes hours,
+  [launch the app with a longer time limit](https://idss-mesa.github.io/trainings/tutorials/launch-with-options/).
+- Anything the command writes should go under `~/data-store`. The rest of the app is
+  deleted when it stops.
+- [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/)
+- Reference: [MESA CLI (Cloud Shell), "First steps"](https://idss-mesa.github.io/docs/apps/cli/#first-steps),
+  for splitting a window in two.
+
+*Not yet validated by a person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-17 and followed once in the app that day.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/vscode-find-in-folder/
+
+---
+type: Guide
+title: "Find a value in every file of a folder with MESA VS Code"
+description: "Search all the files in a folder of your Data Store for a piece of text in MESA VS Code, read how many times each file contains it, and open a file at the matching line."
+tags: [byte, p1, vscode, search, data-store]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-17T00:00:00Z" }
+stale_after: "2027-05-17T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/apps/vscode/"
+    title: "MESA VS Code"
+    author: "team:idss-mesa"
+  - id: vscode-search
+    resource: "https://code.visualstudio.com/docs/editing/codebasics#_search-across-files"
+    title: "Basic editing: Search across files (Visual Studio Code documentation)"
+    author: "team:microsoft"
+---
+
+# Find a value in every file of a folder with MESA VS Code
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once in the app on 2026-11-17, by the AI assistant that
+    drafted them, in a folder that held more files than the two named here. No person
+    has yet followed them, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+Before you rename a gauge, drop a column, or change a code, you need to know every
+file that mentions it. The portal's search looks at file names. VS Code looks inside
+the files.
+
+**You will:** know which files in a folder contain a given piece of text, and how
+many times.
+
+**Time:** 5 minutes. **You need:** MESA VS Code open, as in
+[Write and run a Python script in MESA VS Code](https://idss-mesa.github.io/trainings/tutorials/vscode-run-a-script/), and the
+`mesa-practice` folder with `gauges.csv` and `readings.csv` from the
+[practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/).
+
+## Steps
+
+1. In the **Explorer**, right-click **mesa-practice** and choose **Find in Folder…**.
+
+    You should see: the **Search** panel in place of the Explorer, with
+    `./mesa-practice` already filled in under **files to include**.
+
+2. In the box at the top, type `G02` and press ++enter++.
+
+    You should see: a line such as *32 results in 2 files*, and under it each file
+    with the lines that match. The count can rise for a few seconds while the search
+    finishes.
+
+3. Read the number at the right of each file name.
+
+    You should see: `1` beside `gauges.csv` and `31` beside `readings.csv`: one row
+    that describes the gauge, and one reading for each day of July. Other practice
+    files that mention the gauge, such as `readings_august.csv`, are listed with
+    their own counts.
+
+4. Click the small arrow at the left of a long file, such as `readings.csv`.
+
+    You should see: its lines fold away, so that the other files fit on the screen.
+
+5. Under `gauges.csv`, click the line `G02,Orchard,cm,540`.
+
+    You should see: `gauges.csv` open in the editor, with `G02` selected on line 3,
+    and *Ln 3, Col 4* in the bar at the bottom.
+
+6. Look, and do not type. The file is open for editing, and VS Code saves what you
+   type as you type it.
+
+    You should see: the tab's name in italics, which means a preview. It closes by
+    itself when you open another file.
+
+## Check it worked
+
+You can say, without opening them one by one, which files in `mesa-practice` mention
+`G02` and how often: `gauges.csv` once and `readings.csv` 31 times.
+
+## If it didn't
+
+**The search finds files outside your folder.** **files to include** is empty, so
+VS Code searched your whole Data Store home. Type `./mesa-practice` in that box and
+press ++enter++.
+
+**A file you expected is missing.** Search reads text. It skips files that are not
+text, such as `readings.parquet` and images.
+
+**You typed into the file by accident.** Press ++ctrl+z++ (++cmd+z++ on a Mac) until
+the line reads as it did.
+
+## Next
+
+- The three buttons at the right of the search box narrow the search: **Aa** matches
+  capitals exactly, and **ab** matches whole words only, so that `G02` does not also
+  find `G020`.
+- [Search for files and folders by name](https://idss-mesa.github.io/trainings/tutorials/search-the-data-browser/), in the portal.
+- Reference: [MESA VS Code](https://idss-mesa.github.io/docs/apps/vscode/).
+
+*Not yet validated by a person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-17 and followed once in the app that day.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/desktop-open-a-terminal/
+
+---
+type: Guide
+title: "Open a terminal in a Data Store folder on the MESA desktop"
+description: "On the MESA KASM Ubuntu Desktop, go to a folder of your Data Store in the file manager, open a terminal that starts in that folder, and run a command on a file there."
+tags: [byte, p1, kasm, desktop, terminal, data-store]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-17T00:00:00Z" }
+stale_after: "2027-05-17T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/apps/kasm/"
+    title: "MESA KASM Ubuntu Desktop"
+    author: "team:idss-mesa"
+---
+
+# Open a terminal in a Data Store folder on the MESA desktop
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once in the app on 2026-11-17, by the AI assistant that
+    drafted them. No person has yet followed them, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A desktop program and a command often work on the same files: you look at a map in
+one window and convert or count the data in another. On the MESA desktop the file
+manager can open a terminal that starts in the folder you are looking at, so you do
+not have to type the path.
+
+**You will:** have a terminal on the MESA desktop, in a folder of your Data Store,
+that has run a command on a file there.
+
+**Time:** 5 to 10 minutes. **You need:** the MESA KASM Ubuntu Desktop running, as in
+[Open a file from your Data Store in a desktop program](https://idss-mesa.github.io/trainings/tutorials/desktop-open-a-file/), and
+`readings.csv` in a `mesa-practice` folder, from the
+[practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/).
+
+## Steps
+
+1. Double-click **Home**, then **data-store**, then **home**, then the folder named
+   after your CyVerse username, then **mesa-practice**.
+
+    You should see: your files, and the folder's path in the bar at the top of the
+    window, ending in `/mesa-practice/`.
+
+2. Right-click an empty part of the window, between the icons or below them.
+
+    You should see: a short menu that begins **Create Folder…** and contains **Open
+    Terminal Here**.
+
+3. Choose **Open Terminal Here**.
+
+    You should see: a **Terminal** window with a MESA welcome screen, and a prompt
+    that ends in `mesa-practice $>`.
+
+4. Click in the terminal and list the folder:
+
+    ```bash
+    ls
+    ```
+
+    You should see: the same file names the file manager shows, `readings.csv` among
+    them.
+
+5. Count the lines of a file:
+
+    ```bash
+    wc -l readings.csv
+    ```
+
+    You should see: a header line and 152 readings.
+
+    ```text
+    153 readings.csv
+    ```
+
+## Check it worked
+
+The terminal's prompt names `mesa-practice`, and `wc -l` counted 153 lines in
+`readings.csv` without you typing a path.
+
+## If it didn't
+
+**The menu begins "Open With" and has no "Open Terminal Here".** You right-clicked a
+file, not the empty background. Press ++esc++ and right-click a gap between two
+icons.
+
+**The prompt shows a path that starts `/data-store/iplant/home/`.** That is the same
+folder as `~/data-store/home/` under its full name. Nothing is wrong.
+
+## Next
+
+- Save what you want to keep under **data-store**. The rest of the desktop is deleted
+  when the app stops.
+- [Download a file from the web into your Data Store with MESA Cloud Shell](https://idss-mesa.github.io/trainings/tutorials/cloud-shell-download/),
+  for more to do in a terminal.
+- [Stop an app and find your results](https://idss-mesa.github.io/trainings/tutorials/stop-app-find-results/)
+- Reference: [MESA KASM Ubuntu Desktop](https://idss-mesa.github.io/docs/apps/kasm/).
+
+*Not yet validated by a person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-17 and followed once in the app that day.*
+
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/keep-an-ai-log/
 
 ---
@@ -12099,6 +12431,12 @@ explains.
 # Directory Update Log
 
 ## 2026-11-17
+
+* **Creation**: A second tutorial for each of the other MESA apps:
+  [Keep a command running in MESA Cloud Shell after you close the tab](tutorials/cloud-shell-keep-running.md),
+  [Find a value in every file of a folder with MESA VS Code](tutorials/vscode-find-in-folder.md) and
+  [Open a terminal in a Data Store folder on the MESA desktop](tutorials/desktop-open-a-terminal.md).
+  All are drafts.
 
 * **Creation**: Three tutorials at point 5, Preserve and share, for MESA RStudio
   Geospatial:
