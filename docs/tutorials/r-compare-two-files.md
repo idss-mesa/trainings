@@ -45,7 +45,7 @@ to `mesa-practice`.
     download.file("https://idss-mesa.github.io/trainings/assets/practice/readings_august.csv", "readings_august.csv")
     ```
 
-    You should see: a line that begins `downloaded`.
+    You should see: a few lines, the last of which begins `downloaded`.
 
 2. Load it, then compare the row counts and the column names. Five gauges over 31
    days would give 155 rows in each month.
