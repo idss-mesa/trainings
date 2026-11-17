@@ -62,7 +62,9 @@ table.
     ```
 
     You should see: the four columns, each with a type. `date` is a real date here,
-    not text.
+    not text. In a notebook, DuckDB draws
+    the result as a table, with each column's type under its name; the text below
+    holds the same rows.
 
     ```text
     ┌─────────────┬─────────────┬─────────┬─────────┬─────────┬─────────┐

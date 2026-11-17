@@ -20,8 +20,9 @@ sources:
 # Keep tokens and passwords out of saved files
 
 !!! warning "Draft: not yet validated"
-    The check in step 5 was run on a laptop. Nobody has yet followed the tutorial in
-    MESA JupyterLab, so a menu name may differ there.
+    These steps were followed once inside MESA JupyterLab on 2026-11-16, by the AI
+    assistant that drafted them, with the notebook saved by its keyboard shortcut. No
+    person has yet followed them, so a screen may differ.
     [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 A notebook file stores every cell and every output. A token typed into a cell, or
@@ -48,8 +49,8 @@ Data Store, a shared folder, a Git repository.
 
 2. Type `not-a-real-token` into the box and press ++enter++.
 
-    You should see: nothing as you type, then a row of dots beside **Token:**. The
-    dots are a placeholder, not your token. The value is in memory as `token`; it is not in the cell and not in the output.
+    You should see: a dot for each character as you type, then a short row of dots
+    beside **Token:**. The dots are a placeholder, not your token. The value is in memory as `token`; it is not in the cell and not in the output.
 
 3. Confirm the notebook received it, without displaying it:
 
@@ -101,4 +102,4 @@ service that issued it, because earlier copies of the file may still hold the ol
   documentation, which says where each MESA tool stores a password, and
   [getpass](https://docs.python.org/3/library/getpass.html).
 
-*Not yet validated in MESA JupyterLab. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-12; the check in step 5 was run locally.*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-12 and followed once there on 2026-11-16.*
