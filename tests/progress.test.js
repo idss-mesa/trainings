@@ -445,7 +445,7 @@ test("the time a reader has trims the route, or fills it with more", () => {
   assert.deepEqual(P.plan(manifest, P.findPathway(manifest, "get-ready-for-a-session"), rec).names, ["sign-in"]);
   const rHour = planFor("work-in-r", { language: "r", minutes: 60 }).names;
   assert.deepEqual(rHour, ["r-load-a-file", "r-tally-a-quality-flag", "r-read-the-data-dictionary", "r-check-range-and-missing", "r-count-records-per-day",
-    "map-points-in-rstudio", "r-reconcile-a-join"]);
+    "map-points-in-rstudio", "r-reconcile-a-join", "r-record-software-versions"]);
 });
 
 test("every reason for leaving a tutorial out has words", () => {
