@@ -709,7 +709,11 @@
         P.minutes(names.reduce(function (s, n) { return s + m.tutorials[n].min; }, 0), names.reduce(function (s, n) { return s + m.tutorials[n].max; }, 0)) +
         (left.done ? ", " + left.done + " done" : "") + ".";
     }
-    function tell() { var text = summary(P.load(storage()).record); if (text) announce(text); }
+    /* With no goal chosen there is no route to describe, but an answer was still kept: say so. */
+    function waiting(record) {
+      return (P.isTailored(record) ? "Your answers are kept. " : "") + "Choose what brings you here, and your route appears.";
+    }
+    function tell() { var record = P.load(storage()).record; announce(summary(record) || waiting(record)); }
 
     var rows = [];
     Array.prototype.forEach.call(list.children, function (li) {
@@ -727,7 +731,7 @@
       inputs.forEach(function (i) { i.radio.checked = i.current(record); i.radio.disabled = !can; });
       while (yours.firstChild) yours.removeChild(yours.firstChild);
       if (!chosen) {
-        yours.appendChild(el("p", { class: "mesa-story", text: "Choose what brings you here, and your route appears." }));
+        yours.appendChild(el("p", { class: "mesa-story", text: waiting(record) }));
       } else {
         var plan = P.plan(m, chosen, record);
         yours.appendChild(el("p", { class: "mesa-story", text: summary(record) }));
