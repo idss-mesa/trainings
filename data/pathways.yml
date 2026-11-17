@@ -86,6 +86,9 @@ builds_on:
   r-check-a-result-two-ways: [r-load-a-file]
   r-check-parts-add-up: [r-load-a-file]
   r-compare-two-files: [r-load-a-file]
+  r-record-software-versions: [r-load-a-file]
+  r-write-a-readme: [r-load-a-file]
+  r-hand-over-and-rerun: [r-leave-a-rerunnable-script]
   desktop-open-a-file: [sign-in]
   preview-a-table: [sign-in]
   vscode-run-a-script: [sign-in]
@@ -212,6 +215,9 @@ pathways:
       - point: p5
         more:
           - r-leave-a-rerunnable-script
+          - r-write-a-readme
+          - r-record-software-versions
+          - r-hand-over-and-rerun
 
   - id: use-an-ai-agent
     title: Use an AI agent and check what it says
@@ -284,6 +290,9 @@ tailoring:
     check-a-result-two-ways: r-check-a-result-two-ways
     check-parts-add-up: r-check-parts-add-up
     compare-two-files: r-compare-two-files
+    record-software-versions: r-record-software-versions
+    write-a-readme: r-write-a-readme
+    hand-over-and-rerun: r-hand-over-and-rerun
     practice-data: ~
     launch-jupyterlab: ~
 
@@ -360,7 +369,8 @@ by_point:
         - leave-a-rerunnable-notebook
         - say-where-data-came-from
         - hand-over-and-rerun
-        - r-leave-a-rerunnable-script
+    - title: Preserve and share, in R
+      tutorials: [r-leave-a-rerunnable-script, r-write-a-readme, r-record-software-versions, r-hand-over-and-rerun]
 
 # Self-checks: short questions whose answer comes from doing the task.
 #

@@ -2,6 +2,13 @@
 
 ## 2026-11-17
 
+* **Creation**: Three tutorials at point 5, Preserve and share, for MESA RStudio
+  Geospatial:
+  [Record the R and package versions a result depends on](tutorials/r-record-software-versions.md),
+  [Write a README for a data folder, from RStudio](tutorials/r-write-a-readme.md) and
+  [Hand your folder to a colleague and have them rerun it, in R](tutorials/r-hand-over-and-rerun.md).
+  All are drafts. The hand-over needs two accounts; only its rerun step was run.
+
 * **Creation**: R versions of the four point 4 checks, for MESA RStudio Geospatial:
   [Plot a column to spot odd values in R](tutorials/r-plot-to-spot-odd-values.md),
   [Check a result a second way in R](tutorials/r-check-a-result-two-ways.md),

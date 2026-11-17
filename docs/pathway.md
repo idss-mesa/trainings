@@ -165,7 +165,7 @@ You can ask questions across files and tables, and show that combining them did 
 
 ## 5. Preserve and share
 
-You can leave work that someone else can find, understand, and run again. 7 tutorials, 45 to 60 minutes in all.
+You can leave work that someone else can find, understand, and run again. 10 tutorials, 70 to 85 minutes in all.
 
 1. [Write a README for a data folder](tutorials/write-a-readme.md) (10 minutes)
 2. [Add metadata to a file or folder](tutorials/add-metadata.md) (5 minutes)
@@ -173,7 +173,13 @@ You can leave work that someone else can find, understand, and run again. 7 tuto
 4. [Leave a notebook someone else can rerun](tutorials/leave-a-rerunnable-notebook.md) (5 to 10 minutes)
 5. [Say where your input data came from](tutorials/say-where-data-came-from.md) (5 to 10 minutes)
 6. [Hand your folder to a colleague and have them rerun it](tutorials/hand-over-and-rerun.md) (10 minutes)
-7. [Leave an R script someone else can rerun](tutorials/r-leave-a-rerunnable-script.md) (5 to 10 minutes)
+
+### Preserve and share, in R
+
+1. [Leave an R script someone else can rerun](tutorials/r-leave-a-rerunnable-script.md) (5 to 10 minutes)
+2. [Write a README for a data folder, from RStudio](tutorials/r-write-a-readme.md) (10 minutes)
+3. [Record the R and package versions a result depends on](tutorials/r-record-software-versions.md) (5 minutes)
+4. [Hand your folder to a colleague and have them rerun it, in R](tutorials/r-hand-over-and-rerun.md) (10 minutes)
 
 ## Looking for one thing?
 
