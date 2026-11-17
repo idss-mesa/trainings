@@ -50,7 +50,9 @@ deleted except what sits under `~/data-store`, which is your CyVerse Data Store.
 
     You should see: a new tab named `Untitled.ipynb`.
 
-4. Choose **File → Rename Notebook…** and name it `first-notebook.ipynb`.
+4. Choose **File → Rename Notebook…**. In the **Rename File** box the part of the name
+   before `.ipynb` is already selected: type `first-notebook` over it and click
+   **Rename**.
 
     You should see: the new name on the tab and in the file browser.
 

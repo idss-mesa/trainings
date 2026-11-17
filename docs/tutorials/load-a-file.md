@@ -21,8 +21,9 @@ sources:
 
 !!! warning "Draft: not yet validated"
     The code on this page was run inside MESA JupyterLab on 2026-11-13 and produced the
-    output shown. Nobody has yet followed the steps there by hand, so a menu or a screen
-    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    output shown. The steps were followed there once on 2026-11-16 by the AI
+    assistant that drafted the page. No person has yet followed them, so a screen may
+    differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** have both practice files loaded as tables in a notebook, with a row count
 you have checked.
@@ -38,7 +39,8 @@ the [practice data](practice-data.md) in a `mesa-practice` folder in your Data S
 
 2. Choose **File → New → Notebook**. In the **Select Kernel** box, change the
    choice to **Python 3 (ipykernel)** (it starts on another language) and click **Select**.
-   Then rename the notebook `practice.ipynb` with **File → Rename Notebook…**.
+   Then choose **File → Rename Notebook…**. In the **Rename File** box the part of the
+   name before `.ipynb` is already selected: type `practice` over it and click **Rename**.
 
     You should see: `practice.ipynb` in the file browser, beside the two CSV files.
 
@@ -95,6 +97,9 @@ different file, or only part of this one.
 
 ## If it didn't
 
+**The notebook is named `practice.ipynb.ipynb`.** You typed the ending as well as the
+name. Choose **File → Rename Notebook…** again and remove one `.ipynb`.
+
 **`FileNotFoundError: [Errno 2] No such file or directory: 'readings.csv'`.** The
 notebook is not in the same folder as the files. In the file browser, drag
 `practice.ipynb` into `mesa-practice`, then choose **Kernel → Restart Kernel…** and run
@@ -108,4 +113,4 @@ the first cell again.
   and [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) for what the
   app contains.
 
-*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-12; the code was run there on 2026-11-13 and the steps followed once on 2026-11-16 (pandas 3.1.1, DuckDB 2.0.0).*

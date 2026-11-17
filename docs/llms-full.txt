@@ -1576,7 +1576,9 @@ deleted except what sits under `~/data-store`, which is your CyVerse Data Store.
 
     You should see: a new tab named `Untitled.ipynb`.
 
-4. Choose **File → Rename Notebook…** and name it `first-notebook.ipynb`.
+4. Choose **File → Rename Notebook…**. In the **Rename File** box the part of the name
+   before `.ipynb` is already selected: type `first-notebook` over it and click
+   **Rename**.
 
     You should see: the new name on the tab and in the file browser.
 
@@ -1870,8 +1872,9 @@ sources:
 
 !!! warning "Draft: not yet validated"
     The code on this page was run inside MESA JupyterLab on 2026-11-13 and produced the
-    output shown. Nobody has yet followed the steps there by hand, so a menu or a screen
-    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    output shown. The steps were followed there once on 2026-11-16 by the AI
+    assistant that drafted the page. No person has yet followed them, so a screen may
+    differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** have both practice files loaded as tables in a notebook, with a row count
 you have checked.
@@ -1887,7 +1890,8 @@ the [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-dat
 
 2. Choose **File → New → Notebook**. In the **Select Kernel** box, change the
    choice to **Python 3 (ipykernel)** (it starts on another language) and click **Select**.
-   Then rename the notebook `practice.ipynb` with **File → Rename Notebook…**.
+   Then choose **File → Rename Notebook…**. In the **Rename File** box the part of the
+   name before `.ipynb` is already selected: type `practice` over it and click **Rename**.
 
     You should see: `practice.ipynb` in the file browser, beside the two CSV files.
 
@@ -1944,6 +1948,9 @@ different file, or only part of this one.
 
 ## If it didn't
 
+**The notebook is named `practice.ipynb.ipynb`.** You typed the ending as well as the
+name. Choose **File → Rename Notebook…** again and remove one `.ipynb`.
+
 **`FileNotFoundError: [Errno 2] No such file or directory: 'readings.csv'`.** The
 notebook is not in the same folder as the files. In the file browser, drag
 `practice.ipynb` into `mesa-practice`, then choose **Kernel → Restart Kernel…** and run
@@ -1957,7 +1964,7 @@ the first cell again.
   and [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) for what the
   app contains.
 
-*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-12; the code was run there on 2026-11-13 (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-12; the code was run there on 2026-11-13 and the steps followed once on 2026-11-16 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/read-the-data-dictionary/
 
@@ -1984,8 +1991,9 @@ sources:
 
 !!! warning "Draft: not yet validated"
     The code on this page was run inside MESA JupyterLab on 2026-11-13 and produced the
-    output shown. Nobody has yet followed the steps there by hand, so a menu or a screen
-    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    output shown. The Markdown-cell step was followed there on 2026-11-16 by the AI
+    assistant that drafted the page. No person has yet followed them, so a screen may
+    differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 A *data dictionary* is the table that says what each column means. Five minutes with it
 saves you from a number that looks right and is not.
@@ -3468,8 +3476,9 @@ sources:
 
 !!! warning "Draft: not yet validated"
     The code on this page was run inside MESA JupyterLab on 2026-11-13 and produced the
-    output shown. Nobody has yet followed the steps there by hand, so a menu or a screen
-    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    output shown. Step 2 was followed there again on 2026-11-16 by the AI
+    assistant that drafted the page. No person has yet followed them, so a screen may
+    differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 Parquet is the format large shared datasets are usually stored in: compressed, typed,
 and readable one column at a time. DuckDB runs SQL straight against such a file, so
@@ -3500,7 +3509,8 @@ table.
     duckdb.sql("COPY (SELECT * FROM 'readings.csv') TO 'readings.parquet' (FORMAT parquet)")
     ```
 
-    You should see: no output, and `readings.parquet` in the file browser.
+    You should see: a small table that reads **Count** and `152`, the number of rows
+    written, and `readings.parquet` in the file browser.
 
 3. Ask what the file holds, without reading its rows:
 
@@ -10538,6 +10548,17 @@ explains.
 
 ## 2026-11-16
 
+* **Update**: The remaining notebook steps of the Python tutorials were followed in
+  MESA JupyterLab by the AI assistant that drafted them: making and renaming a
+  notebook, the **Select Kernel** box, the practice-data download cell, a Markdown
+  cell, and **File → Save Notebook** from the menu. Two corrections:
+  [Load a file from your Data Store into a notebook](tutorials/load-a-file.md) and
+  [Save your work where it survives the session](tutorials/save-your-work.md) now say to
+  type the name without `.ipynb` when renaming, because the box keeps the ending and
+  typing it again gives `.ipynb.ipynb`; and step 2 of
+  [Query a Parquet file with DuckDB from a notebook](tutorials/query-parquet-with-duckdb.md)
+  shows a small **Count** table, where the page said there was no output. All remain
+  drafts.
 * **Update**: The site's output check was run inside MESA JupyterLab (Python 3.13.18,
   pandas 3.1.1, DuckDB 2.0.0): all 58 Python outputs on the tutorials and trace cards
   matched. Four tutorials that said their code was run outside MESA now say it was run

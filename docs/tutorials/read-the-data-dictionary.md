@@ -21,8 +21,9 @@ sources:
 
 !!! warning "Draft: not yet validated"
     The code on this page was run inside MESA JupyterLab on 2026-11-13 and produced the
-    output shown. Nobody has yet followed the steps there by hand, so a menu or a screen
-    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    output shown. The Markdown-cell step was followed there on 2026-11-16 by the AI
+    assistant that drafted the page. No person has yet followed them, so a screen may
+    differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 A *data dictionary* is the table that says what each column means. Five minutes with it
 saves you from a number that looks right and is not.
