@@ -37,7 +37,7 @@ you, and how to check any page for yourself.
 Being drafted with AI says nothing about whether a page is right. Two other signals do.
 
 - **The draft notice.** A tutorial marked *Draft: not yet validated* has not been
-  followed from start to finish by a second person. Today that is every tutorial.
+  followed from start to finish by a person. Today that is every tutorial.
 - **The last line.** Each tutorial ends by saying what was run or followed, where, and
   when. If that line does not name a person, read it as "not yet checked by one".
 

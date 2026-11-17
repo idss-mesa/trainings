@@ -16,9 +16,9 @@ sources:
 # Open a file from your Data Store in a desktop program
 
 !!! warning "Draft: not yet validated"
-    These steps were followed once in the app on 2026-11-13, by the person who wrote
-    them. Nobody else has yet followed them, so a screen may differ.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    These steps were followed once in the app on 2026-11-13, by the AI assistant that
+    drafted them. No person has yet followed them, so a screen may differ. [Tell us what
+    you find](https://github.com/idss-mesa/trainings/issues).
 
 Some software only has a graphical interface: desktop GIS, image editors, 3D viewers.
 The MESA KASM Ubuntu Desktop is a full Linux desktop in a browser tab, with your Data
@@ -87,4 +87,4 @@ then open the image with the right-click menu as in step 5.
 - Reference: [MESA KASM Ubuntu Desktop](https://idss-mesa.github.io/docs/apps/kasm/),
   for what the desktop contains.
 
-*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once in the app that day.*
+*Not yet validated by a person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once in the app that day.*

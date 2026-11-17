@@ -16,9 +16,11 @@ sources:
 # Stop sharing a folder
 
 !!! warning "Draft: not yet validated"
-    These steps were followed once on the live portal on 2026-11-13, by the person who
-    wrote them. The browser used for the test could not show the confirmation box in step 4, so it was accepted automatically; its wording is as the portal sends it. Nobody else has yet followed them, so a screen may differ.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    These steps were followed once on the live portal on 2026-11-13, by the AI assistant
+    that drafted them. The browser used for the test could not show the confirmation box
+    in step 4, so it was accepted automatically; its wording is as the portal sends it.
+    No person has yet followed them, so a screen may differ. [Tell us what you
+    find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** have removed one person's access to a folder, and seen the folder marked
 private again.
@@ -76,4 +78,4 @@ both.
   or copied stays with them.
 - Reference: [Managing data, "Share data"](https://idss-mesa.github.io/docs/portal/data/#share-data).
 
-*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*

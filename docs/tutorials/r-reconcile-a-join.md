@@ -20,9 +20,10 @@ sources:
 # Reconcile row counts before and after a join in R
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run inside MESA RStudio Geospatial on 2026-11-16 (R 4.6.2)
-    and produced the output shown, one step at a time. Nobody else has yet followed
-    the steps, so a screen may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-16 (R
+    4.6.2), by the AI assistant that drafted it, and produced the output shown, one step
+    at a time. No person has yet followed the steps, so a screen may differ. [Tell us
+    what you find](https://github.com/idss-mesa/trainings/issues).
 
 A join can silently add rows, when a key repeats in the table you look things up in,
 or lose them, when a key has no match. Counting rows before and after catches both.
@@ -134,4 +135,4 @@ result by the key. Count and compare; do not rely on row positions.
   repeated in `joined`. See [Count records per day in R](r-count-records-per-day.md).
 - The same task in Python: [Reconcile row counts before and after a join](reconcile-a-join.md).
 
-*Not yet validated by a second person in MESA RStudio Geospatial. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-16; the code was run there that day (R 4.6.2).*
+*Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-16; the code was run there that day (R 4.6.2).*

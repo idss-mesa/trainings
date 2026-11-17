@@ -16,9 +16,9 @@ sources:
 # Write and run a Python script in MESA VS Code
 
 !!! warning "Draft: not yet validated"
-    These steps were followed once in the app on 2026-11-13, by the person who wrote
-    them. Nobody else has yet followed them, so a screen may differ.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    These steps were followed once in the app on 2026-11-13, by the AI assistant that
+    drafted them. No person has yet followed them, so a screen may differ. [Tell us what
+    you find](https://github.com/idss-mesa/trainings/issues).
 
 MESA VS Code is the Visual Studio Code editor in a browser tab, opened on your Data
 Store. A script you write there is saved in your Data Store as you type.
@@ -105,4 +105,4 @@ folder above it.
 - Reference: [MESA VS Code](https://idss-mesa.github.io/docs/apps/vscode/), for the
   extensions and tools the app contains.
 
-*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once in the app that day.*
+*Not yet validated by a person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once in the app that day.*

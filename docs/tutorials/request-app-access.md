@@ -22,8 +22,9 @@ sources:
 !!! warning "Draft: not yet validated"
     Steps 1 and 2 were seen on the live portal on 2026-11-13, on a newly created
     account. Steps 3 to 6 were written from the public source code of the CyVerse
-    Discovery Environment: the writer has not sent the form, so its wording or layout
-    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    Discovery Environment: the form was not sent while drafting, so its wording or
+    layout may differ. [Tell us what you
+    find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** have asked CyVerse, once, to let your account start interactive apps, and
 know how to tell when it has said yes.
@@ -103,4 +104,4 @@ it is sent once per account.
 - [Check your CPU hours and storage](check-your-usage.md)
 - Reference: [Starting applications](https://idss-mesa.github.io/docs/portal/applications/).
 
-*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-16; the failed launch was seen on the live portal on 2026-11-13, and the request form was not sent.*
+*Not yet validated by a person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-16; the failed launch was seen on the live portal on 2026-11-13, and the request form was not sent.*

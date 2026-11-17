@@ -20,9 +20,10 @@ sources:
 # Query a Parquet file with DuckDB from R
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run inside MESA RStudio Geospatial on 2026-11-13 (R 4.6.2, duckdb 2.0.0)
-    and produced the output shown, one step at a time. Nobody else has yet followed
-    the steps, so a screen may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-13 (R 4.6.2,
+    duckdb 2.0.0), by the AI assistant that drafted it, and produced the output shown,
+    one step at a time. No person has yet followed the steps, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 DuckDB runs SQL straight against a Parquet file, so R can summarise data far too large
 to read into memory. MESA RStudio Geospatial has the R `duckdb` package installed.
@@ -140,4 +141,4 @@ in R's working folder. Either step 2 did not run, or R is somewhere else: run
 - Reference: [R Client](https://duckdb.org/docs/2.0/clients/r) in the DuckDB
   documentation, which also covers `dplyr` through `dbplyr`.
 
-*Not yet validated by a second person in MESA RStudio Geospatial. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13; the code was run there that day (R 4.6.2, duckdb 2.0.0).*
+*Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13; the code was run there that day (R 4.6.2, duckdb 2.0.0).*

@@ -17,9 +17,9 @@ sources:
 
 !!! warning "Draft: not yet validated"
     These steps were followed on the live portal on 2026-11-13, on a newly created
-    account, by the person who wrote them. Nobody else has yet followed them, so a
-    screen may differ.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    account, by the AI assistant that drafted them. No person has yet followed them, so
+    a screen may differ. [Tell us what you
+    find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** have the MESA community folder open and the path of one of its folders
 copied, ready to paste into a notebook or a terminal.
@@ -80,4 +80,4 @@ not MESA's.** You clicked **Shared**, which opens every CyVerse community projec
   ["Browse and find files"](https://idss-mesa.github.io/docs/portal/data/#browse-and-find-files)
   for search and the built-in file viewer.
 
-*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*
+*Not yet validated by a person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*

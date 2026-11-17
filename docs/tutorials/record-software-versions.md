@@ -20,9 +20,9 @@ sources:
 # Record the software versions a result depends on
 
 !!! warning "Draft: not yet validated"
-    The commands on this page were run in MESA JupyterLab on 2026-11-13 and produced
-    the output shown. Nobody else has yet followed the steps.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The commands on this page were run in MESA JupyterLab on 2026-11-13, by the AI
+    assistant that drafted it, and produced the output shown. No person has yet followed
+    the steps. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 The software in a MESA app changes when the app is rebuilt. A number you computed
 today may not come out the same next year, and without a record you cannot tell
@@ -119,4 +119,4 @@ installed. Search for one name without the `==`, for example
 - [Write a README for a data folder](write-a-readme.md), and mention these two files
   in it.
 
-*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed in MESA JupyterLab that day.*
+*Not yet validated by a person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed in MESA JupyterLab that day.*

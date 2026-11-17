@@ -16,11 +16,11 @@ sources:
 # Move a folder to the trash and get it back
 
 !!! warning "Draft: not yet validated"
-    These steps were followed once on 2026-11-13, by the person who wrote them, on a
-    folder and then on a file. The browser used for the test could not show the
-    confirmation box in step 3, so it was accepted automatically; its wording is as
-    the portal sends it.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    These steps were followed once on 2026-11-13, by the AI assistant that drafted them,
+    on a folder and then on a file. The browser used for the test could not show the
+    confirmation box in step 3, so it was accepted automatically; its wording is as the
+    portal sends it. [Tell us what you
+    find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** have put a folder in the trash, and brought it back.
 
@@ -91,4 +91,4 @@ wait and try again.
   toolbar: see [Move folders into another folder](move-folders.md) for the toolbar.
 - Reference: [Managing data, "Upload, create, move, and delete"](https://idss-mesa.github.io/docs/portal/data/#upload-create-move-and-delete).
 
-*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*

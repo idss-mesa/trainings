@@ -21,9 +21,9 @@ sources:
 
 !!! warning "Draft: not yet validated"
     These steps were followed on the live portal on 2026-11-13, on a newly created
-    account, by the person who wrote them. On that run the notebook was made from the Launcher, not the File menu. Nobody else has yet followed them, so a
-    screen may differ.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    account, by the AI assistant that drafted them. On that run the notebook was made
+    from the Launcher, not the File menu. No person has yet followed them, so a screen
+    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 A MESA app runs in a temporary container. When the app ends, everything in it is
 deleted except what sits under `~/data-store`, which is your CyVerse Data Store.
@@ -93,4 +93,4 @@ the app.
 - Reference: [Your Data Store inside the app](https://idss-mesa.github.io/docs/apps/agents/#your-data-store-inside-the-app)
   and [Managing data, "Data in the apps"](https://idss-mesa.github.io/docs/portal/data/#data-in-the-apps).
 
-*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*
+*Not yet validated by a person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*

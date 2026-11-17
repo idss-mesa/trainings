@@ -16,10 +16,10 @@ sources:
 # Write a README for a data folder
 
 !!! warning "Draft: not yet validated"
-    These steps were followed once in MESA JupyterLab on 2026-11-13, by the person who
-    wrote them, except that the rename in step 5 was done from a terminal and the
-    preview in step 6 was not seen. Nobody else has yet followed them.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    These steps were followed once in MESA JupyterLab on 2026-11-13, by the AI assistant
+    that drafted them, except that the rename in step 5 was done from a terminal and the
+    preview in step 6 was not seen. No person has yet followed them. [Tell us what you
+    find](https://github.com/idss-mesa/trainings/issues).
 
 A folder of data without a description is a puzzle for the next person, and in six
 months that person is you. A README is a plain text file, kept with the data, that
@@ -106,4 +106,4 @@ right-click `untitled.md` and choose **Delete**.
 - [Share a folder with a collaborator](share-a-folder.md)
 - Reference: [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/).
 
-*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed in MESA JupyterLab that day.*
+*Not yet validated by a person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed in MESA JupyterLab that day.*
