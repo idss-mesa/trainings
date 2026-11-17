@@ -74,6 +74,9 @@ notebook, so do the first one first.
 | Group hourly data by the right day | [Turn UTC timestamps into local days](https://idss-mesa.github.io/trainings/tutorials/local-days-from-utc/) | 10 min |
 | Handle several measurements in one column | [Work with a long table, one row per kind of measurement](https://idss-mesa.github.io/trainings/tutorials/work-with-a-long-table/) | 5–10 min |
 | Run SQL on a Parquet file | [Query a Parquet file with DuckDB from a notebook](https://idss-mesa.github.io/trainings/tutorials/query-parquet-with-duckdb/) | 10 min |
+| Know which R and packages made a result | [Record the R and package versions a result depends on](https://idss-mesa.github.io/trainings/tutorials/r-record-software-versions/) | 5 min |
+| Say what a folder of data is, from RStudio | [Write a README for a data folder, from RStudio](https://idss-mesa.github.io/trainings/tutorials/r-write-a-readme/) | 10 min |
+| Find out if someone else can rerun my R work | [Hand your folder to a colleague and have them rerun it, in R](https://idss-mesa.github.io/trainings/tutorials/r-hand-over-and-rerun/) | 10 min |
 | Put points on a map in R | [Map point data with sf in MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/) | 10 min |
 | Test a result I was handed | [Check an AI-suggested result against the data](https://idss-mesa.github.io/trainings/tutorials/check-a-suggested-result/) | 10 min |
 | See what a join left out | [Join two tables and keep the unmatched rows visible](https://idss-mesa.github.io/trainings/tutorials/join-and-keep-unmatched/) | 10 min |
@@ -494,6 +497,9 @@ You can leave work that someone else can find, understand, and run again.
 If you have more time:
 
 - [Leave an R script someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/r-leave-a-rerunnable-script/) (5 to 10 minutes)
+- [Write a README for a data folder, from RStudio](https://idss-mesa.github.io/trainings/tutorials/r-write-a-readme/) (10 minutes)
+- [Record the R and package versions a result depends on](https://idss-mesa.github.io/trainings/tutorials/r-record-software-versions/) (5 minutes)
+- [Hand your folder to a colleague and have them rerun it, in R](https://idss-mesa.github.io/trainings/tutorials/r-hand-over-and-rerun/) (10 minutes)
 
 ## Next
 
@@ -801,7 +807,7 @@ You can ask questions across files and tables, and show that combining them did 
 
 ## 5. Preserve and share
 
-You can leave work that someone else can find, understand, and run again. 7 tutorials, 45 to 60 minutes in all.
+You can leave work that someone else can find, understand, and run again. 10 tutorials, 70 to 85 minutes in all.
 
 1. [Write a README for a data folder](https://idss-mesa.github.io/trainings/tutorials/write-a-readme/) (10 minutes)
 2. [Add metadata to a file or folder](https://idss-mesa.github.io/trainings/tutorials/add-metadata/) (5 minutes)
@@ -809,7 +815,13 @@ You can leave work that someone else can find, understand, and run again. 7 tuto
 4. [Leave a notebook someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/leave-a-rerunnable-notebook/) (5 to 10 minutes)
 5. [Say where your input data came from](https://idss-mesa.github.io/trainings/tutorials/say-where-data-came-from/) (5 to 10 minutes)
 6. [Hand your folder to a colleague and have them rerun it](https://idss-mesa.github.io/trainings/tutorials/hand-over-and-rerun/) (10 minutes)
-7. [Leave an R script someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/r-leave-a-rerunnable-script/) (5 to 10 minutes)
+
+### Preserve and share, in R
+
+1. [Leave an R script someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/r-leave-a-rerunnable-script/) (5 to 10 minutes)
+2. [Write a README for a data folder, from RStudio](https://idss-mesa.github.io/trainings/tutorials/r-write-a-readme/) (10 minutes)
+3. [Record the R and package versions a result depends on](https://idss-mesa.github.io/trainings/tutorials/r-record-software-versions/) (5 minutes)
+4. [Hand your folder to a colleague and have them rerun it, in R](https://idss-mesa.github.io/trainings/tutorials/r-hand-over-and-rerun/) (10 minutes)
 
 ## Looking for one thing?
 
@@ -9626,6 +9638,374 @@ is a difference too; add it to your list.
 
 *Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-17; the code was run there that day (R 4.6.2).*
 
+---8<--- https://idss-mesa.github.io/trainings/tutorials/r-record-software-versions/
+
+---
+type: Guide
+title: "Record the R and package versions a result depends on"
+description: "Write the R version and the version of every installed package to files beside your work in MESA RStudio Geospatial, so that a result can be traced to the software that produced it."
+tags: [byte, p5, rstudio, r, reproducibility, environment]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-17T00:00:00Z" }
+stale_after: "2027-05-17T00:00:00Z"
+sources:
+  - id: docs-rstudio
+    resource: "https://idss-mesa.github.io/docs/apps/rstudio/"
+    title: "MESA RStudio Geospatial"
+    author: "team:idss-mesa"
+  - id: r-installed
+    resource: "https://stat.ethz.ch/R-manual/R-devel/library/utils/html/installed.packages.html"
+    title: "Find Installed Packages: installed.packages (R documentation)"
+    author: "team:r-core"
+  - id: r-session
+    resource: "https://stat.ethz.ch/R-manual/R-devel/library/utils/html/sessionInfo.html"
+    title: "Collect Information About the Current R Session: sessionInfo (R documentation)"
+    author: "team:r-core"
+---
+
+# Record the R and package versions a result depends on
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run in MESA RStudio Geospatial on 2026-11-17 (R 4.6.2),
+    by the AI assistant that drafted it, and gave the results quoted in the steps. No
+    person has yet followed the steps.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+The software in a MESA app changes when the app is rebuilt. A number you computed
+today may not come out the same next year, and without a record you cannot tell
+whether the data or the software changed.
+
+**You will:** have three small files beside your work that say which R and which
+package versions it ran on.
+
+**Time:** 5 minutes. **You need:** the `mesa-practice` folder from
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/), or a folder of your
+own, in MESA RStudio Geospatial with R's working folder set to it.
+
+## Steps
+
+1. In the **Console**, check the R version:
+
+    ```r
+    R.version.string
+    ```
+
+    You should see: one line, such as `[1] "R version 4.6.2 (2026-10-29)"`.
+
+2. Write every installed package and its version to a file:
+
+    ```r
+    pkgs <- as.data.frame(installed.packages()[, c("Package", "Version")], row.names = FALSE)
+    write.csv(pkgs, "r-packages.csv", row.names = FALSE)
+    ```
+
+    You should see: no output, and `pkgs` in the **Environment** tab at the top
+    right.
+
+3. Count what was recorded:
+
+    ```r
+    nrow(pkgs)
+    ```
+
+    You should see: a few hundred, one row for each package. In our test, `[1] 288`.
+
+4. Look up the packages your work loads. For the practice tutorials:
+
+    ```r
+    pkgs[pkgs$Package %in% c("sf", "duckdb", "terra"), ]
+    ```
+
+    You should see: one row for each, with its version. In our test, `duckdb` 2.0.0,
+    `sf` 1.1-3 and `terra` 1.9-50. The number at the start of each row is its place
+    in the list.
+
+5. Record the session: the operating system, and the packages loaded right now.
+
+    ```r
+    writeLines(capture.output(sessionInfo()), "r-session.txt")
+    ```
+
+    You should see: no output. Run this at the end of your work, when everything the
+    work uses has been loaded.
+
+6. Write a one-line note that ties the files together and dates them:
+
+    ```r
+    writeLines(paste0(R.version.string, ", packages in r-packages.csv, recorded ", Sys.Date()), "r-environment.txt")
+    readLines("r-environment.txt")
+    ```
+
+    You should see: the note. In our test,
+    `[1] "R version 4.6.2 (2026-10-29), packages in r-packages.csv, recorded 2026-11-17"`.
+
+## Check it worked
+
+`list.files(pattern = "^r-")` names `r-environment.txt`, `r-packages.csv` and
+`r-session.txt`, and step 4 shows a version for each package your work loads.
+
+## If it didn't
+
+**Step 4 prints `[1] Package Version` and `<0 rows>`.** None of the names matched
+what is installed. Names are case-sensitive: search with
+`pkgs[grepl("duck", pkgs$Package, ignore.case = TRUE), ]` and use the spelling it
+shows.
+
+## Next
+
+- These files record the software; they do not rebuild it. To run old work again you
+  need an app with the same versions, or to install them yourself.
+- Record again whenever a result goes into a report: the date in `r-environment.txt`
+  says which run the record belongs to.
+- [Leave an R script someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/r-leave-a-rerunnable-script/)
+- [Write a README for a data folder, from RStudio](https://idss-mesa.github.io/trainings/tutorials/r-write-a-readme/), and mention
+  these three files in it.
+- The same task in Python: [Record the software versions a result depends on](https://idss-mesa.github.io/trainings/tutorials/record-software-versions/).
+
+*Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-17; the code was run there that day (R 4.6.2).*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/r-write-a-readme/
+
+---
+type: Guide
+title: "Write a README for a data folder, from RStudio"
+description: "Add a short README file to a folder in your Data Store, with the editor in MESA RStudio Geospatial, that says what the files are, where they came from, and who to ask."
+tags: [byte, p5, rstudio, documentation, data-store]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-17T00:00:00Z" }
+stale_after: "2027-05-17T00:00:00Z"
+sources:
+  - id: docs-rstudio
+    resource: "https://idss-mesa.github.io/docs/apps/rstudio/"
+    title: "MESA RStudio Geospatial"
+    author: "team:idss-mesa"
+---
+
+# Write a README for a data folder, from RStudio
+
+!!! warning "Draft: not yet validated"
+    These steps were followed once in MESA RStudio Geospatial on 2026-11-17 (R 4.6.2),
+    by the AI assistant that drafted them, with a shorter text than the one in step 2.
+    No person has yet followed them, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A folder of data without a description is a puzzle for the next person, and in six
+months that person is you. A README is a plain text file, kept with the data, that
+answers the first questions anyone asks.
+
+**You will:** have a `README.md` in a folder of your Data Store that describes what is
+in it.
+
+**Time:** 10 minutes. **You need:** the `mesa-practice` folder from
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/), or a folder of your
+own, in MESA RStudio Geospatial with R's working folder set to it.
+
+## Steps
+
+1. Choose **File → New File → Markdown File**.
+
+    You should see: an empty editor tab named **Untitled1**, above the **Console**.
+
+2. Type the description. Five short parts cover most folders:
+
+    ```markdown
+    # Practice rain-gauge data
+
+    Synthetic data from the MESA Trainings tutorials. It describes no real place.
+
+    ## Files
+
+    - `gauges.csv`: one row per rain gauge (5 rows)
+    - `readings.csv`: one row per gauge and day, July 2026 (152 rows)
+    - `checks.R`: checks on both files; run it with `source("checks.R")`
+
+    ## Source
+
+    https://idss-mesa.github.io/trainings/tutorials/practice-data/
+
+    ## Notes
+
+    - Orchard (G02) reports in centimetres; the other gauges report in millimetres.
+    - Readings flagged `S` were marked suspect by the sensor.
+
+    ## Contact
+
+    Your name, your email address
+    ```
+
+    You should see: the headings in colour in the editor. RStudio does not start the
+    next bullet for you: type each `-` yourself. Leave out the `checks.R` line if
+    your folder has no such script.
+
+3. Click the save button, the disk at the left of the editor's toolbar. The **Save
+   File** window opens on R's working folder.
+
+    You should see: the folder's own files listed in the window, such as
+    `gauges.csv`.
+
+4. Type `README.md` as the file name and click **Save**.
+
+    You should see: the tab renamed **README.md**. By convention that name is the one
+    people look for first.
+
+5. In the **Console**, confirm the file is in the folder:
+
+    ```r
+    file.exists("README.md")
+    ```
+
+    You should see: `[1] TRUE`.
+
+## Check it worked
+
+`README.md` is listed in the folder, in RStudio and in the portal's Data Browser, and
+a person who has never seen the folder could say from it what each file holds.
+
+## If it didn't
+
+**The folder now holds `README.html` as well.** You clicked **Preview** in the
+editor's toolbar, which writes a web page beside the README and tries to open it in
+a new window. Nothing is lost. Remove the extra file with
+`file.remove("README.html")`.
+
+**A window asks about "visual editing mode".** You clicked **Visual**, above the
+text. That mode rewrites the file's Markdown in its own style. Click **Cancel** to
+stay with the text as you typed it.
+
+**`[1] FALSE` in step 5.** The file was saved somewhere else. Choose
+**File → Save As...**, go to your folder in the window, and save it there.
+
+## Next
+
+- [Say where your input data came from](https://idss-mesa.github.io/trainings/tutorials/say-where-data-came-from/): the facts to
+  put under **Source**. Its steps name JupyterLab's menus; in RStudio, open
+  `README.md` from **File → Open File...** and save with the same disk button.
+- [Record the R and package versions a result depends on](https://idss-mesa.github.io/trainings/tutorials/r-record-software-versions/)
+- [Add metadata to a file or folder](https://idss-mesa.github.io/trainings/tutorials/add-metadata/), which makes the same facts
+  searchable by tools.
+- The same task in JupyterLab: [Write a README for a data folder](https://idss-mesa.github.io/trainings/tutorials/write-a-readme/).
+
+*Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-17 and followed there once that day (R 4.6.2).*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/r-hand-over-and-rerun/
+
+---
+type: Guide
+title: "Hand your folder to a colleague and have them rerun it, in R"
+description: "Test whether your R work can be repeated without you: share the folder, have a colleague copy it and run the script in a new RStudio session, and compare their result with the one you wrote down."
+tags: [byte, p5, rstudio, r, reproducibility, sharing]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-17T00:00:00Z" }
+stale_after: "2027-05-17T00:00:00Z"
+sources:
+  - id: docs-data
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+  - id: docs-rstudio
+    resource: "https://idss-mesa.github.io/docs/apps/rstudio/"
+    title: "MESA RStudio Geospatial"
+    author: "team:idss-mesa"
+---
+
+# Hand your folder to a colleague and have them rerun it, in R
+
+!!! warning "Draft: not yet validated"
+    Nobody has yet followed this tutorial from start to finish: it needs two accounts.
+    Only step 5 was run, in MESA RStudio Geospatial on 2026-11-17 (R 4.6.2), by the AI
+    assistant that drafted this page. The rest comes from the MESA documentation.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+You cannot tell from the inside whether your folder holds everything. You know where
+the files are, what to run, and what the answer should be. The test is to give the
+folder to someone who knows none of that, and to say nothing while they try.
+
+**You will:** know whether a colleague can rerun your script, without your help, and
+get your result.
+
+**Time:** 10 minutes for you, and 10 for your colleague. **You need:** a folder
+holding a script that passes
+[Leave an R script someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/r-leave-a-rerunnable-script/); a colleague
+who can [sign in to the MESA Portal](https://idss-mesa.github.io/trainings/tutorials/sign-in/); and their CyVerse username.
+
+## Steps
+
+1. Choose one result your script prints and write it down outside the folder: a row
+   count, a total, or its last line.
+
+    You should see: one number or one line, in a note or a message draft. For
+    `checks.R`, the two flag counts will do: `S` 2, `<NA>` 150.
+
+2. Share the folder with your colleague, with **Read** access, as in
+   [Share a folder with a collaborator](https://idss-mesa.github.io/trainings/tutorials/share-a-folder/).
+
+    You should see: **Shared · 1** in the folder's header.
+
+3. Send your colleague three things and nothing more: your CyVerse username, the
+   folder's name, and the sentence "Run the script in a new RStudio session and tell
+   me what you get." Keep the result from step 1 to yourself.
+
+    You should see: a message with no instructions in it. Anything else they need
+    should already be in the folder.
+
+4. Your colleague opens **Data Browser**, clicks **User Shared**, opens the folder
+   named with your username, and then your folder. They download each file with the
+   download button on its card, and upload the files into a folder of their own
+   under **My Files**.
+
+    They should see: the same files in a folder where the header says **Owner**.
+
+5. Your colleague starts [MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/) and, in the
+   **Console**, goes to their copy and runs the script, with their own username and
+   folder name in the first line:
+
+    ```r
+    setwd("~/data-store/home/<your username>/mesa-practice")
+    source("checks.R", echo = TRUE)
+    ```
+
+    They should see: the lines of the script and what each prints, with no line that
+    begins `Error`. A session that has just started has nothing in its
+    **Environment**, so the script gets no help from earlier work.
+
+6. Your colleague tells you three things: whether it ran without an error, the result
+   they got, and every question they wanted to ask you on the way.
+
+    You should see: their result equal to the one you wrote down in step 1.
+
+7. Treat each question, and each difference, as something missing from the folder.
+   Add it to the README or to the comment at the top of the script, then ask them to
+   run it once more.
+
+    You should see: a second run with no questions.
+
+## Check it worked
+
+Your colleague ran the script in their own copy, got the result you wrote down before
+you shared the folder, and did not need to ask you anything.
+
+## If it didn't
+
+**Your colleague cannot find your name under User Shared.** That list is refreshed
+every few minutes, so a folder shared a moment ago may not be there yet. It also
+shows 25 people to a page: they click **Next** until they reach your username. If it
+is still missing after ten minutes, open the share dialog and check that their
+username is under **Current Permissions**.
+
+**`cannot open file 'checks.R'`.** The folder in `setwd()` is not the one that holds
+the copy. Your colleague corrects the path.
+
+## Next
+
+- [Say where your input data came from](https://idss-mesa.github.io/trainings/tutorials/say-where-data-came-from/), which answers
+  the question a colleague most often asks.
+- [Stop sharing a folder](https://idss-mesa.github.io/trainings/tutorials/stop-sharing-a-folder/), when the test is over.
+- Reference: [Managing data, "Share data"](https://idss-mesa.github.io/docs/portal/data/#share-data)
+  and ["Upload, create, move, and delete"](https://idss-mesa.github.io/docs/portal/data/#upload-create-move-and-delete).
+- The same task in Python: [Hand your folder to a colleague and have them rerun it](https://idss-mesa.github.io/trainings/tutorials/hand-over-and-rerun/).
+
+*Not yet validated by a person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-17 from the MESA documentation; step 5 was run in MESA RStudio Geospatial that day (R 4.6.2).*
+
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/keep-an-ai-log/
 
 ---
@@ -11719,6 +12099,13 @@ explains.
 # Directory Update Log
 
 ## 2026-11-17
+
+* **Creation**: Three tutorials at point 5, Preserve and share, for MESA RStudio
+  Geospatial:
+  [Record the R and package versions a result depends on](tutorials/r-record-software-versions.md),
+  [Write a README for a data folder, from RStudio](tutorials/r-write-a-readme.md) and
+  [Hand your folder to a colleague and have them rerun it, in R](tutorials/r-hand-over-and-rerun.md).
+  All are drafts. The hand-over needs two accounts; only its rerun step was run.
 
 * **Creation**: R versions of the four point 4 checks, for MESA RStudio Geospatial:
   [Plot a column to spot odd values in R](tutorials/r-plot-to-spot-odd-values.md),

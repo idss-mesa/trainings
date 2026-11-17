@@ -509,7 +509,10 @@
      "point": "p5",
      "tutorials": [],
      "more": [
-      "r-leave-a-rerunnable-script"
+      "r-leave-a-rerunnable-script",
+      "r-write-a-readme",
+      "r-record-software-versions",
+      "r-hand-over-and-rerun"
      ]
     }
    ]
@@ -618,6 +621,9 @@
    "check-a-result-two-ways": "r-check-a-result-two-ways",
    "check-parts-add-up": "r-check-parts-add-up",
    "compare-two-files": "r-compare-two-files",
+   "record-software-versions": "r-record-software-versions",
+   "write-a-readme": "r-write-a-readme",
+   "hand-over-and-rerun": "r-hand-over-and-rerun",
    "practice-data": null,
    "launch-jupyterlab": null
   }
@@ -794,8 +800,16 @@
      "record-software-versions",
      "leave-a-rerunnable-notebook",
      "say-where-data-came-from",
-     "hand-over-and-rerun",
-     "r-leave-a-rerunnable-script"
+     "hand-over-and-rerun"
+    ]
+   },
+   {
+    "title": "Preserve and share, in R",
+    "tutorials": [
+     "r-leave-a-rerunnable-script",
+     "r-write-a-readme",
+     "r-record-software-versions",
+     "r-hand-over-and-rerun"
     ]
    }
   ]
@@ -1381,6 +1395,20 @@
     "r-load-a-file"
    ]
   },
+  "r-hand-over-and-rerun": {
+   "title": "Hand your folder to a colleague and have them rerun it, in R",
+   "description": "Test whether your R work can be repeated without you: share the folder, have a colleague copy it and run the script in a new RStudio session, and compare their result with the one you wrote down.",
+   "outcome": "know whether a colleague can rerun your script, without your help, and get your result.",
+   "point": "p5",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-17T00:00:00Z",
+   "stale_after": "2027-05-17T00:00:00Z",
+   "builds_on": [
+    "r-leave-a-rerunnable-script"
+   ]
+  },
   "r-join-and-keep-unmatched": {
    "title": "Join two tables in R and keep the unmatched rows visible",
    "description": "Join a table of gauges to an incomplete table of positions with merge() in R, keep the gauge that finds no match, and count how many matched.",
@@ -1493,6 +1521,20 @@
     "r-load-a-file"
    ]
   },
+  "r-record-software-versions": {
+   "title": "Record the R and package versions a result depends on",
+   "description": "Write the R version and the version of every installed package to files beside your work in MESA RStudio Geospatial, so that a result can be traced to the software that produced it.",
+   "outcome": "have three small files beside your work that say which R and which package versions it ran on.",
+   "point": "p5",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-17T00:00:00Z",
+   "stale_after": "2027-05-17T00:00:00Z",
+   "builds_on": [
+    "r-load-a-file"
+   ]
+  },
   "r-remove-a-repeated-row": {
    "title": "Find and remove a repeated row in R",
    "description": "Show the rows of an R data frame that have an exact copy, decide that they are one reading, remove the copy with unique(), and record what you removed.",
@@ -1545,6 +1587,20 @@
    "status": "draft",
    "revised": "2026-11-16T00:00:00Z",
    "stale_after": "2027-05-16T00:00:00Z",
+   "builds_on": [
+    "r-load-a-file"
+   ]
+  },
+  "r-write-a-readme": {
+   "title": "Write a README for a data folder, from RStudio",
+   "description": "Add a short README file to a folder in your Data Store, with the editor in MESA RStudio Geospatial, that says what the files are, where they came from, and who to ask.",
+   "outcome": "have a `README.md` in a folder of your Data Store that describes what is in it.",
+   "point": "p5",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-17T00:00:00Z",
+   "stale_after": "2027-05-17T00:00:00Z",
    "builds_on": [
     "r-load-a-file"
    ]

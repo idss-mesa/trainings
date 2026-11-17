@@ -71,6 +71,9 @@ You can leave work that someone else can find, understand, and run again.
 If you have more time:
 
 - [Leave an R script someone else can rerun](../tutorials/r-leave-a-rerunnable-script.md) (5 to 10 minutes)
+- [Write a README for a data folder, from RStudio](../tutorials/r-write-a-readme.md) (10 minutes)
+- [Record the R and package versions a result depends on](../tutorials/r-record-software-versions.md) (5 minutes)
+- [Hand your folder to a colleague and have them rerun it, in R](../tutorials/r-hand-over-and-rerun.md) (10 minutes)
 
 ## Next
 
