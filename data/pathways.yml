@@ -170,6 +170,12 @@ pathways:
           - convert-units-before-comparing
           - remove-a-repeated-row
           - join-and-keep-unmatched
+      - point: p4
+        more:
+          - plot-to-spot-odd-values
+          - compare-two-files
+          - check-parts-add-up
+          - check-a-result-two-ways
 
   - id: work-in-r
     title: Work in R
@@ -328,6 +334,8 @@ by_point:
         - start-an-ai-agent
         - check-a-suggested-result
         - keep-an-ai-log
+    - title: Checks for any result
+      tutorials: [plot-to-spot-odd-values, check-a-result-two-ways, check-parts-add-up, compare-two-files]
   p5:
     - tutorials:
         - write-a-readme

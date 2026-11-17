@@ -80,6 +80,10 @@ notebook, so do the first one first.
 | Compare gauges that report in different units | [Bring two units onto one scale before comparing](https://idss-mesa.github.io/trainings/tutorials/convert-units-before-comparing/) | 10 min |
 | Deal with a row that is written twice | [Find and remove a repeated row](https://idss-mesa.github.io/trainings/tutorials/remove-a-repeated-row/) | 5–10 min |
 | Hand a query to someone else | [Save a query so someone else can run it](https://idss-mesa.github.io/trainings/tutorials/save-a-query/) | 5–10 min |
+| See an odd value in a chart | [Plot a column to spot odd values](https://idss-mesa.github.io/trainings/tutorials/plot-to-spot-odd-values/) | 10 min |
+| Make sure a number is not an accident of the method | [Check a result a second way](https://idss-mesa.github.io/trainings/tutorials/check-a-result-two-ways/) | 10 min |
+| Notice rows a grouping dropped | [Check that the parts add up to the whole](https://idss-mesa.github.io/trainings/tutorials/check-parts-add-up/) | 10 min |
+| Use one month to question another | [Compare two files that should look alike](https://idss-mesa.github.io/trainings/tutorials/compare-two-files/) | 10 min |
 | Keep track of what an AI assistant did | [Keep a log of AI-assisted steps](https://idss-mesa.github.io/trainings/tutorials/keep-an-ai-log/) | 5–10 min |
 
 ## More in the portal, sharing, and AI agents
@@ -394,6 +398,17 @@ If you have more time:
 - [Bring two units onto one scale before comparing](https://idss-mesa.github.io/trainings/tutorials/convert-units-before-comparing/) (10 minutes)
 - [Find and remove a repeated row](https://idss-mesa.github.io/trainings/tutorials/remove-a-repeated-row/) (5 to 10 minutes)
 - [Join two tables and keep the unmatched rows visible](https://idss-mesa.github.io/trainings/tutorials/join-and-keep-unmatched/) (10 minutes)
+
+## Explore and verify
+
+*Explore with AI and verify.* You can work with an AI assistant and test what it tells you against the data.
+
+If you have more time:
+
+- [Plot a column to spot odd values](https://idss-mesa.github.io/trainings/tutorials/plot-to-spot-odd-values/) (10 minutes)
+- [Compare two files that should look alike](https://idss-mesa.github.io/trainings/tutorials/compare-two-files/) (10 minutes)
+- [Check that the parts add up to the whole](https://idss-mesa.github.io/trainings/tutorials/check-parts-add-up/) (10 minutes)
+- [Check a result a second way](https://idss-mesa.github.io/trainings/tutorials/check-a-result-two-ways/) (10 minutes)
 
 ## Next
 
@@ -749,11 +764,18 @@ You can ask questions across files and tables, and show that combining them did 
 
 ## 4. Explore and verify
 
-*Explore with AI and verify.* You can work with an AI assistant and test what it tells you against the data. 3 tutorials, 25 to 30 minutes in all.
+*Explore with AI and verify.* You can work with an AI assistant and test what it tells you against the data. 7 tutorials, 65 to 70 minutes in all.
 
 1. [Sign in and start an AI agent in a MESA app](https://idss-mesa.github.io/trainings/tutorials/start-an-ai-agent/) (10 minutes)
 2. [Check an AI-suggested result against the data](https://idss-mesa.github.io/trainings/tutorials/check-a-suggested-result/) (10 minutes)
 3. [Keep a log of AI-assisted steps](https://idss-mesa.github.io/trainings/tutorials/keep-an-ai-log/) (5 to 10 minutes)
+
+### Checks for any result
+
+1. [Plot a column to spot odd values](https://idss-mesa.github.io/trainings/tutorials/plot-to-spot-odd-values/) (10 minutes)
+2. [Check a result a second way](https://idss-mesa.github.io/trainings/tutorials/check-a-result-two-ways/) (10 minutes)
+3. [Check that the parts add up to the whole](https://idss-mesa.github.io/trainings/tutorials/check-parts-add-up/) (10 minutes)
+4. [Compare two files that should look alike](https://idss-mesa.github.io/trainings/tutorials/compare-two-files/) (10 minutes)
 
 ## 5. Preserve and share
 
@@ -8463,6 +8485,573 @@ again.
 
 *Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15; followed once there on 2026-11-16 (pandas 3.1.1, DuckDB 2.0.0).*
 
+---8<--- https://idss-mesa.github.io/trainings/tutorials/plot-to-spot-odd-values/
+
+---
+type: Guide
+title: "Plot a column to spot odd values"
+description: "Draw one box per gauge for a column of readings, so that a value far from the rest, or a gauge on a different scale, shows up at a glance."
+tags: [byte, p4, exploration, plotting, pandas]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-17T00:00:00Z" }
+stale_after: "2027-05-17T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: pandas
+    resource: "https://pandas.pydata.org/docs/user_guide/visualization.html"
+    title: "Chart visualization (pandas user guide)"
+    author: "team:pandas-dev"
+---
+
+# Plot a column to spot odd values
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run inside MESA JupyterLab on 2026-11-17, by the AI
+    assistant that drafted it, and produced the output shown. No person has yet followed
+    the steps, so a menu or a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A table of 152 numbers hides what a picture shows in a second. This check suits any
+column of measurements, whoever or whatever produced it.
+
+**You will:** have found one reading and one gauge in `readings` that do not sit with
+the rest, from a chart.
+
+**Time:** 10 minutes. **You need:** the notebook from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), open in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), with its first cell run so that `readings`
+and `gauges` exist.
+
+## Steps
+
+1. Draw one box per gauge:
+
+    ```python
+    readings.boxplot(column="value", by="gauge_id")
+    ```
+
+    You should see: a chart titled **Boxplot grouped by gauge_id**, with five boxes
+    squashed below 35 and a single circle near 180 above **G05**. A line of text
+    beginning `<Axes:` may appear above the chart; ignore it.
+
+2. Find the row behind the circle:
+
+    ```python
+    readings[readings["value"] > 100]
+    ```
+
+    You should see:
+
+    ```text
+        gauge_id        date  value flag
+    129      G05  2026-07-09  180.0    S
+    ```
+
+3. One extreme value sets the scale for everything else. Draw the chart again without
+   it, to look at the rest:
+
+    ```python
+    readings[readings["value"] < 100].boxplot(column="value", by="gauge_id")
+    ```
+
+    You should see: the axis now ends near 35. Four gauges reach 25 to 33. The box for
+    **G02** stays under 3.
+
+4. A gauge ten times lower than its neighbours is either in a much drier place or on
+   a different scale. Look at the gauge table:
+
+    ```python
+    gauges
+    ```
+
+    You should see: `cm` in the `unit` column for G02, and `mm` for the others.
+
+    ```text
+      gauge_id         name unit  elevation_m
+    0      G01    Boathouse   mm          512
+    1      G02      Orchard   cm          540
+    2      G03  Observatory   mm          688
+    3      G04        Depot   mm          521
+    4      G05       Quarry   mm          603
+    ```
+
+5. In a Markdown cell, write down the two things the chart showed and what you would
+   do about each before computing with `value`.
+
+    You should see: a note such as "G05 has one reading of 180 on 2026-07-09, flagged
+    S. G02 is recorded in cm, the others in mm."
+
+## Check it worked
+
+You can name the date of the odd reading and the gauge on a different scale, and you
+found both from the chart before you looked at any row.
+
+## If it didn't
+
+**Only the `<Axes:` line appears, and no chart.** Run `%matplotlib inline` in a cell of
+its own, then run step 1 again.
+
+**The second chart looks like the first.** The filter was left out. Check that the
+line begins `readings[readings["value"] < 100]`.
+
+## Next
+
+- [Tally a quality flag before you trust a number](https://idss-mesa.github.io/trainings/tutorials/tally-a-quality-flag/), for what
+  the `S` on that row means.
+- [Bring two units onto one scale before comparing](https://idss-mesa.github.io/trainings/tutorials/convert-units-before-comparing/), to put G02
+  on the same scale as the others.
+- Reference: [Chart visualization](https://pandas.pydata.org/docs/user_guide/visualization.html)
+  in the pandas user guide.
+
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-17; the code was run there that day (pandas 3.1.1, DuckDB 2.0.0).*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/check-a-result-two-ways/
+
+---
+type: Guide
+title: "Check a result a second way"
+description: "Compute the same count in pandas and in DuckDB, find out why the two disagree, and keep the result only once both routes give the same answer."
+tags: [byte, p4, verification, duckdb, pandas]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-17T00:00:00Z" }
+stale_after: "2027-05-17T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: duckdb-nulls
+    resource: "https://duckdb.org/docs/stable/sql/data_types/nulls"
+    title: "NULL values (DuckDB documentation)"
+    author: "org:duckdb"
+---
+
+# Check a result a second way
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run inside MESA JupyterLab on 2026-11-17, by the AI
+    assistant that drafted it, and produced the output shown. No person has yet followed
+    the steps, so a menu or a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+If two different routes give the same answer, a mistake would have to be made twice,
+in the same way, to go unnoticed. If they disagree, you have found something before
+your reader does. This works for a result of your own, a colleague's, or an AI
+assistant's.
+
+**You will:** have counted the readings not flagged as suspect in two ways, explained
+why the counts first differ, and made them agree.
+
+**Time:** 10 minutes. **You need:** the notebook from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), open in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), with its first cell run so that `readings`
+and `gauges` exist.
+
+## Steps
+
+1. Count the readings whose flag is not `S`, in pandas:
+
+    ```python
+    kept = readings[readings["flag"] != "S"]
+    len(kept)
+    ```
+
+    You should see: `150`.
+
+2. Count them again with a SQL query. DuckDB can query the `readings` table in your
+   notebook by name:
+
+    ```python
+    import duckdb
+    duckdb.sql("SELECT count(*) AS n FROM readings WHERE flag <> 'S'")
+    ```
+
+    You should see: `0`, not `150`. The two routes disagree, so at least one of them
+    is not doing what you meant.
+
+    ```text
+    ┌───────┐
+    │   n   │
+    │ int64 │
+    ├───────┤
+    │     0 │
+    └───────┘
+    ```
+
+3. Look at what the column holds:
+
+    ```python
+    duckdb.sql("SELECT flag, count(*) AS n FROM readings GROUP BY flag ORDER BY flag")
+    ```
+
+    You should see: two rows flagged `S`, and 150 with no flag at all, which SQL calls
+    `NULL`.
+
+    ```text
+    ┌─────────┬───────┐
+    │  flag   │   n   │
+    │ varchar │ int64 │
+    ├─────────┼───────┤
+    │ S       │     2 │
+    │ NULL    │   150 │
+    └─────────┴───────┘
+    ```
+
+    In SQL, comparing `NULL` with anything is neither true nor false, so `WHERE`
+    drops those rows. pandas treats a blank as "not equal to S" and keeps them.
+
+4. Say what you mean in SQL: keep every row whose flag is anything other than `S`,
+   blanks included.
+
+    ```python
+    duckdb.sql("SELECT count(*) AS n FROM readings WHERE flag IS DISTINCT FROM 'S'")
+    ```
+
+    You should see: `150`, the same as step 1.
+
+    ```text
+    ┌───────┐
+    │   n   │
+    │ int64 │
+    ├───────┤
+    │   150 │
+    └───────┘
+    ```
+
+5. With the counts in agreement, compare a result built on them:
+
+    ```python
+    duckdb.sql("""
+        SELECT gauge_id, round(sum(value), 2) AS total
+        FROM readings
+        WHERE flag IS DISTINCT FROM 'S'
+        GROUP BY gauge_id ORDER BY gauge_id
+    """)
+    ```
+
+    You should see: the totals that `kept.groupby("gauge_id")["value"].sum()` gives
+    in pandas.
+
+    ```text
+    ┌──────────┬────────┐
+    │ gauge_id │ total  │
+    │ varchar  │ double │
+    ├──────────┼────────┤
+    │ G01      │  190.3 │
+    │ G02      │  21.83 │
+    │ G03      │  273.6 │
+    │ G04      │  198.8 │
+    │ G05      │  210.9 │
+    └──────────┴────────┘
+    ```
+
+## Check it worked
+
+Both routes count 150 readings and give 210.9 for G05, and you can say why the first
+SQL query counted none.
+
+## If it didn't
+
+**Step 2 says the table `readings` does not exist.** The first cell of the notebook
+has not been run in this session. Run it, then try again.
+
+**The two routes agree but you doubt both.** Agreement shows the two were computed the
+same way, not that the data is sound. These totals still mix units.
+
+## Next
+
+- [Check that the parts add up to the whole](https://idss-mesa.github.io/trainings/tutorials/check-parts-add-up/), a check that
+  needs no second tool.
+- [Check an AI-suggested result against the data](https://idss-mesa.github.io/trainings/tutorials/check-a-suggested-result/)
+- Reference: [NULL values](https://duckdb.org/docs/stable/sql/data_types/nulls) in the
+  DuckDB documentation.
+
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-17; the code was run there that day (pandas 3.1.1, DuckDB 2.0.0).*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/check-parts-add-up/
+
+---
+type: Guide
+title: "Check that the parts add up to the whole"
+description: "After splitting a table into groups, add the groups back up and compare with the whole table, so that rows dropped without warning are noticed."
+tags: [byte, p4, verification, groupby, pandas]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-17T00:00:00Z" }
+stale_after: "2027-05-17T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: pandas
+    resource: "https://pandas.pydata.org/docs/user_guide/groupby.html"
+    title: "Group by: split-apply-combine (pandas user guide)"
+    author: "team:pandas-dev"
+---
+
+# Check that the parts add up to the whole
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run inside MESA JupyterLab on 2026-11-17, by the AI
+    assistant that drafted it, and produced the output shown. No person has yet followed
+    the steps, so a menu or a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+Splitting a table into groups should lose nothing: the groups, added up, should give
+the table back. When they do not, rows have gone missing without an error message.
+
+**You will:** have caught 150 rows that a grouping dropped without warning, and
+confirmed a split that loses none.
+
+**Time:** 10 minutes. **You need:** the notebook from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), open in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), with its first cell run so that `readings`
+and `gauges` exist.
+
+## Steps
+
+1. State the whole before you split it:
+
+    ```python
+    len(readings)
+    ```
+
+    You should see: `152`.
+
+2. Split the rows by flag and count each group:
+
+    ```python
+    parts = readings.groupby("flag").size()
+    parts
+    ```
+
+    You should see: one group. Nothing warns you that anything is missing.
+
+    ```text
+    flag
+    S    2
+    dtype: int64
+    ```
+
+3. Add the parts up and put the total beside the whole:
+
+    ```python
+    int(parts.sum()), len(readings)
+    ```
+
+    You should see: `(2, 152)`. The parts are 150 rows short.
+
+4. The missing rows are the ones with a blank flag: a grouping leaves out blank keys
+   unless told otherwise. Tell it otherwise:
+
+    ```python
+    parts = readings.groupby("flag", dropna=False).size()
+    parts
+    ```
+
+    You should see:
+
+    ```text
+    flag
+    S        2
+    NaN    150
+    dtype: int64
+    ```
+
+5. Check again:
+
+    ```python
+    int(parts.sum()) == len(readings)
+    ```
+
+    You should see: `True`.
+
+6. The same check works for a sum. Split the rainfall by gauge, and compare the
+   groups' total with the column's:
+
+    ```python
+    by_gauge = readings.groupby("gauge_id")["value"].sum()
+    round(float(by_gauge.sum()), 2), round(float(readings["value"].sum()), 2)
+    ```
+
+    You should see: `(1075.43, 1075.43)`. No row has a blank `gauge_id`, so this
+    split loses nothing.
+
+## Check it worked
+
+You have two comparisons in your notebook where the parts equal the whole: 152 rows
+by flag, and 1075.43 by gauge. You can say which rows the first split dropped and why.
+
+## If it didn't
+
+**Step 3 shows `(152, 152)`.** `parts` was already made with `dropna=False`. That is
+the corrected version; run step 2 again to see the short one.
+
+**The two numbers in step 6 differ in the last decimal place.** Sums of decimal
+numbers can differ by a tiny amount depending on the order of adding. Rounding both,
+as the step does, removes that.
+
+## Next
+
+- [Tally a quality flag before you trust a number](https://idss-mesa.github.io/trainings/tutorials/tally-a-quality-flag/), which
+  counts the blanks directly.
+- [Check a result a second way](https://idss-mesa.github.io/trainings/tutorials/check-a-result-two-ways/)
+- Reference: [Group by: split-apply-combine](https://pandas.pydata.org/docs/user_guide/groupby.html)
+  in the pandas user guide.
+
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-17; the code was run there that day (pandas 3.1.1, DuckDB 2.0.0).*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/compare-two-files/
+
+---
+type: Guide
+title: "Compare two files that should look alike"
+description: "Put July's and August's readings side by side, by row count, by gauge and by largest value, so that what is unusual in one month stands out against the other."
+tags: [byte, p4, exploration, verification, pandas]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-17T00:00:00Z" }
+stale_after: "2027-05-17T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: pandas
+    resource: "https://pandas.pydata.org/docs/user_guide/groupby.html"
+    title: "Group by: split-apply-combine (pandas user guide)"
+    author: "team:pandas-dev"
+---
+
+# Compare two files that should look alike
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run inside MESA JupyterLab on 2026-11-17, by the AI
+    assistant that drafted it, and produced the output shown. No person has yet followed
+    the steps, so a menu or a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A second file of the same kind is a free expectation. Two months from the same five
+gauges should have the same columns, about the same number of rows, and values of a
+similar size. Where they differ is where to look.
+
+**You will:** have a short list of the places where July's readings and August's
+differ, each one a question to follow up.
+
+**Time:** 10 minutes. **You need:** the notebook from
+[Load a file from your Data Store into a notebook](https://idss-mesa.github.io/trainings/tutorials/load-a-file/), open in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), with its first cell run, and
+`readings_august.csv` from the [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/) in the same folder.
+
+## Steps
+
+1. Load August and compare the row counts. Five gauges over 31 days would give 155
+   rows in each month.
+
+    ```python
+    august = pd.read_csv("readings_august.csv")
+    len(readings), len(august)
+    ```
+
+    You should see: `(152, 151)`. Neither month is complete.
+
+2. Check that the columns match:
+
+    ```python
+    list(readings.columns) == list(august.columns)
+    ```
+
+    You should see: `True`.
+
+3. Count the rows for each gauge, with the months side by side:
+
+    ```python
+    pd.DataFrame({
+        "july": readings.groupby("gauge_id")["value"].count(),
+        "august": august.groupby("gauge_id")["value"].count(),
+    })
+    ```
+
+    You should see: 31 nearly everywhere. July is short at G01 and one over at G03.
+    August is short at G03.
+
+    ```text
+              july  august
+    gauge_id
+    G01         27      31
+    G02         31      31
+    G03         32      27
+    G04         31      31
+    G05         31      31
+    ```
+
+4. Do the same for the largest reading:
+
+    ```python
+    pd.DataFrame({
+        "july": readings.groupby("gauge_id")["value"].max(),
+        "august": august.groupby("gauge_id")["value"].max(),
+    })
+    ```
+
+    You should see: four gauges within 0.2 of their other month, and G05 with 180 in
+    July against 27.4 in August.
+
+    ```text
+                july  august
+    gauge_id
+    G01        24.90   24.80
+    G02         2.92    2.84
+    G03        32.50   32.30
+    G04        26.40   26.30
+    G05       180.00   27.40
+    ```
+
+5. Compare the flags. July has two readings flagged `S`. For August:
+
+    ```python
+    august["flag"].value_counts(dropna=False)
+    ```
+
+    You should see: no flag on any row.
+
+    ```text
+    flag
+    NaN    151
+    Name: count, dtype: int64
+    ```
+
+6. In a Markdown cell, list each difference as a question.
+
+    You should see: a list such as "July G01: four days missing? July G03: a repeated
+    row? July G05: is 180 real? August G03: four days missing?"
+
+## Check it worked
+
+Your list has four entries, each naming a month and a gauge. None of them is answered
+yet: the comparison tells you where to look, not what happened.
+
+## If it didn't
+
+**Step 1 says the file is not found.** `readings_august.csv` is not in the folder the
+notebook is in. Run the download cell on the [practice data](https://idss-mesa.github.io/trainings/tutorials/practice-data/) page.
+
+**A table shows `NaN` for a gauge.** That gauge has no rows in one of the files. That
+is a difference too; add it to your list.
+
+## Next
+
+- [Count records per day to find incomplete days](https://idss-mesa.github.io/trainings/tutorials/count-records-per-day/), for the
+  short and long gauges.
+- [Find and remove a repeated row](https://idss-mesa.github.io/trainings/tutorials/remove-a-repeated-row/)
+- [Plot a column to spot odd values](https://idss-mesa.github.io/trainings/tutorials/plot-to-spot-odd-values/), for the 180.
+- Reference: [Group by: split-apply-combine](https://pandas.pydata.org/docs/user_guide/groupby.html)
+  in the pandas user guide.
+
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-17; the code was run there that day (pandas 3.1.1, DuckDB 2.0.0).*
+
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/keep-an-ai-log/
 
 ---
@@ -10556,6 +11145,14 @@ explains.
 # Directory Update Log
 
 ## 2026-11-17
+
+* **Creation**: Four tutorials at point 4, Explore and verify, that need no AI
+  assistant and no key:
+  [Plot a column to spot odd values](tutorials/plot-to-spot-odd-values.md),
+  [Check a result a second way](tutorials/check-a-result-two-ways.md),
+  [Check that the parts add up to the whole](tutorials/check-parts-add-up.md) and
+  [Compare two files that should look alike](tutorials/compare-two-files.md). All are
+  drafts. The output check now skips a block that draws a chart.
 
 * **Update**: Corrected the draft notice on 33 older tutorials. Seven said their steps
   were followed "by the person who wrote them", and all 33 ended "Not yet validated by a

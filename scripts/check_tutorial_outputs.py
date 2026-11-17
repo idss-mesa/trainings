@@ -3,7 +3,7 @@
 For every tutorial under docs/tutorials/ and every trace card under docs/trace-cards/, runs each ```python block in page order
 against a copy of the practice data, and compares the value of the block's last
 expression with the ```text block that follows it. Blocks that need a person, a
-network, or a saved notebook are skipped.
+network, a chart, or a saved notebook are skipped.
 
 Run with the versions in MESA JupyterLab, or the comparison may fail on layout
 alone: pip install pandas==3.1.1 duckdb==2.0.0
@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parent.parent
 TUTORIALS = ROOT / "docs" / "tutorials"
 TRACE_CARDS = ROOT / "docs" / "trace-cards"
 PRACTICE = ROOT / "docs" / "assets" / "practice"
-SKIP = ("urlretrieve", "getpass", "practice.ipynb", "token", "sys.version")
+SKIP = ("urlretrieve", "getpass", "practice.ipynb", "token", "sys.version", "boxplot")
 SETUP = 'import pandas as pd\nreadings = pd.read_csv("readings.csv")\ngauges = pd.read_csv("gauges.csv")'
 BLOCK = re.compile(r"    ```python\n(.*?)    ```\n(.*?)(?=\n\d+\. |\n## |\n    ```python\n)", re.S)
 EXPECTED = re.compile(r"    ```text\n(.*?)    ```", re.S)

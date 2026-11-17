@@ -448,6 +448,16 @@
       "remove-a-repeated-row",
       "join-and-keep-unmatched"
      ]
+    },
+    {
+     "point": "p4",
+     "tutorials": [],
+     "more": [
+      "plot-to-spot-odd-values",
+      "compare-two-files",
+      "check-parts-add-up",
+      "check-a-result-two-ways"
+     ]
     }
    ]
   },
@@ -741,6 +751,15 @@
      "check-a-suggested-result",
      "keep-an-ai-log"
     ]
+   },
+   {
+    "title": "Checks for any result",
+    "tutorials": [
+     "plot-to-spot-odd-values",
+     "check-a-result-two-ways",
+     "check-parts-add-up",
+     "compare-two-files"
+    ]
    }
   ],
   "p5": [
@@ -788,6 +807,21 @@
     "sign-in"
    ]
   },
+  "check-a-result-two-ways": {
+   "title": "Check a result a second way",
+   "description": "Compute the same count in pandas and in DuckDB, find out why the two disagree, and keep the result only once both routes give the same answer.",
+   "outcome": "have counted the readings not flagged as suspect in two ways, explained why the counts first differ, and made them agree.",
+   "point": "p4",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-17T00:00:00Z",
+   "stale_after": "2027-05-17T00:00:00Z",
+   "builds_on": [
+    "load-a-file",
+    "launch-jupyterlab"
+   ]
+  },
   "check-a-suggested-result": {
    "title": "Check an AI-suggested result against the data",
    "description": "Test a result that an AI assistant, or anyone else, hands you: reproduce the number, find what it rests on, and say whether the claim survives.",
@@ -798,6 +832,21 @@
    "status": "draft",
    "revised": "2026-11-13T00:00:00Z",
    "stale_after": "2027-05-13T00:00:00Z",
+   "builds_on": [
+    "load-a-file",
+    "launch-jupyterlab"
+   ]
+  },
+  "check-parts-add-up": {
+   "title": "Check that the parts add up to the whole",
+   "description": "After splitting a table into groups, add the groups back up and compare with the whole table, so that rows dropped without warning are noticed.",
+   "outcome": "have caught 150 rows that a grouping dropped without warning, and confirmed a split that loses none.",
+   "point": "p4",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-17T00:00:00Z",
+   "stale_after": "2027-05-17T00:00:00Z",
    "builds_on": [
     "load-a-file",
     "launch-jupyterlab"
@@ -844,6 +893,22 @@
    "stale_after": "2027-05-13T00:00:00Z",
    "builds_on": [
     "sign-in"
+   ]
+  },
+  "compare-two-files": {
+   "title": "Compare two files that should look alike",
+   "description": "Put July's and August's readings side by side, by row count, by gauge and by largest value, so that what is unusual in one month stands out against the other.",
+   "outcome": "have a short list of the places where July's readings and August's differ, each one a question to follow up.",
+   "point": "p4",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-17T00:00:00Z",
+   "stale_after": "2027-05-17T00:00:00Z",
+   "builds_on": [
+    "load-a-file",
+    "launch-jupyterlab",
+    "practice-data"
    ]
   },
   "convert-units-before-comparing": {
@@ -1151,6 +1216,21 @@
    "builds_on": [
     "sign-in",
     "make-a-folder"
+   ]
+  },
+  "plot-to-spot-odd-values": {
+   "title": "Plot a column to spot odd values",
+   "description": "Draw one box per gauge for a column of readings, so that a value far from the rest, or a gauge on a different scale, shows up at a glance.",
+   "outcome": "have found one reading and one gauge in `readings` that do not sit with the rest, from a chart.",
+   "point": "p4",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-17T00:00:00Z",
+   "stale_after": "2027-05-17T00:00:00Z",
+   "builds_on": [
+    "load-a-file",
+    "launch-jupyterlab"
    ]
   },
   "practice-data": {

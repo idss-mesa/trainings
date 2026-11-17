@@ -74,6 +74,10 @@ notebook, so do the first one first.
 | Compare gauges that report in different units | [Bring two units onto one scale before comparing](tutorials/convert-units-before-comparing.md) | 10 min |
 | Deal with a row that is written twice | [Find and remove a repeated row](tutorials/remove-a-repeated-row.md) | 5–10 min |
 | Hand a query to someone else | [Save a query so someone else can run it](tutorials/save-a-query.md) | 5–10 min |
+| See an odd value in a chart | [Plot a column to spot odd values](tutorials/plot-to-spot-odd-values.md) | 10 min |
+| Make sure a number is not an accident of the method | [Check a result a second way](tutorials/check-a-result-two-ways.md) | 10 min |
+| Notice rows a grouping dropped | [Check that the parts add up to the whole](tutorials/check-parts-add-up.md) | 10 min |
+| Use one month to question another | [Compare two files that should look alike](tutorials/compare-two-files.md) | 10 min |
 | Keep track of what an AI assistant did | [Keep a log of AI-assisted steps](tutorials/keep-an-ai-log.md) | 5–10 min |
 
 ## More in the portal, sharing, and AI agents

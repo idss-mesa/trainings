@@ -54,6 +54,17 @@ If you have more time:
 - [Find and remove a repeated row](../tutorials/remove-a-repeated-row.md) (5 to 10 minutes)
 - [Join two tables and keep the unmatched rows visible](../tutorials/join-and-keep-unmatched.md) (10 minutes)
 
+## Explore and verify
+
+*Explore with AI and verify.* You can work with an AI assistant and test what it tells you against the data.
+
+If you have more time:
+
+- [Plot a column to spot odd values](../tutorials/plot-to-spot-odd-values.md) (10 minutes)
+- [Compare two files that should look alike](../tutorials/compare-two-files.md) (10 minutes)
+- [Check that the parts add up to the whole](../tutorials/check-parts-add-up.md) (10 minutes)
+- [Check a result a second way](../tutorials/check-a-result-two-ways.md) (10 minutes)
+
 ## Next
 
 - [Choose another pathway](index.md)
