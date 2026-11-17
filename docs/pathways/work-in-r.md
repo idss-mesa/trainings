@@ -53,6 +53,17 @@ If you have more time:
 - [Find and remove a repeated row in R](../tutorials/r-remove-a-repeated-row.md) (5 to 10 minutes)
 - [Save a query from R so someone else can run it](../tutorials/r-save-a-query.md) (5 to 10 minutes)
 
+## Explore and verify
+
+*Explore with AI and verify.* You can work with an AI assistant and test what it tells you against the data.
+
+If you have more time:
+
+- [Plot a column to spot odd values in R](../tutorials/r-plot-to-spot-odd-values.md) (10 minutes)
+- [Compare two files that should look alike in R](../tutorials/r-compare-two-files.md) (10 minutes)
+- [Check that the parts add up to the whole in R](../tutorials/r-check-parts-add-up.md) (10 minutes)
+- [Check a result a second way in R](../tutorials/r-check-a-result-two-ways.md) (10 minutes)
+
 ## Preserve and share
 
 You can leave work that someone else can find, understand, and run again.

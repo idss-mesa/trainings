@@ -2,6 +2,14 @@
 
 ## 2026-11-17
 
+* **Creation**: R versions of the four point 4 checks, for MESA RStudio Geospatial:
+  [Plot a column to spot odd values in R](tutorials/r-plot-to-spot-odd-values.md),
+  [Check a result a second way in R](tutorials/r-check-a-result-two-ways.md),
+  [Check that the parts add up to the whole in R](tutorials/r-check-parts-add-up.md)
+  and [Compare two files that should look alike in R](tutorials/r-compare-two-files.md).
+  All are drafts. The second-way check uses base R, not DuckDB: `subset()` and square
+  brackets treat a missing flag differently, and neither keeps the unflagged rows.
+
 * **Creation**: Four tutorials at point 4, Explore and verify, that need no AI
   assistant and no key:
   [Plot a column to spot odd values](tutorials/plot-to-spot-odd-values.md),
