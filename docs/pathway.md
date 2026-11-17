@@ -143,11 +143,18 @@ You can ask questions across files and tables, and show that combining them did 
 
 ## 4. Explore and verify
 
-*Explore with AI and verify.* You can work with an AI assistant and test what it tells you against the data. 3 tutorials, 25 to 30 minutes in all.
+*Explore with AI and verify.* You can work with an AI assistant and test what it tells you against the data. 7 tutorials, 65 to 70 minutes in all.
 
 1. [Sign in and start an AI agent in a MESA app](tutorials/start-an-ai-agent.md) (10 minutes)
 2. [Check an AI-suggested result against the data](tutorials/check-a-suggested-result.md) (10 minutes)
 3. [Keep a log of AI-assisted steps](tutorials/keep-an-ai-log.md) (5 to 10 minutes)
+
+### Checks for any result
+
+1. [Plot a column to spot odd values](tutorials/plot-to-spot-odd-values.md) (10 minutes)
+2. [Check a result a second way](tutorials/check-a-result-two-ways.md) (10 minutes)
+3. [Check that the parts add up to the whole](tutorials/check-parts-add-up.md) (10 minutes)
+4. [Compare two files that should look alike](tutorials/compare-two-files.md) (10 minutes)
 
 ## 5. Preserve and share
 

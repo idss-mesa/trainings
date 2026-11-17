@@ -2,6 +2,14 @@
 
 ## 2026-11-17
 
+* **Creation**: Four tutorials at point 4, Explore and verify, that need no AI
+  assistant and no key:
+  [Plot a column to spot odd values](tutorials/plot-to-spot-odd-values.md),
+  [Check a result a second way](tutorials/check-a-result-two-ways.md),
+  [Check that the parts add up to the whole](tutorials/check-parts-add-up.md) and
+  [Compare two files that should look alike](tutorials/compare-two-files.md). All are
+  drafts. The output check now skips a block that draws a chart.
+
 * **Update**: Corrected the draft notice on 33 older tutorials. Seven said their steps
   were followed "by the person who wrote them", and all 33 ended "Not yet validated by a
   second person". The AI assistant that drafted them followed them; no person has. The
