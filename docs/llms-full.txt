@@ -10631,6 +10631,9 @@ explains.
   the links to a tutorial's own sections under "On this page"; it stays on the link to
   the tutorial. An extra tutorial opened after its pathway is finished no longer says it
   is "the last one"; it says the pathway is finished and that this one is extra.
+* **Update**: On [Learning pathways](pathways/index.md), answering one of the starting
+  questions before choosing what brings you here now says "Your answers are kept" and
+  announces it. It used to change the list of pathways below without saying anything.
 
 ## 2026-11-15
 

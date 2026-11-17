@@ -425,6 +425,14 @@ class Browser(unittest.TestCase):
         start.wait_for()
         self.assertIn("Choose what brings you here", start.inner_text())
 
+        # An answer given before a goal is kept and said, though there is no route yet.
+        start.locator("input[name='mesa-start-minutes'][value='60']").check()
+        page.locator(".mesa-yours .mesa-story", has_text="Your answers are kept. Choose what brings you here").wait_for()
+        page.wait_for_function("document.getElementById('mesa-live').textContent.startsWith('Your answers are kept.')")
+        page.get_by_role("button", name="Clear my answers").click()
+        page.locator(".mesa-yours .mesa-story", has_text="Choose what brings you here").wait_for()
+        self.assertNotIn("Your answers are kept", start.inner_text())
+
         # A goal alone gives the essentials: four tutorials, 20 to 25 minutes.
         start.get_by_label("Get ready for a hands-on session").check()
         story = page.locator(".mesa-yours .mesa-story")
