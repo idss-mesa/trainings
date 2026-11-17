@@ -20,8 +20,10 @@ sources:
 # Leave a notebook someone else can rerun
 
 !!! warning "Draft: not yet validated"
-    Nobody has yet followed this tutorial in MESA JupyterLab, so a menu name may differ
-    there. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    These steps were followed once inside MESA JupyterLab on 2026-11-16, by the AI
+    assistant that drafted them, with the notebook saved by its keyboard shortcut. No
+    person has yet followed them, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 A notebook remembers every cell you ran, in the order you ran it, including cells you
 have since changed or deleted. What it shows can therefore differ from what it
@@ -43,7 +45,8 @@ produces when someone else runs it from the top.
 
 2. Choose **Edit → Find…** and search the notebook for `/home/`.
 
-    You should see: no matches. A path that starts at your own home folder works only
+    You should see: a search box at the top right of the notebook that reads `-/-`,
+    which means no matches. A path that starts at your own home folder works only
     for you; a bare file name such as `"readings.csv"` works for anyone who has the
     file beside the notebook.
 
@@ -102,4 +105,4 @@ definition in a cell above the one that failed, then repeat step 1.
 - Reference: [Notebooks](https://jupyterlab.readthedocs.io/en/stable/user/notebook.html)
   in the JupyterLab documentation.
 
-*Not yet validated in MESA JupyterLab. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-12; the version cell was run with pandas 3.1.*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-12 and followed once there on 2026-11-16 (Python 3.13.18, pandas 3.1.1).*

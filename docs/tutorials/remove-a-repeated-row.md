@@ -20,10 +20,10 @@ sources:
 # Find and remove a repeated row
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run on 2026-11-15 with pandas 3.1.1 and DuckDB 2.0.0, the
-    versions in MESA JupyterLab, and produced the output shown. It was not run inside
-    MESA JupyterLab, and nobody has yet followed the steps there, so a menu or a screen
-    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA JupyterLab on 2026-11-16 (pandas 3.1.1,
+    DuckDB 2.0.0) by the site's output check, in a terminal there, and gave the values
+    shown. No person has yet followed the steps, so a menu or a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 A row written twice adds its value to every total twice. Removing it is easy. The
 part that needs thought is deciding that the two rows really are one reading.
@@ -118,4 +118,4 @@ reload the file, then repeat the step.
   and [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) for what the
   app contains.
 
-*Not yet validated in MESA JupyterLab. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-15; the code was run that day outside MESA (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-15; the code was run there on 2026-11-16 (pandas 3.1.1, DuckDB 2.0.0).*

@@ -20,10 +20,11 @@ sources:
 # Save a query so someone else can run it
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run on 2026-11-15 with pandas 3.1.1 and DuckDB 2.0.0, the
-    versions in MESA JupyterLab, and produced the output shown. It was not run inside
-    MESA JupyterLab, and nobody has yet followed the steps there, so a menu or a screen
-    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA JupyterLab on 2026-11-16 (pandas 3.1.1,
+    DuckDB 2.0.0) by the site's output check, in a terminal there, and gave the values
+    shown. The steps were also followed once in a notebook
+    there by the AI assistant that drafted them. No person has yet followed the steps, so a menu or a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 A query typed into a notebook cell is easy to change and hard to hand over. In a file
 of its own it has a name, it can be read without opening the notebook, and whoever
@@ -71,7 +72,9 @@ that runs the query from that file.
     duckdb.sql(Path("flagged_readings.sql").read_text())
     ```
 
-    You should see: the two flagged readings.
+    You should see: the two flagged readings. In a notebook, DuckDB draws
+    the result as a table, with each column's type under its name; the text below
+    holds the same rows.
 
     ```text
     ┌──────────┬────────────┬────────┐
@@ -116,4 +119,4 @@ again.
   [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) for what the app
   contains.
 
-*Not yet validated in MESA JupyterLab. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-15; the code was run that day outside MESA (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-15; followed once there on 2026-11-16 (pandas 3.1.1, DuckDB 2.0.0).*

@@ -2,6 +2,17 @@
 
 ## 2026-11-16
 
+* **Update**: The site's output check was run inside MESA JupyterLab (Python 3.13.18,
+  pandas 3.1.1, DuckDB 2.0.0): all 58 Python outputs on the tutorials and trace cards
+  matched. Four tutorials that said their code was run outside MESA now say it was run
+  there. [Leave a notebook someone else can rerun](tutorials/leave-a-rerunnable-notebook.md),
+  [Keep tokens and passwords out of saved files](tutorials/keep-secrets-out-of-files.md), and
+  [Save a query so someone else can run it](tutorials/save-a-query.md) were followed in a
+  notebook there by the AI assistant that drafted them. Three corrections came of it: the
+  search box shows `-/-` when nothing matches; the token box shows a dot for each
+  character as you type; and in a notebook DuckDB draws a result as a table, not as
+  the boxed text on the pages. That last was seen in one tutorial, and the note was
+  added to the other two that show DuckDB results the same way. All remain drafts.
 * **Creation**: Added the last three R versions of the data tutorials at point 2:
   [Read the data dictionary before the data, in R](tutorials/r-read-the-data-dictionary.md),
   [Turn UTC timestamps into local days in R](tutorials/r-local-days-from-utc.md), and

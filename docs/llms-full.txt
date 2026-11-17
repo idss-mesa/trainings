@@ -2585,8 +2585,10 @@ sources:
 # Leave a notebook someone else can rerun
 
 !!! warning "Draft: not yet validated"
-    Nobody has yet followed this tutorial in MESA JupyterLab, so a menu name may differ
-    there. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    These steps were followed once inside MESA JupyterLab on 2026-11-16, by the AI
+    assistant that drafted them, with the notebook saved by its keyboard shortcut. No
+    person has yet followed them, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 A notebook remembers every cell you ran, in the order you ran it, including cells you
 have since changed or deleted. What it shows can therefore differ from what it
@@ -2608,7 +2610,8 @@ produces when someone else runs it from the top.
 
 2. Choose **Edit → Find…** and search the notebook for `/home/`.
 
-    You should see: no matches. A path that starts at your own home folder works only
+    You should see: a search box at the top right of the notebook that reads `-/-`,
+    which means no matches. A path that starts at your own home folder works only
     for you; a bare file name such as `"readings.csv"` works for anyone who has the
     file beside the notebook.
 
@@ -2667,7 +2670,7 @@ definition in a cell above the one that failed, then repeat step 1.
 - Reference: [Notebooks](https://jupyterlab.readthedocs.io/en/stable/user/notebook.html)
   in the JupyterLab documentation.
 
-*Not yet validated in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-12; the version cell was run with pandas 3.1.*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-12 and followed once there on 2026-11-16 (Python 3.13.18, pandas 3.1.1).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/find-your-way-around/
 
@@ -3071,8 +3074,9 @@ sources:
 # Keep tokens and passwords out of saved files
 
 !!! warning "Draft: not yet validated"
-    The check in step 5 was run on a laptop. Nobody has yet followed the tutorial in
-    MESA JupyterLab, so a menu name may differ there.
+    These steps were followed once inside MESA JupyterLab on 2026-11-16, by the AI
+    assistant that drafted them, with the notebook saved by its keyboard shortcut. No
+    person has yet followed them, so a screen may differ.
     [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 A notebook file stores every cell and every output. A token typed into a cell, or
@@ -3099,8 +3103,8 @@ Data Store, a shared folder, a Git repository.
 
 2. Type `not-a-real-token` into the box and press ++enter++.
 
-    You should see: nothing as you type, then a row of dots beside **Token:**. The
-    dots are a placeholder, not your token. The value is in memory as `token`; it is not in the cell and not in the output.
+    You should see: a dot for each character as you type, then a short row of dots
+    beside **Token:**. The dots are a placeholder, not your token. The value is in memory as `token`; it is not in the cell and not in the output.
 
 3. Confirm the notebook received it, without displaying it:
 
@@ -3152,7 +3156,7 @@ service that issued it, because earlier copies of the file may still hold the ol
   documentation, which says where each MESA tool stores a password, and
   [getpass](https://docs.python.org/3/library/getpass.html).
 
-*Not yet validated in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-12; the check in step 5 was run locally.*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-12 and followed once there on 2026-11-16.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/local-days-from-utc/
 
@@ -3505,7 +3509,9 @@ table.
     ```
 
     You should see: the four columns, each with a type. `date` is a real date here,
-    not text.
+    not text. In a notebook, DuckDB draws
+    the result as a table, with each column's type under its name; the text below
+    holds the same rows.
 
     ```text
     ┌─────────────┬─────────────┬─────────┬─────────┬─────────┬─────────┐
@@ -7893,10 +7899,10 @@ sources:
 # Join two tables and keep the unmatched rows visible
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run on 2026-11-15 with pandas 3.1.1 and DuckDB 2.0.0, the
-    versions in MESA JupyterLab, and produced the output shown. It was not run inside
-    MESA JupyterLab, and nobody has yet followed the steps there, so a menu or a screen
-    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA JupyterLab on 2026-11-16 (pandas 3.1.1,
+    DuckDB 2.0.0) by the site's output check, in a terminal there, and gave the values
+    shown. No person has yet followed the steps, so a menu or a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 An ordinary join keeps only the rows that find a match. The rest leave without a
 message, and every count after the join is quietly smaller. A left join keeps them
@@ -7921,7 +7927,9 @@ count of how many gauges matched.
     duckdb.sql("SELECT count(*) AS n FROM west")
     ```
 
-    You should see: four positions, for five gauges.
+    You should see: four positions, for five gauges. In a notebook, DuckDB draws
+    the result as a table, with each column's type under its name; the text below
+    holds the same rows.
 
     ```text
     ┌───────┐
@@ -8052,7 +8060,7 @@ since step 1, and the view went with it. Run step 1 again, then repeat the step.
   [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) for what the app
   contains.
 
-*Not yet validated in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15; the code was run that day outside MESA (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15; the code was run there on 2026-11-16 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/convert-units-before-comparing/
 
@@ -8078,10 +8086,10 @@ sources:
 # Bring two units onto one scale before comparing
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run on 2026-11-15 with pandas 3.1.1 and DuckDB 2.0.0, the
-    versions in MESA JupyterLab, and produced the output shown. It was not run inside
-    MESA JupyterLab, and nobody has yet followed the steps there, so a menu or a screen
-    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA JupyterLab on 2026-11-16 (pandas 3.1.1,
+    DuckDB 2.0.0) by the site's output check, in a terminal there, and gave the values
+    shown. No person has yet followed the steps, so a menu or a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 The practice gauges do not all report in the same unit, and the unit is written in a
 different file from the readings. Until the values share a unit, no comparison between
@@ -8185,7 +8193,7 @@ it to `to_mm` in step 2, and run steps 3 and 4 again.
   and [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) for what the
   app contains.
 
-*Not yet validated in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15; the code was run that day outside MESA (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15; the code was run there on 2026-11-16 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/remove-a-repeated-row/
 
@@ -8211,10 +8219,10 @@ sources:
 # Find and remove a repeated row
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run on 2026-11-15 with pandas 3.1.1 and DuckDB 2.0.0, the
-    versions in MESA JupyterLab, and produced the output shown. It was not run inside
-    MESA JupyterLab, and nobody has yet followed the steps there, so a menu or a screen
-    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA JupyterLab on 2026-11-16 (pandas 3.1.1,
+    DuckDB 2.0.0) by the site's output check, in a terminal there, and gave the values
+    shown. No person has yet followed the steps, so a menu or a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 A row written twice adds its value to every total twice. Removing it is easy. The
 part that needs thought is deciding that the two rows really are one reading.
@@ -8309,7 +8317,7 @@ reload the file, then repeat the step.
   and [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) for what the
   app contains.
 
-*Not yet validated in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15; the code was run that day outside MESA (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15; the code was run there on 2026-11-16 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/save-a-query/
 
@@ -8335,10 +8343,11 @@ sources:
 # Save a query so someone else can run it
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run on 2026-11-15 with pandas 3.1.1 and DuckDB 2.0.0, the
-    versions in MESA JupyterLab, and produced the output shown. It was not run inside
-    MESA JupyterLab, and nobody has yet followed the steps there, so a menu or a screen
-    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA JupyterLab on 2026-11-16 (pandas 3.1.1,
+    DuckDB 2.0.0) by the site's output check, in a terminal there, and gave the values
+    shown. The steps were also followed once in a notebook
+    there by the AI assistant that drafted them. No person has yet followed the steps, so a menu or a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 A query typed into a notebook cell is easy to change and hard to hand over. In a file
 of its own it has a name, it can be read without opening the notebook, and whoever
@@ -8386,7 +8395,9 @@ that runs the query from that file.
     duckdb.sql(Path("flagged_readings.sql").read_text())
     ```
 
-    You should see: the two flagged readings.
+    You should see: the two flagged readings. In a notebook, DuckDB draws
+    the result as a table, with each column's type under its name; the text below
+    holds the same rows.
 
     ```text
     ┌──────────┬────────────┬────────┐
@@ -8431,7 +8442,7 @@ again.
   [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/) for what the app
   contains.
 
-*Not yet validated in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15; the code was run that day outside MESA (pandas 3.1.1, DuckDB 2.0.0).*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15; followed once there on 2026-11-16 (pandas 3.1.1, DuckDB 2.0.0).*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/keep-an-ai-log/
 
@@ -10527,6 +10538,17 @@ explains.
 
 ## 2026-11-16
 
+* **Update**: The site's output check was run inside MESA JupyterLab (Python 3.13.18,
+  pandas 3.1.1, DuckDB 2.0.0): all 58 Python outputs on the tutorials and trace cards
+  matched. Four tutorials that said their code was run outside MESA now say it was run
+  there. [Leave a notebook someone else can rerun](tutorials/leave-a-rerunnable-notebook.md),
+  [Keep tokens and passwords out of saved files](tutorials/keep-secrets-out-of-files.md), and
+  [Save a query so someone else can run it](tutorials/save-a-query.md) were followed in a
+  notebook there by the AI assistant that drafted them. Three corrections came of it: the
+  search box shows `-/-` when nothing matches; the token box shows a dot for each
+  character as you type; and in a notebook DuckDB draws a result as a table, not as
+  the boxed text on the pages. That last was seen in one tutorial, and the note was
+  added to the other two that show DuckDB results the same way. All remain drafts.
 * **Creation**: Added the last three R versions of the data tutorials at point 2:
   [Read the data dictionary before the data, in R](tutorials/r-read-the-data-dictionary.md),
   [Turn UTC timestamps into local days in R](tutorials/r-local-days-from-utc.md), and
