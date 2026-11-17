@@ -680,8 +680,11 @@
     "title": "The other MESA apps",
     "tutorials": [
      "cloud-shell-download",
+     "cloud-shell-keep-running",
      "vscode-run-a-script",
-     "desktop-open-a-file"
+     "vscode-find-in-folder",
+     "desktop-open-a-file",
+     "desktop-open-a-terminal"
     ]
    },
    {
@@ -932,6 +935,20 @@
     "sign-in"
    ]
   },
+  "cloud-shell-keep-running": {
+   "title": "Keep a command running in MESA Cloud Shell after you close the tab",
+   "description": "Start a slow command in MESA Cloud Shell, open a second terminal window beside it, close the browser tab, and come back from the Analyses page to find the command still running.",
+   "outcome": "have left a running command, closed the tab, and come back to find it further along.",
+   "point": "p1",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-17T00:00:00Z",
+   "stale_after": "2027-05-17T00:00:00Z",
+   "builds_on": [
+    "cloud-shell-download"
+   ]
+  },
   "compare-two-files": {
    "title": "Compare two files that should look alike",
    "description": "Put July's and August's readings side by side, by row count, by gauge and by largest value, so that what is unusual in one month stands out against the other.",
@@ -990,6 +1007,20 @@
    "stale_after": "2027-05-13T00:00:00Z",
    "builds_on": [
     "sign-in"
+   ]
+  },
+  "desktop-open-a-terminal": {
+   "title": "Open a terminal in a Data Store folder on the MESA desktop",
+   "description": "On the MESA KASM Ubuntu Desktop, go to a folder of your Data Store in the file manager, open a terminal that starts in that folder, and run a command on a file there.",
+   "outcome": "have a terminal on the MESA desktop, in a folder of your Data Store, that has run a command on a file there.",
+   "point": "p1",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-17T00:00:00Z",
+   "stale_after": "2027-05-17T00:00:00Z",
+   "builds_on": [
+    "desktop-open-a-file"
    ]
   },
   "download-a-file": {
@@ -1912,6 +1943,20 @@
    "builds_on": [
     "sign-in",
     "save-your-work"
+   ]
+  },
+  "vscode-find-in-folder": {
+   "title": "Find a value in every file of a folder with MESA VS Code",
+   "description": "Search all the files in a folder of your Data Store for a piece of text in MESA VS Code, read how many times each file contains it, and open a file at the matching line.",
+   "outcome": "know which files in a folder contain a given piece of text, and how many times.",
+   "point": "p1",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-17T00:00:00Z",
+   "stale_after": "2027-05-17T00:00:00Z",
+   "builds_on": [
+    "vscode-run-a-script"
    ]
   },
   "vscode-run-a-script": {

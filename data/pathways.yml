@@ -92,6 +92,9 @@ builds_on:
   desktop-open-a-file: [sign-in]
   preview-a-table: [sign-in]
   vscode-run-a-script: [sign-in]
+  cloud-shell-keep-running: [cloud-shell-download]
+  vscode-find-in-folder: [vscode-run-a-script]
+  desktop-open-a-terminal: [desktop-open-a-file]
 
 # Goal-based routes. Each is short on purpose: `tutorials:` holds the
 # essentials, the few a reader must do, and `more:` holds what to take with
@@ -324,7 +327,7 @@ by_point:
     - title: Run apps
       tutorials: [launch-with-options, monitor-and-extend, check-your-usage]
     - title: The other MESA apps
-      tutorials: [cloud-shell-download, vscode-run-a-script, desktop-open-a-file]
+      tutorials: [cloud-shell-download, cloud-shell-keep-running, vscode-run-a-script, vscode-find-in-folder, desktop-open-a-file, desktop-open-a-terminal]
     - title: Share
       tutorials: [share-a-folder, read-shared-metadata, stop-sharing-a-folder, share-an-analysis, find-a-working-group]
   p2:

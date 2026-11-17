@@ -167,6 +167,9 @@ One first task in each of the apps besides JupyterLab and RStudio.
 | Fetch a file from the web into my Data Store | [Download a file from the web into your Data Store with MESA Cloud Shell](tutorials/cloud-shell-download.md) | 5–10 min |
 | Write and run a script | [Write and run a Python script in MESA VS Code](tutorials/vscode-run-a-script.md) | 10 min |
 | Use a program that needs a desktop | [Open a file from your Data Store in a desktop program](tutorials/desktop-open-a-file.md) | 10 min |
+| Leave a long command running | [Keep a command running in MESA Cloud Shell after you close the tab](tutorials/cloud-shell-keep-running.md) | 10 min |
+| Find every file that mentions a value | [Find a value in every file of a folder with MESA VS Code](tutorials/vscode-find-in-folder.md) | 5 min |
+| Run a command beside a desktop program | [Open a terminal in a Data Store folder on the MESA desktop](tutorials/desktop-open-a-terminal.md) | 5–10 min |
 
 ## How a tutorial is laid out
 

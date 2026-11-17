@@ -2,6 +2,12 @@
 
 ## 2026-11-17
 
+* **Creation**: A second tutorial for each of the other MESA apps:
+  [Keep a command running in MESA Cloud Shell after you close the tab](tutorials/cloud-shell-keep-running.md),
+  [Find a value in every file of a folder with MESA VS Code](tutorials/vscode-find-in-folder.md) and
+  [Open a terminal in a Data Store folder on the MESA desktop](tutorials/desktop-open-a-terminal.md).
+  All are drafts.
+
 * **Creation**: Three tutorials at point 5, Preserve and share, for MESA RStudio
   Geospatial:
   [Record the R and package versions a result depends on](tutorials/r-record-software-versions.md),

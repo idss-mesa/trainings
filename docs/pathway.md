@@ -37,7 +37,7 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 
 ## 1. Orient and navigate
 
-*Work in MESA.* You can get into MESA, find data, run an app, and keep what you make. 29 tutorials, 160 to 195 minutes in all.
+*Work in MESA.* You can get into MESA, find data, run an app, and keep what you make. 32 tutorials, 180 to 220 minutes in all.
 
 1. [Sign in to the MESA Portal with a CyVerse account](tutorials/sign-in.md) (5 minutes)
 2. [Find your way around the MESA Portal](tutorials/find-your-way-around.md) (5 minutes)
@@ -76,8 +76,11 @@ This page lists them all. If you have a goal in mind, a pathway is a shorter rou
 ### The other MESA apps
 
 1. [Download a file from the web into your Data Store with MESA Cloud Shell](tutorials/cloud-shell-download.md) (5 to 10 minutes)
-2. [Write and run a Python script in MESA VS Code](tutorials/vscode-run-a-script.md) (10 minutes)
-3. [Open a file from your Data Store in a desktop program](tutorials/desktop-open-a-file.md) (10 minutes)
+2. [Keep a command running in MESA Cloud Shell after you close the tab](tutorials/cloud-shell-keep-running.md) (10 minutes)
+3. [Write and run a Python script in MESA VS Code](tutorials/vscode-run-a-script.md) (10 minutes)
+4. [Find a value in every file of a folder with MESA VS Code](tutorials/vscode-find-in-folder.md) (5 minutes)
+5. [Open a file from your Data Store in a desktop program](tutorials/desktop-open-a-file.md) (10 minutes)
+6. [Open a terminal in a Data Store folder on the MESA desktop](tutorials/desktop-open-a-terminal.md) (5 to 10 minutes)
 
 ### Share
 
