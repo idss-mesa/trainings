@@ -2,6 +2,17 @@
 
 ## 2026-11-16
 
+* **Update**: The remaining notebook steps of the Python tutorials were followed in
+  MESA JupyterLab by the AI assistant that drafted them: making and renaming a
+  notebook, the **Select Kernel** box, the practice-data download cell, a Markdown
+  cell, and **File → Save Notebook** from the menu. Two corrections:
+  [Load a file from your Data Store into a notebook](tutorials/load-a-file.md) and
+  [Save your work where it survives the session](tutorials/save-your-work.md) now say to
+  type the name without `.ipynb` when renaming, because the box keeps the ending and
+  typing it again gives `.ipynb.ipynb`; and step 2 of
+  [Query a Parquet file with DuckDB from a notebook](tutorials/query-parquet-with-duckdb.md)
+  shows a small **Count** table, where the page said there was no output. All remain
+  drafts.
 * **Update**: The site's output check was run inside MESA JupyterLab (Python 3.13.18,
   pandas 3.1.1, DuckDB 2.0.0): all 58 Python outputs on the tutorials and trace cards
   matched. Four tutorials that said their code was run outside MESA now say it was run

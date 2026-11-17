@@ -21,8 +21,9 @@ sources:
 
 !!! warning "Draft: not yet validated"
     The code on this page was run inside MESA JupyterLab on 2026-11-13 and produced the
-    output shown. Nobody has yet followed the steps there by hand, so a menu or a screen
-    may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    output shown. Step 2 was followed there again on 2026-11-16 by the AI
+    assistant that drafted the page. No person has yet followed them, so a screen may
+    differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 Parquet is the format large shared datasets are usually stored in: compressed, typed,
 and readable one column at a time. DuckDB runs SQL straight against such a file, so
@@ -53,7 +54,8 @@ table.
     duckdb.sql("COPY (SELECT * FROM 'readings.csv') TO 'readings.parquet' (FORMAT parquet)")
     ```
 
-    You should see: no output, and `readings.parquet` in the file browser.
+    You should see: a small table that reads **Count** and `152`, the number of rows
+    written, and `readings.parquet` in the file browser.
 
 3. Ask what the file holds, without reading its rows:
 
