@@ -16,9 +16,9 @@ sources:
 # Search for a file or folder by name
 
 !!! warning "Draft: not yet validated"
-    These steps were followed once on the live portal on 2026-11-13, by the person who
-    wrote them. Nobody else has yet followed them, so a screen may differ.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    These steps were followed once on the live portal on 2026-11-13, by the AI assistant
+    that drafted them. No person has yet followed them, so a screen may differ. [Tell us
+    what you find](https://github.com/idss-mesa/trainings/issues).
 
 Search looks through the folder you are in and every folder below it, so where you
 stand decides what you find.
@@ -84,4 +84,4 @@ so: *in lakehouse*, not *in mesa*. Click **Community** to search from the top ag
 - [Find MESA's community data in the Data Browser](find-community-data.md)
 - Reference: [Managing data, "Search"](https://idss-mesa.github.io/docs/portal/data/#search).
 
-*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*

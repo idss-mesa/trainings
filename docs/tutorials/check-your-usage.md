@@ -16,9 +16,9 @@ sources:
 # Check your CPU hours and storage
 
 !!! warning "Draft: not yet validated"
-    These steps were followed once on the live portal on 2026-11-13, by the person who
-    wrote them. Nobody else has yet followed them, so a screen may differ.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    These steps were followed once on the live portal on 2026-11-13, by the AI assistant
+    that drafted them. No person has yet followed them, so a screen may differ. [Tell us
+    what you find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** know your plan's limits for computing time and storage, and how much of
 each is left.
@@ -80,4 +80,4 @@ an app stops. Look again later.
 - [Launch an app with the cores, memory, and time you choose](launch-with-options.md)
 - Reference: [The MESA Portal overview](https://idss-mesa.github.io/docs/portal/overview/).
 
-*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*

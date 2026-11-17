@@ -21,9 +21,9 @@ sources:
 
 !!! warning "Draft: not yet validated"
     The code on this page was run inside MESA RStudio Geospatial on 2026-11-13 (R 4.6.2,
-    sf 1.1.3) and produced the output and the map shown. Nobody else has yet followed
-    the steps, so a screen may differ.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    sf 1.1.3), by the AI assistant that drafted it, and produced the output and the map
+    shown. No person has yet followed the steps, so a screen may differ. [Tell us what
+    you find](https://github.com/idss-mesa/trainings/issues).
 
 A column of longitudes and a column of latitudes are only numbers until you tell R
 they are positions. The `sf` package does that, and then distances and maps come from
@@ -147,4 +147,4 @@ the folder that is not `shared` is named after your username.
   for what the app contains, and
   [Simple Features for R](https://r-spatial.github.io/sf/articles/sf1.html).
 
-*Not yet validated by a second person in MESA RStudio Geospatial. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13; the code was run there on 2026-11-13 (R 4.6.2, sf 1.1.3).*
+*Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13; the code was run there on 2026-11-13 (R 4.6.2, sf 1.1.3).*

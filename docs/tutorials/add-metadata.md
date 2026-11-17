@@ -17,9 +17,9 @@ sources:
 
 !!! warning "Draft: not yet validated"
     These steps were followed on the live portal on 2026-11-13, on a newly created
-    account, by the person who wrote them. Nobody else has yet followed them, so a
-    screen may differ.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    account, by the AI assistant that drafted them. No person has yet followed them, so
+    a screen may differ. [Tell us what you
+    find](https://github.com/idss-mesa/trainings/issues).
 
 The Data Store keeps metadata as *AVUs*: an attribute, a value, and an optional unit.
 "Elevation, 512, m" is one AVU. Metadata stays attached to the file or folder, so it
@@ -84,4 +84,4 @@ edit**, not **Read only**. Use a folder under **My Files**.
   which covers reserved attribute names and the full metadata page with its DataCite,
   Dublin Core, and EML views.
 
-*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-12 from the MESA documentation and followed once on the live portal on 2026-11-13.*
+*Not yet validated by a person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-12 from the MESA documentation and followed once on the live portal on 2026-11-13.*

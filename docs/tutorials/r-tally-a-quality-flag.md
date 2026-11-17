@@ -20,9 +20,10 @@ sources:
 # Tally a quality flag in R
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run inside MESA RStudio Geospatial on 2026-11-13 (R 4.6.2)
-    and produced the output shown, one step at a time. Nobody else has yet followed
-    the steps, so a screen may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-13 (R
+    4.6.2), by the AI assistant that drafted it, and produced the output shown, one step
+    at a time. No person has yet followed the steps, so a screen may differ. [Tell us
+    what you find](https://github.com/idss-mesa/trainings/issues).
 
 Many datasets mark the readings their instrument doubted. `table()` counts them, but by
 default it leaves missing values out, which hides how many rows carry no flag at all.
@@ -109,4 +110,4 @@ of `NA` for each one. `which()` keeps only the rows where the comparison is true
 - [Query a Parquet file with DuckDB from R](r-query-parquet-with-duckdb.md)
 - The same task in Python: [Tally a quality flag before you trust a number](tally-a-quality-flag.md).
 
-*Not yet validated by a second person in MESA RStudio Geospatial. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13; the code was run there that day (R 4.6.2).*
+*Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13; the code was run there that day (R 4.6.2).*

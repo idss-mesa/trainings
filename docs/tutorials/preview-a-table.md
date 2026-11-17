@@ -20,10 +20,10 @@ sources:
 # Look inside a CSV file from the portal
 
 !!! warning "Draft: not yet validated"
-    These steps were followed once on the live portal on 2026-11-13, by the person who
-    wrote them. The browser used for the test blocks new tabs, so the viewer was
-    opened at its address, not with the **View** button.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    These steps were followed once on the live portal on 2026-11-13, by the AI assistant
+    that drafted them. The browser used for the test blocks new tabs, so the viewer was
+    opened at its address, not with the **View** button. [Tell us what you
+    find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** know a table's columns, how many rows it has, and the range of each
 column, before you launch anything.
@@ -102,4 +102,4 @@ files. For other tables, [load the file into a notebook](load-a-file.md).
   5 in a notebook, where you can keep the result.
 - Reference: [Managing data, "View files in the browser"](https://idss-mesa.github.io/docs/portal/data/#view-files-in-the-browser).
 
-*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*

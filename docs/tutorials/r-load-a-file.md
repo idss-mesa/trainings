@@ -20,9 +20,10 @@ sources:
 # Load a file from your Data Store in RStudio
 
 !!! warning "Draft: not yet validated"
-    The code on this page was run inside MESA RStudio Geospatial on 2026-11-13 (R 4.6.2)
-    and produced the output shown, one step at a time. Nobody else has yet followed
-    the steps, so a screen may differ. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-13 (R
+    4.6.2), by the AI assistant that drafted it, and produced the output shown, one step
+    at a time. No person has yet followed the steps, so a screen may differ. [Tell us
+    what you find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** have the practice readings loaded as an R data frame, with a row count
 you have checked.
@@ -117,4 +118,4 @@ lines in step 2 with your username spelled exactly.
 - The same task in Python: [Load a file from your Data Store into a notebook](load-a-file.md).
 - Reference: [MESA RStudio Geospatial](https://idss-mesa.github.io/docs/apps/rstudio/).
 
-*Not yet validated by a second person in MESA RStudio Geospatial. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13; the code was run there that day (R 4.6.2).*
+*Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13; the code was run there that day (R 4.6.2).*

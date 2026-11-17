@@ -16,9 +16,9 @@ sources:
 # Rename a folder in your Data Store
 
 !!! warning "Draft: not yet validated"
-    These steps were followed once on the live portal on 2026-11-13, by the person who
-    wrote them, on a folder and then on a file.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    These steps were followed once on the live portal on 2026-11-13, by the AI assistant
+    that drafted them, on a folder and then on a file. [Tell us what you
+    find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** have a folder with a new name, and know what else the change affects.
 
@@ -84,4 +84,4 @@ few seconds and reload the page.
 - [Move folders into another folder](move-folders.md)
 - Reference: [Managing data, "Upload, create, move, and delete"](https://idss-mesa.github.io/docs/portal/data/#upload-create-move-and-delete).
 
-*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*

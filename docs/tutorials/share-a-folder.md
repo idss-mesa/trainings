@@ -17,9 +17,9 @@ sources:
 
 !!! warning "Draft: not yet validated"
     These steps were followed on the live portal on 2026-11-13, on a newly created
-    account, by the person who wrote them. The check from the second account was done too. Nobody else has yet followed them, so a
-    screen may differ.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    account, by the AI assistant that drafted them. The check from the second account
+    was done too. No person has yet followed them, so a screen may differ. [Tell us what
+    you find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** have shared one folder, read only, with one person you chose.
 
@@ -89,4 +89,4 @@ appears only on folders you own. Check that the header says **Owner**. If you ar
   which also covers the other access levels and sharing several items at once. The
   dialog names them **Read & Write** and **Full Control**.
 
-*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-12 from the MESA documentation and followed once on the live portal on 2026-11-13.*
+*Not yet validated by a person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-12 from the MESA documentation and followed once on the live portal on 2026-11-13.*

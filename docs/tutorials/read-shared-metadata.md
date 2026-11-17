@@ -16,9 +16,9 @@ sources:
 # Read the metadata on a folder shared with you
 
 !!! warning "Draft: not yet validated"
-    These steps were followed once on the live portal on 2026-11-13, by the person who
-    wrote them. Nobody else has yet followed them, so a screen may differ.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    These steps were followed once on the live portal on 2026-11-13, by the AI assistant
+    that drafted them. No person has yet followed them, so a screen may differ. [Tell us
+    what you find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** have read what a collaborator recorded about a folder, and found when it
 was created and who can reach it.
@@ -76,4 +76,4 @@ runs to several pages. Click **Next**, or set **Per page** to **100**.
 - [Add metadata to a file or folder](add-metadata.md) of your own.
 - Reference: [Managing data, "Describe data with metadata (AVUs)"](https://idss-mesa.github.io/docs/portal/data/#describe-data-with-metadata-avus).
 
-*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*

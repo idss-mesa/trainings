@@ -17,8 +17,8 @@ sources:
 
 !!! warning "Draft: not yet validated"
     These steps were followed on the live portal on 2026-11-13, on a newly created
-    account, by the person who wrote them. **View Results** was clicked on an earlier run, not this one. Nobody else has yet followed them, so a
-    screen may differ.
+    account, by the AI assistant that drafted them. **View Results** was clicked on an
+    earlier run, not this one. No person has yet followed them, so a screen may differ.
     [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 Every app you run is listed in the portal as an *analysis*. A running app counts against
@@ -93,4 +93,4 @@ start the app again with the same settings.
   and ["Find the results"](https://idss-mesa.github.io/docs/portal/analyses/#find-the-results),
   which also cover **Extend Time**, **Monitor**, and failed analyses.
 
-*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*
+*Not yet validated by a person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-11 from the MESA documentation and followed once on the live portal on 2026-11-13.*

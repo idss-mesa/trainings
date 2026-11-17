@@ -16,10 +16,10 @@ sources:
 # Move folders into another folder
 
 !!! warning "Draft: not yet validated"
-    These steps were followed once on the live portal on 2026-11-13, by the person who
-    wrote them, on folders. Moving one file the same way was also tried once and
-    behaved the same. Moving by dragging was not tried.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    These steps were followed once on the live portal on 2026-11-13, by the AI assistant
+    that drafted them, on folders. Moving one file the same way was also tried once and
+    behaved the same. Moving by dragging was not tried. [Tell us what you
+    find](https://github.com/idss-mesa/trainings/issues).
 
 **You will:** have two folders moved together into a third.
 
@@ -94,4 +94,4 @@ example one just restored from the trash. Wait a minute and click **Move** again
 - [Move a folder to the trash and get it back](trash-and-restore.md)
 - Reference: [Managing data, "Work on several items at once"](https://idss-mesa.github.io/docs/portal/data/#work-on-several-items-at-once).
 
-*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*

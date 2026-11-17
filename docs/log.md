@@ -1,5 +1,13 @@
 # Directory Update Log
 
+## 2026-11-17
+
+* **Update**: Corrected the draft notice on 33 older tutorials. Seven said their steps
+  were followed "by the person who wrote them", and all 33 ended "Not yet validated by a
+  second person". The AI assistant that drafted them followed them; no person has. The
+  notices and last lines now say so, as the newer tutorials already did.
+  [How AI was used](about/ai-disclosure.md) is corrected the same way.
+
 ## 2026-11-16
 
 * **Update**: The remaining notebook steps of the Python tutorials were followed in

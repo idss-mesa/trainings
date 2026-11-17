@@ -16,10 +16,10 @@ sources:
 # Read a notebook in the portal without starting an app
 
 !!! warning "Draft: not yet validated"
-    The viewer was opened once on the live portal on 2026-11-13, by the person who
-    wrote these steps. The browser used for the test blocks new tabs, so the viewer
-    was opened at its address, not with the **View** button.
-    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+    The viewer was opened once on the live portal on 2026-11-13, by the AI assistant
+    that drafted these steps. The browser used for the test blocks new tabs, so the
+    viewer was opened at its address, not with the **View** button. [Tell us what you
+    find](https://github.com/idss-mesa/trainings/issues).
 
 Starting JupyterLab takes a minute and uses CPU hours. To read a notebook, you do not
 need it: the portal shows the code and the output that was saved with it.
@@ -82,4 +82,4 @@ Python script (`.py`) is one example.
 - [Look inside a CSV file from the portal](preview-a-table.md)
 - Reference: [Managing data, "View files in the browser"](https://idss-mesa.github.io/docs/portal/data/#view-files-in-the-browser).
 
-*Not yet validated by a second person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*
+*Not yet validated by a person. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-13 and followed once on the live portal that day.*
