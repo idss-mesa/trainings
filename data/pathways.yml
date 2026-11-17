@@ -82,6 +82,10 @@ builds_on:
   r-remove-a-repeated-row: [r-load-a-file]
   r-save-a-query: [r-load-a-file]
   r-leave-a-rerunnable-script: [r-load-a-file]
+  r-plot-to-spot-odd-values: [r-load-a-file]
+  r-check-a-result-two-ways: [r-load-a-file]
+  r-check-parts-add-up: [r-load-a-file]
+  r-compare-two-files: [r-load-a-file]
   desktop-open-a-file: [sign-in]
   preview-a-table: [sign-in]
   vscode-run-a-script: [sign-in]
@@ -199,6 +203,12 @@ pathways:
           - r-convert-units-before-comparing
           - r-remove-a-repeated-row
           - r-save-a-query
+      - point: p4
+        more:
+          - r-plot-to-spot-odd-values
+          - r-compare-two-files
+          - r-check-parts-add-up
+          - r-check-a-result-two-ways
       - point: p5
         more:
           - r-leave-a-rerunnable-script
@@ -270,6 +280,10 @@ tailoring:
     save-a-query: r-save-a-query
     leave-a-rerunnable-notebook: r-leave-a-rerunnable-script
     query-parquet-with-duckdb: r-query-parquet-with-duckdb
+    plot-to-spot-odd-values: r-plot-to-spot-odd-values
+    check-a-result-two-ways: r-check-a-result-two-ways
+    check-parts-add-up: r-check-parts-add-up
+    compare-two-files: r-compare-two-files
     practice-data: ~
     launch-jupyterlab: ~
 
@@ -336,6 +350,8 @@ by_point:
         - keep-an-ai-log
     - title: Checks for any result
       tutorials: [plot-to-spot-odd-values, check-a-result-two-ways, check-parts-add-up, compare-two-files]
+    - title: Checks for any result, in R
+      tutorials: [r-plot-to-spot-odd-values, r-check-a-result-two-ways, r-check-parts-add-up, r-compare-two-files]
   p5:
     - tutorials:
         - write-a-readme

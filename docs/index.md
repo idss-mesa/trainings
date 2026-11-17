@@ -149,6 +149,10 @@ These use MESA RStudio Geospatial and the same practice data.
 | Know what a column means before using it, in R | [Read the data dictionary before the data, in R](tutorials/r-read-the-data-dictionary.md) | 5 min |
 | Put evening rain on the right day, in R | [Turn UTC timestamps into local days in R](tutorials/r-local-days-from-utc.md) | 10 min |
 | Handle one row per kind of measurement, in R | [Work with a long table in R](tutorials/r-work-with-a-long-table.md) | 5–10 min |
+| See an odd value in a chart, in R | [Plot a column to spot odd values in R](tutorials/r-plot-to-spot-odd-values.md) | 10 min |
+| Make sure a number is not an accident of the method, in R | [Check a result a second way in R](tutorials/r-check-a-result-two-ways.md) | 10 min |
+| Notice rows a tally dropped, in R | [Check that the parts add up to the whole in R](tutorials/r-check-parts-add-up.md) | 10 min |
+| Use one month to question another, in R | [Compare two files that should look alike in R](tutorials/r-compare-two-files.md) | 10 min |
 | Put points on a map | [Map point data with sf in MESA RStudio Geospatial](tutorials/map-points-in-rstudio.md) | 10 min |
 
 ## The other MESA apps

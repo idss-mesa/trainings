@@ -155,6 +155,10 @@ These use MESA RStudio Geospatial and the same practice data.
 | Know what a column means before using it, in R | [Read the data dictionary before the data, in R](https://idss-mesa.github.io/trainings/tutorials/r-read-the-data-dictionary/) | 5 min |
 | Put evening rain on the right day, in R | [Turn UTC timestamps into local days in R](https://idss-mesa.github.io/trainings/tutorials/r-local-days-from-utc/) | 10 min |
 | Handle one row per kind of measurement, in R | [Work with a long table in R](https://idss-mesa.github.io/trainings/tutorials/r-work-with-a-long-table/) | 5–10 min |
+| See an odd value in a chart, in R | [Plot a column to spot odd values in R](https://idss-mesa.github.io/trainings/tutorials/r-plot-to-spot-odd-values/) | 10 min |
+| Make sure a number is not an accident of the method, in R | [Check a result a second way in R](https://idss-mesa.github.io/trainings/tutorials/r-check-a-result-two-ways/) | 10 min |
+| Notice rows a tally dropped, in R | [Check that the parts add up to the whole in R](https://idss-mesa.github.io/trainings/tutorials/r-check-parts-add-up/) | 10 min |
+| Use one month to question another, in R | [Compare two files that should look alike in R](https://idss-mesa.github.io/trainings/tutorials/r-compare-two-files/) | 10 min |
 | Put points on a map | [Map point data with sf in MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/) | 10 min |
 
 ## The other MESA apps
@@ -472,6 +476,17 @@ If you have more time:
 - [Find and remove a repeated row in R](https://idss-mesa.github.io/trainings/tutorials/r-remove-a-repeated-row/) (5 to 10 minutes)
 - [Save a query from R so someone else can run it](https://idss-mesa.github.io/trainings/tutorials/r-save-a-query/) (5 to 10 minutes)
 
+## Explore and verify
+
+*Explore with AI and verify.* You can work with an AI assistant and test what it tells you against the data.
+
+If you have more time:
+
+- [Plot a column to spot odd values in R](https://idss-mesa.github.io/trainings/tutorials/r-plot-to-spot-odd-values/) (10 minutes)
+- [Compare two files that should look alike in R](https://idss-mesa.github.io/trainings/tutorials/r-compare-two-files/) (10 minutes)
+- [Check that the parts add up to the whole in R](https://idss-mesa.github.io/trainings/tutorials/r-check-parts-add-up/) (10 minutes)
+- [Check a result a second way in R](https://idss-mesa.github.io/trainings/tutorials/r-check-a-result-two-ways/) (10 minutes)
+
 ## Preserve and share
 
 You can leave work that someone else can find, understand, and run again.
@@ -764,7 +779,7 @@ You can ask questions across files and tables, and show that combining them did 
 
 ## 4. Explore and verify
 
-*Explore with AI and verify.* You can work with an AI assistant and test what it tells you against the data. 7 tutorials, 65 to 70 minutes in all.
+*Explore with AI and verify.* You can work with an AI assistant and test what it tells you against the data. 11 tutorials, 105 to 110 minutes in all.
 
 1. [Sign in and start an AI agent in a MESA app](https://idss-mesa.github.io/trainings/tutorials/start-an-ai-agent/) (10 minutes)
 2. [Check an AI-suggested result against the data](https://idss-mesa.github.io/trainings/tutorials/check-a-suggested-result/) (10 minutes)
@@ -776,6 +791,13 @@ You can ask questions across files and tables, and show that combining them did 
 2. [Check a result a second way](https://idss-mesa.github.io/trainings/tutorials/check-a-result-two-ways/) (10 minutes)
 3. [Check that the parts add up to the whole](https://idss-mesa.github.io/trainings/tutorials/check-parts-add-up/) (10 minutes)
 4. [Compare two files that should look alike](https://idss-mesa.github.io/trainings/tutorials/compare-two-files/) (10 minutes)
+
+### Checks for any result, in R
+
+1. [Plot a column to spot odd values in R](https://idss-mesa.github.io/trainings/tutorials/r-plot-to-spot-odd-values/) (10 minutes)
+2. [Check a result a second way in R](https://idss-mesa.github.io/trainings/tutorials/r-check-a-result-two-ways/) (10 minutes)
+3. [Check that the parts add up to the whole in R](https://idss-mesa.github.io/trainings/tutorials/r-check-parts-add-up/) (10 minutes)
+4. [Compare two files that should look alike in R](https://idss-mesa.github.io/trainings/tutorials/r-compare-two-files/) (10 minutes)
 
 ## 5. Preserve and share
 
@@ -9053,6 +9075,557 @@ is a difference too; add it to your list.
 
 *Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-17; the code was run there that day (pandas 3.1.1, DuckDB 2.0.0).*
 
+---8<--- https://idss-mesa.github.io/trainings/tutorials/r-plot-to-spot-odd-values/
+
+---
+type: Guide
+title: "Plot a column to spot odd values in R"
+description: "Draw one box per gauge for a column of readings in R, so that a value far from the rest, or a gauge on a different scale, shows up at a glance."
+tags: [byte, p4, rstudio, r, exploration, plotting]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-17T00:00:00Z" }
+stale_after: "2027-05-17T00:00:00Z"
+sources:
+  - id: docs-rstudio
+    resource: "https://idss-mesa.github.io/docs/apps/rstudio/"
+    title: "MESA RStudio Geospatial"
+    author: "team:idss-mesa"
+  - id: r
+    resource: "https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/boxplot.html"
+    title: "Box Plots: boxplot (R documentation)"
+    author: "team:r-core"
+---
+
+# Plot a column to spot odd values in R
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-17 (R
+    4.6.2), by the AI assistant that drafted it, and produced the output shown. No
+    person has yet followed the steps, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A table of 152 numbers hides what a picture shows in a second. This check suits any
+column of measurements, whoever or whatever produced it.
+
+**You will:** have found one reading and one gauge in `readings` that do not sit with
+the rest, from a chart.
+
+**Time:** 10 minutes. **You need:** the `readings` and `gauges` tables from
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/), in
+[MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/).
+
+## Steps
+
+1. In the **Console**, draw one box per gauge:
+
+    ```r
+    boxplot(value ~ gauge_id, data = readings)
+    ```
+
+    You should see: a chart in the **Plots** pane, with five boxes squashed below 35
+    and a single circle near 180 above **G05**.
+
+2. Find the row behind the circle:
+
+    ```r
+    readings[readings$value > 100, ]
+    ```
+
+    You should see:
+
+    ```text
+        gauge_id       date value flag
+    130      G05 2026-07-09   180    S
+    ```
+
+3. One extreme value sets the scale for everything else. Draw the chart again without
+   it, to look at the rest:
+
+    ```r
+    boxplot(value ~ gauge_id, data = readings[readings$value < 100, ])
+    ```
+
+    You should see: the axis now ends near 35. Four gauges reach 25 to 33. The box for
+    **G02** stays under 3.
+
+4. A gauge ten times lower than its neighbours is either in a much drier place or on
+   a different scale. Look at the gauge table:
+
+    ```r
+    gauges
+    ```
+
+    You should see: `cm` in the `unit` column for G02, and `mm` for the others.
+
+    ```text
+      gauge_id        name unit elevation_m
+    1      G01   Boathouse   mm         512
+    2      G02     Orchard   cm         540
+    3      G03 Observatory   mm         688
+    4      G04       Depot   mm         521
+    5      G05      Quarry   mm         603
+    ```
+
+5. Write down, as comments in your script or in a notes file, the two things the
+   chart showed and what you would do about each before computing with `value`.
+
+    You should see: a note such as "G05 has one reading of 180 on 2026-07-09, flagged
+    S. G02 is recorded in cm, the others in mm."
+
+## Check it worked
+
+You can name the date of the odd reading and the gauge on a different scale, and you
+found both from the chart before you looked at any row.
+
+## If it didn't
+
+**No chart appears.** The **Plots** pane may be hidden behind **Files** or **Help** at
+the bottom right. Click the **Plots** tab.
+
+**The second chart looks like the first.** The filter was left out. Check that the
+line ends `data = readings[readings$value < 100, ])`.
+
+## Next
+
+- [Tally a quality flag in R](https://idss-mesa.github.io/trainings/tutorials/r-tally-a-quality-flag/),
+  for what the `S` on that row means.
+- [Bring two units onto one scale in R](https://idss-mesa.github.io/trainings/tutorials/r-convert-units-before-comparing/),
+  to put G02 on the same scale as the others.
+- Reference: [boxplot](https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/boxplot.html) in the R documentation.
+
+*Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-17; the code was run there that day (R 4.6.2).*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/r-check-a-result-two-ways/
+
+---
+type: Guide
+title: "Check a result a second way in R"
+description: "Count the same rows two ways in R, find out why the two disagree, and keep a result only once two independent routes give the same answer."
+tags: [byte, p4, rstudio, r, verification, missing-values]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-17T00:00:00Z" }
+stale_after: "2027-05-17T00:00:00Z"
+sources:
+  - id: docs-rstudio
+    resource: "https://idss-mesa.github.io/docs/apps/rstudio/"
+    title: "MESA RStudio Geospatial"
+    author: "team:idss-mesa"
+  - id: r
+    resource: "https://stat.ethz.ch/R-manual/R-devel/library/base/html/subset.html"
+    title: "Subsetting Vectors, Matrices and Data Frames: subset (R documentation)"
+    author: "team:r-core"
+---
+
+# Check a result a second way in R
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-17 (R
+    4.6.2), by the AI assistant that drafted it, and produced the output shown. No
+    person has yet followed the steps, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+If two different routes give the same answer, a mistake would have to be made twice,
+in the same way, to go unnoticed. If they disagree, you have found something before
+your reader does. This works for a result of your own, a colleague's, or an AI
+assistant's.
+
+**You will:** have counted the readings not flagged as suspect in two ways, explained
+why the counts differ, and reached a total that two routes agree on.
+
+**Time:** 10 minutes. **You need:** the `readings` and `gauges` tables from
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/), in
+[MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/).
+
+## Steps
+
+1. In the **Console**, count the readings whose flag is not `S`:
+
+    ```r
+    nrow(subset(readings, flag != "S"))
+    ```
+
+    You should see:
+
+    ```text
+    [1] 0
+    ```
+
+2. Count them again, with square brackets:
+
+    ```r
+    odd <- readings[readings$flag != "S", ]
+    nrow(odd)
+    ```
+
+    You should see: a different answer. At least one route is not doing what you
+    meant.
+
+    ```text
+    [1] 150
+    ```
+
+3. Look at the rows the second route kept:
+
+    ```r
+    head(odd, 3)
+    ```
+
+    You should see: rows with nothing in them.
+
+    ```text
+         gauge_id date value flag
+    NA       <NA> <NA>    NA <NA>
+    NA.1     <NA> <NA>    NA <NA>
+    NA.2     <NA> <NA>    NA <NA>
+    ```
+
+    Most flags are missing, and comparing a missing value with `"S"` gives `NA`,
+    neither true nor false. `subset()` drops those rows. Square brackets keep one
+    empty row for each. Neither route kept the 150 unflagged readings.
+
+4. Say what you mean: keep a row if its flag is missing or is not `S`.
+
+    ```r
+    kept <- readings[is.na(readings$flag) | readings$flag != "S", ]
+    nrow(kept)
+    ```
+
+    You should see:
+
+    ```text
+    [1] 150
+    ```
+
+5. Check the total rainfall in `kept` by a route that does not use `kept`: the
+   whole column, less the readings flagged `S`.
+
+    ```r
+    sum(kept$value)
+    sum(readings$value) - sum(readings$value[which(readings$flag == "S")])
+    ```
+
+    You should see: the same number twice.
+
+    ```text
+    [1] 895.43
+    [1] 895.43
+    ```
+
+## Check it worked
+
+Two routes give 895.43, and you can say why step 1 counted no rows and why the 150
+in step 2 was not the 150 you wanted.
+
+## If it didn't
+
+**Step 5 prints `NA`.** `kept` was made with the square brackets of step 2, so it
+holds empty rows. Make it again with the line in step 4.
+
+**The two routes agree but you doubt both.** Agreement shows the two were computed the
+same way, not that the data is sound. This total still mixes units.
+
+## Next
+
+- [Check that the parts add up to the whole in R](https://idss-mesa.github.io/trainings/tutorials/r-check-parts-add-up/)
+- [Tally a quality flag in R](https://idss-mesa.github.io/trainings/tutorials/r-tally-a-quality-flag/)
+- Reference: [subset](https://stat.ethz.ch/R-manual/R-devel/library/base/html/subset.html) in the R documentation.
+
+*Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-17; the code was run there that day (R 4.6.2).*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/r-check-parts-add-up/
+
+---
+type: Guide
+title: "Check that the parts add up to the whole in R"
+description: "After splitting an R data frame into groups, add the groups back up and compare with the whole table, so that rows dropped without warning are noticed."
+tags: [byte, p4, rstudio, r, verification, missing-values]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-17T00:00:00Z" }
+stale_after: "2027-05-17T00:00:00Z"
+sources:
+  - id: docs-rstudio
+    resource: "https://idss-mesa.github.io/docs/apps/rstudio/"
+    title: "MESA RStudio Geospatial"
+    author: "team:idss-mesa"
+  - id: r
+    resource: "https://stat.ethz.ch/R-manual/R-devel/library/base/html/table.html"
+    title: "Cross Tabulation and Table Creation: table (R documentation)"
+    author: "team:r-core"
+---
+
+# Check that the parts add up to the whole in R
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-17 (R
+    4.6.2), by the AI assistant that drafted it, and produced the output shown. No
+    person has yet followed the steps, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+Splitting a table into groups should lose nothing: the groups, added up, should give
+the table back. When they do not, rows have gone missing without an error message.
+
+**You will:** have caught 150 rows that a tally dropped without warning, and
+confirmed a split that loses none.
+
+**Time:** 10 minutes. **You need:** the `readings` and `gauges` tables from
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/), in
+[MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/).
+
+## Steps
+
+1. In the **Console**, state the whole before you split it:
+
+    ```r
+    nrow(readings)
+    ```
+
+    You should see:
+
+    ```text
+    [1] 152
+    ```
+
+2. Count the rows for each flag:
+
+    ```r
+    parts <- table(readings$flag)
+    parts
+    ```
+
+    You should see: one group. Nothing warns you that anything is missing.
+
+    ```text
+
+    S
+    2
+    ```
+
+3. Add the parts up and put the total beside the whole:
+
+    ```r
+    c(sum(parts), nrow(readings))
+    ```
+
+    You should see: the parts 150 rows short.
+
+    ```text
+    [1]   2 152
+    ```
+
+4. The missing rows are the ones with no flag: `table()` leaves out missing values
+   unless told otherwise. Tell it otherwise:
+
+    ```r
+    parts <- table(readings$flag, useNA = "ifany")
+    parts
+    ```
+
+    You should see:
+
+    ```text
+
+       S <NA>
+       2  150
+    ```
+
+5. Check again:
+
+    ```r
+    sum(parts) == nrow(readings)
+    ```
+
+    You should see:
+
+    ```text
+    [1] TRUE
+    ```
+
+6. The same check works for a sum. Split the rainfall by gauge, and compare the
+   groups' total with the column's:
+
+    ```r
+    by_gauge <- tapply(readings$value, readings$gauge_id, sum)
+    c(sum(by_gauge), sum(readings$value))
+    ```
+
+    You should see: the same number twice. No row is missing its `gauge_id`, so this
+    split loses nothing.
+
+    ```text
+    [1] 1075.43 1075.43
+    ```
+
+## Check it worked
+
+You have made two comparisons where the parts equal the whole: 152 rows by flag, and
+1075.43 by gauge. You can say which rows the first tally dropped and why.
+
+## If it didn't
+
+**Step 3 shows `[1] 152 152`.** `parts` was already made with `useNA = "ifany"`. That
+is the corrected version; run step 2 again to see the short one.
+
+**Step 6 shows `NA`.** A value is missing somewhere in the column. Run
+`sum(is.na(readings$value))`; in the practice data it is 0.
+
+## Next
+
+- [Tally a quality flag in R](https://idss-mesa.github.io/trainings/tutorials/r-tally-a-quality-flag/),
+  which counts the missing flags directly.
+- [Check a result a second way in R](https://idss-mesa.github.io/trainings/tutorials/r-check-a-result-two-ways/)
+- Reference: [table](https://stat.ethz.ch/R-manual/R-devel/library/base/html/table.html) in the R documentation.
+
+*Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-17; the code was run there that day (R 4.6.2).*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/r-compare-two-files/
+
+---
+type: Guide
+title: "Compare two files that should look alike in R"
+description: "Put July's and August's readings side by side in R, by row count, by gauge and by largest value, so that what is unusual in one month stands out against the other."
+tags: [byte, p4, rstudio, r, exploration, verification]
+status: draft
+generated: { by: "claude-code/2.1.321", at: "2026-11-17T00:00:00Z" }
+stale_after: "2027-05-17T00:00:00Z"
+sources:
+  - id: docs-rstudio
+    resource: "https://idss-mesa.github.io/docs/apps/rstudio/"
+    title: "MESA RStudio Geospatial"
+    author: "team:idss-mesa"
+  - id: r
+    resource: "https://stat.ethz.ch/R-manual/R-devel/library/base/html/tapply.html"
+    title: "Apply a Function Over a Ragged Array: tapply (R documentation)"
+    author: "team:r-core"
+---
+
+# Compare two files that should look alike in R
+
+!!! warning "Draft: not yet validated"
+    The code on this page was run inside MESA RStudio Geospatial on 2026-11-17 (R
+    4.6.2), by the AI assistant that drafted it, and produced the output shown. No
+    person has yet followed the steps, so a screen may differ.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A second file of the same kind is a free expectation. Two months from the same five
+gauges should have the same columns, about the same number of rows, and values of a
+similar size. Where they differ is where to look.
+
+**You will:** have a short list of the places where July's readings and August's
+differ, each one a question to follow up.
+
+**Time:** 10 minutes. **You need:** the `readings` and `gauges` tables from
+[Load a file from your Data Store in RStudio](https://idss-mesa.github.io/trainings/tutorials/r-load-a-file/), in
+[MESA RStudio Geospatial](https://idss-mesa.github.io/trainings/tutorials/map-points-in-rstudio/), with R's working folder still set
+to `mesa-practice`.
+
+## Steps
+
+1. In the **Console**, fetch August's file into the working folder:
+
+    ```r
+    download.file("https://idss-mesa.github.io/trainings/assets/practice/readings_august.csv", "readings_august.csv")
+    ```
+
+    You should see: a line that begins `downloaded`.
+
+2. Load it, then compare the row counts and the column names. Five gauges over 31
+   days would give 155 rows in each month.
+
+    ```r
+    august <- read.csv("readings_august.csv", na.strings = "")
+    c(nrow(readings), nrow(august))
+    identical(names(readings), names(august))
+    ```
+
+    You should see: neither month complete, and the same columns in both.
+
+    ```text
+    [1] 152 151
+    [1] TRUE
+    ```
+
+3. Count the rows for each gauge, with the months side by side:
+
+    ```r
+    cbind(july = table(readings$gauge_id), august = table(august$gauge_id))
+    ```
+
+    You should see: 31 nearly everywhere. July is short at G01 and one over at G03.
+    August is short at G03.
+
+    ```text
+        july august
+    G01   27     31
+    G02   31     31
+    G03   32     27
+    G04   31     31
+    G05   31     31
+    ```
+
+4. Do the same for the largest reading:
+
+    ```r
+    cbind(
+      july = tapply(readings$value, readings$gauge_id, max),
+      august = tapply(august$value, august$gauge_id, max)
+    )
+    ```
+
+    You should see: four gauges within 0.2 of their other month, and G05 with 180 in
+    July against 27.4 in August.
+
+    ```text
+          july august
+    G01  24.90  24.80
+    G02   2.92   2.84
+    G03  32.50  32.30
+    G04  26.40  26.30
+    G05 180.00  27.40
+    ```
+
+5. Compare the flags. July has two readings flagged `S`. For August:
+
+    ```r
+    table(august$flag, useNA = "ifany")
+    ```
+
+    You should see: no flag on any row.
+
+    ```text
+
+    <NA>
+     151
+    ```
+
+6. Write each difference down as a question, as comments in your script or in a
+   notes file.
+
+    You should see: a list such as "July G01: four days missing? July G03: a repeated
+    row? July G05: is 180 real? August G03: four days missing?"
+
+## Check it worked
+
+Your list has four entries, each naming a month and a gauge. None of them is answered
+yet: the comparison tells you where to look, not what happened.
+
+## If it didn't
+
+**Step 2 says `cannot open file 'readings_august.csv'`.** The file is not in R's
+working folder. Run `getwd()` to see where R is looking, then repeat step 1.
+
+**`cbind` warns that the lengths differ.** One file has a gauge the other lacks. That
+is a difference too; add it to your list.
+
+## Next
+
+- [Count records per day in R](https://idss-mesa.github.io/trainings/tutorials/r-count-records-per-day/),
+  for the short and long gauges.
+- [Find and remove a repeated row in R](https://idss-mesa.github.io/trainings/tutorials/r-remove-a-repeated-row/)
+- [Plot a column to spot odd values in R](https://idss-mesa.github.io/trainings/tutorials/r-plot-to-spot-odd-values/), for the 180.
+- Reference: [tapply](https://stat.ethz.ch/R-manual/R-devel/library/base/html/tapply.html) in the R documentation.
+
+*Not yet validated by a person in MESA RStudio Geospatial. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-17; the code was run there that day (R 4.6.2).*
+
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/keep-an-ai-log/
 
 ---
@@ -11146,6 +11719,14 @@ explains.
 # Directory Update Log
 
 ## 2026-11-17
+
+* **Creation**: R versions of the four point 4 checks, for MESA RStudio Geospatial:
+  [Plot a column to spot odd values in R](tutorials/r-plot-to-spot-odd-values.md),
+  [Check a result a second way in R](tutorials/r-check-a-result-two-ways.md),
+  [Check that the parts add up to the whole in R](tutorials/r-check-parts-add-up.md)
+  and [Compare two files that should look alike in R](tutorials/r-compare-two-files.md).
+  All are drafts. The second-way check uses base R, not DuckDB: `subset()` and square
+  brackets treat a missing flag differently, and neither keeps the unflagged rows.
 
 * **Creation**: Four tutorials at point 4, Explore and verify, that need no AI
   assistant and no key:
