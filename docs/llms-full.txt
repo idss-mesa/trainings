@@ -3023,21 +3023,26 @@ title: "Sign in and start an AI agent in a MESA app"
 description: "Sign in to CyVerse from a terminal in a MESA app, connect an AI agent to a language model, and have it list the folders in your Data Store."
 tags: [byte, p4, ai-agents, jupyterlab, cyverse]
 status: draft
-generated: { by: "claude-code/2.1.321", at: "2026-11-12T00:00:00Z" }
+generated: { by: "claude-code/2.1.321", at: "2026-11-18T00:00:00Z" }
 stale_after: "2027-05-12T00:00:00Z"
 sources:
   - id: docs
     resource: "https://idss-mesa.github.io/docs/apps/agents/"
     title: "AI agents in the MESA apps"
     author: "team:idss-mesa"
+  - id: unblock
+    resource: "https://unblockme.cyverse.org/"
+    title: "CyVerse - Unblock Me"
+    author: "team:cyverse"
 ---
 
 # Sign in and start an AI agent in a MESA app
 
 !!! warning "Draft: not yet validated"
-    This tutorial was written from the MESA documentation. Nobody has yet followed it
-    from start to finish on the live portal, so a screen name or a step may differ.
-    In particular, what each command prints (steps 2 to 4) is not yet confirmed.
+    This tutorial was written from the MESA documentation and has not been followed
+    from start to finish. The AI assistant that drafted it ran steps 1 and 2 in MESA
+    JupyterLab on 2026-11-18. The sign-in did not finish (see "If it didn't"), so the
+    `Authenticated` line was not seen. Steps 3 to 6 have not been run.
     [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 Every MESA app comes with AI coding agents that run in a terminal and can work with
@@ -3062,10 +3067,11 @@ at <https://chat.cyverse.ai> under **Course → API Key**.
     cyverse-login
     ```
 
-    Enter your CyVerse username and password when it asks.
+    It shows your username: press Enter to accept it. Then type your CyVerse password.
 
-    You should see: the prompt return with no error. The agents now act as you, with
-    access to your own files. Without this step they can read public data only.
+    You should see: `Verifying against /iplant/home/` and your username, then
+    `Authenticated as` and your username. The agents now act as you, with access to
+    your own files. Without this step they can read public data only.
 
 3. Connect the language model:
 
@@ -3109,6 +3115,16 @@ in as you could not see them.
 before you signed in, so its tools are still anonymous. Quit the agent, run
 `cyverse-login` again if you skipped it, and start the agent again.
 
+**`cyverse-login` stays on `Verifying`, or says `the login test failed`.** The Data
+Store did not answer, which is not always a wrong password. The command removes what
+it saved, so you are signed out. Do not keep retrying: CyVerse blocks addresses that
+look like crawlers. Wait a few minutes, check <https://status.cyverse.org>, and sign in
+once more. <https://unblockme.cyverse.org> lifts a block on your own computer; it is
+not yet known whether it helps for an app.
+
+**A command stops at `iRODS Password:`.** You are not signed in. Press ++ctrl+c++ and
+run `cyverse-login`.
+
 ## Next
 
 - [Check an AI-suggested result against the data](https://idss-mesa.github.io/trainings/tutorials/check-a-suggested-result/)
@@ -3119,7 +3135,7 @@ before you signed in, so its tools are still anonymous. Quit the agent, run
   for the other agents (`claude`, `codex`, `agy`), using your own account with an
   agent's vendor, and local models on a GPU.
 
-*Not yet validated on the live portal. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-12 from the MESA documentation.*
+*Not yet validated on the live portal. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-12 from the MESA documentation; steps 1 and 2 were run in MESA JupyterLab on 2026-11-18 and the sign-in did not finish.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/keep-secrets-out-of-files/
 
@@ -12429,6 +12445,14 @@ explains.
 ---8<--- https://idss-mesa.github.io/trainings/log/
 
 # Directory Update Log
+
+## 2026-11-18
+
+* **Update**: [Sign in and start an AI agent in a MESA app](tutorials/start-an-ai-agent.md)
+  now says what `cyverse-login` asks for and prints, from a run of steps 1 and 2 in MESA
+  JupyterLab, and has two new entries under "If it didn't": the sign-in test failing
+  because the Data Store does not answer, and a command stopping at `iRODS Password:`.
+  The sign-in did not finish in that run. Still a draft.
 
 ## 2026-11-17
 
