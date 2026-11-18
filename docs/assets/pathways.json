@@ -1849,7 +1849,7 @@
    "min": 10,
    "max": 10,
    "status": "draft",
-   "revised": "2026-11-12T00:00:00Z",
+   "revised": "2026-11-18T00:00:00Z",
    "stale_after": "2027-05-12T00:00:00Z",
    "builds_on": [
     "launch-jupyterlab"
