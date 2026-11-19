@@ -256,6 +256,7 @@ pathways:
           - add-metadata
           - record-software-versions
           - say-where-data-came-from
+          - state-what-ai-did
           - hand-over-and-rerun
       - point: p3
         more:
@@ -371,6 +372,7 @@ by_point:
         - record-software-versions
         - leave-a-rerunnable-notebook
         - say-where-data-came-from
+        - state-what-ai-did
         - hand-over-and-rerun
     - title: Preserve and share, in R
       tutorials: [r-leave-a-rerunnable-script, r-write-a-readme, r-record-software-versions, r-hand-over-and-rerun]

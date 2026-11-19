@@ -574,6 +574,7 @@
       "add-metadata",
       "record-software-versions",
       "say-where-data-came-from",
+      "state-what-ai-did",
       "hand-over-and-rerun"
      ]
     },
@@ -803,6 +804,7 @@
      "record-software-versions",
      "leave-a-rerunnable-notebook",
      "say-where-data-came-from",
+     "state-what-ai-did",
      "hand-over-and-rerun"
     ]
    },
@@ -1853,6 +1855,22 @@
    "stale_after": "2027-05-12T00:00:00Z",
    "builds_on": [
     "launch-jupyterlab"
+   ]
+  },
+  "state-what-ai-did": {
+   "title": "State what AI did in your analysis",
+   "description": "Add a section to a folder's README that says which AI tools helped with the analysis, what they were asked, what you kept, and how you checked it.",
+   "outcome": "have an **AI assistance** section in your README that covers every step an assistant helped with.",
+   "point": "p5",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-18T00:00:00Z",
+   "stale_after": "2027-05-18T00:00:00Z",
+   "builds_on": [
+    "write-a-readme",
+    "launch-jupyterlab",
+    "keep-an-ai-log"
    ]
   },
   "stop-app-find-results": {
