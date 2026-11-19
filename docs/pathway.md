@@ -146,11 +146,12 @@ You can ask questions across files and tables, and show that combining them did 
 
 ## 4. Explore and verify
 
-*Explore with AI and verify.* You can work with an AI assistant and test what it tells you against the data. 11 tutorials, 105 to 110 minutes in all.
+*Explore with AI and verify.* You can work with an AI assistant and test what it tells you against the data. 12 tutorials, 110 to 115 minutes in all.
 
 1. [Sign in and start an AI agent in a MESA app](tutorials/start-an-ai-agent.md) (10 minutes)
-2. [Check an AI-suggested result against the data](tutorials/check-a-suggested-result.md) (10 minutes)
-3. [Keep a log of AI-assisted steps](tutorials/keep-an-ai-log.md) (5 to 10 minutes)
+2. [See which tool servers your agent can use](tutorials/see-an-agents-tools.md) (5 minutes)
+3. [Check an AI-suggested result against the data](tutorials/check-a-suggested-result.md) (10 minutes)
+4. [Keep a log of AI-assisted steps](tutorials/keep-an-ai-log.md) (5 to 10 minutes)
 
 ### Checks for any result
 

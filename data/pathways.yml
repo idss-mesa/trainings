@@ -359,6 +359,7 @@ by_point:
   p4:
     - tutorials:
         - start-an-ai-agent
+        - see-an-agents-tools
         - check-a-suggested-result
         - keep-an-ai-log
     - title: Checks for any result
