@@ -2,6 +2,10 @@
 
 ## 2026-11-18
 
+* **Creation**: A fourth explainer,
+  [How an agent reaches data: tools and MCP](explainers/tools-and-mcp.md): what a server,
+  a tool and a call are, and the four tool servers in the MESA apps. A draft.
+
 * **Update**: [Sign in and start an AI agent in a MESA app](tutorials/start-an-ai-agent.md):
   a later sign-in in the same app finished, so the `Authenticated as` line in step 2 has
   now been seen. Still a draft; steps 3 to 6 have not been run.
