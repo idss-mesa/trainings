@@ -243,6 +243,7 @@ pathways:
           - start-an-ai-agent
           - see-an-agents-tools
           - keep-an-ai-log
+          - read-what-an-agent-ran
 
   - id: leave-work-others-can-rerun
     title: Leave work others can rerun

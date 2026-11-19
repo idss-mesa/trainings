@@ -2,6 +2,11 @@
 
 ## 2026-11-19
 
+* **Update**: The pathway [Use an AI agent and check what it says](pathways/use-an-ai-agent.md)
+  gains a second optional page at point 4,
+  [Read back what an agent ran](tutorials/read-what-an-agent-ran.md). It comes last among
+  the optional pages, so a route with a time limit keeps the AI log ahead of it.
+
 * **Creation**: A tutorial at point 4, Analyze with AI:
   [Read back what an agent ran](tutorials/read-what-an-agent-ran.md), which exports an
   OpenCode session and prints each tool call. Steps 1 to 3 were run in MESA JupyterLab.
