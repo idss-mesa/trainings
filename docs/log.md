@@ -2,6 +2,12 @@
 
 ## 2026-11-18
 
+* **Update**: [Sign in and start an AI agent in a MESA app](tutorials/start-an-ai-agent.md)
+  was run through all six steps in MESA JupyterLab. Step 3 gains a line that loads the
+  saved key, without which the agent fails with "No api key passed in", and that failure
+  has its own entry under "If it didn't". Steps 3 to 5 now say what was seen. Still a
+  draft.
+
 * **Creation**: A fourth explainer,
   [How an agent reaches data: tools and MCP](explainers/tools-and-mcp.md): what a server,
   a tool and a call are, and the four tool servers in the MESA apps. A draft.
