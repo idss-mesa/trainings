@@ -2,6 +2,10 @@
 
 ## 2026-11-18
 
+* **Update**: [Sign in and start an AI agent in a MESA app](tutorials/start-an-ai-agent.md):
+  a later sign-in in the same app finished, so the `Authenticated as` line in step 2 has
+  now been seen. Still a draft; steps 3 to 6 have not been run.
+
 * **Update**: [Sign in and start an AI agent in a MESA app](tutorials/start-an-ai-agent.md)
   now says what `cyverse-login` asks for and prints, from a run of steps 1 and 2 in MESA
   JupyterLab, and has two new entries under "If it didn't": the sign-in test failing

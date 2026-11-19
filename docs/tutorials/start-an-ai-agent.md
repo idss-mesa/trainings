@@ -21,9 +21,10 @@ sources:
 
 !!! warning "Draft: not yet validated"
     This tutorial was written from the MESA documentation and has not been followed
-    from start to finish. The AI assistant that drafted it ran steps 1 and 2 in MESA
-    JupyterLab on 2026-11-18. The sign-in did not finish (see "If it didn't"), so the
-    `Authenticated` line was not seen. Steps 3 to 6 have not been run.
+    from start to finish. The AI assistant that drafted it saw steps 1 and 2 in MESA
+    JupyterLab on 2026-11-18, where the account's owner typed the password. The first
+    sign-in failed (see "If it didn't") and a later one finished. Steps 3 to 6 have not
+    been run.
     [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 Every MESA app comes with AI coding agents that run in a terminal and can work with
@@ -101,7 +102,8 @@ Store did not answer, which is not always a wrong password. The command removes 
 it saved, so you are signed out. Do not keep retrying: CyVerse blocks addresses that
 look like crawlers. Wait a few minutes, check <https://status.cyverse.org>, and sign in
 once more. <https://unblockme.cyverse.org> lifts a block on your own computer; it is
-not yet known whether it helps for an app.
+not yet known whether it helps for an app. In our run the app answered again about two
+hours later.
 
 **A command stops at `iRODS Password:`.** You are not signed in. Press ++ctrl+c++ and
 run `cyverse-login`.
@@ -116,4 +118,4 @@ run `cyverse-login`.
   for the other agents (`claude`, `codex`, `agy`), using your own account with an
   agent's vendor, and local models on a GPU.
 
-*Not yet validated on the live portal. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-12 from the MESA documentation; steps 1 and 2 were run in MESA JupyterLab on 2026-11-18 and the sign-in did not finish.*
+*Not yet validated on the live portal. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-12 from the MESA documentation; steps 1 and 2 were seen in MESA JupyterLab on 2026-11-18.*
