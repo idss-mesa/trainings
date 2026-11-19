@@ -54,7 +54,6 @@ If you have more time:
 If you have more time:
 
 - [Sign in and start an AI agent in a MESA app](../tutorials/start-an-ai-agent.md) (10 minutes)
-- [See which tool servers your agent can use](../tutorials/see-an-agents-tools.md) (5 minutes)
 - [Keep a log of AI-assisted steps](../tutorials/keep-an-ai-log.md) (5 to 10 minutes)
 
 ## Next
