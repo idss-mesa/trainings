@@ -535,7 +535,7 @@ test("in R, a passed skip-check leaves nothing to do on that point", () => {
   // The questions belong to the Python tutorials, which now count as checked.
   // Their R versions were not taken, so they must not come back onto the route.
   for (const [goal, minutes, want] of [["check-a-dataset", 0, []], ["check-a-dataset", 30, ["r-reconcile-a-join", "r-query-parquet-with-duckdb", "r-convert-units-before-comparing"]],
-    ["use-an-ai-agent", 30, ["start-an-ai-agent"]], ["work-in-r", 0, []]]) {
+    ["use-an-ai-agent", 30, ["start-an-ai-agent", "see-an-agents-tools"]], ["work-in-r", 0, []]]) {
     const rec = P.setProfile(P.empty(), "language", "r");
     if (minutes) P.setProfile(rec, "minutes", minutes);
     const pathway = P.findPathway(manifest, goal);

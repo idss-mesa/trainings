@@ -2,6 +2,11 @@
 
 ## 2026-11-19
 
+* **Update**: The pathway [Use an AI agent and check what it says](pathways/use-an-ai-agent.md)
+  gains an optional page at point 4,
+  [See which tool servers your agent can use](tutorials/see-an-agents-tools.md). A reader
+  with 30 minutes or more is now offered it.
+
 * **Creation**: A tutorial at point 4, Analyze with AI:
   [See which tool servers your agent can use](tutorials/see-an-agents-tools.md), which
   lists an agent's tool servers with `opencode mcp list` and reads which are connected.

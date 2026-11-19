@@ -515,7 +515,7 @@ class Browser(unittest.TestCase):
         page.goto(self.base + "pathways/")
         page.locator(".mesa-start").get_by_label("Use an AI agent and check what it says").check()
         page.locator("input[name='mesa-start-minutes'][value='60']").check()
-        page.locator(".mesa-yours .mesa-story", has_text="7 tutorials").wait_for()
+        page.locator(".mesa-yours .mesa-story", has_text="8 tutorials").wait_for()
         page.goto(self.base + "tutorials/check-a-suggested-result/")
         check = page.locator(".mesa-strip .mesa-check")
         check.get_by_label("G03, 251.1 mm").check()
@@ -527,7 +527,7 @@ class Browser(unittest.TestCase):
         stage = page.locator(".mesa-stage", has_text="Explore and verify")
         fold = stage.locator(".mesa-skip__fold > summary")
         self.assertIn("skip the rest if you like", fold.inner_text())
-        self.assertIn("1 of 7 done", page.inner_text(".mesa-head"))
+        self.assertIn("1 of 8 done", page.inner_text(".mesa-head"))
         fold.click()
         stage.get_by_role("button", name="Skip the rest of this point").click()
         stage.locator(".mesa-skip__fold > summary", has_text="Skip-check passed").wait_for()
@@ -538,12 +538,12 @@ class Browser(unittest.TestCase):
 
         # With every tutorial on the point done there is nothing to skip, so no offer.
         page.evaluate(f"""() => {{ const r = JSON.parse(localStorage.getItem('{KEY}')); delete r.points.p4;
-            ['start-an-ai-agent', 'keep-an-ai-log'].forEach((n) => {{ r.tutorials[n] = {{ done: '2026-11-16', rev: 'r' }}; }});
+            ['start-an-ai-agent', 'see-an-agents-tools', 'keep-an-ai-log'].forEach((n) => {{ r.tutorials[n] = {{ done: '2026-11-16', rev: 'r' }}; }});
             localStorage.setItem('{KEY}', JSON.stringify(r)); }}""")
         page.reload()
         stage = page.locator(".mesa-stage", has_text="Explore and verify")
         stage.locator(".mesa-skip__fold > summary", has_text="You answered this point's skip-check question").wait_for()
-        self.assertIn("3 of 3 done. Point finished.", stage.inner_text())
+        self.assertIn("4 of 4 done. Point finished.", stage.inner_text())
         self.assertEqual(stage.get_by_role("button", name="Skip the rest of this point").count(), 0)
         self.assertEqual(errors, [])
         context.close()
