@@ -1,5 +1,12 @@
 # Directory Update Log
 
+## 2026-11-19
+
+* **Creation**: A tutorial at point 4, Analyze with AI:
+  [See which tool servers your agent can use](tutorials/see-an-agents-tools.md), which
+  lists an agent's tool servers with `opencode mcp list` and reads which are connected.
+  The command was run in MESA JupyterLab without a sign-in. A draft.
+
 ## 2026-11-18
 
 * **Creation**: A tutorial at point 5, Preserve and share:

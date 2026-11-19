@@ -241,6 +241,7 @@ pathways:
           - check-a-suggested-result
         more:
           - start-an-ai-agent
+          - see-an-agents-tools
           - keep-an-ai-log
 
   - id: leave-work-others-can-rerun
@@ -359,6 +360,7 @@ by_point:
   p4:
     - tutorials:
         - start-an-ai-agent
+        - see-an-agents-tools
         - check-a-suggested-result
         - keep-an-ai-log
     - title: Checks for any result

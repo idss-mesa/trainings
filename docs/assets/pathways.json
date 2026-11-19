@@ -550,6 +550,7 @@
      ],
      "more": [
       "start-an-ai-agent",
+      "see-an-agents-tools",
       "keep-an-ai-log"
      ]
     }
@@ -772,6 +773,7 @@
     "title": "",
     "tutorials": [
      "start-an-ai-agent",
+     "see-an-agents-tools",
      "check-a-suggested-result",
      "keep-an-ai-log"
     ]
@@ -1799,6 +1801,20 @@
    "stale_after": "2027-05-13T00:00:00Z",
    "builds_on": [
     "sign-in"
+   ]
+  },
+  "see-an-agents-tools": {
+   "title": "See which tool servers your agent can use",
+   "description": "List the tool servers an AI agent has in a MESA app, read which are connected and which need a sign-in, and say what the agent can and cannot reach.",
+   "outcome": "know which tool servers your agent has, which are connected, and what each one reaches.",
+   "point": "p4",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-19T00:00:00Z",
+   "stale_after": "2027-05-19T00:00:00Z",
+   "builds_on": [
+    "launch-jupyterlab"
    ]
   },
   "share-a-folder": {
