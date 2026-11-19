@@ -567,6 +567,7 @@ If you have more time:
 If you have more time:
 
 - [Sign in and start an AI agent in a MESA app](https://idss-mesa.github.io/trainings/tutorials/start-an-ai-agent/) (10 minutes)
+- [See which tool servers your agent can use](https://idss-mesa.github.io/trainings/tutorials/see-an-agents-tools/) (5 minutes)
 - [Keep a log of AI-assisted steps](https://idss-mesa.github.io/trainings/tutorials/keep-an-ai-log/) (5 to 10 minutes)
 
 ## Next
@@ -12778,6 +12779,11 @@ explains.
 # Directory Update Log
 
 ## 2026-11-19
+
+* **Update**: The pathway [Use an AI agent and check what it says](pathways/use-an-ai-agent.md)
+  gains an optional page at point 4,
+  [See which tool servers your agent can use](tutorials/see-an-agents-tools.md). A reader
+  with 30 minutes or more is now offered it.
 
 * **Creation**: A tutorial at point 4, Analyze with AI:
   [See which tool servers your agent can use](tutorials/see-an-agents-tools.md), which

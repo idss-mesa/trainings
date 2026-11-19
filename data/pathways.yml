@@ -241,6 +241,7 @@ pathways:
           - check-a-suggested-result
         more:
           - start-an-ai-agent
+          - see-an-agents-tools
           - keep-an-ai-log
 
   - id: leave-work-others-can-rerun
