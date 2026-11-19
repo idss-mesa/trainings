@@ -2,6 +2,11 @@
 
 ## 2026-11-18
 
+* **Creation**: A tutorial at point 5, Preserve and share:
+  [State what AI did in your analysis](tutorials/state-what-ai-did.md), which adds an
+  "AI assistance" section to a folder's README. A draft; not yet followed in MESA
+  JupyterLab.
+
 * **Update**: [Sign in and start an AI agent in a MESA app](tutorials/start-an-ai-agent.md)
   was run through all six steps in MESA JupyterLab. Step 3 gains a line that loads the
   saved key, without which the agent fails with "No api key passed in", and that failure

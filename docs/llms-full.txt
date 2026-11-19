@@ -616,6 +616,7 @@ If you have more time:
 - [Add metadata to a file or folder](https://idss-mesa.github.io/trainings/tutorials/add-metadata/) (5 minutes)
 - [Record the software versions a result depends on](https://idss-mesa.github.io/trainings/tutorials/record-software-versions/) (5 minutes)
 - [Say where your input data came from](https://idss-mesa.github.io/trainings/tutorials/say-where-data-came-from/) (5 to 10 minutes)
+- [State what AI did in your analysis](https://idss-mesa.github.io/trainings/tutorials/state-what-ai-did/) (5 to 10 minutes)
 - [Hand your folder to a colleague and have them rerun it](https://idss-mesa.github.io/trainings/tutorials/hand-over-and-rerun/) (10 minutes)
 
 ## Query and connect
@@ -813,14 +814,15 @@ You can ask questions across files and tables, and show that combining them did 
 
 ## 5. Preserve and share
 
-You can leave work that someone else can find, understand, and run again. 10 tutorials, 70 to 85 minutes in all.
+You can leave work that someone else can find, understand, and run again. 11 tutorials, 75 to 95 minutes in all.
 
 1. [Write a README for a data folder](https://idss-mesa.github.io/trainings/tutorials/write-a-readme/) (10 minutes)
 2. [Add metadata to a file or folder](https://idss-mesa.github.io/trainings/tutorials/add-metadata/) (5 minutes)
 3. [Record the software versions a result depends on](https://idss-mesa.github.io/trainings/tutorials/record-software-versions/) (5 minutes)
 4. [Leave a notebook someone else can rerun](https://idss-mesa.github.io/trainings/tutorials/leave-a-rerunnable-notebook/) (5 to 10 minutes)
 5. [Say where your input data came from](https://idss-mesa.github.io/trainings/tutorials/say-where-data-came-from/) (5 to 10 minutes)
-6. [Hand your folder to a colleague and have them rerun it](https://idss-mesa.github.io/trainings/tutorials/hand-over-and-rerun/) (10 minutes)
+6. [State what AI did in your analysis](https://idss-mesa.github.io/trainings/tutorials/state-what-ai-did/) (5 to 10 minutes)
+7. [Hand your folder to a colleague and have them rerun it](https://idss-mesa.github.io/trainings/tutorials/hand-over-and-rerun/) (10 minutes)
 
 ### Preserve and share, in R
 
@@ -10579,6 +10581,115 @@ folder.
 
 *Not yet validated in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-15 from the MESA documentation and the JupyterLab documentation.*
 
+---8<--- https://idss-mesa.github.io/trainings/tutorials/state-what-ai-did/
+
+---
+type: Guide
+title: "State what AI did in your analysis"
+description: "Add a section to a folder's README that says which AI tools helped with the analysis, what they were asked, what you kept, and how you checked it."
+tags: [byte, p5, readme, ai-agents, disclosure]
+status: draft
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-18T00:00:00Z" }
+stale_after: "2027-05-18T00:00:00Z"
+sources:
+  - id: docs-jupyterlab
+    resource: "https://idss-mesa.github.io/docs/apps/jupyterlab/"
+    title: "MESA JupyterLab"
+    author: "team:idss-mesa"
+  - id: jupyterlab
+    resource: "https://jupyterlab.readthedocs.io/en/stable/user/file_editor.html"
+    title: "Text editor (JupyterLab documentation)"
+    author: "team:jupyterlab"
+---
+
+# State what AI did in your analysis
+
+!!! warning "Draft: not yet validated"
+    Nobody has yet followed this tutorial in MESA JupyterLab, so a menu name may differ
+    there. [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A reader of your result cannot tell which parts an AI assistant wrote unless you say
+so. "AI was used" tells them nothing they can check. A short section that names the
+tool, the steps, and your checks lets them decide what to look at twice.
+
+**You will:** have an **AI assistance** section in your README that covers every step
+an assistant helped with.
+
+**Time:** 5 to 10 minutes. **You need:** the `README.md` from
+[Write a README for a data folder](https://idss-mesa.github.io/trainings/tutorials/write-a-readme/), open in
+[MESA JupyterLab](https://idss-mesa.github.io/trainings/tutorials/launch-jupyterlab/), and the log from
+[Keep a log of AI-assisted steps](https://idss-mesa.github.io/trainings/tutorials/keep-an-ai-log/) if you kept one.
+
+## Steps
+
+1. In JupyterLab's file browser, double-click `README.md`.
+
+    You should see: the README's text in an editor tab.
+
+2. Above `## Contact`, add a heading and one line for each tool you used:
+
+    ```markdown
+    ## AI assistance
+
+    - Tool and model: OpenCode, with the model gpt-oss-120b through CyVerse AI Verde
+    - Used on: 2026-11-18
+    ```
+
+    You should see: the tool's own name and the model name it reported, not "an AI".
+
+3. Under it, list every step the assistant helped with, one line each. Say what you
+   asked for and what you did with the answer:
+
+    ```markdown
+    - Asked which gauge was wettest in July. Rejected the answer: it counted a reading
+      flagged as suspect.
+    - Asked for a query that totals rainfall by gauge. Kept it, after changing it to
+      leave out flagged readings.
+    ```
+
+    You should see: the answers you rejected listed beside the ones you kept.
+
+4. Add how you checked what you kept, and what the assistant did not touch:
+
+    ```markdown
+    - Checked by: running each kept query myself and comparing the totals with a
+      second method.
+    - Not assisted: loading the files, the figures, and this README.
+    - Full log: the "AI log" table at the end of `analysis.ipynb`.
+    ```
+
+    You should see: a check you ran yourself, named. "Reviewed" is not a check.
+
+5. Read the section against your log. Every row of the log should be covered by a
+   line here.
+
+    You should see: no assisted step missing, including small ones such as a fixed
+    error message.
+
+6. Choose **File → Save Markdown File**.
+
+    You should see: *Saving completed* in the bar at the bottom.
+
+## Check it worked
+
+From the **AI assistance** section alone, a reader can say which tool and model were
+used, which results rest on an assistant's answer, and how each of those was checked.
+
+## If it didn't
+
+**You kept no log and cannot remember every step.** Say so in the section: write what
+you do remember, and add `Earlier assisted steps were not recorded`. Do not write a
+tidy list from memory as if it were complete. Then start a log for what comes next.
+
+## Next
+
+- [Hand your folder to a colleague and have them rerun it](https://idss-mesa.github.io/trainings/tutorials/hand-over-and-rerun/)
+- [Say where your input data came from](https://idss-mesa.github.io/trainings/tutorials/say-where-data-came-from/)
+- If no assistant helped, say that too: `## AI assistance` followed by `None`.
+- Reference: [MESA JupyterLab](https://idss-mesa.github.io/docs/apps/jupyterlab/).
+
+*Not yet validated in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-18 from the MESA documentation and the JupyterLab documentation.*
+
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/hand-over-and-rerun/
 
 ---
@@ -12554,6 +12665,11 @@ explains.
 # Directory Update Log
 
 ## 2026-11-18
+
+* **Creation**: A tutorial at point 5, Preserve and share:
+  [State what AI did in your analysis](tutorials/state-what-ai-did.md), which adds an
+  "AI assistance" section to a folder's README. A draft; not yet followed in MESA
+  JupyterLab.
 
 * **Update**: [Sign in and start an AI agent in a MESA app](tutorials/start-an-ai-agent.md)
   was run through all six steps in MESA JupyterLab. Step 3 gains a line that loads the

@@ -38,6 +38,7 @@ If you have more time:
 - [Add metadata to a file or folder](../tutorials/add-metadata.md) (5 minutes)
 - [Record the software versions a result depends on](../tutorials/record-software-versions.md) (5 minutes)
 - [Say where your input data came from](../tutorials/say-where-data-came-from.md) (5 to 10 minutes)
+- [State what AI did in your analysis](../tutorials/state-what-ai-did.md) (5 to 10 minutes)
 - [Hand your folder to a colleague and have them rerun it](../tutorials/hand-over-and-rerun.md) (10 minutes)
 
 ## Query and connect
