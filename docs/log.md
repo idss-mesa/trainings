@@ -2,6 +2,14 @@
 
 ## 2026-11-19
 
+* **Creation**: A tutorial at point 4, Analyze with AI:
+  [Read back what an agent ran](tutorials/read-what-an-agent-ran.md), which exports an
+  OpenCode session and prints each tool call. Steps 1 to 3 were run in MESA JupyterLab.
+  A draft.
+
+* **Update**: [See which tool servers your agent can use](tutorials/see-an-agents-tools.md):
+  the list was read again after `cyverse-login` and is the same as before it.
+
 * **Update**: The pathway [Use an AI agent and check what it says](pathways/use-an-ai-agent.md)
   gains an optional page at point 4,
   [See which tool servers your agent can use](tutorials/see-an-agents-tools.md). A reader

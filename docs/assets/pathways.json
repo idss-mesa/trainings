@@ -774,6 +774,7 @@
     "tutorials": [
      "start-an-ai-agent",
      "see-an-agents-tools",
+     "read-what-an-agent-ran",
      "check-a-suggested-result",
      "keep-an-ai-log"
     ]
@@ -1669,6 +1670,20 @@
    "builds_on": [
     "load-a-file",
     "launch-jupyterlab"
+   ]
+  },
+  "read-what-an-agent-ran": {
+   "title": "Read back what an agent ran",
+   "description": "After an AI agent finishes in a MESA app, list its sessions, export one to a file, and print every tool it called with the inputs it gave.",
+   "outcome": "have a file with one agent session in it, and a printed list of every tool call in that session.",
+   "point": "p4",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-19T00:00:00Z",
+   "stale_after": "2027-05-19T00:00:00Z",
+   "builds_on": [
+    "start-an-ai-agent"
    ]
   },
   "reconcile-a-join": {
