@@ -20,11 +20,9 @@ sources:
 # Sign in and start an AI agent in a MESA app
 
 !!! warning "Draft: not yet validated"
-    This tutorial was written from the MESA documentation and has not been followed
-    from start to finish. The AI assistant that drafted it saw steps 1 and 2 in MESA
-    JupyterLab on 2026-11-18, where the account's owner typed the password. The first
-    sign-in failed (see "If it didn't") and a later one finished. Steps 3 to 6 have not
-    been run.
+    The AI assistant that drafted this tutorial ran all six steps in MESA JupyterLab
+    on 2026-11-18 (OpenCode 1.19.4), with the account's owner typing the password and
+    the key. Nobody has yet followed it as a reader would, from start to finish.
     [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
 
 Every MESA app comes with AI coding agents that run in a terminal and can work with
@@ -63,7 +61,14 @@ at <https://chat.cyverse.ai> under **Course → API Key**.
 
     Paste your AI Verde key when it asks.
 
-    You should see: a list of the models your course can use.
+    You should see: `Available models:` and a list, then `Saved to` and a file name.
+    The key is saved but this terminal has not loaded it yet. Load it:
+
+    ```bash
+    source ~/.config/aiverde/env
+    ```
+
+    You should see: the prompt return with no message.
 
 4. Start an agent:
 
@@ -71,7 +76,9 @@ at <https://chat.cyverse.ai> under **Course → API Key**.
     opencode
     ```
 
-    You should see: OpenCode's own prompt in place of the terminal's.
+    You should see: the OpenCode screen, with a box to type in and the model's name
+    under it. A note that `formation` needs authentication is expected; this task does
+    not use it.
 
 5. Ask it:
 
@@ -79,8 +86,8 @@ at <https://chat.cyverse.ai> under **Course → API Key**.
     List the folders in my CyVerse home.
     ```
 
-    You should see: the agent say it is calling one of the MESA tools, then a list of
-    folder names.
+    You should see: the tools it calls, such as `mesa_ds_list_directory`, then a list
+    of folder names.
 
 6. In the portal's browser tab, click **Data Browser**, then **My Files**.
 
@@ -97,16 +104,15 @@ in as you could not see them.
 before you signed in, so its tools are still anonymous. Quit the agent, run
 `cyverse-login` again if you skipped it, and start the agent again.
 
-**`cyverse-login` stays on `Verifying`, or says `the login test failed`.** The Data
-Store did not answer, which is not always a wrong password. The command removes what
-it saved, so you are signed out. Do not keep retrying: CyVerse blocks addresses that
-look like crawlers. Wait a few minutes, check <https://status.cyverse.org>, and sign in
-once more. <https://unblockme.cyverse.org> lifts a block on your own computer; it is
-not yet known whether it helps for an app. In our run the app answered again about two
-hours later.
+**`Authentication Error, No api key passed in.`** The key is saved but not loaded.
+Type `/exit`, run the `source` line in step 3, and start `opencode` again.
 
-**A command stops at `iRODS Password:`.** You are not signed in. Press ++ctrl+c++ and
-run `cyverse-login`.
+**`cyverse-login` stays on `Verifying`, or says `the login test failed`.** The Data
+Store did not answer, which is not always a wrong password, and you are signed out
+again. Do not keep retrying: CyVerse blocks addresses that look like crawlers. Wait a
+few minutes, check <https://status.cyverse.org>, and sign in once more.
+<https://unblockme.cyverse.org> lifts a block on your own computer; it is not yet known
+whether it helps for an app.
 
 ## Next
 
@@ -118,4 +124,4 @@ run `cyverse-login`.
   for the other agents (`claude`, `codex`, `agy`), using your own account with an
   agent's vendor, and local models on a GPU.
 
-*Not yet validated on the live portal. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-12 from the MESA documentation; steps 1 and 2 were seen in MESA JupyterLab on 2026-11-18.*
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-12 from the MESA documentation; all six steps were run in MESA JupyterLab on 2026-11-18.*
