@@ -127,6 +127,7 @@ nav = [
   { "Explainers" = [
       "explainers/index.md",
       { "What an agent is" = "explainers/what-an-agent-is.md" },
+      { "Tools and MCP" = "explainers/tools-and-mcp.md" },
       { "Recalled or retrieved" = "explainers/recalled-or-retrieved.md" },
       { "Reading what an agent did" = "explainers/reading-what-an-agent-did.md" },
   ] },

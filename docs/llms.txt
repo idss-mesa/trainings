@@ -128,6 +128,7 @@ The form https://idss-mesa.github.io/trainings/<path>.md also returns the same M
 ## Explainers
 
 - [What an agent is, and is not](https://idss-mesa.github.io/trainings/explainers/what-an-agent-is/): An agent is a language model that calls tools in a loop and chooses its own next step; this page sets it beside a chat model and a fixed pipeline. (draft) Markdown twin: https://idss-mesa.github.io/trainings/explainers/what-an-agent-is/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/explainers/what-an-agent-is.md
+- [How an agent reaches data: tools and MCP](https://idss-mesa.github.io/trainings/explainers/tools-and-mcp/): An AI agent can only do what its tools let it do, and MCP is the common way those tools are offered to it; this page names the tool servers in the MESA apps. (draft) Markdown twin: https://idss-mesa.github.io/trainings/explainers/tools-and-mcp/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/explainers/tools-and-mcp.md
 - [Recalled or retrieved](https://idss-mesa.github.io/trainings/explainers/recalled-or-retrieved/): A figure in an AI agent's answer either came back from a tool call or came from the model's memory, and only the first can be checked against your data. (draft) Markdown twin: https://idss-mesa.github.io/trainings/explainers/recalled-or-retrieved/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/explainers/recalled-or-retrieved.md
 - [Reading what an agent did](https://idss-mesa.github.io/trainings/explainers/reading-what-an-agent-did/): The record of an AI agent's calls can be read like a lab notebook, and it goes wrong in five recognisable ways, each with a tell. (draft) Markdown twin: https://idss-mesa.github.io/trainings/explainers/reading-what-an-agent-did/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/explainers/reading-what-an-agent-did.md
 
@@ -148,7 +149,7 @@ The form https://idss-mesa.github.io/trainings/<path>.md also returns the same M
 
 ## Meta
 
-- [Full corpus in one file](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with frontmatter, links made absolute; about 529 KB, roughly 136,000 tokens. Prefer it over fetching pages one at a time.
+- [Full corpus in one file](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with frontmatter, links made absolute; about 534 KB, roughly 137,000 tokens. Prefer it over fetching pages one at a time.
 - [Update log](https://idss-mesa.github.io/trainings/log/): dated history of changes to this bundle.
 - [For AI agents](https://idss-mesa.github.io/trainings/about/ai-agents/): endpoints, trust signals, and what to do if you cannot fetch this site.
 - [Sitemap](https://idss-mesa.github.io/trainings/sitemap.xml) and [robots.txt](https://idss-mesa.github.io/trainings/robots.txt): crawlers honour only the origin https://idss-mesa.github.io/robots.txt, which is equally permissive.
