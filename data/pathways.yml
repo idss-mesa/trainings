@@ -361,6 +361,7 @@ by_point:
     - tutorials:
         - start-an-ai-agent
         - see-an-agents-tools
+        - read-what-an-agent-ran
         - check-a-suggested-result
         - keep-an-ai-log
     - title: Checks for any result

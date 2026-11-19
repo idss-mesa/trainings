@@ -98,8 +98,8 @@ others.
 ## Next
 
 - [Sign in and start an AI agent in a MESA app](start-an-ai-agent.md): after
-  `cyverse-login`, the Data Store tools act as you. Whether this list changes after
-  signing in has not been checked.
+  `cyverse-login`, the Data Store tools act as you. This list stays the same: it was
+  read again after signing in on 2026-11-19.
 - [How an agent reaches data: tools and MCP](../explainers/tools-and-mcp.md)
 - This list names servers, not single tools. To see a tool's name, watch which one the
   agent calls when it works.

@@ -793,12 +793,13 @@ You can ask questions across files and tables, and show that combining them did 
 
 ## 4. Explore and verify
 
-*Explore with AI and verify.* You can work with an AI assistant and test what it tells you against the data. 12 tutorials, 110 to 115 minutes in all.
+*Explore with AI and verify.* You can work with an AI assistant and test what it tells you against the data. 13 tutorials, 115 to 125 minutes in all.
 
 1. [Sign in and start an AI agent in a MESA app](https://idss-mesa.github.io/trainings/tutorials/start-an-ai-agent/) (10 minutes)
 2. [See which tool servers your agent can use](https://idss-mesa.github.io/trainings/tutorials/see-an-agents-tools/) (5 minutes)
-3. [Check an AI-suggested result against the data](https://idss-mesa.github.io/trainings/tutorials/check-a-suggested-result/) (10 minutes)
-4. [Keep a log of AI-assisted steps](https://idss-mesa.github.io/trainings/tutorials/keep-an-ai-log/) (5 to 10 minutes)
+3. [Read back what an agent ran](https://idss-mesa.github.io/trainings/tutorials/read-what-an-agent-ran/) (5 to 10 minutes)
+4. [Check an AI-suggested result against the data](https://idss-mesa.github.io/trainings/tutorials/check-a-suggested-result/) (10 minutes)
+5. [Keep a log of AI-assisted steps](https://idss-mesa.github.io/trainings/tutorials/keep-an-ai-log/) (5 to 10 minutes)
 
 ### Checks for any result
 
@@ -3251,8 +3252,8 @@ others.
 ## Next
 
 - [Sign in and start an AI agent in a MESA app](https://idss-mesa.github.io/trainings/tutorials/start-an-ai-agent/): after
-  `cyverse-login`, the Data Store tools act as you. Whether this list changes after
-  signing in has not been checked.
+  `cyverse-login`, the Data Store tools act as you. This list stays the same: it was
+  read again after signing in on 2026-11-19.
 - [How an agent reaches data: tools and MCP](https://idss-mesa.github.io/trainings/explainers/tools-and-mcp/)
 - This list names servers, not single tools. To see a tool's name, watch which one the
   agent calls when it works.
@@ -3260,6 +3261,123 @@ others.
   and [mesa-mcp](https://idss-mesa.github.io/docs/servers/mesa-mcp/).
 
 *Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-19; steps 1 to 3 were run in MESA JupyterLab that day.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/read-what-an-agent-ran/
+
+---
+type: Guide
+title: "Read back what an agent ran"
+description: "After an AI agent finishes in a MESA app, list its sessions, export one to a file, and print every tool it called with the inputs it gave."
+tags: [byte, p4, ai-agents, mcp, verification]
+status: draft
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-19T00:00:00Z" }
+stale_after: "2027-05-19T00:00:00Z"
+sources:
+  - id: docs-agents
+    resource: "https://idss-mesa.github.io/docs/apps/agents/"
+    title: "AI agents in the MESA apps"
+    author: "team:idss-mesa"
+---
+
+# Read back what an agent ran
+
+!!! warning "Draft: not yet validated"
+    The AI assistant that drafted this tutorial ran steps 1 to 3 in MESA JupyterLab on
+    2026-11-19 (OpenCode 1.19.4), on a session it started with one command rather than
+    in the OpenCode screen. Nobody has yet followed the page as a reader would.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+While an agent works, its tool calls scroll past. Afterwards you may need to say
+exactly which tools it called and on what. OpenCode keeps each conversation as a
+session that you can write to a file.
+
+**You will:** have a file with one agent session in it, and a printed list of every
+tool call in that session.
+
+**Time:** 5 to 10 minutes. **You need:** to have finished
+[Sign in and start an AI agent in a MESA app](https://idss-mesa.github.io/trainings/tutorials/start-an-ai-agent/) in this app
+session. If the agent is still open, type `/exit` first.
+
+## Steps
+
+1. In the terminal, list the sessions:
+
+    ```bash
+    opencode session list
+    ```
+
+    You should see: a table with the columns `Session ID`, `Title` and `Updated`, and
+    one row for each conversation. An ID starts with `ses_`. The agent wrote the
+    title itself.
+
+2. Export the session to a file. Put your own ID in place of `ses_...`:
+
+    ```bash
+    opencode export ses_... > ~/work/agent-run.json
+    ```
+
+    You should see: `Exporting session:` and the ID. The file `agent-run.json` is now
+    in the `work` folder.
+
+3. Print the tool calls. Paste all seven lines at once and press Enter:
+
+    ```bash
+    python3 - <<'PY'
+    import json
+    run = json.load(open("/home/jovyan/work/agent-run.json"))
+    for message in run["messages"]:
+        for part in message["parts"]:
+            if part["type"] == "tool":
+                print(part["tool"], part["state"]["status"], part["state"]["input"])
+    PY
+    ```
+
+    You should see: one line for each call, in the order they were made. For the
+    question in the earlier tutorial, the run that was checked printed:
+
+    ```text
+    mesa_ds_list_allowed_directories completed {}
+    mesa_ds_list_directory completed {'path': '/iplant/home/gctest01'}
+    ```
+
+    Your path has your own username, and your agent may have taken another route.
+
+4. Read each line as three facts: the tool, whether it finished, and what it was
+   given.
+
+    You should see: no line you cannot account for. A tool whose name has `write`,
+    `delete` or `move` in it would mean the agent changed something.
+
+## Check it worked
+
+The printed lines match the calls you saw on screen while the agent worked, and every
+folder or file the agent's answer mentions appears in the input of some line. An
+answer that names something no call touched did not come from your data.
+
+## If it didn't
+
+**The table in step 1 is empty.** Sessions do not outlive the app. Run the agent
+again in this app session, then list again.
+
+**Step 3 prints nothing.** The agent answered without calling a tool. That is worth
+knowing: see
+[How an agent reaches data: tools and MCP](https://idss-mesa.github.io/trainings/explainers/tools-and-mcp/).
+
+**`KeyError` in step 3.** The file's layout differs from OpenCode 1.19.4, which this
+page was written against. [Tell us](https://github.com/idss-mesa/trainings/issues).
+
+## Next
+
+- [Keep a log of AI-assisted steps](https://idss-mesa.github.io/trainings/tutorials/keep-an-ai-log/): the printed lines are the
+  evidence for a row's "What it answered".
+- The export holds everything the agent read, word for word. Treat it like the data
+  itself before you share it. `opencode export --sanitize` replaces the text and the
+  inputs with placeholders and keeps the tool names.
+- Files in `work` do not outlive the app. To keep this one, see
+  [Save your work where it survives the session](https://idss-mesa.github.io/trainings/tutorials/save-your-work/).
+- Reference: [AI agents in the MESA apps](https://idss-mesa.github.io/docs/apps/agents/).
+
+*Not yet validated by a person in MESA JupyterLab. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-19 from the commands' own help text in the app; steps 1 to 3 were run in MESA JupyterLab that day.*
 
 ---8<--- https://idss-mesa.github.io/trainings/tutorials/keep-secrets-out-of-files/
 
@@ -12779,6 +12897,14 @@ explains.
 # Directory Update Log
 
 ## 2026-11-19
+
+* **Creation**: A tutorial at point 4, Analyze with AI:
+  [Read back what an agent ran](tutorials/read-what-an-agent-ran.md), which exports an
+  OpenCode session and prints each tool call. Steps 1 to 3 were run in MESA JupyterLab.
+  A draft.
+
+* **Update**: [See which tool servers your agent can use](tutorials/see-an-agents-tools.md):
+  the list was read again after `cyverse-login` and is the same as before it.
 
 * **Update**: The pathway [Use an AI agent and check what it says](pathways/use-an-ai-agent.md)
   gains an optional page at point 4,
