@@ -776,6 +776,7 @@
      "start-an-ai-agent",
      "see-an-agents-tools",
      "read-what-an-agent-ran",
+     "ask-for-a-query-then-run-it",
      "check-a-suggested-result",
      "keep-an-ai-log"
     ]
@@ -837,6 +838,21 @@
    "builds_on": [
     "sign-in",
     "practice-data"
+   ]
+  },
+  "ask-for-a-query-then-run-it": {
+   "title": "Ask an agent for a query, then run it yourself",
+   "description": "Have an AI agent draft a DuckDB query without running it, read the draft, save it to a file, run it yourself, and write down what the query leaves out.",
+   "outcome": "have the agent's query in a file beside your notebook, a result you ran yourself, and a note of what the query leaves out.",
+   "point": "p4",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-19T00:00:00Z",
+   "stale_after": "2027-05-19T00:00:00Z",
+   "builds_on": [
+    "start-an-ai-agent",
+    "load-a-file"
    ]
   },
   "browse-a-large-folder": {

@@ -20,6 +20,7 @@
 * [Sign in and start an AI agent in a MESA app](start-an-ai-agent.md) - Sign in to CyVerse from a terminal in a MESA app, connect an AI agent to a language model, and have it list the folders in your Data Store.
 * [See which tool servers your agent can use](see-an-agents-tools.md) - List the tool servers an AI agent has in a MESA app, read which are connected and which need a sign-in, and say what the agent can and cannot reach.
 * [Read back what an agent ran](read-what-an-agent-ran.md) - After an AI agent finishes in a MESA app, list its sessions, export one to a file, and print every tool it called with the inputs it gave.
+* [Ask an agent for a query, then run it yourself](ask-for-a-query-then-run-it.md) - Have an AI agent draft a DuckDB query without running it, read the draft, save it to a file, run it yourself, and write down what the query leaves out.
 * [Keep tokens and passwords out of saved files](keep-secrets-out-of-files.md) - Give a notebook a token without typing it into a cell, and confirm that the saved notebook does not contain it.
 * [Turn UTC timestamps into local days](local-days-from-utc.md) - Convert UTC timestamps to local time before grouping by day, and confirm the daily totals against values you already trust.
 * [Work with a long table, one row per kind of measurement](work-with-a-long-table.md) - Recognise a table that stacks several kinds of measurement in one value column, summarise each kind separately, and reshape it to one column per measurement.

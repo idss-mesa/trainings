@@ -363,6 +363,7 @@ by_point:
         - start-an-ai-agent
         - see-an-agents-tools
         - read-what-an-agent-ran
+        - ask-for-a-query-then-run-it
         - check-a-suggested-result
         - keep-an-ai-log
     - title: Checks for any result

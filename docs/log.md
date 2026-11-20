@@ -2,6 +2,11 @@
 
 ## 2026-11-19
 
+* **Creation**: A tutorial at point 4, Analyze with AI:
+  [Ask an agent for a query, then run it yourself](tutorials/ask-for-a-query-then-run-it.md),
+  in which the agent drafts a DuckDB query and the reader reads it, saves it and runs
+  it. The request was sent twice in MESA JupyterLab and the code was run there. A draft.
+
 * **Update**: The pathway [Use an AI agent and check what it says](pathways/use-an-ai-agent.md)
   gains a second optional page at point 4,
   [Read back what an agent ran](tutorials/read-what-an-agent-ran.md). It comes last among
