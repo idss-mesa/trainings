@@ -11,12 +11,12 @@ copyright = "Copyright &copy; 2026 The Regents of the University of New Mexico. 
 # TOML: bare keys attach to the most recent [table] header, so every
 # [project] key — extra_css and nav included — must stay above the first
 # [project.*] header.
-extra_css = ["stylesheets/extra.css", "stylesheets/pathways.css"]
+extra_css = ["stylesheets/extra.css", "stylesheets/pathways.css", "stylesheets/sections.css"]
 
 # Progress on the pathways, kept in the reader's own browser. mesa-progress.js
 # is the logic (tested under Node); mesa-pathways.js draws it. Neither sends
 # anything anywhere. Every page reads properly without them.
-extra_javascript = ["javascripts/mesa-progress.js", "javascripts/mesa-pathways.js"]
+extra_javascript = ["javascripts/mesa-progress.js", "javascripts/mesa-pathways.js", "javascripts/mesa-sections.js"]
 
 # Explicit navigation. A new tutorial is one line here and one bullet in
 # docs/tutorials/index.md. The tutorials are grouped as in `by_point` in
