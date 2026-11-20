@@ -64,7 +64,8 @@ repository rather than changing them here.
    `title`, `author`), `status`, and `stale_after` when the page states facts
    that may change. Run `okf_validate.py` before committing.
 2. **`index.md` files carry no frontmatter.** A section index is a
-   `# Heading` followed by `* [Title](page.md) - description` bullets listing
+   `# Heading`, optionally one plain sentence or two saying what the section
+   holds, then `* [Title](page.md) - description` bullets listing
    every page in that directory, each description matching the page's
    frontmatter. The one exception is the root `docs/index.md`, which carries
    `okf_version: "0.2"`, `title`, `description` and `icon` and keeps a

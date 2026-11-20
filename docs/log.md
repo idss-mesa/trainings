@@ -2,6 +2,11 @@
 
 ## 2026-11-20
 
+* **Update**: The [Explainers](explainers/index.md), [Trace cards](trace-cards/index.md)
+  and [About](about/index.md) section pages open with a sentence saying what the section
+  holds and show their pages as cards. On Trace cards, the page on how to use them comes
+  first, across the full width. Without scripts each is still the plain list.
+
 * **Update**: On the pathway pages the dashed line now continues beside the last point's
   tutorials. It used to stop at the number 5.
 

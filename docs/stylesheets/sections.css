@@ -1,0 +1,67 @@
+/* MESA Trainings — section pages (Explainers, Trace cards, About), drawn as
+   cards by javascripts/mesa-sections.js from the plain list in each index.md.
+   The main site's parts: paper ground, a surface one step darker, ink rules,
+   square corners, one red accent kept for large marks and for focus. */
+
+.md-typeset .mesa-lede {
+  max-width: 34rem; margin: 0.2rem 0 1.4rem;
+  font-size: 0.95rem; line-height: 1.45;
+  color: color-mix(in srgb, var(--mesa-text) 80%, transparent);
+}
+
+.md-typeset ul.mesa-cards {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr)); gap: 0.6rem;
+}
+.md-typeset ul.mesa-cards > .mesa-card {
+  position: relative; margin: 0; padding: 0.9rem 1rem 2.2rem;
+  background: var(--mesa-surface); border-top: 2px solid var(--mesa-text);
+  display: flex; flex-direction: column; gap: 0.35rem;
+}
+.md-typeset .mesa-card > p { margin: 0; }
+.md-typeset .mesa-card__kicker {
+  font-size: 0.6rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--mesa-text) 72%, transparent);
+}
+.md-typeset a.mesa-card__title {
+  font-size: 0.95rem; font-weight: 800; letter-spacing: -0.015em; line-height: 1.2;
+  color: var(--mesa-text); text-decoration: none;
+}
+/* the whole card is the link's target */
+.md-typeset a.mesa-card__title::after { content: ""; position: absolute; inset: 0; }
+.md-typeset .mesa-card__text {
+  font-size: 0.72rem; line-height: 1.5;
+  color: color-mix(in srgb, var(--mesa-text) 80%, transparent);
+}
+/* an arrow in the corner, which moves when the card is pointed at */
+.md-typeset ul.mesa-cards > .mesa-card::after {
+  content: "\2192"; position: absolute; right: 1rem; bottom: 0.7rem;
+  font-size: 0.9rem; font-weight: 800; line-height: 1; color: var(--mesa-text);
+  transition: transform 0.15s ease;
+}
+.md-typeset ul.mesa-cards > .mesa-card:hover { background: color-mix(in srgb, var(--mesa-text) 11%, var(--mesa-bg)); }
+.md-typeset ul.mesa-cards > .mesa-card:hover::after { transform: translateX(0.25rem); color: var(--mesa-accent-700); }
+.md-typeset ul.mesa-cards > .mesa-card:hover a.mesa-card__title { color: var(--mesa-accent-700); }
+.md-typeset ul.mesa-cards > .mesa-card:focus-within { outline: 2px solid var(--mesa-accent); outline-offset: 2px; }
+.md-typeset a.mesa-card__title:focus-visible { outline: none; }
+
+/* the page to read first runs the full width, on ink */
+.md-typeset ul.mesa-cards > .mesa-card--guide {
+  grid-column: 1 / -1; background: var(--mesa-text); border-top-color: var(--mesa-accent);
+}
+.md-typeset .mesa-card--guide .mesa-card__kicker { color: #ffc4b8; }
+.md-typeset .mesa-card--guide a.mesa-card__title,
+.md-typeset ul.mesa-cards > .mesa-card--guide:hover a.mesa-card__title { color: var(--mesa-bg); font-size: 1.1rem; }
+.md-typeset .mesa-card--guide .mesa-card__text { color: color-mix(in srgb, var(--mesa-bg) 85%, transparent); max-width: 34rem; }
+.md-typeset ul.mesa-cards > .mesa-card--guide::after,
+.md-typeset ul.mesa-cards > .mesa-card--guide:hover::after { color: var(--mesa-bg); }
+.md-typeset ul.mesa-cards > .mesa-card--guide:hover { background: color-mix(in srgb, var(--mesa-text) 88%, var(--mesa-bg)); }
+
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset ul.mesa-cards > .mesa-card::after { transition: none; }
+}
+@media print {
+  .md-typeset ul.mesa-cards { display: block; }
+  .md-typeset ul.mesa-cards > .mesa-card { background: transparent; padding-bottom: 0.9rem; break-inside: avoid; }
+  .md-typeset ul.mesa-cards > .mesa-card::after { content: none; }
+}

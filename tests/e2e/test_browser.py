@@ -608,6 +608,35 @@ class Browser(unittest.TestCase):
         self.assertGreaterEqual(min(page.evaluate(size % ".mesa-check__input")), 16)
         context.close()
 
+    def test_section_pages_are_cards_and_plain_lists_without_scripts(self):
+        sections = [("explainers/", 4), ("trace-cards/", 6), ("about/", 4)]
+        context = self.chromium.new_context()
+        page = context.new_page()
+        for path, count in sections:
+            page.goto(self.base + path)
+            page.locator(".mesa-card").first.wait_for()
+            self.assertEqual(page.locator(".mesa-card").count(), count, path)
+            self.assertEqual(page.locator(".mesa-card a.mesa-card__title").count(), count, path)
+            self.assertEqual(page.locator("article .mesa-lede").count(), 1, path)
+        # The numbered cards keep their whole title for a screen reader.
+        self.assertEqual(page.locator("a[aria-label='Trace card 1: the wettest gauge in July']").count(), 0)
+        page.goto(self.base + "trace-cards/")
+        page.locator(".mesa-card--guide").wait_for()
+        self.assertEqual(page.locator("a[aria-label='Trace card 1: the wettest gauge in July']").count(), 1)
+        # The Tutorials and Pathways sections are drawn by the pathway script, not as cards.
+        for path in ("tutorials/", "pathways/"):
+            page.goto(self.base + path)
+            page.locator("article [class*='mesa-']").first.wait_for()
+            self.assertEqual(page.locator(".mesa-card").count(), 0, path)
+        context.close()
+        plain = self.chromium.new_context(java_script_enabled=False)
+        page = plain.new_page()
+        for path, count in sections:
+            page.goto(self.base + path)
+            self.assertEqual(page.locator("article ul > li > a").count(), count, path)
+            self.assertEqual(page.locator(".mesa-card").count(), 0, path)
+        plain.close()
+
     def test_everything_reads_with_javascript_off(self):
         context = self.chromium.new_context(java_script_enabled=False)
         page = context.new_page()
