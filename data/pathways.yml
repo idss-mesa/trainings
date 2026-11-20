@@ -244,6 +244,7 @@ pathways:
           - see-an-agents-tools
           - keep-an-ai-log
           - read-what-an-agent-ran
+          - ask-for-a-query-then-run-it
 
   - id: leave-work-others-can-rerun
     title: Leave work others can rerun

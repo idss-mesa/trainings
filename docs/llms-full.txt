@@ -570,6 +570,7 @@ If you have more time:
 - [See which tool servers your agent can use](https://idss-mesa.github.io/trainings/tutorials/see-an-agents-tools/) (5 minutes)
 - [Keep a log of AI-assisted steps](https://idss-mesa.github.io/trainings/tutorials/keep-an-ai-log/) (5 to 10 minutes)
 - [Read back what an agent ran](https://idss-mesa.github.io/trainings/tutorials/read-what-an-agent-ran/) (5 to 10 minutes)
+- [Ask an agent for a query, then run it yourself](https://idss-mesa.github.io/trainings/tutorials/ask-for-a-query-then-run-it/) (10 minutes)
 
 ## Next
 
@@ -13058,6 +13059,11 @@ explains.
 # Directory Update Log
 
 ## 2026-11-19
+
+* **Update**: The pathway [Use an AI agent and check what it says](pathways/use-an-ai-agent.md)
+  gains a third optional page at point 4,
+  [Ask an agent for a query, then run it yourself](tutorials/ask-for-a-query-then-run-it.md).
+  It comes last among the optional pages, so routes with a time limit do not change.
 
 * **Creation**: A tutorial at point 4, Analyze with AI:
   [Ask an agent for a query, then run it yourself](tutorials/ask-for-a-query-then-run-it.md),

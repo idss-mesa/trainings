@@ -2,6 +2,11 @@
 
 ## 2026-11-19
 
+* **Update**: The pathway [Use an AI agent and check what it says](pathways/use-an-ai-agent.md)
+  gains a third optional page at point 4,
+  [Ask an agent for a query, then run it yourself](tutorials/ask-for-a-query-then-run-it.md).
+  It comes last among the optional pages, so routes with a time limit do not change.
+
 * **Creation**: A tutorial at point 4, Analyze with AI:
   [Ask an agent for a query, then run it yourself](tutorials/ask-for-a-query-then-run-it.md),
   in which the agent drafts a DuckDB query and the reader reads it, saves it and runs
