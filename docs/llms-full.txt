@@ -13202,6 +13202,9 @@ explains.
 
 ## 2026-11-20
 
+* **Update**: On the pathway pages the dashed line now continues beside the last point's
+  tutorials. It used to stop at the number 5.
+
 * **Update**: The Tutorials menu is grouped. The 87 tutorials sit under the five pathway
   points, and within a point under the same headings as
   [Every tutorial, by point](pathway.md), in place of one list in the order the pages
