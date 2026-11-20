@@ -21,6 +21,7 @@
 * [See which tool servers your agent can use](see-an-agents-tools.md) - List the tool servers an AI agent has in a MESA app, read which are connected and which need a sign-in, and say what the agent can and cannot reach.
 * [Read back what an agent ran](read-what-an-agent-ran.md) - After an AI agent finishes in a MESA app, list its sessions, export one to a file, and print every tool it called with the inputs it gave.
 * [Ask an agent for a query, then run it yourself](ask-for-a-query-then-run-it.md) - Have an AI agent draft a DuckDB query without running it, read the draft, save it to a file, run it yourself, and write down what the query leaves out.
+* [Check what an agent may change before you let it](check-what-an-agent-may-change.md) - Read an AI agent's permission rules in a MESA app, then test them in a scratch folder: what it writes without asking, what it is stopped from, and what a read-only agent does instead.
 * [Keep tokens and passwords out of saved files](keep-secrets-out-of-files.md) - Give a notebook a token without typing it into a cell, and confirm that the saved notebook does not contain it.
 * [Turn UTC timestamps into local days](local-days-from-utc.md) - Convert UTC timestamps to local time before grouping by day, and confirm the daily totals against values you already trust.
 * [Work with a long table, one row per kind of measurement](work-with-a-long-table.md) - Recognise a table that stacks several kinds of measurement in one value column, summarise each kind separately, and reshape it to one column per measurement.

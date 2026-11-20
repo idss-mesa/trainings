@@ -2,10 +2,15 @@
 
 ## 2026-11-20
 
-* **Update**: The Tutorials menu is grouped. The 86 tutorials sit under the five pathway
+* **Update**: The Tutorials menu is grouped. The 87 tutorials sit under the five pathway
   points, and within a point under the same headings as
   [Every tutorial, by point](pathway.md), in place of one list in the order the pages
   were written. No page moved and no address changed.
+
+* **Creation**: A tutorial at point 4, Analyze with AI:
+  [Check what an agent may change before you let it](tutorials/check-what-an-agent-may-change.md),
+  which reads OpenCode's permission rules and tests them in a scratch folder. Every
+  command was run in MESA JupyterLab. A draft.
 
 ## 2026-11-19
 
