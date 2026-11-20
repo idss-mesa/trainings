@@ -363,6 +363,7 @@ by_point:
     - tutorials:
         - start-an-ai-agent
         - see-an-agents-tools
+        - check-what-an-agent-may-change
         - read-what-an-agent-ran
         - ask-for-a-query-then-run-it
         - check-a-suggested-result

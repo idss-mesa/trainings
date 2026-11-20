@@ -776,6 +776,7 @@
     "tutorials": [
      "start-an-ai-agent",
      "see-an-agents-tools",
+     "check-what-an-agent-may-change",
      "read-what-an-agent-ran",
      "ask-for-a-query-then-run-it",
      "check-a-suggested-result",
@@ -928,6 +929,20 @@
    "builds_on": [
     "load-a-file",
     "launch-jupyterlab"
+   ]
+  },
+  "check-what-an-agent-may-change": {
+   "title": "Check what an agent may change before you let it",
+   "description": "Read an AI agent's permission rules in a MESA app, then test them in a scratch folder: what it writes without asking, what it is stopped from, and what a read-only agent does instead.",
+   "outcome": "know what your agent changes without asking, what stops it, and how to run it so that it changes nothing.",
+   "point": "p4",
+   "min": 10,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-20T00:00:00Z",
+   "stale_after": "2027-05-20T00:00:00Z",
+   "builds_on": [
+    "start-an-ai-agent"
    ]
   },
   "check-your-usage": {
