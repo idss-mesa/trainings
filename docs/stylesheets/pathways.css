@@ -93,7 +93,8 @@
     repeating-linear-gradient(to bottom, var(--mesa-divider) 0 6px, transparent 6px 12px);
 }
 .mesa-stage.is-done::before { background: var(--mesa-text); }
-.mesa-stage:last-child::before { bottom: auto; height: 1.7rem; }
+/* the last stage has stops too: its rail runs to the end of them, not past */
+.mesa-stage:last-child::before { bottom: 1.6rem; }
 .mesa-mark {
   position: absolute; left: 0; top: 0; width: 1.7rem; height: 1.7rem; display: grid; place-items: center;
   background: var(--mesa-bg); border: 2px solid var(--mesa-divider); color: var(--mesa-muted);
