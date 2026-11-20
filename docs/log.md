@@ -1,5 +1,12 @@
 # Directory Update Log
 
+## 2026-11-20
+
+* **Creation**: A tutorial at point 4, Analyze with AI:
+  [Check what an agent may change before you let it](tutorials/check-what-an-agent-may-change.md),
+  which reads OpenCode's permission rules and tests them in a scratch folder. Every
+  command was run in MESA JupyterLab. A draft.
+
 ## 2026-11-19
 
 * **Update**: The pathway [Use an AI agent and check what it says](pathways/use-an-ai-agent.md)

@@ -58,6 +58,7 @@ nav = [
       { "See an agent's tool servers" = "tutorials/see-an-agents-tools.md" },
       { "Read what an agent ran" = "tutorials/read-what-an-agent-ran.md" },
       { "Ask for a query, then run it" = "tutorials/ask-for-a-query-then-run-it.md" },
+      { "Check what an agent may change" = "tutorials/check-what-an-agent-may-change.md" },
       { "Keep secrets out of files" = "tutorials/keep-secrets-out-of-files.md" },
       { "Local days from UTC" = "tutorials/local-days-from-utc.md" },
       { "Work with a long table" = "tutorials/work-with-a-long-table.md" },
