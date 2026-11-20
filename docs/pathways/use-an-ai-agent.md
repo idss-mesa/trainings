@@ -57,6 +57,7 @@ If you have more time:
 - [See which tool servers your agent can use](../tutorials/see-an-agents-tools.md) (5 minutes)
 - [Keep a log of AI-assisted steps](../tutorials/keep-an-ai-log.md) (5 to 10 minutes)
 - [Read back what an agent ran](../tutorials/read-what-an-agent-ran.md) (5 to 10 minutes)
+- [Ask an agent for a query, then run it yourself](../tutorials/ask-for-a-query-then-run-it.md) (10 minutes)
 
 ## Next
 
