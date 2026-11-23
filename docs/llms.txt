@@ -202,6 +202,7 @@ The form https://idss-mesa.github.io/trainings/<path>.md also returns the same M
 - [Trace card 4: the wettest gauge, a second run](https://idss-mesa.github.io/trainings/trace-cards/card-4-wettest-gauge/): A short constructed run of an AI agent answering "Which gauge was wettest in July?" on the practice data, for you to judge before you open the answer. (draft) Markdown twin: https://idss-mesa.github.io/trainings/trace-cards/card-4-wettest-gauge/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/trace-cards/card-4-wettest-gauge.md
 - [Trace card 5: the wettest gauge, a third run](https://idss-mesa.github.io/trainings/trace-cards/card-5-wettest-gauge/): A short constructed run of an AI agent answering "Which gauge was wettest in July?" on the practice data, for you to judge before you open the answer. (draft) Markdown twin: https://idss-mesa.github.io/trainings/trace-cards/card-5-wettest-gauge/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/trace-cards/card-5-wettest-gauge.md
 - [Trace card 7: G03's July total](https://idss-mesa.github.io/trainings/trace-cards/card-7-g03-total/): A short constructed run of an AI agent answering "What is G03's July total?" on the practice data, for you to judge before you open the answer. (draft) Markdown twin: https://idss-mesa.github.io/trainings/trace-cards/card-7-g03-total/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/trace-cards/card-7-g03-total.md
+- [Trace card 9: the wettest gauge, a recorded run](https://idss-mesa.github.io/trainings/trace-cards/card-9-wettest-gauge-recorded/): A real run of an AI agent in MESA JupyterLab answering "Which gauge was wettest in July?" on the practice data, for you to judge before you open the answer. (draft) Markdown twin: https://idss-mesa.github.io/trainings/trace-cards/card-9-wettest-gauge-recorded/index.md Raw source: https://raw.githubusercontent.com/idss-mesa/trainings/main/docs/trace-cards/card-9-wettest-gauge-recorded.md
 
 ## About
 
@@ -211,7 +212,7 @@ The form https://idss-mesa.github.io/trainings/<path>.md also returns the same M
 
 ## Meta
 
-- [Full corpus in one file](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with frontmatter, links made absolute; about 568 KB, roughly 145,000 tokens. Prefer it over fetching pages one at a time.
+- [Full corpus in one file](https://idss-mesa.github.io/trainings/llms-full.txt): every page's Markdown with frontmatter, links made absolute; about 575 KB, roughly 147,000 tokens. Prefer it over fetching pages one at a time.
 - [Update log](https://idss-mesa.github.io/trainings/log/): dated history of changes to this bundle.
 - [For AI agents](https://idss-mesa.github.io/trainings/about/ai-agents/): endpoints, trust signals, and what to do if you cannot fetch this site.
 - [Sitemap](https://idss-mesa.github.io/trainings/sitemap.xml) and [robots.txt](https://idss-mesa.github.io/trainings/robots.txt): crawlers honour only the origin https://idss-mesa.github.io/robots.txt, which is equally permissive.
