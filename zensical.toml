@@ -175,6 +175,7 @@ nav = [
       { "Tools and MCP" = "explainers/tools-and-mcp.md" },
       { "Recalled or retrieved" = "explainers/recalled-or-retrieved.md" },
       { "Reading what an agent did" = "explainers/reading-what-an-agent-did.md" },
+      { "When to stop and ask" = "explainers/when-to-stop-and-ask.md" },
   ] },
   { "Trace cards" = [
       "trace-cards/index.md",

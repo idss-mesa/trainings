@@ -129,6 +129,8 @@ terminal. Run the `source` line from step 3 of
 ## Next
 
 - Remove the scratch folder: `rm -r ~/work/agent-test`.
+- [When to stop and ask](../explainers/when-to-stop-and-ask.md): which steps should wait
+  for you, whatever the agent's rules allow.
 - [See which tool servers your agent can use](see-an-agents-tools.md): these rules
   cover the agent's own tools. What a tool server may change in your Data Store is a
   separate question.

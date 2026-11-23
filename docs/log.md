@@ -1,5 +1,13 @@
 # Directory Update Log
 
+## 2026-11-22
+
+* **Creation**: An explainer,
+  [When to stop and ask](explainers/when-to-stop-and-ask.md): the steps that should
+  wait for a person before an AI agent takes them. What it says about MESA comes from
+  the agents page of the documentation. A draft; nobody has reviewed it. The tutorial on
+  what an agent may change links to it.
+
 ## 2026-11-20
 
 * **Update**: The [Explainers](explainers/index.md), [Trace cards](trace-cards/index.md)
