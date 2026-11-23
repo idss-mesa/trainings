@@ -609,7 +609,7 @@ class Browser(unittest.TestCase):
         context.close()
 
     def test_section_pages_are_cards_and_plain_lists_without_scripts(self):
-        sections = [("explainers/", 4), ("trace-cards/", 6), ("about/", 4)]
+        sections = [("explainers/", 5), ("trace-cards/", 6), ("about/", 4)]
         context = self.chromium.new_context()
         page = context.new_page()
         for path, count in sections:
