@@ -4,7 +4,7 @@ title: "Check a dataset before you trust it"
 description: "Find out what a dataset holds and where it is incomplete or doubtful: 5 tutorials to start with, 25 minutes in all, and more for when you have time."
 tags: [pathway, check-a-dataset]
 status: draft
-generated: { by: "gen-pathways/1", at: "2026-11-16T00:00:00Z" }
+generated: { by: "gen-pathways/1", at: "2026-11-23T00:00:00Z" }
 stale_after: "2027-05-12T00:00:00Z"
 sources:
   - id: pathways

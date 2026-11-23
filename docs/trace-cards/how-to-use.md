@@ -72,6 +72,7 @@ answers anyway; and a figure in the answer that no call returned.
 - [Trace card 4: the wettest gauge, a second run](card-4-wettest-gauge.md)
 - [Trace card 5: the wettest gauge, a third run](card-5-wettest-gauge.md)
 - [Trace card 7: G03's July total](card-7-g03-total.md)
+- [Trace card 9: the wettest gauge, a recorded run](card-9-wettest-gauge-recorded.md)
 
 The numbers have gaps because cards 3, 6, and 8 are not published.
 

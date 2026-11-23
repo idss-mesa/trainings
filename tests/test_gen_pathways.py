@@ -137,6 +137,40 @@ class Checks(unittest.TestCase):
         self.assertFalse(files["pathways/index.md"].startswith("---"))
         self.assertNotIn("*Two.*", files["pathway.md"])
 
+    def test_pages_that_are_not_tutorials_are_listed_after_the_stages(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            docs = Path(tmp)
+            (docs / "explainers").mkdir()
+            (docs / "explainers" / "an-idea.md").write_text(
+                '---\ntitle: "An idea"\n---\n\n# An idea\n', encoding="utf-8")
+            (docs / "explainers" / "untitled.md").write_text("# No front matter\n", encoding="utf-8")
+            self.data["pathways"][0]["also"] = [{"title": "Read the idea", "pages": ["explainers/an-idea"]}]
+            files, _ = gp.build(self.data, self.tutorials, "https://github.com/o/r", docs)
+            page = files["pathways/a.md"]
+            self.assertIn("## Ideas and practice", page)
+            self.assertIn("**Read the idea**\n\n- [An idea](../explainers/an-idea.md)", page)
+            self.assertLess(page.index("## Ideas and practice"), page.index("## Next"))
+            self.assertLess(page.index("../tutorials/y.md"), page.index("## Ideas and practice"))
+            self.assertIn("**The essentials: 1 tutorial, 5 minutes in all.**", page)
+            import json
+            listed = json.loads(files["assets/pathways.json"])["pathways"][0]["also"]
+            self.assertEqual(listed, [{"title": "Read the idea", "pages": ["explainers/an-idea"]}])
+            for pages, message in ((["explainers/missing"], "no page at docs/explainers/missing.md"),
+                                   (["tutorials/x"], "is a tutorial"),
+                                   (["explainers/untitled"], "has no title"),
+                                   (["../outside"], "no page at"),
+                                   (["explainers/an-idea", "explainers/an-idea"], "listed twice"),
+                                   ([], "needs a `title` and `pages`")):
+                self.data["pathways"][0]["also"] = [{"title": "Read", "pages": pages}]
+                with self.assertRaises(gp.PathwayError) as raised:
+                    gp.build(self.data, self.tutorials, "", docs)
+                self.assertIn(message, str(raised.exception))
+
+    def test_a_pathway_without_other_pages_has_no_such_heading(self):
+        files, _ = gp.build(self.data, self.tutorials, "")
+        self.assertNotIn("Ideas and practice", files["pathways/a.md"])
+
     def test_self_checks_are_validated_and_listed_with_their_answers(self):
         self.data["points"]["p1"]["skip_check"] = ["how-many"]
         self.data["checks"] = {"how-many": {

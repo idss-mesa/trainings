@@ -15,7 +15,7 @@
 schema: 1
 
 # Bump on a meaningful change to the pathways (AGENTS.md rule 7), not on typo fixes.
-revised: "2026-11-16"
+revised: "2026-11-23"
 
 # The five points. `competency` names what the point builds; `can_do` is the
 # sentence shown under the point's heading. `reflection` is the one optional
@@ -102,7 +102,10 @@ builds_on:
 # stage may hold only `more:`. The essentials of a pathway may not add up to
 # more than `essentials_minutes`, and a stage shows at most seven of them.
 # `after` names the pathway to suggest to a reader new to the portal; `note`
-# is one sentence shown under the total.
+# is one sentence shown under the total. `also` lists pages that are not
+# tutorials (explainers, trace cards) under the heading "Ideas and practice":
+# groups of `title` and `pages`, each page a path under docs/ without ".md".
+# They are never counted in the essentials or in a reader's progress.
 essentials_minutes: 25
 
 pathways:
@@ -242,9 +245,27 @@ pathways:
         more:
           - start-an-ai-agent
           - see-an-agents-tools
+          - check-what-an-agent-may-change
           - keep-an-ai-log
           - read-what-an-agent-ran
           - ask-for-a-query-then-run-it
+    also:
+      - title: Read the idea
+        pages:
+          - explainers/what-an-agent-is
+          - explainers/tools-and-mcp
+          - explainers/recalled-or-retrieved
+          - explainers/reading-what-an-agent-did
+          - explainers/when-to-stop-and-ask
+      - title: Practise judging a run
+        pages:
+          - trace-cards/how-to-use
+          - trace-cards/card-1-wettest-gauge
+          - trace-cards/card-2-missing-days
+          - trace-cards/card-4-wettest-gauge
+          - trace-cards/card-5-wettest-gauge
+          - trace-cards/card-7-g03-total
+          - trace-cards/card-9-wettest-gauge-recorded
 
   - id: leave-work-others-can-rerun
     title: Leave work others can rerun
