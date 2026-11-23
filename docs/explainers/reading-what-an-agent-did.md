@@ -74,7 +74,7 @@ failure is it?
 
 ## Next
 
-- [Trace cards](../trace-cards/index.md): five short runs to judge, with answers.
+- [Trace cards](../trace-cards/index.md): six short runs to judge, with answers.
 
 *Drafted with [AI assistance](../about/ai-disclosure.md) on 2026-11-15. No person has yet reviewed this page.*
 

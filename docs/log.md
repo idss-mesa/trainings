@@ -2,6 +2,12 @@
 
 ## 2026-11-22
 
+* **Creation**: [Trace card 9](trace-cards/card-9-wettest-gauge-recorded.md), the first
+  card that is a recorded run and not a constructed one: OpenCode in MESA JupyterLab,
+  asked which gauge was wettest in July. Its calls and its answer are as recorded; what
+  its reads returned is shortened from the files. The page on how to use the cards now
+  says which cards are constructed and which is recorded.
+
 * **Creation**: An explainer,
   [When to stop and ask](explainers/when-to-stop-and-ask.md): the steps that should
   wait for a person before an AI agent takes them. What it says about MESA comes from

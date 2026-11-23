@@ -35,10 +35,12 @@ key.
 | Run the check | You run your own query on the practice data |
 | Answer | Folded away until you open it |
 
-Every card on this site is a **constructed example**: written by hand to show one thing
-clearly, and labelled so. No agent or model produced it. The code in each run was run
-on the [practice data](../tutorials/practice-data.md)[^practice-data], and the output
-shown is what it gives; a script compares them each time the site is built.
+Cards 1 to 7 are **constructed examples**: written by hand to show one thing clearly,
+and labelled so. No agent or model produced them. Card 9 is a **recorded run**: an agent
+in MESA JupyterLab produced it, and the card names the agent, the model and the date.
+The code on every card was run on the
+[practice data](../tutorials/practice-data.md)[^practice-data], and the output shown is
+what it gives; a script compares them each time the site is built.
 
 ## How to work through one
 
