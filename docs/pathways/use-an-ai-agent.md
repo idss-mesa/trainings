@@ -4,7 +4,7 @@ title: "Use an AI agent and check what it says"
 description: "Test what an AI assistant tells you against the data, then start an agent of your own: 3 tutorials to start with, 20 minutes in all, and more for when you have time."
 tags: [pathway, use-an-ai-agent]
 status: draft
-generated: { by: "gen-pathways/1", at: "2026-11-16T00:00:00Z" }
+generated: { by: "gen-pathways/1", at: "2026-11-23T00:00:00Z" }
 stale_after: "2027-05-12T00:00:00Z"
 sources:
   - id: pathways
@@ -55,9 +55,32 @@ If you have more time:
 
 - [Sign in and start an AI agent in a MESA app](../tutorials/start-an-ai-agent.md) (10 minutes)
 - [See which tool servers your agent can use](../tutorials/see-an-agents-tools.md) (5 minutes)
+- [Check what an agent may change before you let it](../tutorials/check-what-an-agent-may-change.md) (10 minutes)
 - [Keep a log of AI-assisted steps](../tutorials/keep-an-ai-log.md) (5 to 10 minutes)
 - [Read back what an agent ran](../tutorials/read-what-an-agent-ran.md) (5 to 10 minutes)
 - [Ask an agent for a query, then run it yourself](../tutorials/ask-for-a-query-then-run-it.md) (10 minutes)
+
+## Ideas and practice
+
+Pages that are not tutorials: an idea to read, or a run to judge. They do not count toward the essentials or toward your progress.
+
+**Read the idea**
+
+- [What an agent is, and is not](../explainers/what-an-agent-is.md)
+- [How an agent reaches data: tools and MCP](../explainers/tools-and-mcp.md)
+- [Recalled or retrieved](../explainers/recalled-or-retrieved.md)
+- [Reading what an agent did](../explainers/reading-what-an-agent-did.md)
+- [When to stop and ask](../explainers/when-to-stop-and-ask.md)
+
+**Practise judging a run**
+
+- [How to use the trace cards](../trace-cards/how-to-use.md)
+- [Trace card 1: the wettest gauge in July](../trace-cards/card-1-wettest-gauge.md)
+- [Trace card 2: G01's missing days](../trace-cards/card-2-missing-days.md)
+- [Trace card 4: the wettest gauge, a second run](../trace-cards/card-4-wettest-gauge.md)
+- [Trace card 5: the wettest gauge, a third run](../trace-cards/card-5-wettest-gauge.md)
+- [Trace card 7: G03's July total](../trace-cards/card-7-g03-total.md)
+- [Trace card 9: the wettest gauge, a recorded run](../trace-cards/card-9-wettest-gauge-recorded.md)
 
 ## Next
 

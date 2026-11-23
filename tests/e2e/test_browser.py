@@ -538,7 +538,7 @@ class Browser(unittest.TestCase):
 
         # With every tutorial on the point done there is nothing to skip, so no offer.
         page.evaluate(f"""() => {{ const r = JSON.parse(localStorage.getItem('{KEY}')); delete r.points.p4;
-            ['start-an-ai-agent', 'see-an-agents-tools', 'read-what-an-agent-ran', 'keep-an-ai-log'].forEach((n) => {{ r.tutorials[n] = {{ done: '2026-11-16', rev: 'r' }}; }});
+            ['start-an-ai-agent', 'see-an-agents-tools', 'check-what-an-agent-may-change', 'read-what-an-agent-ran', 'keep-an-ai-log'].forEach((n) => {{ r.tutorials[n] = {{ done: '2026-11-16', rev: 'r' }}; }});
             localStorage.setItem('{KEY}', JSON.stringify(r)); }}""")
         page.reload()
         stage = page.locator(".mesa-stage", has_text="Explore and verify")

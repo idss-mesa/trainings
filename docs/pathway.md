@@ -4,7 +4,7 @@ title: "Every tutorial, by pathway point"
 description: "Every MESA tutorial under the five points of the learning pathway, from finding your way around to sharing work others can rerun, with the time each takes."
 tags: [pathway, tutorials, getting-started]
 status: draft
-generated: { by: "gen-pathways/1", at: "2026-11-16T00:00:00Z" }
+generated: { by: "gen-pathways/1", at: "2026-11-23T00:00:00Z" }
 stale_after: "2027-05-11T00:00:00Z"
 sources:
   - id: pathways

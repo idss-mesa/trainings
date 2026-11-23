@@ -1,5 +1,15 @@
 # Directory Update Log
 
+## 2026-11-23
+
+* **Update**: The pathway
+  [Use an AI agent and check what it says](pathways/use-an-ai-agent.md) now lists the
+  five explainers and the trace cards under a new heading, Ideas and practice. They are
+  not counted in the essentials or in a reader's progress. The pathway also lists
+  [Check what an agent may change before you let it](tutorials/check-what-an-agent-may-change.md)
+  among the tutorials for when you have more time; it had been left out. The page on
+  how to use the trace cards now lists card 9.
+
 ## 2026-11-22
 
 * **Creation**: [Trace card 9](trace-cards/card-9-wettest-gauge-recorded.md), the first

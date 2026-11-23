@@ -4,7 +4,7 @@ title: "Get ready for a hands-on session"
 description: "Arrive signed in, with an app that starts and the practice data loaded: 4 tutorials to start with, 20 to 25 minutes in all, and more for when you have time."
 tags: [pathway, get-ready-for-a-session]
 status: draft
-generated: { by: "gen-pathways/1", at: "2026-11-16T00:00:00Z" }
+generated: { by: "gen-pathways/1", at: "2026-11-23T00:00:00Z" }
 stale_after: "2027-05-11T00:00:00Z"
 sources:
   - id: pathways

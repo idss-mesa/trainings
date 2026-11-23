@@ -119,6 +119,9 @@ F. **Pathways are short.** The essentials of a pathway (`tutorials:` in
 G. **How to add a tutorial to a pathway and how to write a self-check** are in
    `docs/contributing.md`. Change `data/pathways.yml`, run
    `scripts/gen_pathways.py`, and commit what it writes.
+H. **Explainers and trace cards join a pathway under `also:`**, never under a
+   stage. They are listed under "Ideas and practice", after the stages, and
+   are not counted in the essentials or in a reader's progress.
 
 ## Tutorial rules
 

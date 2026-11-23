@@ -602,12 +602,13 @@
     return note;
   }
 
-  /* The stages of a generated page: every h2 except the closing ones. */
+  /* The stages of a generated page: every h2 except the closing ones and the
+     list of pages that are not tutorials. */
   function sectionsOf(article) {
     var sections = [], current = null;
     Array.prototype.slice.call(article.children).forEach(function (node) {
       if (node.tagName === "H2") {
-        current = /^(next|looking-for-one-thing)$/.test(node.id) ? null : { heading: node, nodes: [] };
+        current = /^(next|looking-for-one-thing|ideas-and-practice)$/.test(node.id) ? null : { heading: node, nodes: [] };
         if (current) sections.push(current);
       } else if (current && !/mesa-machine-readable/.test(node.className)) current.nodes.push(node);
     });
