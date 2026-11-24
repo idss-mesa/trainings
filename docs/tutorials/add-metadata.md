@@ -80,6 +80,7 @@ edit**, not **Read only**. Use a folder under **My Files**.
 ## Next
 
 - [Share a folder with a collaborator](share-a-folder.md)
+- [Describe a folder with DataCite fields](describe-with-datacite-fields.md)
 - Reference: [Managing data, "Describe data with metadata (AVUs)"](https://idss-mesa.github.io/docs/portal/data/#describe-data-with-metadata-avus),
   which covers reserved attribute names and the full metadata page with its DataCite,
   Dublin Core, and EML views.

@@ -4,7 +4,7 @@ title: "Every tutorial, by pathway point"
 description: "Every MESA tutorial under the five points of the learning pathway, from finding your way around to sharing work others can rerun, with the time each takes."
 tags: [pathway, tutorials, getting-started]
 status: draft
-generated: { by: "gen-pathways/1", at: "2026-11-23T00:00:00Z" }
+generated: { by: "gen-pathways/1", at: "2026-11-24T00:00:00Z" }
 stale_after: "2027-05-11T00:00:00Z"
 sources:
   - id: pathways
@@ -172,7 +172,7 @@ You can ask questions across files and tables, and show that combining them did 
 
 ## 5. Preserve and share
 
-You can leave work that someone else can find, understand, and run again. 11 tutorials, 75 to 95 minutes in all.
+You can leave work that someone else can find, understand, and run again. 12 tutorials, 80 to 105 minutes in all.
 
 1. [Write a README for a data folder](tutorials/write-a-readme.md) (10 minutes)
 2. [Add metadata to a file or folder](tutorials/add-metadata.md) (5 minutes)
@@ -181,6 +181,10 @@ You can leave work that someone else can find, understand, and run again. 11 tut
 5. [Say where your input data came from](tutorials/say-where-data-came-from.md) (5 to 10 minutes)
 6. [State what AI did in your analysis](tutorials/state-what-ai-did.md) (5 to 10 minutes)
 7. [Hand your folder to a colleague and have them rerun it](tutorials/hand-over-and-rerun.md) (10 minutes)
+
+### More on metadata
+
+1. [Describe a folder with DataCite fields](tutorials/describe-with-datacite-fields.md) (5 to 10 minutes)
 
 ### Preserve and share, in R
 

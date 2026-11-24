@@ -152,6 +152,7 @@ nav = [
       { "5. Preserve and share" = [
           { "Write a README" = "tutorials/write-a-readme.md" },
           { "Add metadata" = "tutorials/add-metadata.md" },
+          { "Describe a folder with DataCite fields" = "tutorials/describe-with-datacite-fields.md" },
           { "Record software versions" = "tutorials/record-software-versions.md" },
           { "Leave a rerunnable notebook" = "tutorials/leave-a-rerunnable-notebook.md" },
           { "Say where data came from" = "tutorials/say-where-data-came-from.md" },
