@@ -4,7 +4,7 @@ title: "Leave work others can rerun"
 description: "Describe your work and leave a notebook that someone else can run again: 2 tutorials to start with, 15 to 20 minutes in all, and more for when you have time."
 tags: [pathway, leave-work-others-can-rerun]
 status: draft
-generated: { by: "gen-pathways/1", at: "2026-11-23T00:00:00Z" }
+generated: { by: "gen-pathways/1", at: "2026-11-24T00:00:00Z" }
 stale_after: "2027-05-12T00:00:00Z"
 sources:
   - id: pathways
@@ -36,6 +36,7 @@ You can leave work that someone else can find, understand, and run again.
 If you have more time:
 
 - [Add metadata to a file or folder](../tutorials/add-metadata.md) (5 minutes)
+- [Describe a folder with DataCite fields](../tutorials/describe-with-datacite-fields.md) (5 to 10 minutes)
 - [Record the software versions a result depends on](../tutorials/record-software-versions.md) (5 minutes)
 - [Say where your input data came from](../tutorials/say-where-data-came-from.md) (5 to 10 minutes)
 - [State what AI did in your analysis](../tutorials/state-what-ai-did.md) (5 to 10 minutes)

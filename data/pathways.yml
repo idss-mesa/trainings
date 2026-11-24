@@ -15,7 +15,7 @@
 schema: 1
 
 # Bump on a meaningful change to the pathways (AGENTS.md rule 7), not on typo fixes.
-revised: "2026-11-23"
+revised: "2026-11-24"
 
 # The five points. `competency` names what the point builds; `can_do` is the
 # sentence shown under the point's heading. `reflection` is the one optional
@@ -278,6 +278,7 @@ pathways:
           - leave-a-rerunnable-notebook
         more:
           - add-metadata
+          - describe-with-datacite-fields
           - record-software-versions
           - say-where-data-came-from
           - state-what-ai-did
@@ -402,6 +403,8 @@ by_point:
         - say-where-data-came-from
         - state-what-ai-did
         - hand-over-and-rerun
+    - title: More on metadata
+      tutorials: [describe-with-datacite-fields]
     - title: Preserve and share, in R
       tutorials: [r-leave-a-rerunnable-script, r-write-a-readme, r-record-software-versions, r-hand-over-and-rerun]
 

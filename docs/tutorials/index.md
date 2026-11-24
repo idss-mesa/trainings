@@ -17,6 +17,7 @@
 * [Find your way around the MESA Portal](find-your-way-around.md) - Use the MESA Portal's sidebar, dashboard, and user menu to reach your data, the apps, your analyses, and your quota.
 * [Share a folder with a collaborator](share-a-folder.md) - Give one named CyVerse user read access to a folder in your Data Store from the MESA Portal's Data Browser, and confirm the access took effect.
 * [Add metadata to a file or folder](add-metadata.md) - Describe a folder in your Data Store with an attribute and a value from the MESA Portal's Data Browser, and confirm the description was saved.
+* [Describe a folder with DataCite fields](describe-with-datacite-fields.md) - Fill in a folder's title, publisher, year, type, and creator on the MESA Portal's full metadata page, and see the standard-named AVUs it saves.
 * [Sign in and start an AI agent in a MESA app](start-an-ai-agent.md) - Sign in to CyVerse from a terminal in a MESA app, connect an AI agent to a language model, and have it list the folders in your Data Store.
 * [See which tool servers your agent can use](see-an-agents-tools.md) - List the tool servers an AI agent has in a MESA app, read which are connected and which need a sign-in, and say what the agent can and cannot reach.
 * [Read back what an agent ran](read-what-an-agent-ran.md) - After an AI agent finishes in a MESA app, list its sessions, export one to a file, and print every tool it called with the inputs it gave.

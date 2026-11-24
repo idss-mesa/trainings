@@ -1,5 +1,14 @@
 # Directory Update Log
 
+## 2026-11-24
+
+* **Creation**: A draft tutorial,
+  [Describe a folder with DataCite fields](tutorials/describe-with-datacite-fields.md):
+  fill in title, publisher, year, type, and creator on the portal's full metadata page.
+  The AI assistant that drafted it followed the steps once on the live portal that day;
+  no person has. [Add metadata to a file or folder](tutorials/add-metadata.md) links
+  to it.
+
 ## 2026-11-23
 
 * **Update**: The pathway

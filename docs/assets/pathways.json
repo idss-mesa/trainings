@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "revised": "2026-11-23",
+ "revised": "2026-11-24",
  "points": {
   "p1": {
    "title": "Orient and navigate",
@@ -604,6 +604,7 @@
      ],
      "more": [
       "add-metadata",
+      "describe-with-datacite-fields",
       "record-software-versions",
       "say-where-data-came-from",
       "state-what-ai-did",
@@ -846,6 +847,12 @@
     ]
    },
    {
+    "title": "More on metadata",
+    "tutorials": [
+     "describe-with-datacite-fields"
+    ]
+   },
+   {
     "title": "Preserve and share, in R",
     "tutorials": [
      "r-leave-a-rerunnable-script",
@@ -1061,6 +1068,20 @@
    "builds_on": [
     "load-a-file",
     "launch-jupyterlab"
+   ]
+  },
+  "describe-with-datacite-fields": {
+   "title": "Describe a folder with DataCite fields",
+   "description": "Fill in a folder's title, publisher, year, type, and creator on the MESA Portal's full metadata page, and see the standard-named AVUs it saves.",
+   "outcome": "have a folder that carries its title, creator, publisher, year, and type under DataCite's names.",
+   "point": "p5",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-24T00:00:00Z",
+   "stale_after": "2027-05-24T00:00:00Z",
+   "builds_on": [
+    "add-metadata"
    ]
   },
   "desktop-open-a-file": {

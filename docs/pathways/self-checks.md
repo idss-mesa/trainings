@@ -4,7 +4,7 @@ title: "Self-checks"
 description: "Short questions for checking yourself after a tutorial, each with its answer, the likely slips, and how the answer is confirmed against the practice data."
 tags: [pathway, self-check, practice-data]
 status: draft
-generated: { by: "gen-pathways/1", at: "2026-11-23T00:00:00Z" }
+generated: { by: "gen-pathways/1", at: "2026-11-24T00:00:00Z" }
 stale_after: "2027-05-11T00:00:00Z"
 sources:
   - id: pathways
