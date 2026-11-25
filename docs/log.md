@@ -2,6 +2,13 @@
 
 ## 2026-11-24
 
+* **Creation**: Four draft tutorials for the other tabs of the portal's full metadata
+  page: [Add Dublin Core fields to a folder](tutorials/describe-with-dublin-core-fields.md),
+  [Record where and when data was collected, with EML fields](tutorials/describe-with-eml-fields.md),
+  [Make a folder's metadata valid Croissant](tutorials/make-metadata-valid-croissant.md), and
+  [Tag a folder with an ontology term](tutorials/tag-with-an-ontology-term.md).
+  The AI assistant that drafted them followed each once on the live portal that day;
+  no person has. The Local Contexts tab was not tried and has no tutorial.
 * **Creation**: A draft tutorial,
   [Describe a folder with DataCite fields](tutorials/describe-with-datacite-fields.md):
   fill in title, publisher, year, type, and creator on the portal's full metadata page.

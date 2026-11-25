@@ -279,6 +279,10 @@ pathways:
         more:
           - add-metadata
           - describe-with-datacite-fields
+          - describe-with-dublin-core-fields
+          - describe-with-eml-fields
+          - make-metadata-valid-croissant
+          - tag-with-an-ontology-term
           - record-software-versions
           - say-where-data-came-from
           - state-what-ai-did
@@ -404,7 +408,7 @@ by_point:
         - state-what-ai-did
         - hand-over-and-rerun
     - title: More on metadata
-      tutorials: [describe-with-datacite-fields]
+      tutorials: [describe-with-datacite-fields, describe-with-dublin-core-fields, describe-with-eml-fields, make-metadata-valid-croissant, tag-with-an-ontology-term]
     - title: Preserve and share, in R
       tutorials: [r-leave-a-rerunnable-script, r-write-a-readme, r-record-software-versions, r-hand-over-and-rerun]
 

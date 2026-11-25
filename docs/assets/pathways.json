@@ -605,6 +605,10 @@
      "more": [
       "add-metadata",
       "describe-with-datacite-fields",
+      "describe-with-dublin-core-fields",
+      "describe-with-eml-fields",
+      "make-metadata-valid-croissant",
+      "tag-with-an-ontology-term",
       "record-software-versions",
       "say-where-data-came-from",
       "state-what-ai-did",
@@ -849,7 +853,11 @@
    {
     "title": "More on metadata",
     "tutorials": [
-     "describe-with-datacite-fields"
+     "describe-with-datacite-fields",
+     "describe-with-dublin-core-fields",
+     "describe-with-eml-fields",
+     "make-metadata-valid-croissant",
+     "tag-with-an-ontology-term"
     ]
    },
    {
@@ -1082,6 +1090,34 @@
    "stale_after": "2027-05-24T00:00:00Z",
    "builds_on": [
     "add-metadata"
+   ]
+  },
+  "describe-with-dublin-core-fields": {
+   "title": "Add Dublin Core fields to a folder",
+   "description": "Fill in a folder's creator, subject, and rights on the Dublin Core tab of the MESA Portal's full metadata page, and see which fields the portal carries over for you.",
+   "outcome": "have a folder that carries its creator, subject, and rights under Dublin Core's names.",
+   "point": "p5",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-24T00:00:00Z",
+   "stale_after": "2027-05-24T00:00:00Z",
+   "builds_on": [
+    "describe-with-datacite-fields"
+   ]
+  },
+  "describe-with-eml-fields": {
+   "title": "Record where and when data was collected, with EML fields",
+   "description": "Fill in a folder's place, bounding box, and date range on the EML tab of the MESA Portal's full metadata page, and see the eml. AVUs it saves.",
+   "outcome": "have a folder that carries the place, the bounding box, and the date range of its data under EML's names.",
+   "point": "p5",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-24T00:00:00Z",
+   "stale_after": "2027-05-24T00:00:00Z",
+   "builds_on": [
+    "describe-with-dublin-core-fields"
    ]
   },
   "desktop-open-a-file": {
@@ -1330,6 +1366,20 @@
    "builds_on": [
     "sign-in",
     "make-a-folder"
+   ]
+  },
+  "make-metadata-valid-croissant": {
+   "title": "Make a folder's metadata valid Croissant",
+   "description": "Use the Croissant tab of the MESA Portal's full metadata page to see which required properties a folder lacks, add a description and a licence, and reach a valid Croissant document.",
+   "outcome": "have a folder whose metadata the portal reports as valid Croissant.",
+   "point": "p5",
+   "min": 5,
+   "max": 10,
+   "status": "draft",
+   "revised": "2026-11-24T00:00:00Z",
+   "stale_after": "2027-05-24T00:00:00Z",
+   "builds_on": [
+    "describe-with-datacite-fields"
    ]
   },
   "map-points-in-rstudio": {
@@ -2017,6 +2067,18 @@
     "sign-in",
     "share-a-folder"
    ]
+  },
+  "tag-with-an-ontology-term": {
+   "title": "Tag a folder with an ontology term",
+   "description": "Find a term in the Environment Ontology on the Ontologies tab of the MESA Portal's full metadata page, add it to a folder, and see the AVU that carries the term's identifier.",
+   "outcome": "have a folder tagged with a term from the Environment Ontology (ENVO).",
+   "point": "p5",
+   "min": 5,
+   "max": 5,
+   "status": "draft",
+   "revised": "2026-11-24T00:00:00Z",
+   "stale_after": "2027-05-24T00:00:00Z",
+   "builds_on": []
   },
   "tally-a-quality-flag": {
    "title": "Tally a quality flag before you trust a number",

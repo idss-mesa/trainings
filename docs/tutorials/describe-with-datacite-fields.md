@@ -101,6 +101,7 @@ then refresh the page and look at **Raw AVUs** again.
 
 ## Next
 
+- [Add Dublin Core fields to a folder](describe-with-dublin-core-fields.md)
 - [Say where your input data came from](say-where-data-came-from.md)
 - [Read the metadata on a folder shared with you](read-shared-metadata.md)
 - Reference: [Managing data, "Describe data with metadata (AVUs)"](https://idss-mesa.github.io/docs/portal/data/#describe-data-with-metadata-avus).

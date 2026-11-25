@@ -172,7 +172,7 @@ You can ask questions across files and tables, and show that combining them did 
 
 ## 5. Preserve and share
 
-You can leave work that someone else can find, understand, and run again. 12 tutorials, 80 to 105 minutes in all.
+You can leave work that someone else can find, understand, and run again. 16 tutorials, 100 to 135 minutes in all.
 
 1. [Write a README for a data folder](tutorials/write-a-readme.md) (10 minutes)
 2. [Add metadata to a file or folder](tutorials/add-metadata.md) (5 minutes)
@@ -185,6 +185,10 @@ You can leave work that someone else can find, understand, and run again. 12 tut
 ### More on metadata
 
 1. [Describe a folder with DataCite fields](tutorials/describe-with-datacite-fields.md) (5 to 10 minutes)
+2. [Add Dublin Core fields to a folder](tutorials/describe-with-dublin-core-fields.md) (5 minutes)
+3. [Record where and when data was collected, with EML fields](tutorials/describe-with-eml-fields.md) (5 to 10 minutes)
+4. [Make a folder's metadata valid Croissant](tutorials/make-metadata-valid-croissant.md) (5 to 10 minutes)
+5. [Tag a folder with an ontology term](tutorials/tag-with-an-ontology-term.md) (5 minutes)
 
 ### Preserve and share, in R
 
