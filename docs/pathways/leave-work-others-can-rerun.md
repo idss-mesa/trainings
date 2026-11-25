@@ -37,6 +37,10 @@ If you have more time:
 
 - [Add metadata to a file or folder](../tutorials/add-metadata.md) (5 minutes)
 - [Describe a folder with DataCite fields](../tutorials/describe-with-datacite-fields.md) (5 to 10 minutes)
+- [Add Dublin Core fields to a folder](../tutorials/describe-with-dublin-core-fields.md) (5 minutes)
+- [Record where and when data was collected, with EML fields](../tutorials/describe-with-eml-fields.md) (5 to 10 minutes)
+- [Make a folder's metadata valid Croissant](../tutorials/make-metadata-valid-croissant.md) (5 to 10 minutes)
+- [Tag a folder with an ontology term](../tutorials/tag-with-an-ontology-term.md) (5 minutes)
 - [Record the software versions a result depends on](../tutorials/record-software-versions.md) (5 minutes)
 - [Say where your input data came from](../tutorials/say-where-data-came-from.md) (5 to 10 minutes)
 - [State what AI did in your analysis](../tutorials/state-what-ai-did.md) (5 to 10 minutes)

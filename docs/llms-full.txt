@@ -641,6 +641,10 @@ If you have more time:
 
 - [Add metadata to a file or folder](https://idss-mesa.github.io/trainings/tutorials/add-metadata/) (5 minutes)
 - [Describe a folder with DataCite fields](https://idss-mesa.github.io/trainings/tutorials/describe-with-datacite-fields/) (5 to 10 minutes)
+- [Add Dublin Core fields to a folder](https://idss-mesa.github.io/trainings/tutorials/describe-with-dublin-core-fields/) (5 minutes)
+- [Record where and when data was collected, with EML fields](https://idss-mesa.github.io/trainings/tutorials/describe-with-eml-fields/) (5 to 10 minutes)
+- [Make a folder's metadata valid Croissant](https://idss-mesa.github.io/trainings/tutorials/make-metadata-valid-croissant/) (5 to 10 minutes)
+- [Tag a folder with an ontology term](https://idss-mesa.github.io/trainings/tutorials/tag-with-an-ontology-term/) (5 minutes)
 - [Record the software versions a result depends on](https://idss-mesa.github.io/trainings/tutorials/record-software-versions/) (5 minutes)
 - [Say where your input data came from](https://idss-mesa.github.io/trainings/tutorials/say-where-data-came-from/) (5 to 10 minutes)
 - [State what AI did in your analysis](https://idss-mesa.github.io/trainings/tutorials/state-what-ai-did/) (5 to 10 minutes)
@@ -845,7 +849,7 @@ You can ask questions across files and tables, and show that combining them did 
 
 ## 5. Preserve and share
 
-You can leave work that someone else can find, understand, and run again. 12 tutorials, 80 to 105 minutes in all.
+You can leave work that someone else can find, understand, and run again. 16 tutorials, 100 to 135 minutes in all.
 
 1. [Write a README for a data folder](https://idss-mesa.github.io/trainings/tutorials/write-a-readme/) (10 minutes)
 2. [Add metadata to a file or folder](https://idss-mesa.github.io/trainings/tutorials/add-metadata/) (5 minutes)
@@ -858,6 +862,10 @@ You can leave work that someone else can find, understand, and run again. 12 tut
 ### More on metadata
 
 1. [Describe a folder with DataCite fields](https://idss-mesa.github.io/trainings/tutorials/describe-with-datacite-fields/) (5 to 10 minutes)
+2. [Add Dublin Core fields to a folder](https://idss-mesa.github.io/trainings/tutorials/describe-with-dublin-core-fields/) (5 minutes)
+3. [Record where and when data was collected, with EML fields](https://idss-mesa.github.io/trainings/tutorials/describe-with-eml-fields/) (5 to 10 minutes)
+4. [Make a folder's metadata valid Croissant](https://idss-mesa.github.io/trainings/tutorials/make-metadata-valid-croissant/) (5 to 10 minutes)
+5. [Tag a folder with an ontology term](https://idss-mesa.github.io/trainings/tutorials/tag-with-an-ontology-term/) (5 minutes)
 
 ### Preserve and share, in R
 
@@ -10434,7 +10442,425 @@ then refresh the page and look at **Raw AVUs** again.
 
 ## Next
 
+- [Add Dublin Core fields to a folder](https://idss-mesa.github.io/trainings/tutorials/describe-with-dublin-core-fields/)
 - [Say where your input data came from](https://idss-mesa.github.io/trainings/tutorials/say-where-data-came-from/)
+- [Read the metadata on a folder shared with you](https://idss-mesa.github.io/trainings/tutorials/read-shared-metadata/)
+- Reference: [Managing data, "Describe data with metadata (AVUs)"](https://idss-mesa.github.io/docs/portal/data/#describe-data-with-metadata-avus).
+
+*Not yet validated by a person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-24 and followed once on the live portal that day.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/describe-with-dublin-core-fields/
+
+---
+type: Guide
+title: "Add Dublin Core fields to a folder"
+description: "Fill in a folder's creator, subject, and rights on the Dublin Core tab of the MESA Portal's full metadata page, and see which fields the portal carries over for you."
+tags: [byte, p5, portal, data-browser, metadata]
+status: draft
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-24T00:00:00Z" }
+stale_after: "2027-05-24T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Add Dublin Core fields to a folder
+
+!!! warning "Draft: not yet validated"
+    The AI assistant that drafted this tutorial followed these steps on the live portal
+    on 2026-11-24, on a test account, and saw the results shown. It filled in three fields and did not try the others on the form. No person has
+    yet followed the page.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+Dublin Core is a short, general set of fifteen fields that libraries and catalogues
+read. The portal has a form for it. Fields you have already described under another
+name are shown for you, so you type only what is missing.
+
+**You will:** have a folder that carries its creator, subject, and rights under Dublin
+Core's names.
+
+**Time:** 5 minutes. **You need:** to have finished
+[Describe a folder with DataCite fields](https://idss-mesa.github.io/trainings/tutorials/describe-with-datacite-fields/).
+
+## Steps
+
+1. In **Data Browser**, **My Files**, click **AVUs** under the folder's name, then
+   **Open full metadata page** at the foot of the panel. Click **Dublin Core**.
+
+    You should see: a form headed **Dublin Core**, with fifteen fields from **Title**
+    to **Rights**. **Title**, **Description**, and **Publisher** already show the
+    values you saved earlier. The rest are empty.
+
+2. Fill in three fields. For the practice folder:
+
+    | Field | Value |
+    |---|---|
+    | **Creator** | `MESA Trainings` |
+    | **Subject** | `rainfall` |
+    | **Rights** | `CC BY 4.0` |
+
+    You should see: your text in the three fields.
+
+3. Scroll back to the top of the form and click **Save**.
+
+    You should see: after several seconds, the count beside the folder's name goes up
+    by three; in the example, from **7 AVUs** to **10 AVUs**. When this was tried, the
+    count had not changed after six seconds, and showed **10 AVUs** once the page was
+    refreshed.
+
+4. Refresh the page and click **Raw AVUs**.
+
+    You should see: your earlier rows and three new ones.
+
+    | Attribute | Value |
+    |---|---|
+    | `dc.creator` | MESA Trainings |
+    | `dc.subject` | rainfall |
+    | `dc.rights` | CC BY 4.0 |
+
+## Check it worked
+
+**Raw AVUs** lists three `dc.` rows, and the **Dublin Core** tab shows all six values.
+There is no `dc.title`, `dc.description`, or `dc.publisher` row: the form showed those
+three from your `datacite.title`, `description`, and `datacite.publisher` rows, and
+did not save a second copy.
+
+## If it didn't
+
+**Title, Description, or Publisher is empty.** The form fills them from AVUs you
+already have. Add them first with
+[Describe a folder with DataCite fields](https://idss-mesa.github.io/trainings/tutorials/describe-with-datacite-fields/), or type
+them here.
+
+**There is no Save button, or the fields cannot be edited.** You can read the folder
+but not write to it. Use a folder under **My Files**.
+
+## Next
+
+- [Record where and when data was collected, with EML fields](https://idss-mesa.github.io/trainings/tutorials/describe-with-eml-fields/)
+- [Tag a folder with an ontology term](https://idss-mesa.github.io/trainings/tutorials/tag-with-an-ontology-term/)
+- Reference: [Managing data, "Describe data with metadata (AVUs)"](https://idss-mesa.github.io/docs/portal/data/#describe-data-with-metadata-avus).
+
+*Not yet validated by a person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-24 and followed once on the live portal that day.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/describe-with-eml-fields/
+
+---
+type: Guide
+title: "Record where and when data was collected, with EML fields"
+description: "Fill in a folder's place, bounding box, and date range on the EML tab of the MESA Portal's full metadata page, and see the eml. AVUs it saves."
+tags: [byte, p5, portal, data-browser, metadata]
+status: draft
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-24T00:00:00Z" }
+stale_after: "2027-05-24T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Record where and when data was collected, with EML fields
+
+!!! warning "Draft: not yet validated"
+    The AI assistant that drafted this tutorial followed these steps on the live portal
+    on 2026-11-24, on a test account, and saw the results shown. It filled in seven fields and did not try the others on the form. No person has
+    yet followed the page.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A title and a creator do not say where the measurements were taken, or over which
+days. The Ecological Metadata Language (EML) has fields for both, and the portal has a
+form for them.
+
+**You will:** have a folder that carries the place, the bounding box, and the date
+range of its data under EML's names.
+
+**Time:** 5 to 10 minutes. **You need:** to have finished
+[Add Dublin Core fields to a folder](https://idss-mesa.github.io/trainings/tutorials/describe-with-dublin-core-fields/), and to know
+the outermost points of your data and its first and last dates.
+
+## Steps
+
+1. In **Data Browser**, **My Files**, click **AVUs** under the folder's name, then
+   **Open full metadata page** at the foot of the panel. Click **EML**.
+
+    You should see: a form headed **Ecological Metadata Language**. **Title**,
+    **Creator**, and **Contact** already show values you saved earlier. The rest are
+    empty.
+
+2. In **Geographic Coverage**, describe the place in words. For the practice folder,
+   type `Five invented rain-gauge sites`.
+
+    You should see: your text in the field.
+
+3. Fill in the four bounds in decimal degrees. West of Greenwich and south of the
+   equator are negative. For the practice folder, the values come from
+   `gauge_sites.csv`:
+
+    | Field | Value |
+    |---|---|
+    | **West Bound** | `-104.7612` |
+    | **East Bound** | `-104.7228` |
+    | **North Bound** | `47.1287` |
+    | **South Bound** | `47.0962` |
+
+    You should see: the four numbers in the fields.
+
+4. Fill in **Begin Date** and **End Date**, as year, month, day. For the daily
+   readings in the practice folder, type `2026-07-01` and `2026-07-31`.
+
+    You should see: the two dates in the fields.
+
+5. Scroll back to the top of the form and click **Save**.
+
+    You should see: **Saving metadata…** Then the count beside the folder's name goes
+    up by seven; in the example, from **10 AVUs** to **17 AVUs**. When this was tried,
+    that took between ten and twenty seconds.
+
+6. Click **Raw AVUs**.
+
+    You should see: your earlier rows and seven new ones.
+
+    | Attribute | Value |
+    |---|---|
+    | `eml.geographicCoverage` | Five invented rain-gauge sites |
+    | `eml.westBoundingCoordinate` | -104.7612 |
+    | `eml.eastBoundingCoordinate` | -104.7228 |
+    | `eml.northBoundingCoordinate` | 47.1287 |
+    | `eml.southBoundingCoordinate` | 47.0962 |
+    | `eml.beginDate` | 2026-07-01 |
+    | `eml.endDate` | 2026-07-31 |
+
+## Check it worked
+
+After you refresh the page, **Raw AVUs** still lists the seven `eml.` rows, and the
+**EML** tab shows your values. Read the bounds back against your data: west is the
+smaller longitude, south the smaller latitude.
+
+## If it didn't
+
+**Creator is empty.** When this was tried, the form showed a creator only after one
+had been saved on the **Dublin Core** tab. Type it here, or add it there first.
+
+**The count has not changed.** Wait, then refresh the page and look at **Raw AVUs**
+again.
+
+**There is no Save button, or the fields cannot be edited.** You can read the folder
+but not write to it. Use a folder under **My Files**.
+
+## Next
+
+- [Make a folder's metadata valid Croissant](https://idss-mesa.github.io/trainings/tutorials/make-metadata-valid-croissant/)
+- [Say where your input data came from](https://idss-mesa.github.io/trainings/tutorials/say-where-data-came-from/)
+- Reference: [Managing data, "Describe data with metadata (AVUs)"](https://idss-mesa.github.io/docs/portal/data/#describe-data-with-metadata-avus).
+
+*Not yet validated by a person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-24 and followed once on the live portal that day.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/make-metadata-valid-croissant/
+
+---
+type: Guide
+title: "Make a folder's metadata valid Croissant"
+description: "Use the Croissant tab of the MESA Portal's full metadata page to see which required properties a folder lacks, add a description and a licence, and reach a valid Croissant document."
+tags: [byte, p5, portal, data-browser, metadata]
+status: draft
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-24T00:00:00Z" }
+stale_after: "2027-05-24T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Make a folder's metadata valid Croissant
+
+!!! warning "Draft: not yet validated"
+    The AI assistant that drafted this tutorial followed these steps on the live portal
+    on 2026-11-24, on a test account, and saw the results shown. It added a description and a licence. It did not describe files or record sets, and did not download the document. No person has
+    yet followed the page.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+Croissant is a format that describes a dataset so that machine-learning tools can
+load it. It has six required properties. The portal checks your folder against them
+as you type, and fills in what it can from fields you have already saved.
+
+**You will:** have a folder whose metadata the portal reports as valid Croissant.
+
+**Time:** 5 to 10 minutes. **You need:** to have finished
+[Describe a folder with DataCite fields](https://idss-mesa.github.io/trainings/tutorials/describe-with-datacite-fields/).
+
+## Steps
+
+1. In **Data Browser**, **My Files**, click **AVUs** under the folder's name, then
+   **Open full metadata page** at the foot of the panel. Click **Croissant**.
+
+    You should see: a panel headed **Croissant** with a red **2 errors** beside it.
+    Under your title, **Required properties** reads **4 of 6**. **Validation** lists
+    the two that are missing: **description is required** and **license is required**.
+
+2. Click **Dataset** in the row of views under the heading.
+
+    You should see: a form. **Name**, **Date published**, **Creators**, and
+    **Publishers** show your values, each marked **From DataCite**.
+
+3. In **Description**, say what the data is. For the practice folder, type
+   `Synthetic rain-gauge practice data from the MESA tutorials`.
+
+    You should see: your text in the box. The form does not take this from a
+    `description` AVU; you type it again.
+
+4. Scroll down to **License** and click **Add license**. In the field that appears,
+   type the address of the licence. For the practice folder, type
+   `https://creativecommons.org/licenses/by/4.0/`.
+
+    You should see: the address in the field.
+
+5. Scroll back to the top and click **Overview**.
+
+    You should see: a green **Valid, 1 warning · unsaved** beside the heading, and
+    **Required properties** at **6 of 6**. The warning says **distribution is empty**:
+    no files are described yet.
+
+6. Click **Save**.
+
+    You should see: the word **unsaved** go, and the count beside the folder's name go
+    up by two; in the example, from **17 AVUs** to **19 AVUs**. Allow twenty seconds.
+
+7. Click **Raw AVUs**.
+
+    You should see: two new rows.
+
+    | Attribute | Value |
+    |---|---|
+    | `croissant.description` | Synthetic rain-gauge practice data from the MESA tutorials |
+    | `croissant.license.1` | https://creativecommons.org/licenses/by/4.0/ |
+
+## Check it worked
+
+After you refresh the page, the **Croissant** tab still reads **Valid**, and its
+**JSON-LD** view shows the whole document, with your name, description, licence,
+creator, publisher, and year. The warning about distribution stays until you describe
+the files, which is a separate task.
+
+## If it didn't
+
+**The count of errors or warnings differs.** The panel counts what your folder lacks,
+so your numbers may differ. When this was tried, a folder that also had an ontology
+term showed one more warning, about keywords.
+
+**It still reads unsaved.** Click **Save** again and wait; then refresh the page.
+
+**There is no Save button, or the fields cannot be edited.** You can read the folder
+but not write to it. Use a folder under **My Files**.
+
+## Next
+
+- [Tag a folder with an ontology term](https://idss-mesa.github.io/trainings/tutorials/tag-with-an-ontology-term/)
+- [Say where your input data came from](https://idss-mesa.github.io/trainings/tutorials/say-where-data-came-from/)
+- Reference: [Managing data, "Describe data with metadata (AVUs)"](https://idss-mesa.github.io/docs/portal/data/#describe-data-with-metadata-avus).
+
+*Not yet validated by a person. Drafted with [AI assistance](https://idss-mesa.github.io/trainings/about/ai-disclosure/) on 2026-11-24 and followed once on the live portal that day.*
+
+---8<--- https://idss-mesa.github.io/trainings/tutorials/tag-with-an-ontology-term/
+
+---
+type: Guide
+title: "Tag a folder with an ontology term"
+description: "Find a term in the Environment Ontology on the Ontologies tab of the MESA Portal's full metadata page, add it to a folder, and see the AVU that carries the term's identifier."
+tags: [byte, p5, portal, data-browser, metadata]
+status: draft
+generated: { by: "claude-code/mythos-5.2", at: "2026-11-24T00:00:00Z" }
+stale_after: "2027-05-24T00:00:00Z"
+sources:
+  - id: docs
+    resource: "https://idss-mesa.github.io/docs/portal/data/"
+    title: "Managing data in the MESA Portal"
+    author: "team:idss-mesa"
+---
+
+# Tag a folder with an ontology term
+
+!!! warning "Draft: not yet validated"
+    The AI assistant that drafted this tutorial followed these steps on the live portal
+    on 2026-11-24, on a test account, and saw the results shown. It added one term from one ontology, ENVO, and did not try the others. No person has
+    yet followed the page.
+    [Tell us what you find](https://github.com/idss-mesa/trainings/issues).
+
+A keyword such as `rainfall` is a word you chose. Someone else may have chosen
+`precipitation`. An ontology term is a word with an identifier and a definition that a
+community has agreed. Tag a folder with one and a search by that identifier finds it,
+whatever word you would have used.
+
+**You will:** have a folder tagged with a term from the Environment Ontology (ENVO).
+
+**Time:** 5 minutes. **You need:** a folder of your own under **My Files**.
+
+## Steps
+
+1. In **Data Browser**, **My Files**, click **AVUs** under the folder's name, then
+   **Open full metadata page** at the foot of the panel. Click **Ontologies**.
+
+    You should see: a panel headed **Ontology Explorer**, a search box, and rows of
+    buttons under **Environmental Sciences**, **General Biology**, and **Registries**.
+
+2. Click **ENVO**.
+
+    You should see: **Loading ENVO…** for several seconds. Then a panel headed
+    **Environment Ontology** with a few terms listed, and at its foot a second search
+    box labelled **Add term from ENVO**.
+
+3. In that second box, type a word for what your data is about. For the practice
+   folder, type `rain`.
+
+    You should see: a list of terms, each with an identifier and the start of its
+    definition. The first is **rain**, `ENVO:01001564`.
+
+4. Read the definition, then click the term that fits. For the practice folder, click
+   **rain**.
+
+    You should see: a new row in the panel, **rain**, marked **NEW**, with
+    `ENVO:01001564` under it and the word `rain` in the field beside it.
+
+5. Scroll back to the top of the panel and click **Save**.
+
+    You should see: after ten to twenty seconds, the count beside the folder's name
+    goes up by one; in the example, from **19 AVUs** to **20 AVUs**. A line appears
+    under the first search box: **1 namespaced AVU on this item**, with an **ENVO**
+    button.
+
+6. Click **Raw AVUs**.
+
+    You should see: one new row. The term's identifier is in the **Unit** column.
+
+    | Attribute | Value | Unit |
+    |---|---|---|
+    | `envo.rain` | rain | ENVO:01001564 |
+
+## Check it worked
+
+After you refresh the page, **Raw AVUs** still lists the `envo.rain` row with its
+identifier, and the **Ontologies** tab still shows **1 namespaced AVU on this item**.
+
+## If it didn't
+
+**The search lists whole ontologies, not terms.** You typed in the first search box,
+which searches the names of ontologies. When this was tried, `rain` there returned
+nine, most of them atlases of the brain. Click **ENVO** first, then use the box
+labelled **Add term from ENVO**.
+
+**No term fits.** Try a broader word, or another ontology from the buttons. Do not
+pick a term whose definition does not match your data: a wrong identifier misleads
+more than a missing one.
+
+**There is no Save button, or the fields cannot be edited.** You can read the folder
+but not write to it. Use a folder under **My Files**.
+
+## Next
+
+- [Make a folder's metadata valid Croissant](https://idss-mesa.github.io/trainings/tutorials/make-metadata-valid-croissant/)
 - [Read the metadata on a folder shared with you](https://idss-mesa.github.io/trainings/tutorials/read-shared-metadata/)
 - Reference: [Managing data, "Describe data with metadata (AVUs)"](https://idss-mesa.github.io/docs/portal/data/#describe-data-with-metadata-avus).
 
@@ -13627,6 +14053,13 @@ explains.
 
 ## 2026-11-24
 
+* **Creation**: Four draft tutorials for the other tabs of the portal's full metadata
+  page: [Add Dublin Core fields to a folder](tutorials/describe-with-dublin-core-fields.md),
+  [Record where and when data was collected, with EML fields](tutorials/describe-with-eml-fields.md),
+  [Make a folder's metadata valid Croissant](tutorials/make-metadata-valid-croissant.md), and
+  [Tag a folder with an ontology term](tutorials/tag-with-an-ontology-term.md).
+  The AI assistant that drafted them followed each once on the live portal that day;
+  no person has. The Local Contexts tab was not tried and has no tutorial.
 * **Creation**: A draft tutorial,
   [Describe a folder with DataCite fields](tutorials/describe-with-datacite-fields.md):
   fill in title, publisher, year, type, and creator on the portal's full metadata page.
